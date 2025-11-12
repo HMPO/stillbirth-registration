@@ -12,6 +12,8 @@ router.get('/', (req, res) => {
 
 
 // Import and attach other routes
+require('./views/later/_routes')(router);
+
 require('./views/latest/_routes')(router);
 require('./views/latest/informant/_routes')(router);
 require('./views/latest/no-informant/_routes')(router);
