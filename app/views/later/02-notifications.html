@@ -12,7 +12,13 @@
 {% endblock %}
 
 {% block content %}
-
+<script>
+  function passData(event, nhsNumber, dob, motherFName, motherLName) {
+    event.preventDefault();
+    const url = `03-child-correct.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}`;
+    window.location.href = url;
+  }
+</script>
 
  <form class="form" action="03-child-correct.html" method="post">
     <div class="govuk-grid-row">
@@ -81,7 +87,9 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="03-child-correct" class="govuk-link govuk-body-svuk-table__cell" >390 446 7891</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+        <a href="#" onclick="passData(event, '390 446 7891', '3 September 2025', 'Anna', 'DUFFY')">390 446 7891</a>
+      </td>
       <td class="govuk-table__cell">DUFFY, Anna</td>
       <td class="govuk-table__cell">3 September 2025</td>
       <td class="govuk-table__cell">70</td>
@@ -89,7 +97,9 @@
      
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="03-child-correct" class="govuk-link govuk-body-svuk-table__cell">390 123 4567</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+         <a href="#" onclick="passData(event, '390 123 4567', '26 September 2025', 'Celine', 'SHORT')">390 123 4567</a>
+      </td>
       <td class="govuk-table__cell">SHORT, Celine</td>
       <td class="govuk-table__cell">26 September 2025</td>
       <td class="govuk-table__cell">47</td>
@@ -142,7 +152,93 @@
 </table> -->
 
 <p class="govuk-body">Showing 1 to 10 of 14</p>
+
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications for births between 43 to 70 days</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px;">Child's NHS number</th>
+      <th scope="col" class="govuk-table__header">Mother's name</th>
+      <th scope="col" class="govuk-table__header">Date of birth</th>
+      <th scope="col" class="govuk-table__header">Days since birth</th>
+      <th scope="col" class="govuk-table__header">Informal contact due</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell">42</td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 6543', '3 October 2025', 'Olivia', 'SMITH')">390 987 6543</a></td>
+      <td class="govuk-table__cell">SMITH, Olivia</td>
+      <td class="govuk-table__cell">3 October 2025</td>
+      <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">31 October 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES')">390 456 7890</a></td>
+      <td class="govuk-table__cell">JONES, Emily</td>
+      <td class="govuk-table__cell">4 October 2025</td>
+      <td class="govuk-table__cell">39</td>
+      <td class="govuk-table__cell">1 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 3210', '5 October 2025', 'Sophie', 'WILLIAMS')">390 654 3210</a></td>
+      <td class="govuk-table__cell">WILLIAMS, Sophie</td>
+      <td class="govuk-table__cell">5 October 2025</td>
+      <td class="govuk-table__cell">38</td>
+      <td class="govuk-table__cell">2 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN')">390 789 0123</a></td>
+      <td class="govuk-table__cell">BROWN, Amelia</td>
+      <td class="govuk-table__cell">6 October 2025</td>
+      <td class="govuk-table__cell">37</td>
+      <td class="govuk-table__cell">3 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 6540', '7 October 2025', 'Isla', 'DAVIES')">390 321 6540</a></td>
+      <td class="govuk-table__cell">DAVIES, Isla</td>
+      <td class="govuk-table__cell">7 October 2025</td>
+      <td class="govuk-table__cell">36</td>
+      <td class="govuk-table__cell">4 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 1234', '8 October 2025', 'Ava', 'EVANS')">390 987 1234</a></td>
+      <td class="govuk-table__cell">EVANS, Ava</td>
+      <td class="govuk-table__cell">8 October 2025</td>
+      <td class="govuk-table__cell">35</td>
+      <td class="govuk-table__cell">5 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 9870', '9 October 2025', 'Mia', 'THOMAS')">390 654 9870</a></td>
+      <td class="govuk-table__cell">THOMAS, Mia</td>
+      <td class="govuk-table__cell">9 October 2025</td>
+      <td class="govuk-table__cell">34</td>
+      <td class="govuk-table__cell">6 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 9870', '10 October 2025', 'Ella', 'WILSON')">390 321 9870</a></td>
+      <td class="govuk-table__cell">WILSON, Ella</td>
+      <td class="govuk-table__cell">10 October 2025</td>
+      <td class="govuk-table__cell">33</td>
+      <td class="govuk-table__cell">7 November 2025</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 3210', '11 October 2025', 'Grace', 'ROBERTS')">390 789 3210</a></td>
+      <td class="govuk-table__cell">ROBERTS, Grace</td>
+      <td class="govuk-table__cell">11 October 2025</td>
+      <td class="govuk-table__cell">32</td>
+      <td class="govuk-table__cell">8 November 2025</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications for births between 43 to 70 days</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -229,7 +325,7 @@
       <td><p class="govuk-body govuk-!-margin-top-2"><a href="#">Show more</a></p></td>
      </tr>
   </tbody>
-</table>
+</table> -->
 
       </div>
     </div>

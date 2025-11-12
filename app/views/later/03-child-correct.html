@@ -12,6 +12,21 @@
 {% endblock %}
 
 {% block content %}
+
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const nhsNumber = urlParams.get('nhs-number');
+    const dob = urlParams.get('date-of-birth');
+    const motherName = urlParams.get('mothers-name');
+
+    document.getElementById('nhs-number').textContent = nhsNumber;
+    document.getElementById('date-of-birth').textContent = dob;
+    document.getElementById('mothers-name').textContent = motherName;
+  });
+</script> -->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -20,36 +35,26 @@
       </h1>
 
 
-      
+     
  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           NHS number
         </dt>
-        <dd class="govuk-summary-list__value">
-          390 446 7891
+         <dd class="govuk-summary-list__value">
+           {{ data['nhs-number'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
          
         </dd>
       </div>
-      <!-- <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Live or stillbirth
-        </dt>
-        <dd class="govuk-summary-list__value">
-         Stillbirth
-        </dd>
-        <dd class="govuk-summary-list__actions">
-         
-        </dd>
-      </div> -->
+    
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Date and time of birth
         </dt>
         <dd class="govuk-summary-list__value">
-          21 August 2015 
+           {{ data['date-of-birth'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
         
@@ -71,7 +76,7 @@
           Mother's first name
         </dt>
         <dd class="govuk-summary-list__value">
-          Anna
+          {{ data['mothers-first-name'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
         
@@ -81,7 +86,7 @@
           Mother's last name
         </dt>
         <dd class="govuk-summary-list__value">
-          DUFFY
+          {{ data['mothers-last-name'] | upper }}
         </dd>
         <dd class="govuk-summary-list__actions">
          
@@ -99,7 +104,65 @@
         </dd>
       </div>
 
-    </dl>  
+    </dl>   
+
+
+
+
+
+<!-- 
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          NHS number
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['nhs-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date and time of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['date-of-birth'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        
+        </dd>
+      </div>
+     
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mother's first name
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['mothers-first-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mother's last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['mothers-last-name'] | upper }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+      
+
+    </dl>   -->
+
+
+
 
      <form action="04-medical-info" method="post" novalidate>
 
