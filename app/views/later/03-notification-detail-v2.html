@@ -553,7 +553,32 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-   --Notes form goes here-- 
+   
+    <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--s" for="more-detail">
+      Add notes about this case
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-body">
+    
+   <p class="govuk-body">Add relevant notes for this case, such as:</p> 
+    <ul class="govuk-list govuk-list--bullet">
+<li>any special circumstances causing delays</li>
+<li>useful dates</li>
+</ul>
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+ <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add note
+</button>
+<a href="#">Cancel</a>
+</div>
+
+
   </div>
 </details>
 <hr class="govuk-section-break govuk-section-break--visible">
