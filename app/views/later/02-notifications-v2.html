@@ -15,12 +15,12 @@
 <script>
   function passData(event, nhsNumber, dob, motherFName, motherLName) {
     event.preventDefault();
-    const url = `03-notification-detail.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}`;
+    const url = `03-notification-detail-v2.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}`;
     window.location.href = url;
   }
 </script>
 
- <form class="form" action="03-notification-detail.html" method="post">
+ <form class="form" action="03-notification-detail-v2.html" method="post">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
 
@@ -69,7 +69,7 @@
       <div class="govuk-grid-column-full">
 <h2 class="govuk-heading-m">Over 14 weeks after birth</h2>
 
-<p class="govuk-body">16 unregistered births after 85 days <a href="#">View</a></p>
+<p class="govuk-body">16 births after 85 Days remain unregistered &nbsp; <a href="#">View</a></p>
 </div>
 </div>
 

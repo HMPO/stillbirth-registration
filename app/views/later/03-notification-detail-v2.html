@@ -1,0 +1,728 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Details of unregistered – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+       Details of unregistered child
+      </h1>
+
+</div>
+</div>
+
+<nav class="govuk-pagination" aria-label="Pagination">
+  <div class="govuk-pagination__prev">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+      <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+      </svg>
+      <span class="govuk-pagination__link-title">
+        Previous child<span class="govuk-visually-hidden"> page</span>
+      </span>
+    </a>
+  </div>
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item">|</li></ul>
+  <!-- <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul> -->
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next child<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+ 
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body-s">
+      <strong>Details from the NHS birth notification</strong></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Child's NHS number</strong><br>
+       {{ data['nhs-number'] }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Date of birth</strong><br>
+       {{ data['date-of-birth'] }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Sex</strong><br>
+      Male
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Live or stillborn</strong><br>
+      Stillborn
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+   <p class="govuk-body-s">
+      <strong>Place of birth</strong><br>
+      St. Mary's Hospital, Wakefield
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>District on notification</strong><br>
+      Wakefield &nbsp; <a href="">Change</a>
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+</div>
+
+   <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Mother's first name</strong><br>
+       {{ data['mothers-first-name'] }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Mother's last name</strong><br>
+       {{ data['mothers-last-name'] | upper }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's NHS number</strong><br>
+      1087 654 321
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
+      20 April 1991
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body-s"><strong>Mother's address on notification</strong><br>
+      17b Avenue Road,<br>
+      Wakefield WK6 4HL
+    </p>
+  </div>
+ 
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+</div>
+
+</div>
+</div>
+      
+
+<div class="govuk-grid-row  govuk-!-margin-bottom-2">
+  <div class="govuk-grid-column-full govuk-!-padding-6">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body govuk-!-margin-0">
+          <strong>Days since birth</strong>
+        </p>
+    
+  
+
+      <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-heading-xl govuk-!-margin-0">
+           70
+          </p>
+        </div>
+      
+     
+    </p>
+    </div>
+   
+  <div class="govuk-grid-column-three-quarters">
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+  
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            <!-- <strong>Last contact was due</strong><br> -->
+            Around mid November <br>Second formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+       
+ <p class="govuk-body govuk-!-margin-0">
+          <strong> Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            <!-- <strong>Last contact was due</strong><br> -->
+            Around mid November <br>Second formal requisition
+          </p>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div>
+<div class="govuk-warning-text govuk-!-margin-bottom-3">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+   You must report to GRO about this birth
+  </strong>
+</div>
+</div>
+
+</div>
+</div>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Appointment booked</h3>
+<p class="govuk-body">Unknown or not booked</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Change appointment status
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-heading-s">
+        Has an appointment been scheduled?
+      </h1>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Yes, appointment scheduled
+        </label>
+      </div>
+    
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend">
+      Appointment date
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 27 9 2025
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>
+
+ <div class="govuk-grid-column-one-half">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend">
+      Appointment time (optiona)
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 1:45 PM
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Hours
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Minutes
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            AM or PM
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+</div>
+</div>
+
+<div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update appointment status
+</button>
+<a href="#">Cancel</a>
+</div>
+
+
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Last contact from the registrar</h3>
+<p class="govuk-body">
+<strong class="govuk-tag govuk-tag--grey govuk-!-width-full">4-week informal communication
+        </strong></p>
+
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Change last contact
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   
+    
+<div class="govuk-form-group">
+  <h1 class="govuk-heading-s">
+        What was the last contact from the registrar?
+      </h1>
+  <!-- <label class="govuk-label govuk-heading-s" for="sort">
+    What was the last contact from the registrar?
+  </label> -->
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+  <select class="govuk-select" id="sort" name="sort">
+    <option value="published">No contact for 4-week informal communication</option>
+    <option value="updated" selected>4-week informal letter or phone call made</option>
+    <option value="views">6-week formal requisition letter</option>
+    <option value="comments">Second formal requisition letter</option>
+    <option value="comments">Third formal requisition letter</option>
+  </select>
+</div>
+</div>
+  <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update last contact
+</button>
+<a href="#">Cancel</a>
+</div>
+</div>
+
+
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Extra time for special circumstances</h3>
+<p class="govuk-body">Unknown or not booked</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Change extra time
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   
+     <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-heading-s">
+        Are there any special circumstances requiring extra time for the informant?
+      </h1>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+         Yes, extra time for special circumstances required
+        </label>
+      </div>
+    
+    </div>
+  </fieldset>
+
+  <div class="govuk-form-group">
+  <h1 class="govuk-heading-s">
+        How many weeks of extra time is required? 
+      </h1>
+  <!-- <label class="govuk-label govuk-heading-s" for="sort">
+    What was the last contact from the registrar?
+  </label> -->
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+  <select class="govuk-select" id="sort" name="sort">
+    <option value="published">1 week</option>
+    <option value="updated" selected>2 weeks</option>
+    <option value="views">3 weeks</option>
+    <option value="comments">4 weeks</option>
+    
+  </select>
+</div>
+</div>
+  <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update extra time
+</button>
+<a href="#">Cancel</a>
+</div>
+</div>
+  
+</div>
+
+
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Have GRO taken responsibility for this case?</h3>
+<p class="govuk-body">No</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Update GRO status
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   
+     <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-heading-s">
+        Has GRO taken this case?
+      </h1>
+      <p class="govuk-hint">Only select if you have confirmation from GRO</p>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+         Yes, GRO has taken responsibility 
+        </label>
+      </div>
+    
+    </div>
+  </fieldset>
+
+  <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update GRO status
+</button>
+<a href="#">Cancel</a>
+</div>
+
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Notes</h3>
+<p class="govuk-body">None</p>
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Add note
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   --Notes form goes here-- 
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+
+
+<h3 class="govuk-heading-m govuk-!-margin-top-5">Contact timeline</h3>
+  <!-- <p class="govuk-body">(This shows a timeline of when communications were due)</p> -->
+<table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Contact type</th>
+      <th scope="col" class="govuk-table__header">Due date</th>
+      <th scope="col" class="govuk-table__header">Due</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Third formal requisition</th>
+      <td class="govuk-table__cell">Around end of November</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Second formal requisition</th>
+      <td class="govuk-table__cell">Around mid November</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">6-week formal requisition</th>
+      <td class="govuk-table__cell">29 October 2025</td>
+      <td class="govuk-table__cell">28 days ago</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">4-week informal contact</th>
+      <td class="govuk-table__cell">15 October</td>
+      <td class="govuk-table__cell">42 days ago</td>
+    </tr>
+   
+  </tbody>
+</table>
+
+<h3 class="govuk-heading-m govuk-!-margin-top-5">Other Events</h3>
+  <!-- <p class="govuk-body">(This shows a timeline of when communications were due)</p> -->
+<table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Event type</th>
+     
+      <th scope="col" class="govuk-table__header">Date</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Second appointment booked</th>
+      <td class="govuk-table__cell">13 November 2025</td>
+     
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Appointment booked</th>
+      <td class="govuk-table__cell">10 November 2025</td>
+      
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Special circumstances requiring extra time needed ends</th>
+      <td class="govuk-table__cell">2 November 2025</td>
+     
+    </tr>
+   
+   
+  </tbody>
+</table>
+
+
+ <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          NHS number
+        </dt>
+         <dd class="govuk-summary-list__value">
+           {{ data['nhs-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+    
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date and time of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ data['date-of-birth'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Sex
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Male
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mother's first name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['mothers-first-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mother's last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['mothers-last-name'] | upper }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+         
+        </dd>
+      </div>
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Place of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Central Hospital, Wakefield
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          
+        </dd>
+      </div>
+
+    </dl>    -->
+
+
+
+
+
+
+
+
+ 
+
+     <form action="01-who-is-informant" method="post" novalidate>
+
+
+ <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Register this birth
+  </button>
+
+      </form>
+
+       <!-- <div class="govuk-form-group">
+       <p class="govuk-body"><a href="02-notifications.html" class="govuk-link">No, return</a></p>
+      </div>    -->
+   
+
+
+{% endblock %}
