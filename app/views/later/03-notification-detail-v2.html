@@ -215,7 +215,6 @@
           <strong>Days since birth</strong>
         </p>
     
-  
 
       <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-heading-xl govuk-!-margin-0">
@@ -237,7 +236,6 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            <!-- <strong>Last contact was due</strong><br> -->
             Around mid-November <br>Second formal requisition
           </p>
         </div>
@@ -249,7 +247,6 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            <!-- <strong>Last contact was due</strong><br> -->
             Around end of November <br>Third formal requisition
           </p>
         </div>
@@ -298,7 +295,7 @@
    <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-heading-s">
+      <h1 class="govuk-body">
         Has an appointment been scheduled?
       </h1>
     </legend>
@@ -414,11 +411,26 @@
 </div>
 
 
- <div class="govuk-grid-row">
+ <div class="govuk-grid-row"  id="last-contact">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
 <h3 class="govuk-heading-s">Last contact from the registrar</h3>
+
+ {% if data.contactStatus == "4-week" %}
+      <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">4-week informal<br>communication</strong></p>
+ {% elif data.contactStatus == "6-week"%}
+ <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">6-week formal requisition<br>sent</strong></p>
+  {% elif data.contactStatus == "2nd-formal"%}
+ <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Second formal requisition<br>sent</strong></p>
+   {% elif data.contactStatus == "3rd-formal"%}
+ <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Third formal requisition<br>sent</strong></p>
+  {% elif data.contactStatus == "no-4-week"%}
+ <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Third formal requisition<br>sent</strong></p>
+    {% else %}
+      <p class="govuk-body">None</p>
+    {% endif %}
+
 <p class="govuk-body">
-<strong class="govuk-tag govuk-tag--grey govuk-!-width-full">4-week informal communication
+<strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">4-week informal communication
         </strong></p>
 
 
@@ -432,7 +444,7 @@
    
     
 <div class="govuk-form-group">
-  <h1 class="govuk-heading-s">
+  <h1 class="govuk-body">
         What was the last contact from the registrar?
       </h1>
   <!-- <label class="govuk-label govuk-heading-s" for="sort">
@@ -464,10 +476,16 @@
 </div>
 </div>
 
- <div class="govuk-grid-row">
+ <div class="govuk-grid-row" id="special-question">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
 <h3 class="govuk-heading-s">Extra time for special circumstances</h3>
-<p class="govuk-body">Unknown or not booked</p>
+
+
+ {% if data.specialStatus == "yes" %}
+      <p class="govuk-body"><strong class="govuk-tag govuk-tag--pink" style="width:400px !important;">Extra time until<br>2 December 2025</strong></p>
+    {% else %}
+      <p class="govuk-body">None</p>
+    {% endif %}
 
 <details class="govuk-details">
   <summary class="govuk-details__summary">
@@ -476,32 +494,45 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-   
+    <form action="/update-special-status" method="post">
      <div class="govuk-form-group">
+
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-heading-s">
+      <h1 class="govuk-body govuk-!-margin-bottom-0">
         Are there any special circumstances requiring extra time for the informant?
       </h1>
     </legend>
-    <div class="govuk-checkboxes govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
+
+    <div class="govuk-radios  govuk-radios--inline govuk-!-margin-bottom-4" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+                
+  <input class="govuk-radios__input" id="special-no" name="specialStatus" type="radio" value="no" {% if data.specialStatus == "no" or not data.specialStatus %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="special-no">No</label>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="special-yes" name="specialStatus" type="radio" value="yes" {% if data.specialStatus == "yes" %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="special-yes">Yes, extra time for special circumstances required</label>
+              </div>
+              
+            </div>
+
+    <!-- <div class="govuk-checkboxes govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
         <label class="govuk-label govuk-checkboxes__label" for="organisation">
          Yes, extra time for special circumstances required
         </label>
       </div>
-    
-    </div>
-  </fieldset>
+    </div> -->
+ 
 
-  <div class="govuk-form-group">
-  <h1 class="govuk-heading-s">
+  
+  <h1 class="govuk-body">
         How many weeks of extra time is required? 
       </h1>
-  <!-- <label class="govuk-label govuk-heading-s" for="sort">
-    What was the last contact from the registrar?
-  </label> -->
+
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
   <select class="govuk-select" id="sort" name="sort">
@@ -509,19 +540,23 @@
     <option value="updated" selected>2 weeks</option>
     <option value="views">3 weeks</option>
     <option value="comments">4 weeks</option>
+     <option value="comments">5 weeks</option>
+      <option value="comments">6 weeks</option>
     
   </select>
 </div>
 </div>
+ </fieldset>
   <div class="govuk-button-group">
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   Update extra time
 </button>
-<a href="#">Cancel</a>
-</div>
+ <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+          </div>
+        </form>
 </div>
   
-</div>
+
 
 
   </div>
@@ -530,10 +565,120 @@
 </div>
 </div>
 
- <div class="govuk-grid-row">
+<div class="govuk-grid-row" id="gro-question">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <h3 class="govuk-heading-s">Has the GRO taken responsibility for this case?</h3>
+
+    
+  {% if data.groStatus == "yes" %}
+      <p class="govuk-body"><strong class="govuk-tag govuk-tag--purple" style="width:400px !important;">GRO responsible</strong></p>
+    {% else %}
+      <p class="govuk-body">No</p>
+    {% endif %}
+
+
+    <details class="govuk-details" id="gro-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Update the GRO status
+        </span>
+      </summary>
+      <div class="govuk-details__text govuk-!-padding-bottom-1">
+        <form action="/update-gro-status" method="post">
+
+<fieldset class="govuk-fieldset">
+<div class="govuk-radios  govuk-radios--inline govuk-!-margin-bottom-4" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+                
+  <input class="govuk-radios__input" id="gro-no" name="groStatus" type="radio" value="no" {% if data.groStatus == "no" or not data.groStatus %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="gro-no">No</label>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="gro-yes" name="groStatus" type="radio" value="yes" {% if data.groStatus == "yes" %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="gro-yes">Yes, the GRO has taken responsibility</label>
+              </div>
+              
+            </div>
+          </fieldset>
+
+
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Update the GRO status
+            </button>
+            <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+
+<!-- <div class="govuk-grid-row" id="gro-question">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <h3 class="govuk-heading-s">Has the GRO taken responsibility for this case?</h3>
+
+    {% if data.organisation %}
+      <p class="govuk-body" id="gro-yes">Yes</p>
+    {% else %}
+      <p class="govuk-body" id="gro-no">No</p>
+    {% endif %}
+
+    <details class="govuk-details" id="gro-details" {% if data.showDetails %}open{% endif %}>
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Update the GRO status
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <form action="/update-gro-status" method="post"> 
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-heading-s">Has the GRO taken this case?</h1>
+              <p class="govuk-hint">Only select if you have confirmation from the GRO</p>
+            </legend>
+            <div class="govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="true" {% if data.organisation %}checked{% endif %}>
+                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                  Yes, the GRO has taken responsibility
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Update the GRO status
+            </button>
+            <a>Cancel</a>
+          </div>
+        </form>
+      </div>
+    </details>
+
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div> -->
+
+
+
+
+<!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
 <h3 class="govuk-heading-s">Has the GRO taken responsibility for this case?</h3>
-<p class="govuk-body">No</p>
+
+
+{% if data.organisation %}
+  <p class="govuk-body">Yes</p>
+{% else %}
+  <p class="govuk-body">No</p>
+{% endif %}
+
 
 <details class="govuk-details">
   <summary class="govuk-details__summary">
@@ -542,6 +687,10 @@
     </span>
   </summary>
   <div class="govuk-details__text">
+
+
+
+
    
      <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -561,7 +710,7 @@
     </div>
   </fieldset>
 
-  <div class="govuk-button-group">
+   <div class="govuk-button-group">
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   Update the GRO status
 </button>
@@ -572,11 +721,72 @@
 </details>
 <hr class="govuk-section-break govuk-section-break--visible">
 </div>
-</div>
+</div>  -->
+
 
  <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-<h3 class="govuk-heading-s">Notes</h3>
+
+    <h3 class="govuk-heading-s">Notes</h3>
+    <div class="govuk-grid-row govuk-!-margin-bottom-2 govuk-!-margin-left-0">
+  <div class="govuk-grid-column-one-half govuk-!-margin-left-0" >
+    <p id="note-text" class="govuk-body">None</p>
+  </div>
+   <div class="govuk-grid-column-one-quarter" >
+    <!-- <p><a href="#" class="govuk-link" style="color: #d4351c;">Delete note</a></p> -->
+  </div>
+</div>
+<!-- <p id="note-text" class="govuk-body">None</p>
+<a href="#" class="govuk-link" style="color: #d4351c;">Delete note</a> -->
+<details class="govuk-details" id="note-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Add note
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <div class="govuk-form-group">
+      <!-- <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--s" for="more-detail">
+          Add notes about this case
+        </label>
+      </h1> -->
+      <div id="more-detail-hint" class="govuk-body">
+        <p class="govuk-body">Add relevant notes for this case, such as:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>any special circumstances causing delays</li>
+          <li>useful dates</li>
+        </ul>
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <div class="govuk-button-group">
+      <button type="button" id="add-note-btn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add note
+      </button>
+      <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+    </div>
+  </div>
+</details>
+
+<script>
+  document.getElementById('add-note-btn').addEventListener('click', function () {
+    const noteText = document.getElementById('more-detail').value.trim();
+    const noteDisplay = document.getElementById('note-text');
+    const detailsComponent = document.getElementById('note-details');
+
+    // Update the <p> text
+    noteDisplay.textContent = noteText !== '' ? noteText : 'None';
+
+    // Close the details component
+    detailsComponent.removeAttribute('open');
+
+    // Optionally clear the textarea
+    document.getElementById('more-detail').value = '';
+  });
+</script>
+<!-- <h3 class="govuk-heading-s">Notes</h3>
 <p class="govuk-body">None</p>
 
 <details class="govuk-details">
@@ -613,7 +823,7 @@
 
 
   </div>
-</details>
+</details> -->
 <hr class="govuk-section-break govuk-section-break--visible">
 </div>
 </div>
@@ -781,6 +991,8 @@
        <p class="govuk-body"><a href="02-notifications.html" class="govuk-link">No, return</a></p>
       </div>    -->
    
+
+
 
 
 {% endblock %}

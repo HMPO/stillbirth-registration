@@ -61,5 +61,28 @@ router.get('/latest/no-informant/task-list-noi-form', function (req, res) {
 
 
 
+//route for the Special circumstances status
+router.post('/update-special-status', function (req, res) {
+  // Force overwrite every time
+ req.session.data.specialStatus = req.body.specialStatus || "no"; // Default to "no"
+
+  // Redirect back to the page with anchor
+  res.redirect('/later/03-notification-detail-v2#special-question');
+});
+
+
+
+//route for the GRO status
+router.post('/update-gro-status', function (req, res) {
+  // Force overwrite every time
+ req.session.data.groStatus = req.body.groStatus || "no"; // Default to "no"
+
+  // Redirect back to the page with anchor
+  res.redirect('/later/03-notification-detail-v2#gro-question');
+});
+
+
+
+
 //need this at the end:
 };

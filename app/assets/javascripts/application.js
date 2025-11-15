@@ -8,6 +8,50 @@ window.GOVUKPrototypeKit.documentReady(() => {
 })
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const detailsComponent = document.getElementById('gro-details');
+  const cancelLink = document.getElementById('cancel-link');
+  const form = detailsComponent.querySelector('form');
+
+  if (cancelLink) {
+    cancelLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      detailsComponent.removeAttribute('open');
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function () {
+      detailsComponent.removeAttribute('open');
+    });
+  }
+});
+
+
+//update notification detail
+// document.addEventListener('DOMContentLoaded', function () {
+//   const detailsComponent = document.getElementById('gro-details');
+//   const cancelLink = document.getElementById('cancel-link');
+
+//   // Cancel closes details without submitting
+//   if (cancelLink) {
+//     cancelLink.addEventListener('click', function (e) {
+//       e.preventDefault();
+//       detailsComponent.removeAttribute('open');
+//     });
+//   }
+
+//   // Close details immediately after clicking submit (before reload)
+//   const form = detailsComponent.querySelector('form');
+//   if (form) {
+//     form.addEventListener('submit', function () {
+//       detailsComponent.removeAttribute('open');
+//     });
+//   }
+// });
+
+// end update notification detail
+
 
 
 // child-details/name-date.html - makes the YES/ No name hide reveal work
