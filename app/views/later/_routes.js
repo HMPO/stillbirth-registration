@@ -59,6 +59,24 @@ router.get('/latest/no-informant/task-list-noi-form', function (req, res) {
 });
 
 
+//route for the Last contact status
+router.post('/update-appointment-status', function (req, res) {
+  // Force overwrite every time
+ req.session.data.contactStatus = req.body.contactStatus || "no"; // Default to "no"
+
+  // Redirect back to the page with anchor
+  res.redirect('/later/03-notification-detail-v2#appointment-question');
+});
+
+
+//route for the Last contact status
+router.post('/update-contact-status', function (req, res) {
+  // Force overwrite every time
+ req.session.data.contactStatus = req.body.contactStatus || "4-week"; // Default to "no"
+
+  // Redirect back to the page with anchor
+  res.redirect('/later/03-notification-detail-v2#contact-question');
+});
 
 
 //route for the Special circumstances status

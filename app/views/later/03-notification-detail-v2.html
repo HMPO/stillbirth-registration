@@ -193,6 +193,9 @@
   <li>
     <a class="govuk-link govuk-body-s" href="#">Add another known address</a>
   </li>
+   <li>
+    <a class="govuk-link govuk-body-s" href="#">Add other names</a>
+  </li>
 
 </ul>
 
@@ -280,10 +283,17 @@
 </div>
 
 
- <div class="govuk-grid-row">
+ <div class="govuk-grid-row" id="appointment-question">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-<h3 class="govuk-heading-s">Appointment booked</h3>
-<p class="govuk-body">Unknown or not booked</p>
+<h3 class="govuk-heading-s">Appointment </h3>
+
+ {% if data.appointmentStatus == "yes" %}
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--green" style="width:400px !important;">Scheduled for 26 November 2025, 3:45pm</strong></p>
+    {% else %}
+      <p class="govuk-body">Unknown or not booked</p>
+    {% endif %}
+
+
 
 <details class="govuk-details">
   <summary class="govuk-details__summary">
@@ -292,7 +302,33 @@
     </span>
   </summary>
   <div class="govuk-details__text">
-   <div class="govuk-form-group">
+
+ <form action="/update-appointment-status" method="post">
+     <div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-body govuk-!-margin-bottom-0">
+        Has an appointment been scheduled?
+      </h1>
+    </legend>
+
+    <div class="govuk-radios  govuk-radios--inline govuk-!-margin-bottom-4" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+                
+  <input class="govuk-radios__input" id="apointment-no" name="appointmentStatus" type="radio" value="no" {% if data.appointmentStatus == "no" or not data.appointmentStatus %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="appointment-no">No</label>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="apointment-yes" name="appointmentStatus" type="radio" value="yes" {% if data.appointmentStatus == "yes" %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="appointment-yes">Yes, appointment scheduled</label>
+              </div>
+              
+            </div>
+
+
+   <!-- <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       <h1 class="govuk-body">
@@ -309,7 +345,7 @@
     
     </div>
   </fieldset>
-</div>
+</div> -->
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
@@ -392,10 +428,11 @@
 </div>
 </div>
 
-<div class="govuk-inset-text govuk-!-margin-top-0">
+<p class="govuk-hint govuk-!-margin-top-2">
   The status will reset to 'Unknown or not booked' if the informant misses the appointment.
-</div>
-<!-- <p class="govuk-body">Once the appointment date has passed this will automatically be set back to 'Unknown or not booked'.</p> -->
+</p>
+</fieldset>
+
 <div class="govuk-button-group">
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   Update appointment status
@@ -403,6 +440,7 @@
 <a href="#">Cancel</a>
 </div>
 
+</form>
 
   </div>
 </details>
@@ -411,27 +449,27 @@
 </div>
 
 
- <div class="govuk-grid-row"  id="last-contact">
+ <div class="govuk-grid-row"  id="contact-question">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
 <h3 class="govuk-heading-s">Last contact from the registrar</h3>
 
  {% if data.contactStatus == "4-week" %}
-      <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">4-week informal<br>communication</strong></p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--grey" style="width:400px !important;">4-week informal communication</strong></p>
  {% elif data.contactStatus == "6-week"%}
- <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">6-week formal requisition<br>sent</strong></p>
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">6-week formal requisition sent</strong></p>
   {% elif data.contactStatus == "2nd-formal"%}
- <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Second formal requisition<br>sent</strong></p>
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Second formal requisition sent</strong></p>
    {% elif data.contactStatus == "3rd-formal"%}
- <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Third formal requisition<br>sent</strong></p>
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Third formal requisition sent</strong></p>
   {% elif data.contactStatus == "no-4-week"%}
- <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">Third formal requisition<br>sent</strong></p>
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--orange" style="width:400px !important;">No 4-week communication</strong></p>
     {% else %}
-      <p class="govuk-body">None</p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--orange" style="width:400px !important;">No 4-week communication</strong></p>
     {% endif %}
 
-<p class="govuk-body">
+<!-- <p class="govuk-body">
 <strong class="govuk-tag govuk-tag--grey" style="width:400px !important;">4-week informal communication
-        </strong></p>
+        </strong></p> -->
 
 
 <details class="govuk-details">
@@ -440,24 +478,21 @@
       Change last contact
     </span>
   </summary>
-  <div class="govuk-details__text">
-   
+  <div class="govuk-details__text govuk-!-padding-bottom-0">
+     <form action="/update-contact-status" method="post">
     
-<div class="govuk-form-group">
+<div class="govuk-form-group govuk-!-margin-bottom-0">
   <h1 class="govuk-body">
         What was the last contact from the registrar?
       </h1>
-  <!-- <label class="govuk-label govuk-heading-s" for="sort">
-    What was the last contact from the registrar?
-  </label> -->
   <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-  <select class="govuk-select" id="sort" name="sort">
-    <option value="published">No 4-week informal communication</option>
-    <option value="updated" selected>4-week informal letter or phone call</option>
-    <option value="views">6-week formal requisition letter</option>
-    <option value="comments">Second formal requisition letter</option>
-    <option value="comments">Third formal requisition letter</option>
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-6">
+  <select class="govuk-select" id="sort" name="contactStatus">
+    <option value="no-4-week" {% if data.contactStatus == "no-4-week" %}selected{% endif %}>No 4-week informal communication</option>
+    <option value="4-week" {% if data.contactStatus == "4-week" %}selected{% endif %}>4-week informal letter or phone call</option>
+    <option value="6-week" {% if data.contactStatus == "6-week" %}selected{% endif %}>6-week formal requisition letter</option>
+    <option value="2nd-formal" {% if data.contactStatus == "2nd-formal" %}selected{% endif %}>Second formal requisition letter</option>
+    <option value="3rd-formal" {% if data.contactStatus == "3rd-formal" %}selected{% endif %}>Third formal requisition letter</option>
   </select>
 </div>
 </div>
@@ -469,8 +504,9 @@
 </div>
 </div>
 
-
-  </div>
+</form>
+ 
+</div>
 </details>
 <hr class="govuk-section-break govuk-section-break--visible">
 </div>
@@ -482,7 +518,7 @@
 
 
  {% if data.specialStatus == "yes" %}
-      <p class="govuk-body"><strong class="govuk-tag govuk-tag--pink" style="width:400px !important;">Extra time until<br>2 December 2025</strong></p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--pink" style="width:400px !important;">Extra time until 2 December 2025</strong></p>
     {% else %}
       <p class="govuk-body">None</p>
     {% endif %}
@@ -571,7 +607,7 @@
 
     
   {% if data.groStatus == "yes" %}
-      <p class="govuk-body"><strong class="govuk-tag govuk-tag--purple" style="width:400px !important;">GRO responsible</strong></p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--purple" style="width:400px !important;">GRO responsible</strong></p>
     {% else %}
       <p class="govuk-body">No</p>
     {% endif %}
@@ -596,7 +632,7 @@
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="gro-yes" name="groStatus" type="radio" value="yes" {% if data.groStatus == "yes" %}checked{% endif %}>
-                <label class="govuk-label govuk-radios__label" for="gro-yes">Yes, the GRO has taken responsibility</label>
+                <label class="govuk-label govuk-radios__label" for="gro-yes">Yes, the GRO has confirmed they will take responsibility</label>
               </div>
               
             </div>
@@ -728,9 +764,10 @@
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
 
     <h3 class="govuk-heading-s">Notes</h3>
+     <p id="note-text" class="govuk-body">None</p>
     <div class="govuk-grid-row govuk-!-margin-bottom-2 govuk-!-margin-left-0">
   <div class="govuk-grid-column-one-half govuk-!-margin-left-0" >
-    <p id="note-text" class="govuk-body">None</p>
+   
   </div>
    <div class="govuk-grid-column-one-quarter" >
     <!-- <p><a href="#" class="govuk-link" style="color: #d4351c;">Delete note</a></p> -->
@@ -838,7 +875,7 @@
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Contact type</th>
       <th scope="col" class="govuk-table__header">Due date</th>
-      <th scope="col" class="govuk-table__header">Due</th>
+      <th scope="col" class="govuk-table__header">Contact date</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -855,12 +892,12 @@
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">6-week formal requisition</th>
       <td class="govuk-table__cell">29 October 2025</td>
-      <td class="govuk-table__cell">28 days ago</td>
+      <td class="govuk-table__cell">31 October 2025</td>
     </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">4-week informal contact</th>
       <td class="govuk-table__cell">15 October 2025</td>
-      <td class="govuk-table__cell">42 days ago</td>
+      <td class="govuk-table__cell">12 October 2025</td>
     </tr>
    
   </tbody>
