@@ -13,9 +13,9 @@
 
 {% block content %}
 <script>
-  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, contactStatus) {
+  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
     event.preventDefault();
-    const url = `03-notification-detail-v2.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&contactStatus=${encodeURIComponent(contactStatus)}`;
+    const url = `03-notification-detail-v2.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&days-since=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
     window.location.href = url;
   }
 </script>
@@ -104,7 +104,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-        <a href="#" onclick="passData(event, '390 446 7891', '3 September 2025', 'Anna', 'DUFFY', 'Male', 'Stillborn', '17b Avenue Road', 'WK6 7HL', '20 April 1985','3rd-formal')">390 446 7891</a>
+        <a href="#" onclick="passData(event, '390 446 7891', '3 September 2025', 'Anna', 'DUFFY', 'Male', 'Stillborn', '17b Avenue Road', 'WK6 7HL', '20 April 1985', '70', 'no','3rd-formal', 'no', 'yes')">390 446 7891</a>
       </td>
       <td class="govuk-table__cell">DUFFY, Anna</td>
       <td class="govuk-table__cell">3 September 2025</td>
@@ -118,7 +118,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-         <a href="#" onclick="passData(event, '390 123 4567', '26 September 2025', 'Celine', 'SHORT', 'Female', 'Stillborn', '5a Highfield Close', 'WK8 9HQ', '2 October 1991')">390 123 4567</a>
+         <a href="#" onclick="passData(event, '390 123 4567', '26 September 2025', 'Celine', 'SHORT', 'Female', 'Stillborn', '5a Highfield Close', 'WK8 9HQ', '2 October 1991', '47', 'no','6-week', 'no', 'no')">390 123 4567</a>
       </td>
       <td class="govuk-table__cell">SHORT, Celine</td>
       <td class="govuk-table__cell">26 September 2025</td>
@@ -157,7 +157,7 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998')">390 123 4567</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
       <td class="govuk-table__cell">HUSEIN, Lila</td>
       <td class="govuk-table__cell">1 October 2025</td>
       <td class="govuk-table__cell">42</td>
@@ -167,7 +167,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 6543', '3 October 2025', 'Olivia', 'SMITH', 'Female', 'Stillborn', '177c St. George Lane', 'WK1 2RG', '8 March 1990')">390 987 6543</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 6543', '3 October 2025', 'Olivia', 'SMITH', 'Female', 'Stillborn', '177c St. George Lane', 'WK1 2RG', '8 March 1990', '40')">390 987 6543</a></td>
       <td class="govuk-table__cell">SMITH, Olivia</td>
       <td class="govuk-table__cell">3 October 2025</td>
       <td class="govuk-table__cell">40</td>
@@ -177,7 +177,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989')">390 456 7890</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39')">390 456 7890</a></td>
       <td class="govuk-table__cell">JONES, Emily</td>
       <td class="govuk-table__cell">4 October 2025</td>
       <td class="govuk-table__cell">39</td>
@@ -187,7 +187,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 3210', '5 October 2025', 'Sophie', 'WILLIAMS', 'Male', 'Live', '114d Kingfisher Way', 'WK4E 8PY', '25 May 1995')">390 654 3210</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 3210', '5 October 2025', 'Sophie', 'WILLIAMS', 'Male', 'Live', '114d Kingfisher Way', 'WK4E 8PY', '25 May 1995', '38')">390 654 3210</a></td>
       <td class="govuk-table__cell">WILLIAMS, Sophie</td>
       <td class="govuk-table__cell">5 October 2025</td>
       <td class="govuk-table__cell">38</td>
@@ -198,7 +198,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990')">390 789 0123</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37')">390 789 0123</a></td>
       <td class="govuk-table__cell">BROWN, Amelia</td>
       <td class="govuk-table__cell">6 October 2025</td>
       <td class="govuk-table__cell">37</td>
@@ -212,7 +212,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 6540', '7 October 2025', 'Isla', 'DAVIES', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '21 July 2000')">390 321 6540</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 6540', '7 October 2025', 'Isla', 'DAVIES', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '21 July 2000', '36')">390 321 6540</a></td>
       <td class="govuk-table__cell">DAVIES, Isla</td>
       <td class="govuk-table__cell">7 October 2025</td>
       <td class="govuk-table__cell">36</td>
@@ -222,7 +222,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 322 6610', '8 October 2025', 'Ava', 'EVANS', 'Female', 'Live', '121a Church Street', 'WK2 3NZ', '18 June 1999')">390 322 6610</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 322 6610', '8 October 2025', 'Ava', 'EVANS', 'Female', 'Live', '121a Church Street', 'WK2 3NZ', '18 June 1999', '35')">390 322 6610</a></td>
       <td class="govuk-table__cell">EVANS, Ava</td>
       <td class="govuk-table__cell">8 October 2025</td>
       <td class="govuk-table__cell">35</td>
@@ -232,7 +232,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 9870', '9 October 2025', 'Mia', 'THOMAS', 'Male', 'Live', '41 Briar Hill', 'WK3 5NG', '30 April 1997')">390 654 9870</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 9870', '9 October 2025', 'Mia', 'THOMAS', 'Male', 'Live', '41 Briar Hill', 'WK3 5NG', '30 April 1997', '34')">390 654 9870</a></td>
       <td class="govuk-table__cell">THOMAS, Mia</td>
       <td class="govuk-table__cell">9 October 2025</td>
       <td class="govuk-table__cell">34</td>
@@ -242,7 +242,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 9870', '10 October 2025', 'Ella', 'WILSON', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '23 April 2001')">390 321 9870</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 9870', '10 October 2025', 'Ella', 'WILSON', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '23 April 2001', '33')">390 321 9870</a></td>
       <td class="govuk-table__cell">WILSON, Ella</td>
       <td class="govuk-table__cell">10 October 2025</td>
       <td class="govuk-table__cell">33</td>
@@ -252,7 +252,7 @@
         </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 3210', '11 October 2025', 'Grace', 'ROBERTS', 'Female', 'Live', '80 Victoria Terrace', 'WK5 9MB', '3 October 1998')">390 789 3210</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 3210', '11 October 2025', 'Grace', 'ROBERTS', 'Female', 'Live', '80 Victoria Terrace', 'WK5 9MB', '3 October 1998', '32')">390 789 3210</a></td>
       <td class="govuk-table__cell">ROBERTS, Grace</td>
       <td class="govuk-table__cell">11 October 2025</td>
       <td class="govuk-table__cell">32</td>
