@@ -196,7 +196,7 @@
 
     </div>
    
-      {% if data.daysSince <= 42 %}
+      {% if data.daysSince < 42 %}
     <!-- status for contact under 42 days -->
   <div class="govuk-grid-column-three-quarters">
     <div class="govuk-grid-row">
@@ -223,7 +223,7 @@
     </div>
   </div>
 
-{% elif data.daysSince >= 43 and data.daysSince <= 56 %}
+{% elif data.daysSince >= 42 and data.daysSince <= 56 %}
      <!-- status for contact between 42 and 56 days -->
        <div class="govuk-grid-column-three-quarters">
     <div class="govuk-grid-row">
