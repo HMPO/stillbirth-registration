@@ -211,7 +211,7 @@
 <div class="govuk-grid-row  govuk-!-margin-bottom-2">
   <div class="govuk-grid-column-full govuk-!-padding-6">
 
-    <div class="govuk-grid-row">
+    <div class="govuk-grid-row govuk-!-margin-bottom-3">
   <div class="govuk-grid-column-one-quarter">
      <p class="govuk-body govuk-!-margin-0">
           <strong>Days since birth</strong>
@@ -220,49 +220,126 @@
 
       <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-heading-xl govuk-!-margin-0">
-             {{ data['days-since'] }}
+             {{ data['daysSince'] }}
           </p>
         </div>
-      
-     
-    </p>
     </div>
    
+
+    {% if data.daysSince <= 42 %}
+    <!-- status for contact under 42 days -->
   <div class="govuk-grid-column-three-quarters">
-  
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
-  
         <p class="govuk-body govuk-!-margin-0">
           <strong>Last contact was due</strong>
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            Around mid-November <br>Second formal requisition
+            3 November 2025 <br>4-week informal contact
           </p>
         </div>
       </div>
       <div class="govuk-grid-column-one-half">
-       
  <p class="govuk-body govuk-!-margin-0">
           <strong> Next contact will be due</strong>
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Around end of November <br>Third formal requisition
+            18 November 2025<br>6-week formal requisition
           </p>
         </div>
-
-        
-        
       </div>
     </div>
-  
   </div>
 
+{% elif data.daysSince >= 43 and data.daysSince <= 56 %}
+     <!-- status for contact between 42 and 56 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+           16 November 2025<br>6-week formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            Around end of November 2025<br>Second formal requisition
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+     <!-- status for contact between 56 and 70 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            Around mid-November 2025<br>Second formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            Around end of November 2025<br>Third formal requisition
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% elif data.daysSince >= 70 %}
+     <!-- status for contact equal or over 70 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            Around mid-November 2025<br>Third formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            The GRO will contact <br> &nbsp;
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+  <!-- end status for contact -->
 </div>
 
 <div>
+
+   {% if data.daysSince >= 42 %}
 <div class="govuk-warning-text govuk-!-margin-bottom-3">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
@@ -270,6 +347,10 @@
    You must report to GRO about this birth
   </strong>
 </div>
+{% else %}
+
+{% endif %}
+
 </div>
 
 </div>
