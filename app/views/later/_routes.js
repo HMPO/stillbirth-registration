@@ -72,7 +72,7 @@ router.post('/update-appointment-status', function (req, res) {
 //route for the Last contact status
 router.post('/update-contact-status', function (req, res) {
   // Force overwrite every time
- req.session.data.contactStatus = req.body.contactStatus || "4-week"; // Default to "no"
+ req.session.data.contactStatus = req.body.contactStatus || "4-week"; // Default to "4 week"
 
   // Redirect back to the page with anchor
   res.redirect('/later/03-notification-detail-v2#contact-question');
