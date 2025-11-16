@@ -94,13 +94,13 @@
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>Sex</strong><br>
-      Male
+      {{ data['childs-sex'] }}
     </p>
   </div>
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>Live, stillborn or died</strong><br>
-      Stillborn
+       {{ data['child-life'] }}
     </p>
   </div>
 </div>
@@ -116,7 +116,6 @@
     <p class="govuk-body-s">
       <strong>District on notification</strong><br>
       Wakefield 
-      <!-- &nbsp; <a href="">Change</a> -->
     </p>
   </div>
   <div class="govuk-grid-column-one-quarter">
@@ -153,7 +152,7 @@
   </div>
   <div class="govuk-grid-column-one-quarter">
       <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
-      20 April 1991
+      {{ data['mothers-dob'] }} 
     </p>
   </div>
 </div>
@@ -161,8 +160,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body-s"><strong>Mother's address on notification</strong><br>
-      17b Avenue Road,<br>
-      Wakefield WK6 4HL
+       {{ data['mothers-street'] }},<br>
+      Wakefield {{ data['mothers-pcode'] }}
     </p>
   </div>
  
@@ -607,7 +606,7 @@
 
     
   {% if data.groStatus == "yes" %}
-      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--purple" style="width:400px !important;">GRO responsible</strong></p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--light-blue" style="width:400px !important;">GRO responsible</strong></p>
     {% else %}
       <p class="govuk-body">No</p>
     {% endif %}

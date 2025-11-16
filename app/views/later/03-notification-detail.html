@@ -94,13 +94,13 @@
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>Sex</strong><br>
-      Male
+       {{ data['childs-sex'] }}
     </p>
   </div>
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>Live, stillborn or died</strong><br>
-      Stillborn
+      {{ data['child-life'] }}
     </p>
   </div>
 </div>
@@ -115,7 +115,7 @@
  <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>District on notification</strong><br>
-      Wakefield &nbsp; <a href="">Change</a>
+      Wakefield
     </p>
   </div>
   <div class="govuk-grid-column-one-quarter">
@@ -152,7 +152,7 @@
   </div>
   <div class="govuk-grid-column-one-quarter">
       <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
-      20 April 1991
+      {{ data['mothers-dob'] }} 
     </p>
   </div>
 </div>
@@ -160,8 +160,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <p class="govuk-body-s"><strong>Mother's address on notification</strong><br>
-      17b Avenue Road,<br>
-      Wakefield WK6 4HL
+       {{ data['mothers-street'] }},<br>
+      Wakefield {{ data['mothers-pcode'] }}
     </p>
   </div>
  
