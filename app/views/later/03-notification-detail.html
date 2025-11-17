@@ -14,6 +14,13 @@
 {% block content %}
 
 
+<script>
+  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
+    event.preventDefault();
+    const url = `03-notification-detail.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
+    window.location.href = url;
+  }
+</script>
 
 
   <div class="govuk-grid-row">
@@ -26,7 +33,18 @@
 </div>
 </div>
 
-<nav class="govuk-pagination" aria-label="Pagination">
+
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous child</a> &nbsp; 
+        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next child</a>
+  </p>
+</div>
+</div>
+
+<!-- <nav class="govuk-pagination" aria-label="Pagination">
   <div class="govuk-pagination__prev">
     <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
       <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
@@ -39,23 +57,7 @@
   </div>
   <ul class="govuk-pagination__list">
     <li class="govuk-pagination__item">|</li></ul>
-  <!-- <ul class="govuk-pagination__list">
-    <li class="govuk-pagination__item">
-      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
-        1
-      </a>
-    </li>
-    <li class="govuk-pagination__item govuk-pagination__item--current">
-      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
-        2
-      </a>
-    </li>
-    <li class="govuk-pagination__item">
-      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
-        3
-      </a>
-    </li>
-  </ul> -->
+
   <div class="govuk-pagination__next">
     <a class="govuk-link govuk-pagination__link" href="#" rel="next">
       <span class="govuk-pagination__link-title">
@@ -66,7 +68,7 @@
       </svg>
     </a>
   </div>
-</nav>
+</nav> -->
  
 <div class="govuk-grid-row govuk-!-margin-bottom-4">
   <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
