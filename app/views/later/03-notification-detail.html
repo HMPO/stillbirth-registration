@@ -7,7 +7,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: "02-notifications.html"
   }) }}
 {% endblock %}
 
@@ -38,8 +38,8 @@
  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous child</a> &nbsp; 
-        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next child</a>
+      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous birth notification</a> &nbsp; 
+        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next birth notification</a>
   </p>
 </div>
 </div>
@@ -245,7 +245,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Around end of November 2025<br>Second formal requisition
+            End of November 2025<br>Second formal requisition
           </p>
         </div>
       </div>
@@ -261,7 +261,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            Around mid-November 2025<br>Second formal requisition
+            Mid-November 2025<br>Second formal requisition
           </p>
         </div>
       </div>
@@ -271,7 +271,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Around end of November 2025<br>Third formal requisition
+            End of November 2025<br>Third formal requisition
           </p>
         </div>
       </div>
@@ -287,7 +287,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            Around mid-November 2025<br>Third formal requisition
+            Mid-November 2025<br>Third formal requisition
           </p>
         </div>
       </div>
@@ -306,52 +306,19 @@
 {% endif %}
 
 
-  <!-- end status for contact -->
-
-  <!-- <div class="govuk-grid-column-three-quarters">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <p class="govuk-body govuk-!-margin-0">
-          <strong>Last contact was due</strong>
-        </p>
-        <div style="padding: 10px; background-color: #f3f2f1;">
-          <p class="govuk-body govuk-!-margin-0">
-            Around mid-November <br>Second formal requisition
-          </p>
-        </div>
-      </div>
-      <div class="govuk-grid-column-one-half">
- <p class="govuk-body govuk-!-margin-0">
-          <strong> Next contact will be due</strong>
-        </p>
-<div style="padding: 10px; background-color: #FFF5B8;">
-          <p class="govuk-body govuk-!-margin-0">
-           
-            Around end of November <br>Third formal requisition
-          </p>
-        </div>
-      </div>
-    </div>
-  
-  </div> -->
+ 
 
 </div>
 
 <div>
-<!-- <div class="govuk-warning-text govuk-!-margin-bottom-3">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-   You must report to GRO about this birth
-  </strong>
-</div> -->
+
 
  {% if data.daysSince >= 42 %}
 <div class="govuk-warning-text govuk-!-margin-bottom-3">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
     <span class="govuk-visually-hidden">Warning</span>
-   You must report to GRO about this birth
+   You must report to the GRO about this birth
   </strong>
 </div>
 {% else %}
@@ -366,122 +333,50 @@
 
 
 
-
-<h3 class="govuk-heading-m">Expected timeline</h3>
-  <p class="govuk-body">(This shows a timeline of when communications were due)</p>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+<h3 class="govuk-heading-m">Expected contact timeline</h3>
+  <p class="govuk-body">This list shows when it's expected to contact the informant.</p>
 <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
   
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Contact type</th>
-      <th scope="col" class="govuk-table__header">Due date</th>
-      <th scope="col" class="govuk-table__header">Due</th>
+      <th scope="col" class="govuk-table__header">Expected by</th>
+      
     </tr>
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Third formal requisition</th>
-      <td class="govuk-table__cell">Around end of November</td>
-      <td class="govuk-table__cell"></td>
+      <th scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Third formal requisition</th>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">End of November</td>
+      
     </tr>
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Second formal requisition</th>
-      <td class="govuk-table__cell">Around mid-November</td>
-      <td class="govuk-table__cell"></td>
+      <th scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Second formal requisition</th>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">Mid-November</td>
+      
     </tr>
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">6-week formal requisition</th>
-      <td class="govuk-table__cell">29 October 2025</td>
-      <td class="govuk-table__cell">28 days ago</td>
+      <th scope="row" class="govuk-table__cell" style="border-bottom: 0px;">6-week formal requisition</th>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">29 October 2025</td>
+      
     </tr>
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">4-week informal contact</th>
-      <td class="govuk-table__cell">15 October 2025</td>
-      <td class="govuk-table__cell">42 days ago</td>
+      <th scope="row" class="govuk-table__cell" style="border-bottom: 0px;">4-week informal contact</th>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">15 October 2025</td>
+      
     </tr>
    
   </tbody>
 </table>
-
-
- <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          NHS number
-        </dt>
-         <dd class="govuk-summary-list__value">
-           {{ data['nhs-number'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-         
-        </dd>
-      </div>
-    
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Date and time of birth
-        </dt>
-        <dd class="govuk-summary-list__value">
-           {{ data['date-of-birth'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Sex
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Male
-        </dd>
-        <dd class="govuk-summary-list__actions">
-         
-        </dd>
-      </div>
-       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Mother's first name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['mothers-first-name'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        
-      </div>
-       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Mother's last name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['mothers-last-name'] | upper }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-         
-        </dd>
-      </div>
-       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Place of birth
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Central Hospital, Wakefield
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          
-        </dd>
-      </div>
-
-    </dl>    -->
+</div>
+</div>
 
 
 
 
-
-
-
-
- 
+ <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
 
      <form action="01-who-is-informant" method="post" novalidate>
 

@@ -37,8 +37,8 @@
  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous child</a> &nbsp; 
-        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next child</a>
+      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous birth notification</a> &nbsp; 
+        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next birth notification</a>
   </p>
 </div>
 </div>
@@ -193,7 +193,10 @@
     <a class="govuk-link govuk-body-s" href="#">Add another known address</a>
   </li>
    <li>
-    <a class="govuk-link govuk-body-s" href="#">Add other names</a>
+    <a class="govuk-link govuk-body-s" href="#">Add other names for mother or father</a>
+  </li>
+   <li>
+    <a class="govuk-link govuk-body-s" href="#">Add different district</a>
   </li>
 
 </ul>
@@ -273,7 +276,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Around end of November 2025<br>Second formal requisition
+            End of November 2025<br>Second formal requisition
           </p>
         </div>
       </div>
@@ -289,7 +292,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            Around mid-November 2025<br>Second formal requisition
+            Mid-November 2025<br>Second formal requisition
           </p>
         </div>
       </div>
@@ -299,7 +302,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Around end of November 2025<br>Third formal requisition
+            End of November 2025<br>Third formal requisition
           </p>
         </div>
       </div>
@@ -315,7 +318,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            Around mid-November 2025<br>Third formal requisition
+            Mid-November 2025<br>Third formal requisition
           </p>
         </div>
       </div>
@@ -344,7 +347,7 @@
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
     <span class="govuk-visually-hidden">Warning</span>
-   You must report to GRO about this birth
+   You must report to the GRO about this birth
   </strong>
 </div>
 {% else %}
@@ -729,121 +732,16 @@
       </div>
     </details>
 
-    <hr class="govuk-section-break govuk-section-break--visible">
+    <!-- <hr class="govuk-section-break govuk-section-break--visible"> -->
   </div>
 </div>
 
-
-<!-- <div class="govuk-grid-row" id="gro-question">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-    <h3 class="govuk-heading-s">Has the GRO taken responsibility for this case?</h3>
-
-    {% if data.organisation %}
-      <p class="govuk-body" id="gro-yes">Yes</p>
-    {% else %}
-      <p class="govuk-body" id="gro-no">No</p>
-    {% endif %}
-
-    <details class="govuk-details" id="gro-details" {% if data.showDetails %}open{% endif %}>
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Update the GRO status
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <form action="/update-gro-status" method="post"> 
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-heading-s">Has the GRO taken this case?</h1>
-              <p class="govuk-hint">Only select if you have confirmation from the GRO</p>
-            </legend>
-            <div class="govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="true" {% if data.organisation %}checked{% endif %}>
-                <label class="govuk-label govuk-checkboxes__label" for="organisation">
-                  Yes, the GRO has taken responsibility
-                </label>
-              </div>
-            </div>
-          </fieldset>
-
-          <div class="govuk-button-group">
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Update the GRO status
-            </button>
-            <a>Cancel</a>
-          </div>
-        </form>
-      </div>
-    </details>
-
-    <hr class="govuk-section-break govuk-section-break--visible">
-  </div>
-</div> -->
-
-
-
-
-<!-- <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-<h3 class="govuk-heading-s">Has the GRO taken responsibility for this case?</h3>
-
-
-{% if data.organisation %}
-  <p class="govuk-body">Yes</p>
-{% else %}
-  <p class="govuk-body">No</p>
-{% endif %}
-
-
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Update the GRO status
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-
-
-
-
-   
-     <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-heading-s">
-        Has the GRO taken this case?
-      </h1>
-      <p class="govuk-hint">Only select if you have confirmation from the GRO</p>
-    </legend>
-    <div class="govuk-checkboxes govuk-checkboxes govuk-!-padding-bottom-4" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation">
-         Yes, the GRO has taken responsibility 
-        </label>
-      </div>
-    
-    </div>
-  </fieldset>
-
-   <div class="govuk-button-group">
-<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Update the GRO status
-</button>
-<a href="#">Cancel</a>
-</div>
-
-  </div>
-</details>
-<hr class="govuk-section-break govuk-section-break--visible">
-</div>
-</div>  -->
 
 
  <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-0 govuk-!-padding-top-6" style="border: 4px solid #f3f2f1;">
 
-    <h3 class="govuk-heading-s">Notes</h3>
+    <h3 class="govuk-heading-m">Notes</h3>
      <p id="note-text" class="govuk-body">None</p>
     <div class="govuk-grid-row govuk-!-margin-bottom-2 govuk-!-margin-left-0">
   <div class="govuk-grid-column-one-half govuk-!-margin-left-0" >
@@ -875,7 +773,8 @@
           <li>useful dates</li>
         </ul>
       </div>
-      <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      <textarea class="govuk-textarea govuk-!-margin-bottom-1" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+      <p class="govuk-hint govuk-!-font-size-16">Up to 879 characters in total for each note</p>
     </div>
 
     <div class="govuk-button-group">
@@ -903,53 +802,16 @@
     document.getElementById('more-detail').value = '';
   });
 </script>
-<!-- <h3 class="govuk-heading-s">Notes</h3>
-<p class="govuk-body">None</p>
 
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Add note
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-   
-    <div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--s" for="more-detail">
-      Add notes about this case
-    </label>
-  </h1>
-  <div id="more-detail-hint" class="govuk-body">
-    
-   <p class="govuk-body">Add relevant notes for this case, such as:</p> 
-    <ul class="govuk-list govuk-list--bullet">
-<li>any special circumstances causing delays</li>
-<li>useful dates</li>
-</ul>
-  </div>
-  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
-</div>
-
- <div class="govuk-button-group">
-<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add note
-</button>
-<a href="#">Cancel</a>
-</div>
-
-
-  </div>
-</details> -->
-<hr class="govuk-section-break govuk-section-break--visible">
+<!-- <hr class="govuk-section-break govuk-section-break--visible"> -->
 </div>
 </div>
 
 
 
-<h3 class="govuk-heading-m govuk-!-margin-top-5">Contact timeline</h3>
+<h3 class="govuk-heading-m govuk-!-margin-top-9">Contact timeline</h3>
   <!-- <p class="govuk-body">(This shows a timeline of when communications were due)</p> -->
-<table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
+<table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-6">
   
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -961,12 +823,12 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Third formal requisition</th>
-      <td class="govuk-table__cell">Around end of November</td>
+      <td class="govuk-table__cell">End of November</td>
       <td class="govuk-table__cell"></td>
     </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Second formal requisition</th>
-      <td class="govuk-table__cell">Around mid-November</td>
+      <td class="govuk-table__cell">Mid-November</td>
       <td class="govuk-table__cell"></td>
     </tr>
     <tr class="govuk-table__row">
@@ -983,7 +845,7 @@
   </tbody>
 </table>
 
-<h3 class="govuk-heading-m govuk-!-margin-top-5">Other Events</h3>
+<h3 class="govuk-heading-m govuk-!-margin-top-0">Other events</h3>
   <!-- <p class="govuk-body">(This shows a timeline of when communications were due)</p> -->
 <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
   
