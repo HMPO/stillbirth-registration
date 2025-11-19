@@ -208,7 +208,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-            3 November 2025 <br>4-week informal contact
+            18 November 2025 <br>4-week informal contact
           </p>
         </div>
       </div>
@@ -218,7 +218,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            18 November 2025<br>6-week formal requisition
+            3 December 2025<br>6-week formal requisition
           </p>
         </div>
       </div>
@@ -235,7 +235,7 @@
         </p>
         <div style="padding: 10px; background-color: #f3f2f1;">
           <p class="govuk-body govuk-!-margin-0">
-           16 November 2025<br>6-week formal requisition
+           18 November 2025<br>6-week formal requisition
           </p>
         </div>
       </div>
@@ -245,7 +245,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            End of November 2025<br>Second formal requisition
+            Beginning of December 2025<br>Second formal requisition
           </p>
         </div>
       </div>
@@ -297,7 +297,7 @@
         </p>
 <div style="padding: 10px; background-color: #FFF5B8;">
           <p class="govuk-body govuk-!-margin-0">
-            Report to the GRO <br> &nbsp;
+             Report to GRO<br> &nbsp;
           </p>
         </div>
       </div>
@@ -350,22 +350,67 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Third formal requisition</td>
-      <td class="govuk-table__cell" style="border-bottom: 0px;">End of November</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+       End of December 2025
+       {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        Mid-December 2025
+        {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+        End of  November 2025
+        {% elif data.daysSince >= 70 %}
+        Mid-November 2025
+        {% else %}
+        {% endif %}
+      
+      </td>
       
     </tr>
     <tr class="govuk-table__row">
       <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Second formal requisition</td>
-      <td class="govuk-table__cell" style="border-bottom: 0px;">Mid-November</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+        {% if data.daysSince < 42 %}
+        Mid-December 2025
+        {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+Beginning of December 2025
+         {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+Mid-November 2025
+         {% elif data.daysSince >= 70 %}
+       Beginning of November 2025
+        {% else %}
+      {% endif %}
+      </td>
       
     </tr>
     <tr class="govuk-table__row">
       <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">6-week formal requisition</td>
-      <td class="govuk-table__cell" style="border-bottom: 0px;">29 October 2025</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+        3 December 2025
+        {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        18 November 2025
+         {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+        5 November 2025
+         {% elif data.daysSince >= 70 %}        
+        22 October 2025
+        {% else %}
+      {% endif %}
+      </td>
       
     </tr>
     <tr class="govuk-table__row">
       <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">4-week informal contact</td>
-      <td class="govuk-table__cell" style="border-bottom: 0px;">15 October 2025</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+         18 November 2025
+         {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        5 November 2025
+          {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+          22 October 2025
+          {% elif data.daysSince >= 70 %}
+        8 October 2025
+        {% else %}
+        {% endif %}
+      </td>
       
     </tr>
    
