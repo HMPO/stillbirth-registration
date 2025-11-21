@@ -219,7 +219,7 @@
 
     </div>
   
-      {% if data.daysSince < 42 %}
+     {% if data.daysSince < 42 %}
     <!-- status for contact under 42 days -->
   <div class="govuk-grid-column-three-quarters">
     <div class="govuk-grid-row">
@@ -227,7 +227,7 @@
         <p class="govuk-body govuk-!-margin-0">
           <strong>Last contact was due</strong>
         </p>
-        <div style="padding: 10px; background-color: #f3f2f1;">
+        <div style="padding: 10px; background-color: rgb(232, 241, 248);">
           <p class="govuk-body govuk-!-margin-0">
             18 November 2025 <br>4-week informal contact
           </p>
@@ -254,7 +254,7 @@
         <p class="govuk-body govuk-!-margin-0">
           <strong>Last contact was due</strong>
         </p>
-        <div style="padding: 10px; background-color: #f3f2f1;">
+        <div style="padding: 10px; background-color: rgb(255, 247, 191)">
           <p class="govuk-body govuk-!-margin-0">
            18 November 2025<br>6-week formal requisition
           </p>
@@ -264,7 +264,7 @@
  <p class="govuk-body govuk-!-margin-0">
           <strong>Next contact will be due</strong>
         </p>
-<div style="padding: 10px; background-color: #FFF5B8;">
+<div style="padding: 10px; background-color: rgb(244, 205, 198)">
           <p class="govuk-body govuk-!-margin-0">
             Beginning of December 2025<br>Second formal requisition
           </p>
@@ -280,7 +280,7 @@
         <p class="govuk-body govuk-!-margin-0">
           <strong>Last contact was due</strong>
         </p>
-        <div style="padding: 10px; background-color: #f3f2f1;">
+        <div style="padding: 10px; background-color: rgb(244, 205, 198)">
           <p class="govuk-body govuk-!-margin-0">
             Mid-November 2025<br>Second formal requisition
           </p>
@@ -290,8 +290,8 @@
  <p class="govuk-body govuk-!-margin-0">
           <strong>Next contact will be due</strong>
         </p>
-<div style="padding: 10px; background-color: #FFF5B8;">
-          <p class="govuk-body govuk-!-margin-0">
+<div style="padding: 10px; background-color: rgb(212, 53, 28)">
+          <p class="govuk-body govuk-!-margin-0" style="color: white;">
             End of November 2025<br>Third formal requisition
           </p>
         </div>
@@ -306,8 +306,8 @@
         <p class="govuk-body govuk-!-margin-0">
           <strong>Last contact was due</strong>
         </p>
-        <div style="padding: 10px; background-color: #f3f2f1;">
-          <p class="govuk-body govuk-!-margin-0">
+        <div style="padding: 10px; background-color: rgb(212, 53, 28)">
+          <p class="govuk-body govuk-!-margin-0" style="color: white;">
             Mid-November 2025<br>Third formal requisition
           </p>
         </div>
@@ -316,9 +316,9 @@
  <p class="govuk-body govuk-!-margin-0">
           <strong>Next contact will be due</strong>
         </p>
-<div style="padding: 10px; background-color: #FFF5B8;">
-          <p class="govuk-body govuk-!-margin-0">
-             Report to GRO<br> &nbsp;
+<div style="padding: 10px; background-color: #505a5f">
+          <p class="govuk-body govuk-!-margin-0" style="color: white;">
+             Refer to GRO<br> &nbsp;
           </p>
         </div>
       </div>
@@ -354,6 +354,7 @@
 
 
 
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 <h3 class="govuk-heading-m govuk-!-margin-bottom-0">When to contact the informant </h3>
@@ -370,7 +371,7 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Third formal requisition</td>
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;"><strong class="govuk-tag--red govuk-!-padding-1 govuk-!-font-weight-regular" style="background-color: #d4351c; color: white;">Third formal requisition</strong></td>
       <td class="govuk-table__cell" style="border-bottom: 0px;">
          {% if data.daysSince < 42 %}
        End of December 2025
@@ -387,7 +388,7 @@
       
     </tr>
     <tr class="govuk-table__row">
-      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Second formal requisition</td>
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;"><strong class="govuk-tag--red govuk-!-padding-1 govuk-!-font-weight-regular">Second formal requisition</strong></td>
       <td class="govuk-table__cell" style="border-bottom: 0px;">
         {% if data.daysSince < 42 %}
         Mid-December 2025
@@ -403,7 +404,7 @@ Mid-November 2025
       
     </tr>
     <tr class="govuk-table__row">
-      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">6-week formal requisition</td>
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;"><strong class="govuk-tag--yellow govuk-!-padding-1 govuk-!-font-weight-regular">6-week formal requisition</strong></td>
       <td class="govuk-table__cell" style="border-bottom: 0px;">
          {% if data.daysSince < 42 %}
         3 December 2025
@@ -419,7 +420,7 @@ Mid-November 2025
       
     </tr>
     <tr class="govuk-table__row">
-      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">4-week informal contact</td>
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;"><strong class="govuk-tag--light-blue govuk-!-padding-1 govuk-!-font-weight-regular">4-week informal contact</strong></td>
       <td class="govuk-table__cell" style="border-bottom: 0px;">
          {% if data.daysSince < 42 %}
          18 November 2025
@@ -439,6 +440,8 @@ Mid-November 2025
 </table>
 </div>
 </div>
+
+
 
 
 
