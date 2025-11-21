@@ -15,12 +15,12 @@
 <script>
   function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
     event.preventDefault();
-    const url = `03-notification-detail-v2.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
+    const url = `03-notification-detail-v2a.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
     window.location.href = url;
   }
 </script>
 
- <form class="form" action="03-notification-detail-v2.html" method="post">
+ <form class="form" action="03-notification-detail-v2a.html" method="post">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
 
@@ -48,20 +48,12 @@
   items: [
     {
       value: "published",
-      text: "Wakefield ",
+      text: "Wakefield",
       selected: true
     },
     {
       value: "views",
-      text: "District 1"
-    },
-    {
-      value: "views",
-      text: "District 2"
-    },
-     {
-      value: "views",
-      text: "District 3 etc"
+      text: "Hide notifications with multiple districts"
     }
   ]
 }) }}
@@ -79,7 +71,7 @@
 
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-m">From 6 weeks up to 3 months after birth</h2>
+<h2 class="govuk-heading-m">Between 6 to 14 weeks after birth</h2>
 
 <p class="govuk-body">(Between 43 to 84 days)</p>
 
@@ -98,7 +90,8 @@
       <th scope="col" class="govuk-table__header" style="padding-top: 10px;">Child's NHS number</th>
       <th scope="col" class="govuk-table__header">Mother's name</th>
       <th scope="col" class="govuk-table__header">Date of birth</th>
-      <th scope="col" class="govuk-table__header">Days since birth</th>
+      <th scope="col" class="govuk-table__header">Days<br>since<br>birth</th>
+       <th scope="col" class="govuk-table__header">Stillborn<br>or died</th>
       <th scope="col" class="govuk-table__header">Next formal<br>requisition due</th>
       <th scope="col" class="govuk-table__header">Status</th>
       
@@ -112,6 +105,7 @@
       <td class="govuk-table__cell">DUFFY, Anna</td>
       <td class="govuk-table__cell">3 September 2025</td>
       <td class="govuk-table__cell">70</td>
+      <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">End of November 2025<br>
       Third formal requisition</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">
@@ -126,6 +120,7 @@
       <td class="govuk-table__cell">SHORT, Celine</td>
       <td class="govuk-table__cell">26 September 2025</td>
       <td class="govuk-table__cell">47</td>
+      <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">Mid-November 2025<br>Second formal requisition</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
           6-week formal requisition sent
@@ -153,7 +148,8 @@
       <th scope="col" class="govuk-table__header" style="padding-top: 10px;">Child's NHS number</th>
       <th scope="col" class="govuk-table__header">Mother's name</th>
       <th scope="col" class="govuk-table__header">Date of birth</th>
-      <th scope="col" class="govuk-table__header">Days since birth</th>
+      <th scope="col" class="govuk-table__header">Days<br>since<br>birth</th>
+      <th scope="col" class="govuk-table__header">Stillborn<br>or died</th>
       <th scope="col" class="govuk-table__header">Informal<br>contact due</th>
       <th scope="col" class="govuk-table__header">Contact made</th>
     </tr>
@@ -164,6 +160,7 @@
       <td class="govuk-table__cell">HUSEIN, Lila</td>
       <td class="govuk-table__cell">1 October 2025</td>
       <td class="govuk-table__cell">42</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">29 October 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
           6-week formal requisition sent
@@ -174,6 +171,7 @@
       <td class="govuk-table__cell">SMITH, Olivia</td>
       <td class="govuk-table__cell">3 October 2025</td>
       <td class="govuk-table__cell">40</td>
+      <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">31 October 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
           4-week informal
@@ -184,6 +182,7 @@
       <td class="govuk-table__cell">JONES, Emily</td>
       <td class="govuk-table__cell">4 October 2025</td>
       <td class="govuk-table__cell">39</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">1 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
           4-week informal
@@ -194,6 +193,7 @@
       <td class="govuk-table__cell">WILLIAMS, Sophie</td>
       <td class="govuk-table__cell">5 October 2025</td>
       <td class="govuk-table__cell">38</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">2 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
           Appointment<br>
@@ -203,8 +203,11 @@
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')">390 789 0123</a></td>
       <td class="govuk-table__cell">BROWN, Amelia</td>
+
       <td class="govuk-table__cell">6 October 2025</td>
+      
       <td class="govuk-table__cell">37</td>
+      <td class="govuk-table__cell">Died</td>
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--pink">
           3 December 2025
@@ -219,6 +222,7 @@
       <td class="govuk-table__cell">DAVIES, Isla</td>
       <td class="govuk-table__cell">7 October 2025</td>
       <td class="govuk-table__cell">36</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">4 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
           4-week informal
@@ -229,6 +233,7 @@
       <td class="govuk-table__cell">EVANS, Ava</td>
       <td class="govuk-table__cell">8 October 2025</td>
       <td class="govuk-table__cell">35</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">5 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">
          No 4-week informal
@@ -239,6 +244,7 @@
       <td class="govuk-table__cell">THOMAS, Mia</td>
       <td class="govuk-table__cell">9 October 2025</td>
       <td class="govuk-table__cell">34</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">6 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">
          No 4-week informal
@@ -249,6 +255,7 @@
       <td class="govuk-table__cell">WILSON, Ella</td>
       <td class="govuk-table__cell">10 October 2025</td>
       <td class="govuk-table__cell">33</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">7 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">
            No 4-week informal
@@ -259,6 +266,7 @@
       <td class="govuk-table__cell">ROBERTS, Grace</td>
       <td class="govuk-table__cell">11 October 2025</td>
       <td class="govuk-table__cell">32</td>
+      <td class="govuk-table__cell"></td>
       <td class="govuk-table__cell">8 November 2025</td>
        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">
             No 4-week informal

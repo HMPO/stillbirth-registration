@@ -1,0 +1,442 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+   Details of unregistered – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "02-notifications.html"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<script>
+  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
+    event.preventDefault();
+    const url = `03-notification-detail.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
+    window.location.href = url;
+  }
+</script>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+       Details of unregistered birth
+      </h1>
+
+</div>
+</div>
+
+
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous birth notification</a> &nbsp; 
+        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next birth notification</a>
+  </p>
+</div>
+</div>
+
+<!-- <nav class="govuk-pagination" aria-label="Pagination">
+  <div class="govuk-pagination__prev">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+      <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+      </svg>
+      <span class="govuk-pagination__link-title">
+        Previous child<span class="govuk-visually-hidden"> page</span>
+      </span>
+    </a>
+  </div>
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item">|</li></ul>
+
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next child<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav> -->
+ 
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body-s">
+      <strong>Details from the NHS birth notification</strong></p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Child's NHS number</strong><br>
+       {{ data['nhs-number'] }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Date of birth</strong><br>
+       {{ data['date-of-birth'] }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Sex</strong><br>
+       {{ data['childs-sex'] }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Live, stillborn or died</strong><br>
+      {{ data['child-life'] }}
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+   <p class="govuk-body-s">
+      <strong>Place of birth</strong><br>
+      St. Mary's Hospital, Wakefield
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>District on notification</strong><br>
+      Wakefield
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+</div>
+
+   <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Mother's first name</strong><br>
+       {{ data['mothers-first-name'] }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Mother's last name</strong><br>
+       {{ data['mothers-last-name'] | upper }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's NHS number</strong><br>
+      1087 654 321
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
+      {{ data['mothers-dob'] }} 
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <p class="govuk-body-s"><strong>Mother's address on notification</strong><br>
+       {{ data['mothers-street'] }},<br>
+      Wakefield {{ data['mothers-pcode'] }}
+    </p>
+  </div>
+ 
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    
+  </div>
+</div>
+
+</div>
+</div>
+      
+
+<div class="govuk-grid-row  govuk-!-margin-bottom-2">
+  <div class="govuk-grid-column-full govuk-!-padding-6">
+
+    <div class="govuk-grid-row govuk-!-margin-bottom-3">
+  <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body govuk-!-margin-0">
+          <strong>Days since birth</strong>
+        </p>
+    
+  
+
+      <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-heading-xl govuk-!-margin-0">
+          {{ data['daysSince'] }}
+          </p>
+        </div>
+
+    </div>
+   
+      {% if data.daysSince < 42 %}
+    <!-- status for contact under 42 days -->
+  <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            18 November 2025 <br>4-week informal contact
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong> Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            3 December 2025<br>6-week formal requisition
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+     <!-- status for contact between 42 and 56 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+           18 November 2025<br>6-week formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            Beginning of December 2025<br>Second formal requisition
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+     <!-- status for contact between 56 and 70 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            Mid-November 2025<br>Second formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+            End of November 2025<br>Third formal requisition
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% elif data.daysSince >= 70 %}
+     <!-- status for contact equal or over 70 days -->
+       <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <p class="govuk-body govuk-!-margin-0">
+          <strong>Last contact was due</strong>
+        </p>
+        <div style="padding: 10px; background-color: #f3f2f1;">
+          <p class="govuk-body govuk-!-margin-0">
+            Mid-November 2025<br>Third formal requisition
+          </p>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+ <p class="govuk-body govuk-!-margin-0">
+          <strong>Next contact will be due</strong>
+        </p>
+<div style="padding: 10px; background-color: #FFF5B8;">
+          <p class="govuk-body govuk-!-margin-0">
+             Report to GRO<br> &nbsp;
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+ 
+
+</div>
+
+<div>
+
+
+ {% if data.daysSince >= 42 %}
+<div class="govuk-warning-text govuk-!-margin-bottom-3">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+   You must report to the GRO about this birth
+  </strong>
+</div>
+{% else %}
+
+{% endif %}
+
+
+</div>
+
+</div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+<h3 class="govuk-heading-m govuk-!-margin-bottom-0">When to contact the informant </h3>
+<!-- <h3 class="govuk-heading-m">Expected contact</h3> -->
+  <!-- <p class="govuk-body">This list shows when it's expected to contact the informant.</p> -->
+<table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Contact type</th>
+      <th scope="col" class="govuk-table__header">Expected by</th>
+      
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Third formal requisition</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+       End of December 2025
+       {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        Mid-December 2025
+        {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+        End of  November 2025
+        {% elif data.daysSince >= 70 %}
+        Mid-November 2025
+        {% else %}
+        {% endif %}
+      
+      </td>
+      
+    </tr>
+    <tr class="govuk-table__row">
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">Second formal requisition</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+        {% if data.daysSince < 42 %}
+        Mid-December 2025
+        {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+Beginning of December 2025
+         {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+Mid-November 2025
+         {% elif data.daysSince >= 70 %}
+       Beginning of November 2025
+        {% else %}
+      {% endif %}
+      </td>
+      
+    </tr>
+    <tr class="govuk-table__row">
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">6-week formal requisition</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+        3 December 2025
+        {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        18 November 2025
+         {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+        5 November 2025
+         {% elif data.daysSince >= 70 %}        
+        22 October 2025
+        {% else %}
+      {% endif %}
+      </td>
+      
+    </tr>
+    <tr class="govuk-table__row">
+      <td scope="row" class="govuk-table__cell" style="border-bottom: 0px;">4-week informal contact</td>
+      <td class="govuk-table__cell" style="border-bottom: 0px;">
+         {% if data.daysSince < 42 %}
+         18 November 2025
+         {% elif data.daysSince >= 42 and data.daysSince <= 56 %}
+        5 November 2025
+          {% elif data.daysSince >= 57 and data.daysSince <= 69 %}
+          22 October 2025
+          {% elif data.daysSince >= 70 %}
+        8 October 2025
+        {% else %}
+        {% endif %}
+      </td>
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+
+ <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
+
+     <form action="01-who-is-informant" method="post" novalidate>
+
+
+ <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Register this birth
+  </button>
+
+      </form>
+
+       <!-- <div class="govuk-form-group">
+       <p class="govuk-body"><a href="02-notifications.html" class="govuk-link">No, return</a></p>
+      </div>    -->
+   
+
+
+{% endblock %}
