@@ -22,7 +22,18 @@
   }
 </script>
 
-
+{% set data = {
+    'daysSince': 56,
+    'nhs-number': '390 123 4567',
+    'date-of-birth': '17 September 2025',
+    'childs-sex': 'Female',
+    'child-life': 'Live',
+    'mothers-first-name': 'Charlotte',
+    'mothers-last-name': 'O CONNELL',
+    'mothers-dob': '14 February 1997',
+    'mothers-street': '2a Chippenham Road',
+    'mothers-pcode': 'WK1 7QT'
+} %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -138,13 +149,13 @@
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
       <strong>Mother's first name</strong><br>
-       Charlotte
+        {{ data['mothers-first-name'] }}
     </p>
   </div>
  <div class="govuk-grid-column-one-quarter">
      <p class="govuk-body-s">
       <strong>Mother's last name</strong><br>
-      O'CONNELL
+       {{ data['mothers-last-name'] | upper }}
     </p>
   </div>
   <div class="govuk-grid-column-one-quarter">
