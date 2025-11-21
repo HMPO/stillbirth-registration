@@ -65,18 +65,20 @@
 </div>
 </div>
 
- <!-- <div class="govuk-grid-row govuk-!-margin-bottom-6">
-      <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-m">Over 14 weeks after birth</h2>
+     <div class="govuk-grid-row govuk-!-margin-bottom-9" >
+      <div class="govuk-grid-column-full" >
+<h2 class="govuk-heading-m">Unregistered 3 months after birth </h2>
 
-<p class="govuk-body">16 births after 85 Days remain unregistered &nbsp; <a href="#">View</a></p>
+<p class="govuk-body">16 births after 85 Days remain unregistered &nbsp; </p>
+  <p><a href="#">Show all</a></p>
+  <hr class="govuk-section-break govuk-section-break--visible">
 </div>
-</div> -->
+</div>
 
 
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-m">From 6 weeks up to 3 months after birth</h2>
+<h2 class="govuk-heading-m">Formal requisitions: over 6 weeks after birth</h2>
 
 <p class="govuk-body">(Between 43 to 84 days)</p>
 <div class="govuk-warning-text">
@@ -87,7 +89,7 @@
   </strong>
 </div>
 
-
+<p class="govuk-body">Showing 1 to 10 of 14</p>
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications for births between 43 to 70 days</caption>
   <thead class="govuk-table__head">
@@ -96,7 +98,7 @@
       <th scope="col" class="govuk-table__header">Mother's name</th>
       <th scope="col" class="govuk-table__header">Date of birth</th>
       <th scope="col" class="govuk-table__header">Days since<br>birth</th>
-      <th scope="col" class="govuk-table__header">Stillborn<br>or died</th>
+      <th scope="col" class="govuk-table__header">Live, stillborn<br>or died</th>
       <th scope="col" class="govuk-table__header">6-week formal <br>requisition due</th>
       
     </tr>
@@ -108,8 +110,8 @@
       </td>
       <td class="govuk-table__cell">DUFFY, Anna</td>
       <td class="govuk-table__cell">3 September 2025</td>
-      <td class="govuk-table__cell">70</td>
-      <td class="govuk-table__cell">Stillborn</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red" style="background-color: #d4351c; color: white;">70</strong></td>
+     <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">15 October 2025</td>
      
     </tr>
@@ -119,12 +121,78 @@
       </td>
       <td class="govuk-table__cell">LITCHFIELD-JONES,<br>Celine</td>
       <td class="govuk-table__cell">26 September 2025</td>
-      <td class="govuk-table__cell">47</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">57</strong></td>
       <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">20 October 2025</td>
-     
     </tr>
   
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+       <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+      <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+       <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+       <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      <td class="govuk-table__cell">1 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">42</strong></td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">29 October 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td><p class="govuk-body govuk-!-margin-top-2"><a href="#">Show more</a></p></td>
+     </tr>
   </tbody>
 </table>
 
@@ -132,12 +200,12 @@
     </div>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-<h2 class="govuk-heading-m">Between 4 to 6 weeks after birth</h2>
+<h2 class="govuk-heading-m">Informal reminders: 4 to 6 weeks after birth </h2>
 
 <p class="govuk-body">(Between 28 to 42 days)</p>
 
 
-<p class="govuk-body">Showing 1 to 10 of 14</p>
+<p class="govuk-body">Showing 1 to 10 of 21</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications for births between 43 to 70 days</caption>
@@ -147,48 +215,44 @@
       <th scope="col" class="govuk-table__header">Mother's name</th>
       <th scope="col" class="govuk-table__header">Date of birth</th>
       <th scope="col" class="govuk-table__header">Days since<br>birth</th>
-      <th scope="col" class="govuk-table__header">Stillborn<br>or died</th>
+      <th scope="col" class="govuk-table__header">Live,stillborn<br>or died</th>
+      
       <th scope="col" class="govuk-table__header">4-week informal<br>contact due</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '42')">390 123 4567</a></td>
-      <td class="govuk-table__cell">HUSEIN, Lila</td>
-      <td class="govuk-table__cell">1 October 2025</td>
-      <td class="govuk-table__cell">42</td>
-      <td class="govuk-table__cell"></td>
-      <td class="govuk-table__cell">29 October 2025</td>
-    </tr>
+   
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 6543', '3 October 2025', 'Olivia', 'SMITH', 'Female', 'Stillborn', '177c St. George Lane', 'WK1 2RG', '8 March 1990', '40')">390 987 6543</a></td>
       <td class="govuk-table__cell">SMITH, Olivia</td>
       <td class="govuk-table__cell">3 October 2025</td>
-      <td class="govuk-table__cell">40</td>
-      <td class="govuk-table__cell">Stillborn</td>
+       
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">40</strong></td>
+     <td class="govuk-table__cell">Stillborn</td>
       <td class="govuk-table__cell">31 October 2025</td>
     </tr>
     <tr class="govuk-table__row">
      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39')">390 456 7890</a></td>
        <td class="govuk-table__cell">JONES, Emily</td>
       <td class="govuk-table__cell">4 October 2025</td>
-      <td class="govuk-table__cell">39</td>
-      <td class="govuk-table__cell"></td>
+      
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">39</strong></td>
+       <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">1 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 3210', '5 October 2025', 'Sophie', 'WILLIAMS', 'Male', 'Live', '114d Kingfisher Way', 'WK4E 8PY', '25 May 1995', '38')">390 654 3210</a></td>
       <td class="govuk-table__cell">WILLIAMS, Sophie</td>
       <td class="govuk-table__cell">5 October 2025</td>
-      <td class="govuk-table__cell">38</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">38</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">2 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990','37')">390 789 0123</a></td>
       <td class="govuk-table__cell">BROWN, Amelia</td>
       <td class="govuk-table__cell">6 October 2025</td>
-      <td class="govuk-table__cell">37</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">37</td>
       <td class="govuk-table__cell">Died</td>
       <td class="govuk-table__cell">3 November 2025</td>
     </tr>
@@ -196,40 +260,48 @@
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 6540', '7 October 2025', 'Isla', 'DAVIES', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '21 July 2000', '36')">390 321 6540</a></td>
       <td class="govuk-table__cell">DAVIES, Isla</td>
       <td class="govuk-table__cell">7 October 2025</td>
-      <td class="govuk-table__cell">36</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">36</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">4 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 322 6610', '8 October 2025', 'Ava', 'EVANS', 'Female', 'Live', '121a Church Street', 'WK2 3NZ', '18 June 1999','35')">390 322 6610</a></td>
       <td class="govuk-table__cell">EVANS, Ava</td>
       <td class="govuk-table__cell">8 October 2025</td>
-      <td class="govuk-table__cell">35</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">35</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">5 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
     <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 9870', '9 October 2025', 'Mia', 'THOMAS', 'Male', 'Live', '41 Briar Hill', 'WK3 5NG', '30 April 1997', '34')">390 654 9870</a></td>
      <td class="govuk-table__cell">THOMAS, Mia</td>
       <td class="govuk-table__cell">9 October 2025</td>
-      <td class="govuk-table__cell">34</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">34</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">6 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 9870', '10 October 2025', 'Ella', 'WILSON', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '23 April 2001', '33')">390 321 9870</a></td>
       <td class="govuk-table__cell">WILSON, Ella</td>
       <td class="govuk-table__cell">10 October 2025</td>
-      <td class="govuk-table__cell">33</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">33</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
+      <td class="govuk-table__cell">7 November 2025</td>
+    </tr>
+     <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '391 001 8771', '10 October 2025', 'Sara', 'THOMPSON-KHAN', 'Male', 'Live', '22a Makepeace Muse', 'WK11 3NN', '14 July 2002', '33')">391 001 8771</a></td>
+      <td class="govuk-table__cell">THOMPSON-KHAN, Sara</td>
+      <td class="govuk-table__cell">10 October 2025</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">33</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">7 November 2025</td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 3210', '11 October 2025', 'Grace', 'ROBERTS', 'Female', 'Live', '80 Victoria Terrace', 'WK5 9MB', '3 October 1998','32')">390 789 3210</a></td>
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '391 789 3210', '11 October 2025', 'Grace', 'ROBERTS', 'Female', 'Live', '80 Victoria Terrace', 'WK5 9MB', '3 October 1998','32')">391 789 3210</a></td>
       <td class="govuk-table__cell">ROBERTS, Grace</td>
       <td class="govuk-table__cell">11 October 2025</td>
-      <td class="govuk-table__cell">32</td>
-      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">32</td>
+      <td class="govuk-table__cell"><span style="color: #505a5f;">Live</span></td>
       <td class="govuk-table__cell">8 November 2025</td>
     </tr>
      <tr class="govuk-table__row">
@@ -244,14 +316,7 @@
     </div>
 
 
-       <div class="govuk-grid-row govuk-!-margin-bottom-6" >
-      <div class="govuk-grid-column-full" style="border-bottom: 1px solid #b1b4b6;">
-<h2 class="govuk-heading-m">Over 3 months after birth</h2>
-
-<p class="govuk-body">16 births after 85 Days remain unregistered &nbsp; </p>
-  <p><a href="#">Show all</a></p>
-</div>
-</div>
+  
 
 </form>
 
