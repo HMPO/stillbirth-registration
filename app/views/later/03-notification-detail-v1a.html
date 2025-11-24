@@ -7,7 +7,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "02-notifications.html"
+    href: "javascript:window.history.back()"
   }) }}
 {% endblock %}
 
@@ -161,7 +161,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    <p class="govuk-body-s"><strong>Mother's address on notification</strong><br>
+    <p class="govuk-body-s"><strong>Address on notification</strong><br>
        {{ data['mothers-street'] }},<br>
       Wakefield {{ data['mothers-pcode'] }}
     </p>
