@@ -18,6 +18,8 @@ require('./views/req-ur-r1/_routes')(router);
 
 require('./views/req-ur-r2/_routes')(router);
 
+require('./views/req-ur-r3/_routes')(router);
+
 require('./views/latest/_routes')(router);
 require('./views/latest/informant/_routes')(router);
 require('./views/latest/no-informant/_routes')(router);
