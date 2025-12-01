@@ -59,6 +59,42 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-quarter">
     <p class="govuk-body-s">
+      <strong>Mother's first name</strong><br>
+       {{ data['mothers-first-name'] }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Mother's last name</strong><br>
+       {{ data['mothers-last-name'] | upper }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's NHS number</strong><br>
+      1087 654 321
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
+      {{ data['mothers-dob'] }} 
+    </p>
+  </div>
+</div>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
       <strong>Child's NHS number</strong><br>
        {{ data['nhs-number'] }}
     </p>
@@ -96,60 +132,16 @@
       Luton
     </p>
   </div>
-  <div class="govuk-grid-column-one-quarter">
-    
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-    
-  </div>
-</div>
-
-   <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-    <hr class="govuk-section-break govuk-section-break--visible">
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-quarter">
-    <p class="govuk-body-s">
-      <strong>Mother's first name</strong><br>
-       {{ data['mothers-first-name'] }}
-    </p>
-  </div>
- <div class="govuk-grid-column-one-quarter">
-     <p class="govuk-body-s">
-      <strong>Mother's last name</strong><br>
-       {{ data['mothers-last-name'] | upper }}
-    </p>
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-      <p class="govuk-body-s"><strong>Mother's NHS number</strong><br>
-      1087 654 321
-    </p>
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-      <p class="govuk-body-s"><strong>Mother's date of birth</strong><br>
-      {{ data['mothers-dob'] }} 
-    </p>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
+ 
+    <div class="govuk-grid-column-one-half">
     <p class="govuk-body-s"><strong>Address on notification</strong><br>
        {{ data['mothers-street'] }},<br>
       Luton {{ data['mothers-pcode'] }}
     </p>
   </div>
- 
-  <div class="govuk-grid-column-one-quarter">
-    
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-    
-  </div>
 </div>
+
+
 
 </div>
 </div>
