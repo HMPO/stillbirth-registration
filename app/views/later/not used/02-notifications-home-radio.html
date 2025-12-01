@@ -27,25 +27,28 @@
         <h1 class="govuk-heading-l">
           Unregistered birth notifications
         </h1>
-        <!-- <p class="govuk-body">NHS birth notifications that need to be registered.</p> -->
+        <p class="govuk-body">NHS birth notifications that need to be registered.</p>
       </div>
     </div>
 
 <div class="govuk-grid-row govuk-!-margin-bottom-6">
   <div class="govuk-grid-column-three-quarters govuk-!-margin-3 govuk-!-padding-4"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6; padding-bottom: 0 !important;">
-  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% set textHtml %}
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {{ govukSelect({
   id: "sort",
-  label: {
-    text: "District on notification",
-    classes: "govuk-fieldset__legend--s"
-  },
   name: "sort",
   items: [
   {
       value: "views",
-      text: "Wakefield"
+      text: "Select district"
     },
      {
       value: "views",
@@ -77,7 +80,53 @@
     }
   ]
 }) }}
+{% endset -%}
 
+{{ govukRadios({
+  name: "contact",
+  classes: "govuk-radios--small govuk-!-margin-bottom-0 govuk-!-padding-bottom-0",
+  fieldset: {
+    classes: "govuk-!-margin-bottom-0 govuk-!-padding-bottom-0",
+    legend: {
+      text: "Filter by notifications",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  
+  items: [
+    {
+      value: "district",
+      text: "Wakefield district (48)",
+      checked: true
+    },
+    {
+      value: "birth-place",
+      text: "Place of birth in Wakefield (2)"
+    },
+    {
+      value: "other",
+      text: "Other district",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Notifications in other districts
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    You can view birth notifications where the place of birth is in Wakefield but the district listed on the notification is elsewhere. 
+  </div>
+</details>
+
+
+  
 </div>
 </div>
 
@@ -157,7 +206,12 @@
     </div>
 
 
+    {% from "govuk/components/button/macro.njk" import govukButton %}
 
+{{ govukButton({
+  text: "Download CSV for all unregistered births"
+}) }}
+  
 
 </form>
 
