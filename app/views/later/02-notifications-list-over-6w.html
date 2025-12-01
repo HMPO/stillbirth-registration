@@ -25,85 +25,126 @@
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
 
         <h1 class="govuk-heading-l">
-          6 weeks after birth
+         Unregistered birth notifications
         </h1>
-        <p class="govuk-body">Unregistered over 42 days after birth</p>
-
       </div>
     </div>
 
-   <div class="govuk-grid-row govuk-!-margin-bottom-6">
-  <div class="govuk-grid-column-three-quarters govuk-!-margin-3 govuk-!-padding-4"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6; padding-bottom: 0 !important;">
-<h3 class="govuk-heading-s">Filter by</h3>
-
-      {% from "govuk/components/select/macro.njk" import govukSelect %}
-
-{{ govukSelect({
-  id: "sort",
-  name: "sort",
-  items: [
-  {
-      value: "views",
-      text: "Wakefield (10)"
-    },
-     {
-      value: "views",
-      text: "Anglesea"
-    },
-     {
-      value: "views",
-      text: "Ashbourne"
-    },
-     {
-      value: "views",
-      text: "Bath and North East Somerset"
-    },
-     {
-      value: "views",
-      text: "Barking and Dagenham"
-    },
-     {
-      value: "views",
-      text: "Birmingham"
-    },
-    {
-      value: "views",
-      text: "Blackpool"
-    },
-     {
-      value: "views",
-      text: "etc"
-    }
-  ]
-}) }}
-
-
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Notifications in other districts
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    You can view birth notifications where the place of birth is in Wakefield but the district listed on the notification is elsewhere. 
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-4"
+      style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6; padding-bottom: 0 !important;">
+  
+      <div class="govuk-grid-row" id="filters-at-top">
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/select/macro.njk" import govukSelect %}
+  
+          {{ govukSelect({
+          id: "sort",
+          classes: "govuk-!-width-full",
+          label: {
+          text: "District on notification",
+          classes: "govuk-fieldset__legend--s"
+          },
+          name: "sort",
+          items: [
+          {
+          value: "views",
+          text: "Wakefield"
+          },
+          {
+          value: "views",
+          text: "Anglesea"
+          },
+          {
+          value: "views",
+          text: "Ashbourne"
+          },
+          {
+          value: "views",
+          text: "Bath and North East Somerset"
+          },
+          {
+          value: "views",
+          text: "Barking and Dagenham"
+          },
+          {
+          value: "views",
+          text: "Birmingham"
+          },
+          {
+          value: "views",
+          text: "Blackpool"
+          },
+          {
+          value: "views",
+          text: "etc"
+          }
+          ]
+          }) }}
+  
+        </div>
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/select/macro.njk" import govukSelect %}
+  
+          {{ govukSelect({
+          id: "sort",
+          classes: "govuk-!-width-full",
+          label: {
+          text: "Date range",
+          classes: "govuk-fieldset__legend--s"
+          },
+          name: "sort",
+          items: [
+          {
+          value: "views",
+          text: "2 to 4 weeks after birth"
+          },
+          {
+          value: "views",
+          text: "4 to 6 weeks after birth"
+          },
+          {
+          value: "views",
+          text: "6 weeks after birth",
+          selected: true
+          },
+          {
+          value: "views",
+          text: "3 months after birth"
+          }
+          ]
+          }) }}
+  
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-left">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-top-6 " data-module="govuk-button" style="background-color:	#b1b4b6;">
+  Apply filters
+</button>
+        </div>
+      </div>
+  
+  
+    </div>
   </div>
-</details>
 
+<div class="govuk-grid-row" id="h2-and-csv-btn">
+<div class="govuk-grid-column-three-quarters" >
+ <h2 class="govuk-heading-m">
+          6 weeks after birth 
+        </h2>
+ <p class="govuk-body">Between 42 to 84 days after birth</p>
+</div>
+<div class="govuk-grid-column-one-quarter govuk-!-text-align-right"> 
 
-  
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-0" data-module="govuk-button" style="background-color:	#1d70b8;">
+  Download CSV
+</button>
 </div>
 </div>
-
-  
-    {% from "govuk/components/button/macro.njk" import govukButton %}
-
-{{ govukButton({
-  text: "Download CSV"
-}) }}
 
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-        <h2 class="govuk-heading-m">Formal requistion due</h2>
+     
 
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -113,7 +154,7 @@
   </strong>
 </div>
 
-
+<p class="govuk-body ">Showing 1 to 20 of 71</p>
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications</caption>
   <thead class="govuk-table__head">
