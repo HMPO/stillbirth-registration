@@ -374,10 +374,20 @@
 <h3 class="govuk-heading-s">Extra time for special circumstances</h3>
 
 
- {% if data.specialStatus == "yes" %}
-      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--pink" style="width:400px !important;">Extra time - mother is unwell</strong></p>
+
+
+     {% if data.specialStatus == "no-time-needed" %}
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 " style="width:400px !important;">No extra time needed</strong></p>
+ {% elif data.specialStatus == "unwell"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Yes, mother is unwell</strong></p>
+  {% elif data.specialStatus == "outside"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Yes, mother lives outside district</strong></p>
+   {% elif data.specialStatus == "child-died"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Yes, child has died</strong></p>
+  {% elif data.specialStatus == "not-specified"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Yes, but not specified</strong></p>
     {% else %}
-      <p class="govuk-body">None</p>
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 " style="width:400px !important;">None</strong></p>
     {% endif %}
 
 <details class="govuk-details">
@@ -391,7 +401,7 @@
      <div class="govuk-form-group">
 
   <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       <h1 class="govuk-body govuk-!-margin-bottom-0">
         Does the informant need extra time?
       </h1>
@@ -409,24 +419,24 @@
                 <label class="govuk-label govuk-radios__label" for="special-yes">Yes</label>
               </div>
               
-            </div>
+            </div> -->
 
 
  
 
   
   <h1 class="govuk-body">
-       Why does the informant need extra time? 
+      Does this informant need extra time?
       </h1>
 
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
-  <select class="govuk-select" id="sort" name="sort">
-    <option value="select-one" selected>Select reason</option>
-    <option value="published">Mother is unwell</option>
-    <option value="updated">Mother lives outside district</option>
-    <option value="views">Child has died</option>
-    <option value="comments">Not specified</option>
+  <select class="govuk-select" id="sort" name="specialStatus">
+    <option value="no-time-needed" selected>No extra time required</option>
+    <option value="unwell">Yes, mother is unwell</option>
+    <option value="outside">Yes, mother lives outside district</option>
+    <option value="child-died">Yes, child has died</option>
+    <option value="not-specified">Yes, but not specified</option>
      
     
   </select>
