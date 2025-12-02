@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Birth notifications after 4 weeks – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<script>
+  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince) {
+    event.preventDefault();
+    const url = `03-notification-detail.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}`;
+    window.location.href = url;
+  }
+</script>
+
+ <form class="form" action="03-notification-detail.html" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
+
+        <h1 class="govuk-heading-l">
+          Unregistered birth notifications
+        </h1>
+        <!-- <p class="govuk-body">NHS birth notifications that need to be registered.</p> -->
+      </div>
+    </div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-three-quarters govuk-!-margin-3 govuk-!-padding-4"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6; padding-bottom: 0 !important;">
+  {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  label: {
+    text: "District on notification",
+    classes: "govuk-fieldset__legend--s"
+  },
+  name: "sort",
+  items: [
+  {
+      value: "views",
+      text: "Wakefield"
+    },
+     {
+      value: "views",
+      text: "Anglesea"
+    },
+     {
+      value: "views",
+      text: "Ashbourne"
+    },
+     {
+      value: "views",
+      text: "Bath and North East Somerset"
+    },
+     {
+      value: "views",
+      text: "Barking and Dagenham"
+    },
+     {
+      value: "views",
+      text: "Birmingham"
+    },
+    {
+      value: "views",
+      text: "Blackpool"
+    },
+     {
+      value: "views",
+      text: "etc"
+    }
+  ]
+}) }}
+
+</div>
+</div>
+
+
+ 
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+       
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="width: 50%;">
+              <h2 class="govuk-heading-m">2 to 4 weeks after birth </h2>
+
+<p class="govuk-body">Between 14 to 27 days</p>
+            </dt>
+            <dd class="govuk-summary-list__value">
+               <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">
+       46 unregistered
+     </strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="02-notifications-list-2-4.html">View all<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <h2 class="govuk-heading-m">4 to 6 weeks after birth</h2>
+
+<p class="govuk-body">Between 28 to 41 days</p>
+            </dt>
+            <dd class="govuk-summary-list__value">
+               <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">
+       34 unregistered
+     </strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="02-notifications-list-4-6.html">View all<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <h2 class="govuk-heading-m">6 weeks after birth </h2>
+
+<p class="govuk-body">Between 42 to 84 days</p>
+            </dt>
+            <dd class="govuk-summary-list__value">
+               <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">
+       21 unregistered
+     </strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="02-notifications-list-over-6w.html">View all<span class="govuk-visually-hidden"> customer reference</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <h2 class="govuk-heading-m">3 months after birth </h2>
+
+<p class="govuk-body">After 85 days</p>
+            </dt>
+            <dd class="govuk-summary-list__value">
+               <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-2">
+       2 unregistered
+     </strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="02-notifications-list-over-3m.html">View all<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+         
+        </dl>
+       
+       
+      </div>
+    </div>
+
+
+
+
+</form>
+
+{% endblock %}

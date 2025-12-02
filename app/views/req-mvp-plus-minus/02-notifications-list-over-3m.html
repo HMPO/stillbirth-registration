@@ -1,0 +1,224 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Birth notifications after 4 weeks – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<script>
+  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
+    event.preventDefault();
+    const url = `03-notification-detail-v2a.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
+    window.location.href = url;
+  }
+</script>
+
+ <form class="form" action="03-notification-detail-v2a.html" method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
+
+        <h1 class="govuk-heading-l">
+          Unregistered birth notifications
+        </h1>
+       
+
+      </div>
+    </div>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-4"
+      style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6; padding-bottom: 0 !important;">
+  
+      <div class="govuk-grid-row" id="filters-at-top">
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/select/macro.njk" import govukSelect %}
+  
+          {{ govukSelect({
+          id: "sort",
+          classes: "govuk-!-width-full",
+          label: {
+          text: "District on notification",
+          classes: "govuk-fieldset__legend--s"
+          },
+          name: "sort",
+          items: [
+          {
+          value: "views",
+          text: "Wakefield"
+          },
+          {
+          value: "views",
+          text: "Anglesea"
+          },
+          {
+          value: "views",
+          text: "Ashbourne"
+          },
+          {
+          value: "views",
+          text: "Bath and North East Somerset"
+          },
+          {
+          value: "views",
+          text: "Barking and Dagenham"
+          },
+          {
+          value: "views",
+          text: "Birmingham"
+          },
+          {
+          value: "views",
+          text: "Blackpool"
+          },
+          {
+          value: "views",
+          text: "etc"
+          }
+          ]
+          }) }}
+  
+        </div>
+        <div class="govuk-grid-column-one-third">
+          {% from "govuk/components/select/macro.njk" import govukSelect %}
+  
+          {{ govukSelect({
+          id: "sort",
+          classes: "govuk-!-width-full",
+          label: {
+          text: "Date range",
+          classes: "govuk-fieldset__legend--s"
+          },
+          name: "sort",
+          items: [
+          {
+          value: "views",
+          text: "2 to 4 weeks after birth"
+          },
+          {
+          value: "views",
+          text: "4 to 6 weeks after birth"
+          },
+          {
+          value: "views",
+          text: "6 weeks after birth"
+          },
+          {
+          value: "views",
+          text: "3 months after birth",
+          selected: true
+          }
+          ]
+          }) }}
+  
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-left">
+<button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-margin-top-6 " data-module="govuk-button" style="background-color:	#b1b4b6;">
+  Apply filters
+</button>
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+
+<div class="govuk-grid-row" id="h2-and-csv-btn">
+<div class="govuk-grid-column-three-quarters" >
+ <h2 class="govuk-heading-m">
+          3 months after birth 
+        </h2>
+ <p class="govuk-body">Over 85 days to 1 year</p>
+</div>
+<div class="govuk-grid-column-one-quarter govuk-!-text-align-right"> 
+
+<button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-margin-top-0" data-module="govuk-button" style="background-color:	#1d70b8;">
+  Download CSV
+</button>
+</div>
+</div>
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+   You must contact the GRO about this birth
+  </strong>
+</div>
+
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">NHS birth notifications for births between 43 to 84 days</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px;">Child's NHS number</th>
+      <th scope="col" class="govuk-table__header">Mother's name</th>
+      <th scope="col" class="govuk-table__header">Date of birth</th>
+      <th scope="col" class="govuk-table__header">Days<br>since<br>birth</th>
+       <th scope="col" class="govuk-table__header">Stillborn<br>or died</th>
+      <th scope="col" class="govuk-table__header">Third formal<br>requisition was due</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+      
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+        <a href="#" onclick="passData(event, '390 446 7891', '3 September 2025', 'Anna', 'DUFFY', 'Male', 'Stillborn', '17b Avenue Road', 'WK6 7HL', '20 April 1985', '70', 'no','3rd-formal', 'no', 'yes')">390 446 7891</a>
+      </td>
+      <td class="govuk-table__cell">DUFFY, Anna</td>
+      <td class="govuk-table__cell">3 September 2025</td>
+      <td class="govuk-table__cell">70</td>
+      <td class="govuk-table__cell">Stillborn</td>
+      <td class="govuk-table__cell">End of November 2025<br>
+      Third formal requisition</td>
+       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--light-blue">
+          Refer to the GRO 
+        </strong></td>
+     
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+         <a href="#" onclick="passData(event, '390 123 4567', '26 September 2025', 'Celine', 'SHORT', 'Female', 'Stillborn', '5a Highfield Close', 'WK8 9HQ', '2 October 1991', '47', 'no','6-week', 'no', 'no')">390 123 4567</a>
+      </td>
+      <td class="govuk-table__cell">SHORT, Celine</td>
+      <td class="govuk-table__cell">26 September 2025</td>
+      <td class="govuk-table__cell">47</td>
+      <td class="govuk-table__cell">Stillborn</td>
+      <td class="govuk-table__cell">Mid-November 2025<br>Second formal requisition</td>
+       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+          6-week formal requisition sent
+        </strong></td>
+     
+    </tr>
+  
+  </tbody>
+</table>
+
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+</form>
+
+{% endblock %}

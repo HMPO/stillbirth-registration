@@ -13,11 +13,10 @@
 
 {% block content %}
 
-
 <script>
   function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
     event.preventDefault();
-    const url = `03-notification-detail.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
+    const url = `03-notification-detail-v2a.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
     window.location.href = url;
   }
 </script>
@@ -38,8 +37,8 @@
  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'LU12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous birth notification</a> &nbsp; 
-        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'LU6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next birth notification</a>
+      <p class="govuk-body-s"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '39', 'no','4-week', 'no', 'no')"  class="govuk-link govuk-link--no-visited-state">Previous birth notification</a> &nbsp; 
+        | &nbsp; <a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Died', '88b Church Street', 'WK6 2JK', '18 June 1990', '37', 'no','no-4-week', 'yes', 'no')" class="govuk-link govuk-link--no-visited-state">Next birth notification</a>
   </p>
 </div>
 </div>
@@ -265,7 +264,7 @@
         </p>
 <div style="padding: 10px; background-color: #505a5f">
           <p class="govuk-body govuk-!-margin-0" style="color: white;">
-             Refer to GRO<br> &nbsp;
+             Refer to the GRO<br> &nbsp;
           </p>
         </div>
       </div>
@@ -299,11 +298,165 @@
 </div>
 </div>
 
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+
+
+
+
+ <div class="govuk-grid-row"  id="contact-question">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Last contact from the registrar</h3>
+
+ {% if data.contactStatus == "4-week" %}
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--grey" style="width:400px !important;">Informal communication</strong></p>
+ {% elif data.contactStatus == "6-week"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">6-week formal requisition sent</strong></p>
+  {% elif data.contactStatus == "2nd-formal"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Second formal requisition sent</strong></p>
+   {% elif data.contactStatus == "3rd-formal"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--yellow" style="width:400px !important;">Third formal requisition sent</strong></p>
+  {% elif data.contactStatus == "no-4-week"%}
+ <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--orange" style="width:400px !important;">No informal communication</strong></p>
+    {% else %}
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--orange" style="width:400px !important;">None</strong></p>
+    {% endif %}
+
+
+
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Update last contact
+    </span>
+  </summary>
+  <div class="govuk-details__text govuk-!-padding-bottom-0">
+     <form action="/mvp/update-contact-status-v2a" method="post">
+    
+<div class="govuk-form-group govuk-!-margin-bottom-0">
+  <h1 class="govuk-body">
+        What is the most recent contact from the registrar?
+      </h1>
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-6">
+  <select class="govuk-select" id="sort" name="contactStatus">
+    <option value="no-4-week" {% if data.contactStatus == "no-4-week" %}selected{% endif %}>No informal communication</option>
+    <option value="4-week" {% if data.contactStatus == "4-week" %}selected{% endif %}>Informal contact</option>
+    <option value="6-week" {% if data.contactStatus == "6-week" %}selected{% endif %}>6-week formal requisition </option>
+    <option value="2nd-formal" {% if data.contactStatus == "2nd-formal" %}selected{% endif %}>Second formal requisition </option>
+    <option value="3rd-formal" {% if data.contactStatus == "3rd-formal" %}selected{% endif %}>Third formal requisition </option>
+  </select>
+</div>
+</div>
+  <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update last contact
+</button>
+<a href="#">Cancel</a>
+</div>
+</div>
+
+</form>
+ 
+</div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+ <div class="govuk-grid-row" id="special-question">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+<h3 class="govuk-heading-s">Extra time for special circumstances</h3>
+
+
+ {% if data.specialStatus == "yes" %}
+      <p class="govuk-body"><strong class="govuk-body govuk-!-padding-2 govuk-tag--pink" style="width:400px !important;">Extra time - mother is unwell</strong></p>
+    {% else %}
+      <p class="govuk-body">None</p>
+    {% endif %}
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Update extra time
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <form action="/mvp/update-special-status-v2a" method="post">
+     <div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-body govuk-!-margin-bottom-0">
+        Does the informant need extra time?
+      </h1>
+    </legend>
+
+    <div class="govuk-radios  govuk-radios--inline govuk-!-margin-bottom-4" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+                
+  <input class="govuk-radios__input" id="special-no" name="specialStatus" type="radio" value="no" {% if data.specialStatus == "no" or not data.specialStatus %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="special-no">No</label>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="special-yes" name="specialStatus" type="radio" value="yes" {% if data.specialStatus == "yes" %}checked{% endif %}>
+                <label class="govuk-label govuk-radios__label" for="special-yes">Yes</label>
+              </div>
+              
+            </div>
+
+
+ 
+
+  
+  <h1 class="govuk-body">
+       Why does the informant need extra time? 
+      </h1>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+  <select class="govuk-select" id="sort" name="sort">
+    <option value="select-one" selected>Select reason</option>
+    <option value="published">Mother is unwell</option>
+    <option value="updated">Mother lives outside district</option>
+    <option value="views">Child has died</option>
+    <option value="comments">Not specified</option>
+     
+    
+  </select>
+</div>
+</div>
+ </fieldset>
+  <div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Update extra time
+</button>
+ <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+          </div>
+        </form>
+</div>
+  
+
+
+
+  </div>
+</details>
+<hr class="govuk-section-break govuk-section-break--visible">
+</div>
+</div>
+
+
 
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
-<h3 class="govuk-heading-m govuk-!-margin-bottom-0">When to contact the informant </h3>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-8">When to contact the informant </h3>
 
 <table class="govuk-table govuk-table--small-text-until-tablet govuk-!-margin-bottom-9">
   
@@ -386,10 +539,10 @@ Mid-November 2025
 </div>
 </div>
 
+ 
 
 
-
- <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
+ 
 
      <form action="01-who-is-informant" method="post" novalidate>
 
@@ -400,10 +553,10 @@ Mid-November 2025
 
       </form>
 
-       <!-- <div class="govuk-form-group">
-       <p class="govuk-body"><a href="02-notifications.html" class="govuk-link">No, return</a></p>
-      </div>    -->
+
    
+
+
 
 
 {% endblock %}
