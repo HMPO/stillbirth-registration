@@ -16,7 +16,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before submitting the birth registration
+        Confirm online birth submission
       </h1>
        <h2 class="govuk-heading-m">
         Child's details
@@ -31,7 +31,6 @@
           
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../child-details/name-date.html">Change<span class="govuk-visually-hidden">name</span></a>
       </dd>
     </div>
 
@@ -42,8 +41,7 @@
       {{ data['sex'] or 'Male' }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../child-details/name-date.html">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+        </dd>
     </div>
 
 
@@ -58,8 +56,7 @@
     {% endif %}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../child-details/name-date.html">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
 
      <!-- Last Name -->
@@ -69,8 +66,7 @@
       {{ data['MCCDAddressLine1'] or 'Central Hospital, Wakefield' }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../child-details/place-of-stillbirth.html">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+        </dd>
     </div>
   </dl>
 
@@ -87,8 +83,7 @@
    
   </dd>
   <dd class="govuk-summary-list__actions">
-    <a class="govuk-link" href="../parents-details/mothers-name">Change<span class="govuk-visually-hidden"> mother's full name</span></a>
-  </dd>
+    </dd>
 </div>
 
     <!-- First Name -->
@@ -98,21 +93,10 @@
        {{ (data['mothersMaidenName'] or "Smith") | upper }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-name">Change<span class="govuk-visually-hidden"> first name</span></a>
-      </dd>
+       </dd>
     </div>
 
-    <!-- Last Name 
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Last name at marriage (if different from maiden name)</dt>
-      <dd class="govuk-summary-list__value">
-       
-        {{ (data['mothersLastMarriageName'] or "") | upper }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-name">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
-    </div>-->
+  
    <!-- Birth place -->
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Place of birth</dt>
@@ -120,8 +104,7 @@
         {{ data['mothersPlaceOfBirth'] or "Nottingham" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
  <!-- Birth country -->
     <div class="govuk-summary-list__row">
@@ -130,8 +113,7 @@
         {{ data['mothersCountryOfBirth'] or "England" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
 
      <!-- Occupation -->
@@ -141,8 +123,7 @@
         {{ data['mothersOccupation'] or "Florist" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+        </dd>
     </div>
 
      <!-- Birth country -->
@@ -154,8 +135,7 @@
         WA21 3AA
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/mothers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
 
 
@@ -177,8 +157,7 @@
  
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/fathers-name">Change<span class="govuk-visually-hidden"> first name</span></a>
-      </dd>
+       </dd>
     </div>
 
      <!-- Birth place -->
@@ -188,8 +167,7 @@
         {{ data['fathersPlaceOfBirth'] or "Southampton" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/fathers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
  <!-- Birth country -->
     <div class="govuk-summary-list__row">
@@ -198,8 +176,7 @@
         {{ data['fathersCountryOfBirth'] or "England" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/fathers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
    <!-- Occupation -->
     <div class="govuk-summary-list__row">
@@ -208,8 +185,7 @@
         {{ data['fathersOccupation'] or "Cobbler" }}
       </dd>
       <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="../parents-details/fathers-details">Change<span class="govuk-visually-hidden"> last name</span></a>
-      </dd>
+       </dd>
     </div>
     
 
@@ -218,41 +194,37 @@
    
 
 
-  <div class="govuk-grid-row govuk-grid-column-full">
 
-    {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Print",
-  classes: "govuk-button--secondary"
-}) }}
-  </div>
-
-  <div class="govuk-grid-row govuk-grid-column-full">
-     {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-{{ govukCheckboxes({
-  name: "waste",
-  fieldset: {
-    legend: {
-      text: " ",
-      isPageHeading: false,
-      classes: "govuk-body"
-    }
-  },
-
-  items: [
-    {
-      value: "farm",
-      text: "Confirm register entry"
-    }
-  ]
-}) }}
-  </div>
+ 
 
    
 
       <form action="05-sign-page" method="post" novalidate>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Is this registration complete?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes-complete",
+      text: "Yes, mark registration as complete"
+    },
+    {
+      value: "no-issue",
+      text: "No, there is an issue with this submission"
+    }
+   
+  ]
+}) }}
 
         {{ govukButton({
           text: "Continue"

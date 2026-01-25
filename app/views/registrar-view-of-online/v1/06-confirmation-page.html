@@ -6,7 +6,7 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+  <div class="govuk-grid-row ">
     <div class="govuk-grid-column-two-thirds">
 
       {{ govukPanel({
@@ -21,18 +21,36 @@
       </h2> 
 -->
       <p class="govuk-body">
-        You can now print the stillbirth certificate
+        We’ve emailed the informant with a confirmation of registration. </p>
+
+<p class="govuk-body">The informant ordered:</p>
+<p class="govuk-body">You can buy:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>2 standard certificates</li>
+</ul>
+
+<p class="govuk-body">These must be printed and sent to the informant.</p>
       </p>
 
-       <p  class="govuk-body govuk-!-margin-bottom-9">
+      <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "View next online submission"
+}) }}
+</div>
+</div>
+
+       <p  class="govuk-body govuk-!-margin-bottom-3">
         <a href="#">
-          Print the certificate
+          Got to print certificates
         </a>
       </p>
 
       <p  class="govuk-body">
         <a href="../../../01-life-event-home.html">
-          Go back to life events home
+          Return to online birth submissions
         </a>
       </p>
 
