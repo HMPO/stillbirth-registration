@@ -16,8 +16,9 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Confirm online birth submission
+        Next steps for this submission
       </h1>
+      <p class="govuk-body">If there is an issue with the birth registration, you can contact the informant using their details below.</p>
        <h2 class="govuk-heading-m">
         Child's details
       </h2>
@@ -200,29 +201,44 @@
 
    
 
-      <form action="/registrar-view-of-online/v1/confirm-registration-form" method="post" novalidate>
+      <form action="/registrar-view-of-online/v1/status-registration-form" method="post" novalidate>
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  name: "userRegistrationSatisfactory",
+  name: "userRegistrationStatus",
   fieldset: {
     legend: {
-      text: "Is this registration complete?",
+      text: "Update submission status",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
   },
+  hint: {
+    text: "Hint"
+  },
   items: [
     {
-      value: "yes-complete",
-      text: "Yes, mark registration as complete"
+      value: "status-on-hold",
+      text: "Mark submission as being on hold",
+      hint: {
+        text: "This will pause the registration while you contact the informant"
+      }
     },
     {
-      value: "no-an-issue",
-      text: "No, there is an issue with this submission"
+      value: "status-in-person",
+      text: "Mark as requiring an in-person appointment",
+      hint: {
+        text: "Select if you will contact the informant to book an in-person appointment"
+      }
+    },
+    {
+      value: "status-complete",
+      text: "Mark registration as complete",
+      hint: {
+        text: "If you have contacted the informant and are satisfied with the registration, mark as complete"
+      }
     }
-   
   ]
 }) }}
 
