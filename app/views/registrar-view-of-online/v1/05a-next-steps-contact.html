@@ -19,11 +19,15 @@
         Next steps for this submission
       </h1>
       <p class="govuk-body">If there is an issue with the birth registration, you can contact the informant using their details below.</p>
-       <h2 class="govuk-heading-m">
-        Child's details
+      
+      
+      <div class="govuk-!-margin-bottom-7 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
+        
+      <h2 class="govuk-heading-m">
+        Contact details
       </h2>
 
-     <dl class="govuk-summary-list">
+     <dl class="govuk-summary-list" >
     <!-- First Name -->
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Name</dt>
@@ -70,136 +74,9 @@
         </dd>
     </div>
   </dl>
-
-    <h2 class="govuk-heading-m">
-        Mother's details
-      </h2>
-
-     <dl class="govuk-summary-list">
-<!-- Full name -->
- <div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Name</dt>
-  <dd class="govuk-summary-list__value">
-    {{ data['mothersFirstName'] or 'Anna' }} {{ data['mothersMiddleName'] or 'Marie' }} {{ (data['mothersLastName'] or 'DUFFY') | upper }}
-   
-  </dd>
-  <dd class="govuk-summary-list__actions">
-    </dd>
+ 
 </div>
-
-    <!-- First Name -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Maiden Name</dt>
-      <dd class="govuk-summary-list__value">
-       {{ (data['mothersMaidenName'] or "Smith") | upper }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-
-  
-   <!-- Birth place -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Place of birth</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['mothersPlaceOfBirth'] or "Nottingham" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
- <!-- Birth country -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Country of birth</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['mothersCountryOfBirth'] or "England" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-
-     <!-- Occupation -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Occupation</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['mothersOccupation'] or "Florist" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-        </dd>
-    </div>
-
-     <!-- Birth country -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Address</dt>
-      <dd class="govuk-summary-list__value">
-        23 West Street<br>
-        Wakefield <br>
-        WA21 3AA
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-
-
-
-
-  </dl>
-
-    <h2 class="govuk-heading-m">
-        Father's details
-      </h2>
-
-     <dl class="govuk-summary-list">
-    <!-- First Name -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Name</dt>
-      <dd class="govuk-summary-list__value">
-         
-   {{ data['fathersFirstName'] or 'Peter' }} {{ data['fathersMiddleName'] or '' }} {{ (data['fathersLastName'] or 'DUFFY') | upper }}
  
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-
-     <!-- Birth place -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Place of birth</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['fathersPlaceOfBirth'] or "Southampton" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
- <!-- Birth country -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Country of birth</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['fathersCountryOfBirth'] or "England" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-   <!-- Occupation -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Occupation</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['fathersOccupation'] or "Cobbler" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-    
-
-  </dl>
-
-   
-
-
-
-
- 
-
-   
 
       <form action="/registrar-view-of-online/v1/status-registration-form" method="post" novalidate>
 
