@@ -55,7 +55,9 @@
 //pink highlight
 .hods-highlight {
   background-color: #FFE5CC;
-  border-bottom: 2px solid #FFB266;
+  border-bottom: 3px solid #FFB266;
+
+  padding: 2px 6px;
 
   &::before,
   &::after {
