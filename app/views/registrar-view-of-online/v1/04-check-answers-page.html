@@ -13,7 +13,7 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl">
         Confirm online birth submission
@@ -22,50 +22,67 @@
         Child's details
       </h2>
 
-     <dl class="govuk-summary-list">
-    <!-- First Name -->
+  <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from NHS birth notification</span></div></dd>
+</div>
+
+
+   
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Name</dt>
+      <dt class="govuk-summary-list__key">First name</dt>
       <dd class="govuk-summary-list__value">
-         {{ data['deceasedFirstName'] or 'Baby' }} {{ data['deceasedMiddleName'] or '' }} {{ (data['deceasedLastName'] or 'DUFFY') | upper }}
-          
+        Thomass
       </dd>
-      <dd class="govuk-summary-list__actions">
+      <dd class="govuk-summary-list__value1">
+        
       </dd>
     </div>
 
-    <!-- Last Name -->
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+  
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Sex</dt>
       <dd class="govuk-summary-list__value">
-      {{ data['sex'] or 'Male' }}
+      Male
       </dd>
-      <dd class="govuk-summary-list__actions">
+      <dd class="govuk-summary-list__value">
+         Male
         </dd>
     </div>
 
-
-   <!-- Last Name -->
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Date of birth</dt>
       <dd class="govuk-summary-list__value">
-        {% if data['dateOfDeath-day'] and data['dateOfDeath-month'] and data['dateOfDeath-year'] %}
-      {{ data['dateOfDeath-day'] }}/{{ data['dateOfDeath-month'] }}/{{ data['dateOfDeath-year'] }}
-    {% else %}
-      21 August 2025
-    {% endif %}
+        21 August 2025
       </dd>
-      <dd class="govuk-summary-list__actions">
+      <dd class="govuk-summary-list__value">
+         21 August 2025
        </dd>
     </div>
-
-     <!-- Last Name -->
+   
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Place of birth</dt>
       <dd class="govuk-summary-list__value">
-      {{ data['MCCDAddressLine1'] or 'Central Hospital, Wakefield' }}
+      Central Hospital, Wakefield
       </dd>
-      <dd class="govuk-summary-list__actions">
+      <dd class="govuk-summary-list__value">
+        Central Hospital,  <mark class="hods-highlight">
+  <strong>Durham</strong>
+</mark>
         </dd>
     </div>
   </dl>
@@ -74,124 +91,137 @@
         Mother's details
       </h2>
 
-     <dl class="govuk-summary-list">
-<!-- Full name -->
- <div class="govuk-summary-list__row">
-  <dt class="govuk-summary-list__key">Name</dt>
-  <dd class="govuk-summary-list__value">
-    {{ data['mothersFirstName'] or 'Anna' }} {{ data['mothersMiddleName'] or 'Marie' }} {{ (data['mothersLastName'] or 'DUFFY') | upper }}
-   
-  </dd>
-  <dd class="govuk-summary-list__actions">
-    </dd>
+     <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from NHS birth notification</span></div></dd>
 </div>
 
-    <!-- First Name -->
+
+   
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Maiden Name</dt>
+      <dt class="govuk-summary-list__key">First name</dt>
       <dd class="govuk-summary-list__value">
-       {{ (data['mothersMaidenName'] or "Smith") | upper }}
+        Thomass
       </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
     </div>
 
   
-   <!-- Birth place -->
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dt class="govuk-summary-list__key">Sex</dt>
       <dd class="govuk-summary-list__value">
-        {{ data['mothersPlaceOfBirth'] or "Nottingham" }}
+      Male
       </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
- <!-- Birth country -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Country of birth</dt>
       <dd class="govuk-summary-list__value">
-        {{ data['mothersCountryOfBirth'] or "England" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-
-     <!-- Occupation -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Occupation</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['mothersOccupation'] or "Florist" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
+         Male
         </dd>
     </div>
 
-     <!-- Birth country -->
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Address</dt>
+      <dt class="govuk-summary-list__key">Date of birth</dt>
       <dd class="govuk-summary-list__value">
-        23 West Street<br>
-        Wakefield <br>
-        WA21 3AA
+        21 August 2025
       </dd>
-      <dd class="govuk-summary-list__actions">
+      <dd class="govuk-summary-list__value">
+         21 August 2025
        </dd>
     </div>
-
-
-
-
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+      Central Hospital, Wakefield
+      </dd>
+      <dd class="govuk-summary-list__value">
+        Central Hospital,  <mark class="hods-highlight">
+  <strong>Durham</strong>
+</mark>
+        </dd>
+    </div>
   </dl>
 
     <h2 class="govuk-heading-m">
         Father's details
       </h2>
 
-     <dl class="govuk-summary-list">
-    <!-- First Name -->
+   
+        <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value1 govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span "></span></div></dd>
+</div>
+
+
+   
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Name</dt>
+      <dt class="govuk-summary-list__key">First name</dt>
       <dd class="govuk-summary-list__value">
-         
-   {{ data['fathersFirstName'] or 'Peter' }} {{ data['fathersMiddleName'] or '' }} {{ (data['fathersLastName'] or 'DUFFY') | upper }}
- 
+        Thomass
       </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
     </div>
 
-     <!-- Birth place -->
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Sex</dt>
+      <dd class="govuk-summary-list__value">
+      Male
+      </dd>
+      <dd class="govuk-summary-list__value1">
+         
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        21 August 2025
+      </dd>
+      <dd class="govuk-summary-list__value1">
+         
+       </dd>
+    </div>
+   
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Place of birth</dt>
       <dd class="govuk-summary-list__value">
-        {{ data['fathersPlaceOfBirth'] or "Southampton" }}
-        <mark class="hods-highlight">
-  <strong>12/12/1995</strong>
-</mark>
+      Central Hospital, Wakefield
       </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
+      <dd class="govuk-summary-list__value1">
+       
+        </dd>
     </div>
- <!-- Birth country -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Country of birth</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['fathersCountryOfBirth'] or "England" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-   <!-- Occupation -->
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Occupation</dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['fathersOccupation'] or "Cobbler" }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-       </dd>
-    </div>
-    
-
   </dl>
 
    
