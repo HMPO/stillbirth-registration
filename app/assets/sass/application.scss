@@ -28,3 +28,51 @@
   padding-top: 5px;
 }
 
+//step by step black circle with white number
+.app-step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  background: #0b0c0c;   // GOV.UK black
+  color: #ffffff;        // GOV.UK white
+
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.app-step-circle__number {
+  display: inline-block;
+}
+
+//HOME OFFICE styles
+
+//pink highlight
+.hods-highlight {
+  background-color: #FFE5CC;
+  border-bottom: 2px solid #FFB266;
+
+  &::before,
+  &::after {
+    clip-path: inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  &::before {
+    content: " [highlight start] ";
+  }
+
+  &::after {
+    content: " [highlight end] ";
+  }
+}
