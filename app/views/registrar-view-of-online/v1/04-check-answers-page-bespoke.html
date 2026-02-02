@@ -1,0 +1,280 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Confirm online birth submission
+      </h1>
+       <h2 class="govuk-heading-m">
+        Child's details
+      </h2>
+
+  <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from NHS birth notification</span></div></dd>
+</div>
+
+
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">First name</dt>
+      <dd class="govuk-summary-list__value">
+        Thomass
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Sex</dt>
+      <dd class="govuk-summary-list__value">
+      Male
+      </dd>
+      <dd class="govuk-summary-list__value">
+         Male
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        21 August 2025
+      </dd>
+      <dd class="govuk-summary-list__value">
+         21 August 2025
+       </dd>
+    </div>
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+      Central Hospital, Wakefield
+      </dd>
+      <dd class="govuk-summary-list__value">
+        Central Hospital,  <mark class="hods-highlight">
+  <strong>Durham</strong>
+</mark>
+<div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 " style="border-color: #f47738;">
+  <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #f47738;">
+    <span class="govuk-visually-hidden" >Error:</span> Does not match
+  </p>
+</div>
+        </dd>
+    </div>
+  </dl>
+
+    <h2 class="govuk-heading-m">
+        Mother's details
+      </h2>
+
+     <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from NHS birth notification</span></div></dd>
+</div>
+
+
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">First name</dt>
+      <dd class="govuk-summary-list__value">
+        Thomass
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Sex</dt>
+      <dd class="govuk-summary-list__value">
+      Male
+      </dd>
+      <dd class="govuk-summary-list__value">
+         Male
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        21 August 2025
+      </dd>
+      <dd class="govuk-summary-list__value">
+         21 August 2025
+       </dd>
+    </div>
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+      Central Hospital, Wakefield
+      </dd>
+      <dd class="govuk-summary-list__value">
+        Central Hospital,  <mark class="hods-highlight">
+  <strong>Durham</strong>
+</mark>
+<div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 " style="border-color: #f47738;">
+  <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #f47738;">
+    <span class="govuk-visually-hidden" >Error:</span> Does not match
+  </p>
+</div>
+        </dd>
+    </div>
+  </dl>
+
+    <h2 class="govuk-heading-m">
+        Father's details
+      </h2>
+
+   
+        <dl class="govuk-summary-list summary-list--segmented">
+
+
+<div class="govuk-summary-list__row summary-list--segmented__header-row">
+  <dt class="govuk-summary-list__key"></dt>
+  <dd class="govuk-summary-list__value"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span ">Details from online registration</span></div></dd>
+  <dd class="govuk-summary-list__value1 govuk-!-padding-right-5"><div class="segmented-header govuk-!-padding-left-1" ><span class="segmented-span "></span></div></dd>
+</div>
+
+
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">First name</dt>
+      <dd class="govuk-summary-list__value">
+        Thomass
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name</dt>
+      <dd class="govuk-summary-list__value">
+         DUFFY
+      </dd>
+      <dd class="govuk-summary-list__value1">
+        
+      </dd>
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Sex</dt>
+      <dd class="govuk-summary-list__value">
+      Male
+      </dd>
+      <dd class="govuk-summary-list__value1">
+         
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        21 August 2025
+      </dd>
+      <dd class="govuk-summary-list__value1">
+         
+       </dd>
+    </div>
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+      Central Hospital, Wakefield
+      </dd>
+      <dd class="govuk-summary-list__value1">
+       
+        </dd>
+    </div>
+  </dl>
+
+   
+
+
+
+
+ 
+
+   
+
+      <form action="/registrar-view-of-online/v1/confirm-registration-form" method="post" novalidate>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "userRegistrationSatisfactory",
+  fieldset: {
+    legend: {
+      text: "Is this registration complete?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes-complete",
+      text: "Yes, mark registration as complete"
+    },
+    {
+      value: "no-an-issue",
+      text: "No, there is an issue with this submission"
+    }
+   
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

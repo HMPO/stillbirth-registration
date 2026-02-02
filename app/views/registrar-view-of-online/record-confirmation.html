@@ -1,0 +1,39 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Information accepted – GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Information accepted",
+      html: "You’ve accepted the information for <strong>" + record.name + "</strong>."
+    }) }}
+
+    <p class="govuk-body">
+      Record {{ currentIndex + 1 }} of {{ totalRecords }} has been accepted.
+    </p>
+
+
+    {% if hasMoreRecords %}
+       <form method="post" action="/registrar-view-of-online/record-confirmation">
+       
+        {{ govukButton({
+          text: "Next record-conditional button"
+        }) }}
+      </form>
+    {% else %}
+      <p class="govuk-body govuk-!-margin-top-6">
+        <strong>There are no more records.</strong>
+      </p>
+    {% endif %}
+
+  
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You’ve reviewed all records – GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "You’ve reviewed all records"
+    }) }}
+
+    <p class="govuk-body">
+      You’ve accepted all {{ totalRecords }} records in this prototype.
+    </p>
+
+    <p class="govuk-body">
+      For testing, you can /recordstart again</a>.
+    </p>
+
+  </div>
+</div>
+{% endblock %}

@@ -45,6 +45,7 @@ require('./views/stillbirths/v4/informant/_routes')(router);
 require('./views/stillbirths/v4/no-informant/_routes')(router);
 
 require('./views/registrar-view-of-online/v1/_routes')(router);
+require('./views/registrar-view-of-online/_routes')(router);
 
 module.exports = router;
 
