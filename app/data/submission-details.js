@@ -1,59 +1,57 @@
 
 // app/data/records.js
-module.exports = [
+const records = [
   {
     id: 1,
-    //informant 1
     qualification1: 'Mother',
     qualification2: 'Father',
-    relationshipType: 'Married or civil partnership',
-    printNumber: '1',
+    relationshipType: 'Not married or in civil partnership',
+    printNumber: 'none',
     submissionDate: '4 February 2026',
     //child 1
-childFirstName: 'Dougal',
-childFirstNameError: 'No',
+    childFirstName: 'Dougal',
+    childFirstNameError: 'no',
 
-childLastName: 'MCGOVER',
-childMiddleName: '',
+    childLastName: 'MCGOVER',
+    childMiddleName: '',
 
-orNHS: '987 654 3210',
-nhsNHS: 'Matches these details',
+    orNHS: '987 654 3210',
+    nhsNHS: 'Matches these details',
 
-orDoB: '29 January 2026',
-nhsDoB: 'Matches these details',
+    orDoB: '29 January 2026',
+    nhsDoB: 'Matches these details',
 
-orSex: 'Male',
-nhsSex: 'Matches these details',
-sexError: 'No',
+    orSex: 'Male',
+    nhsSex: 'Matches these details',
 
-orPoB: 'St. Marys, Wakefield',
-nhsPoB: 'St. Marys, Winchester',
-PoBError: 'Yes',
+    orPoB: "St. Mary's, Wakefield",
+    nhsPoB: "St. Mary's, Winchester",
+    PoBError: 'yes',
 
     //mother 1
-orMotherFirstName: 'Lucy',
-nhsMotherFirstName: 'Lucy',
-mFNameError: 'No',
+    orMotherFirstName: 'Lucy',
+    nhsMotherFirstName: 'Lucy',
+    mFNameError: 'no',
 
-orMotherLastName: 'MCGOVER',
-nhsMotherLastName: 'MCGOVER',
-mLNameError: 'No',
+    orMotherLastName: 'MCGOVER',
+    nhsMotherLastName: 'MCGOVER',
+    mLNameError: 'no',
 
-maidenName: '',
-differentMaidenName: '',
+    maidenName: '',
+    differentMaidenName: '',
 
-orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
-nhsMotherCurrentAddress: 'Matches these details',
-currentAddressError: 'No',
+    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    nhsMotherCurrentAddress: 'Matches these details',
+    currentAddressError: 'no',
 
-orMotherAddressToB: 'Same as above',
-nhsMotherAddressToB: 'Matches these details',
-motherAddressToBError: 'No',
+    orMotherAddressToB: 'Same as current address',
+    nhsMotherAddressToB: 'Matches these details',
+    motherAddressToBError: 'no',
 
-motherPoB: 'Fife, Scotland',
+    motherPoB: 'Fife, Scotland',
 
-motherOccupation: 'Hairdressser',
-motherOccupationError: 'No',
+    motherOccupation: 'Hairdressser',
+    motherOccupationError: 'no',
 
     //father or second parent 1
     fspFirstName: 'Jimmy',
@@ -69,6 +67,85 @@ motherOccupationError: 'No',
     motherDob: '20 April 2001',
     motherDobError: 'No',
     motherEmployment: 'Employed, not supervising',
+    motherFirstMarriage: 'yes',
+    motherSpanishNat: 'No',
+
+    stillbirths: '0',
+    previousBirths: '0',
+
+    //statistics - father or second female parent 1
+    fspDoB: '7 September 1999',
+    fspEmployment: 'Self-employed, not supervising',
+    fspMarriageDate: '3 June 2022',
+    fspSpanishNat: 'No'
+  },
+   {
+    id: 2,
+    qualification1: 'Mother',
+    qualification2: 'Father',
+    relationshipType: 'Married or civil partnership',
+    printNumber: '1',
+    submissionDate: '4 February 2026',
+    //child 1
+    childFirstName: 'Dougal',
+    childFirstNameError: 'no',
+
+    childLastName: 'MCGOVER',
+    childMiddleName: '',
+
+    orNHS: '987 654 3210',
+    nhsNHS: 'Matches these details',
+
+    orDoB: '29 January 2026',
+    nhsDoB: 'Matches these details',
+
+    orSex: 'Male',
+    nhsSex: 'Matches these details',
+    sexError: 'no',
+
+    orPoB: 'St. Marys, Wakefield',
+    nhsPoB: 'St. Marys, Winchester',
+    PoBError: 'yes',
+
+    //mother 1
+    orMotherFirstName: 'Lucy',
+    nhsMotherFirstName: 'Lucy',
+    mFNameError: 'no',
+
+    orMotherLastName: 'MCGOVER',
+    nhsMotherLastName: 'MCGOVER',
+    mLNameError: 'no',
+
+    maidenName: '',
+    differentMaidenName: '',
+
+    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    nhsMotherCurrentAddress: 'Matches these details',
+    currentAddressError: 'no',
+
+    orMotherAddressToB: 'Same as above',
+    nhsMotherAddressToB: 'Matches these details',
+    motherAddressToBError: 'no',
+
+    motherPoB: 'Fife, Scotland',
+
+    motherOccupation: 'Uber Hairdressser',
+    motherOccupationError: 'yes',
+
+    //father or second parent 1
+    fspFirstName: 'Jimmy',
+    fspLastName: 'MCGOVER',
+
+    fspPoB: 'Dublin, Ireland',
+    fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    fspAddressToB: 'Same as current address',
+    fspOccupation: 'Uber driver',
+    fspOccupationError: 'This may be a company name',
+
+    //statistics - mother 1
+    motherDob: '20 April 2001',
+    motherDobError: 'no',
+    motherEmployment: 'Employed, not supervising',
     motherFirstMarriage: 'Yes',
     motherSpanishNat: 'No',
 
@@ -82,3 +159,6 @@ motherOccupationError: 'No',
     fspSpanishNat: 'No'
   }
 ] 
+
+
+module.exports = records
