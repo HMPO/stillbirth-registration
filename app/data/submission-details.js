@@ -10,7 +10,7 @@ const records = [
     submissionDate: '4 February 2026',
     //child 1
     childFirstName: 'Dougal',
-    childFirstNameError: 'no',
+    childFirstNameError: 'yes',
 
     childLastName: 'MCGOVER',
     childMiddleName: '',
@@ -31,27 +31,27 @@ const records = [
     //mother 1
     orMotherFirstName: 'Lucy',
     nhsMotherFirstName: 'Lucy',
-    mFNameError: 'no',
+    mFNameError: 'yes',
 
     orMotherLastName: 'MCGOVER',
     nhsMotherLastName: 'MCGOVER',
-    mLNameError: 'no',
+    mLNameError: 'yes',
 
     maidenName: '',
     differentMaidenName: '',
 
     orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
     nhsMotherCurrentAddress: 'Matches these details',
-    currentAddressError: 'no',
+    currentAddressError: 'yes',
 
     orMotherAddressToB: 'Same as current address',
     nhsMotherAddressToB: 'Matches these details',
-    motherAddressToBError: 'no',
+    motherAddressToBError: 'yes',
 
     motherPoB: 'Fife, Scotland',
 
     motherOccupation: 'Hairdressser',
-    motherOccupationError: 'no',
+    motherOccupationError: 'yes',
 
     //father or second parent 1
     fspFirstName: 'Jimmy',
@@ -59,9 +59,9 @@ const records = [
 
     fspPoB: 'Dublin, Ireland',
     fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
-    fspAddressToB: 'Same as above',
+    fspAddressToB: "Same as mother's current address",
     fspOccupation: 'Uber driver',
-    fspOccupationError: 'This may be a company name',
+    fspOccupationError: 'yes',
 
     //statistics - mother 1
     motherDob: '20 April 2001',
@@ -121,11 +121,11 @@ const records = [
 
     orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
     nhsMotherCurrentAddress: 'Matches these details',
-    currentAddressError: 'no',
+    currentAddressError: 'yes',
 
-    orMotherAddressToB: 'Same as above',
+    orMotherAddressToB: 'Same as current address',
     nhsMotherAddressToB: 'Matches these details',
-    motherAddressToBError: 'no',
+    motherAddressToBError: 'yes',
 
     motherPoB: 'Fife, Scotland',
 
@@ -140,7 +140,7 @@ const records = [
     fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
     fspAddressToB: 'Same as current address',
     fspOccupation: 'Uber driver',
-    fspOccupationError: 'This may be a company name',
+    fspOccupationError: 'yes',
 
     //statistics - mother 1
     motherDob: '20 April 2001',
