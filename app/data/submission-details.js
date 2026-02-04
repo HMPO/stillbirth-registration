@@ -1,5 +1,4 @@
 
-// app/data/records.js
 const records = [
   {
     id: 1,

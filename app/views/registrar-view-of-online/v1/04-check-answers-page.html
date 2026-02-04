@@ -16,7 +16,9 @@
     <div class="govuk-grid-column-three-quarters  govuk-!-margin-bottom-6">
  <span class="govuk-caption-l">
       Registration {{ currentIndex + 1 }} of {{ totalRecords }}
+      
     </span>
+    <input type="hidden" name="id" value="{{ record.id }}">
       <h1 class="govuk-heading-xl">
         Confirm online birth registration
       </h1>
@@ -428,7 +430,8 @@ Informant’s ID verified by GOV.UK One Login</p>
     <div class="govuk-grid-column-three-quarters">
    
 
-      <form action="/registrar-view-of-online/v1/confirm-registration-form" method="post" novalidate>
+      <form action="/registrar-view-of-online/v1/04-check-answers-page" method="post" novalidate>
+        <input type="hidden" name="id" value="{{ record.id }}">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
