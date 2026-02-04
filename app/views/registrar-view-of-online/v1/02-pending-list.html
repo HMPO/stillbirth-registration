@@ -12,15 +12,9 @@
 {% endblock %}
 
 {% block content %}
-<script>
-  function passData(event, nhsNumber, dob, motherFName, motherLName, childsSex, childLife, mothersStreet, mothersPCode, mothersDob, daysSince, appointmentStatus, contactStatus, specialStatus, groStatus) {
-    event.preventDefault();
-    const url = `03-register-page.html?nhs-number=${encodeURIComponent(nhsNumber)}&date-of-birth=${encodeURIComponent(dob)}&mothers-first-name=${encodeURIComponent(motherFName)}&mothers-last-name=${encodeURIComponent(motherLName)}&childs-sex=${encodeURIComponent(childsSex)}&child-life=${encodeURIComponent(childLife)}&mothers-street=${encodeURIComponent(mothersStreet)}&mothers-pcode=${encodeURIComponent(mothersPCode)}&mothers-dob=${encodeURIComponent(mothersDob)}&daysSince=${encodeURIComponent(daysSince)}&appointmentStatus=${encodeURIComponent(appointmentStatus)}&contactStatus=${encodeURIComponent(contactStatus)}&specialStatus=${encodeURIComponent(specialStatus)}&groStatus=${encodeURIComponent(groStatus)}`;
-    window.location.href = url;
-  }
-</script>
 
- <form class="form" action="03-register-page.html" method="post">
+
+ 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
 
@@ -43,6 +37,10 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
+
+<p class="govuk-body">
+  Total records: {{ data.records | length }}
+</p>
 
 <p class="govuk-body">Showing 1 to 20 of 46</p>
 
@@ -94,133 +92,6 @@
               </tr>
             {% endfor %}
 
-    <!-- <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '27', 'no','4-week', 'no', 'no')">390 123 4567</a></td>
-      <td class="govuk-table__cell">HUSEIN, Lila</td>
-      
-      <td class="govuk-table__cell">5</td>
-      <td class="govuk-table__cell">27</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--grey">
-           In review
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 987 6543', '3 October 2025', 'Olivia', 'SMITH', 'Female', 'Stillborn', '177c St. George Lane', 'WK1 2RG', '8 March 1990', '27', 'no','4-week', 'no', 'no')">390 987 6543</a></td>
-      <td class="govuk-table__cell">SMITH, Olivia</td>
-      
-      <td class="govuk-table__cell">5</td>
-      <td class="govuk-table__cell">13</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-         Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '26', 'no','4-week', 'no', 'no')">390 456 7890</a></td>
-      <td class="govuk-table__cell">JONES, Emily</td>
-      
-      <td class="govuk-table__cell">5</td>
-      <td class="govuk-table__cell">22</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-          Pending
-        </strong></td>
-    </tr>
-     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '26', 'no','4-week', 'no', 'no')">390 456 7891</a></td>
-      <td class="govuk-table__cell">JONES, Emily</td>
-      
-      <td class="govuk-table__cell">5</td>
-      <td class="govuk-table__cell">22</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-          Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 3210', '5 October 2025', 'Sophie', 'WILLIAMS', 'Male', 'Live', '114d Kingfisher Way', 'WK4E 8PY', '25 May 1995', '26', 'yes','4-week', 'no', 'no')">390 654 3210</a></td>
-      <td class="govuk-table__cell">WILLIAMS, Sophie</td>
-      
-      <td class="govuk-table__cell">4</td>
-      <td class="govuk-table__cell">5</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--yellow">
-           On hold
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 0123', '6 October 2025', 'Amelia', 'BROWN', 'Female', 'Live', '88b Church Street', 'WK6 2JK', '18 June 1990', '25', 'no','no-4-week', 'yes', 'no')">390 789 0123</a></td>
-      <td class="govuk-table__cell">BROWN, Amelia</td>
-      
-      <td class="govuk-table__cell">4</td>
-      <td class="govuk-table__cell">28</td>
-      <td class="govuk-table__cell govuk-!-text-align-right">
-        
-         <strong class="govuk-tag govuk-tag--orange">
-          Pending
-        </strong>
-       
-      </td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 6540', '7 October 2025', 'Isla', 'DAVIES', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '21 July 2000', '25', 'no','4-week', 'no', 'no')">390 321 6540</a></td>
-      <td class="govuk-table__cell">DAVIES, Isla</td>
-      
-      <td class="govuk-table__cell">3</td>
-      <td class="govuk-table__cell">20</td>
-     
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-          Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 322 6610', '8 October 2025', 'Ava', 'EVANS', 'Female', 'Live', '121a Church Street', 'WK2 3NZ', '18 June 1999', '25', 'no','no-4-week', 'no', 'no')">390 322 6610</a></td>
-      <td class="govuk-table__cell">EVANS, Ava</td>
-      
-      <td class="govuk-table__cell">2</td>
-      <td class="govuk-table__cell">19</td>
-     
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-         Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 654 9870', '9 October 2025', 'Mia', 'THOMAS', 'Male', 'Live', '41 Briar Hill', 'WK3 5NG', '30 April 1997', '24', 'no','no-4-week', 'no', 'no')">390 654 9870</a></td>
-      <td class="govuk-table__cell">THOMAS, Mia</td>
-      
-      <td class="govuk-table__cell">2</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">42</strong></td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-         Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 321 9870', '10 October 2025', 'Ella', 'WILSON', 'Male', 'Live', '56 Oakwood Avenue', 'WK15 4PQ', '23 April 2001', '23', 'no','no-4-week', 'no', 'no')">390 321 9870</a></td>
-      <td class="govuk-table__cell">WILSON, Ella</td>
-    
-      <td class="govuk-table__cell">2</td>
-      <td class="govuk-table__cell">15</td>
-  
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-           Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 789 3210', '11 October 2025', 'Grace', 'ROBERTS', 'Female', 'Live', '80 Victoria Terrace', 'WK5 9MB', '3 October 1998', '22')">390 789 3210</a></td>
-      <td class="govuk-table__cell">ROBERTS, Grace</td>
-      
-      <td class="govuk-table__cell">1</td>
-      <td class="govuk-table__cell">31</td>
-      
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
-            Pending
-        </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td><p class="govuk-body govuk-!-margin-top-2"><a href="#">Show more</a></p></td>
-     </tr> -->
   </tbody>
 </table>
 
@@ -298,6 +169,6 @@
   ]
 }) }}
 
-</form>
+
 
 {% endblock %}
