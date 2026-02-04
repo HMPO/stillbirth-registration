@@ -1,12 +1,23 @@
 module.exports = function(router) {
   
 
-// Name and date
+ // Load records data (relative to this file)
+  const records = require('../../../data/submission-details')
+
+
+
+router.use((req, res, next) => {
+  if (!req.session.data.records) {
+    req.session.data.records = records
+  }
+  next()
+})
+
 
 
 // routes for registrar view of online
 
-//Confirm form
+//Confirm form - need to add 'accept coding here
 router.post('/registrar-view-of-online/v1/confirm-registration-form', function (req, res) {
 
    // Log the submitted form data
@@ -59,9 +70,8 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
 });
 
 // cycling through records
-// app/routes.js
- // Load records data (relative to this file)
-  const records = require('../../../data/submission-details')
+
+
 
   // Use a scoped key so we don't clash with other journeys
   const indexKey = 'registrarCurrentIndex'
@@ -108,19 +118,44 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
     })
   })
 
+
+router.get('/registrar-view-of-online/v1/02-pending-list', function (req, res) {
+  res.render('/registrar-view-of-online/v1/02-pending-list')
+})
+
+router.get('/registrar-view-of-online/v1/03-register-page', function (req, res) {
+const id = parseInt(req.query.id, 10)
+  const recordList = req.session.data.records || []
+
+  const record = recordList.find(r => r.id === id)
+
+  res.render('/registrar-view-of-online/v1/03-register-page', { record })
+})
+
+
+router.post('/registrar-view-of-online/v1/03-register-page', function (req, res) {
+  const id = parseInt(req.body.id, 10)
+
+  // Store the checkbox value in session if you want to use it later
+  req.session.data['register-confirm-' + id] = req.body.registerConfirm
+
+  // Redirect to the check answers page for this record
+  res.redirect('/registrar-view-of-online/v1/04-check-answers-page?id=' + id)
+})
+
   // RECORD PAGE (POST) – user clicks "Accept"
-  router.post('/registrar-view-of-online/v1/record', function (req, res) {
+  //router.post('/registrar-view-of-online/v1/record', function (req, res) {
     // For now we just go to the sign page – no need to change index yet
-    res.redirect('/registrar-view-of-online/v1/05-sign-page')
-  })
+   // res.redirect('/registrar-view-of-online/v1/05-sign-page')
+ // })
 
   // 2) SIGN PAGE – second confirmation step
-  router.get('/registrar-view-of-online/v1/sign', function (req, res) {
+  router.get('/registrar-view-of-online/v1/05-sign-page', function (req, res) {
     const currentIndex = getCurrentIndex(req)
 
-    if (currentIndex >= records.length) {
-      return res.redirect('/registrar-view-of-online/v1/06-confirmation-page')
-    }
+    // if (currentIndex >= records.length) {
+    //   return res.redirect('/registrar-view-of-online/v1/06-confirmation-page')
+    // }
 
     const record = records[currentIndex]
 
@@ -138,7 +173,7 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
   })
 
   // 3) RECORD CONFIRMATION PAGE – always the same page
-  router.get('/registrar-view-of-online/v1/record-confirmation', function (req, res) {
+  router.get('/registrar-view-of-online/v1/06-confirmation-page', function (req, res) {
     const currentIndex = getCurrentIndex(req)
 
     // If index is somehow beyond the end, clamp to the last record
@@ -149,7 +184,7 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
     // Is there another record after this one?
     const hasMoreRecords = safeIndex + 1 < records.length
 
-    res.render('registrar-view-of-online/v1/06-confirmation', {
+    res.render('registrar-view-of-online/v1/06-confirmation-page', {
       record,
       currentIndex: safeIndex,
       totalRecords: records.length,
@@ -158,7 +193,7 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
   })
 
   // RECORD CONFIRMATION PAGE (POST) – "Next record" button
-  router.post('/registrar-view-of-online/v1/06-confirmation', function (req, res) {
+  router.post('/registrar-view-of-online/v1/06-confirmation-page', function (req, res) {
     let currentIndex = getCurrentIndex(req)
 
     // Only increment if there IS another record
@@ -170,8 +205,9 @@ router.post('/registrar-view-of-online/v1/status-registration-form', function (r
     // Always return to the same confirmation page,
     // which will either show "Next record" (if more)
     // or "There are no more records." (if not).
-    res.redirect('/registrar-view-of-online/record')
+    res.redirect('/registrar-view-of-online/v1/04-check-answers-page')
   })
+
 
 
 //need this at the end:

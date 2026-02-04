@@ -16,6 +16,7 @@
 
       <br>
 
+
       <!-- <h2 class="govuk-heading-m">
         What to do next
       </h2> 
@@ -25,22 +26,48 @@
 
 <p class="govuk-body">The informant ordered:</p>
 
-<ul class="govuk-list govuk-list--bullet">
-  <li>2 standard certificates</li>
+ {% if record.printNumber == "none" %}
+ <ul class="govuk-list govuk-list--bullet">
+<li>No certificates</li>
 </ul>
-
+ {% elif record.printNumber == "2" %} 
+ <ul class="govuk-list govuk-list--bullet">
+ <li>2 certificates</li>
+</ul>
 <p class="govuk-body">These must be printed and sent to the informant.</p>
-      </p>
+  {% else %} 
+<ul class="govuk-list govuk-list--bullet">
+  <li>1 certificate</li>
+  </ul>
+  <p class="govuk-body">This must be printed and sent to the informant.</p>
+
+   {% endif %}
+
+
+
 
       <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
         <div class="govuk-grid-column-full">
 
-      <form action="04-check-answers-page" method="post" novalidate>
-{% from "govuk/components/button/macro.njk" import govukButton %}
+      <p class="govuk-body">Online registration {{ currentIndex + 1 }} of {{ totalRecords }} has been completed.</p> 
+    
 
-{{ govukButton({
+<!-- {{ govukButton({
   text: "View next online submission"
-}) }}
+}) }} -->
+ {% if hasMoreRecords %}
+       <form method="post" action="/registrar-view-of-online/v1/06-confirmation-page">
+       
+        {{ govukButton({
+          text: "Next record"
+        }) }}
+      </form>
+    {% else %}
+      <p class="govuk-body govuk-!-margin-top-6">
+        <strong>There are no more pending registrations.</strong>
+      </p>
+    {% endif %}
+
 </form>
 </div>
 </div>
@@ -52,7 +79,7 @@
       </p>
 
       <p  class="govuk-body">
-        <a href="01-life-event-home.html">
+        <a href="02-pending-list">
           Return to online birth submissions
         </a>
       </p>

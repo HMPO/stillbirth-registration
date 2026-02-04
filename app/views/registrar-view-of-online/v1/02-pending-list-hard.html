@@ -60,41 +60,7 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-
-
-
- {% for record in data.records %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-                 <a href="/registrar-view-of-online/v1/03-register-page?id={{ record.id }}" class="govuk-link">
-                    {{ record.referenceNumber }}
-                  </a>
-                </td>
-                <td class="govuk-table__cell">
-                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
-                </td>
-                 <td class="govuk-table__cell">
-                  {{ record.daysSinceSubmission }} 
-                </td>
-                 <td class="govuk-table__cell">
-                  {{ record.daysSinceBirth }} 
-                </td>
-                 <td class="govuk-table__cell govuk-!-text-align-right">
-                   {% if record.recordStatus == "onhold" %}
-                    
-        <strong class="govuk-tag govuk-tag--yellow">On hold</strong>
-         {% elif record.recordStatus == "inreview" %}
-         <strong class="govuk-tag govuk-tag--grey">In review</strong>
-
-          {% else %}
-       <strong class="govuk-tag govuk-tag--orange">Pending</strong>
-        {% endif %}
-                  
-                </td>
-              </tr>
-            {% endfor %}
-
-    <!-- <tr class="govuk-table__row">
+    <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '27', 'no','4-week', 'no', 'no')">390 123 4567</a></td>
       <td class="govuk-table__cell">HUSEIN, Lila</td>
       
@@ -112,9 +78,11 @@
       <td class="govuk-table__cell">5</td>
       <td class="govuk-table__cell">13</td>
       
-       <td class="govuk-table__cell govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--orange">
+       <td class="govuk-table__cell govuk-!-text-align-right">
+        <strong class="govuk-tag govuk-tag--orange">
          Pending
-        </strong></td>
+        </strong>
+      </td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 456 7890', '4 October 2025', 'Emily', 'JONES', 'Male', 'Live', '11 Willow Crescent', 'WK12 5PL', '15 August 1989', '26', 'no','4-week', 'no', 'no')">390 456 7890</a></td>
@@ -220,7 +188,7 @@
     </tr>
     <tr class="govuk-table__row">
       <td><p class="govuk-body govuk-!-margin-top-2"><a href="#">Show more</a></p></td>
-     </tr> -->
+     </tr>
   </tbody>
 </table>
 

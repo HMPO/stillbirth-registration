@@ -15,7 +15,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters  govuk-!-margin-bottom-6">
  <span class="govuk-caption-l">
-      Record {{ currentIndex + 1 }} of {{ totalRecords }}
+      Registration {{ currentIndex + 1 }} of {{ totalRecords }}
     </span>
       <h1 class="govuk-heading-xl">
         Confirm online birth registration
@@ -138,7 +138,7 @@ Informant’s ID verified by GOV.UK One Login</p>
 <div class="govuk-grid-column-one-half">
   <dl class="govuk-summary-list">
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Name</dt>
+      <dt class="govuk-summary-list__key">NHS number</dt>
       <dd class="govuk-summary-list__value">{{ record.nhsNHS }}</dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -235,7 +235,7 @@ Informant’s ID verified by GOV.UK One Login</p>
        {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
           <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}</strong></mark>  {{ record.nhsMotherLastName }}
          {% else %}
-        {{ record.nhsMotherFirstName }} {{ record.nhsMotherLastName }}
+        Matches these details
         {% endif %}
       </dd>
     </div>
@@ -388,7 +388,7 @@ Informant’s ID verified by GOV.UK One Login</p>
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">{{ record.qualification2}}'s  name</dt>
       <dd class="govuk-summary-list__value">
-        {{ record.fspFirstName }} 
+        {{ record.fspFirstName }} {{ record.fspLastName }} 
       </dd>
     </div>
 

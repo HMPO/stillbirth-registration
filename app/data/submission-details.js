@@ -3,89 +3,15 @@
 const records = [
   {
     id: 1,
+    recordStatus: 'inreview',
     qualification1: 'Mother',
     qualification2: 'Father',
-    relationshipType: 'Not married or in civil partnership',
-    printNumber: 'none',
-    submissionDate: '4 February 2026',
-    //child 1
-    childFirstName: 'Dougal',
-    childFirstNameError: 'yes',
-
-    childLastName: 'MCGOVER',
-    childMiddleName: '',
-
-    orNHS: '987 654 3210',
-    nhsNHS: 'Matches these details',
-
-    orDoB: '29 January 2026',
-    nhsDoB: 'Matches these details',
-
-    orSex: 'Male',
-    nhsSex: 'Matches these details',
-
-    orPoB: "St. Mary's, Wakefield",
-    nhsPoB: "St. Mary's, Winchester",
-    PoBError: 'yes',
-
-    //mother 1
-    orMotherFirstName: 'Lucy',
-    nhsMotherFirstName: 'Lucy',
-    mFNameError: 'yes',
-
-    orMotherLastName: 'MCGOVER',
-    nhsMotherLastName: 'MCGOVER',
-    mLNameError: 'yes',
-
-    maidenName: '',
-    differentMaidenName: '',
-
-    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
-    nhsMotherCurrentAddress: 'Matches these details',
-    currentAddressError: 'yes',
-
-    orMotherAddressToB: 'Same as current address',
-    nhsMotherAddressToB: 'Matches these details',
-    motherAddressToBError: 'yes',
-
-    motherPoB: 'Fife, Scotland',
-
-    motherOccupation: 'Hairdressser',
-    motherOccupationError: 'yes',
-
-    //father or second parent 1
-    fspFirstName: 'Jimmy',
-    fspLastName: 'MCGOVER',
-
-    fspPoB: 'Dublin, Ireland',
-    fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
-    fspAddressToB: "Same as mother's current address",
-    fspOccupation: 'Uber driver',
-    fspOccupationError: 'yes',
-
-    //statistics - mother 1
-    motherDob: '20 April 2001',
-    motherDobError: 'No',
-    motherEmployment: 'Employed, not supervising',
-    motherFirstMarriage: 'yes',
-    motherSpanishNat: 'No',
-
-    stillbirths: '0',
-    previousBirths: '0',
-
-    //statistics - father or second female parent 1
-    fspDoB: '7 September 1999',
-    fspEmployment: 'Self-employed, not supervising',
-    fspMarriageDate: '3 June 2022',
-    fspSpanishNat: 'No'
-  },
-   {
-    id: 2,
-    qualification1: 'Mother',
-    qualification2: 'Father',
-    relationshipType: 'Married or civil partnership',
+    relationshipType: 'Married or in civil partnership',
     printNumber: '1',
     submissionDate: '4 February 2026',
+    daysSinceSubmission: '4',
+    referenceNumber: '2026/849345385/WA',
+    
     //child 1
     childFirstName: 'Dougal',
     childFirstNameError: 'no',
@@ -98,14 +24,14 @@ const records = [
 
     orDoB: '29 January 2026',
     nhsDoB: 'Matches these details',
+    daysSinceBirth: '6',
 
     orSex: 'Male',
     nhsSex: 'Matches these details',
-    sexError: 'no',
 
-    orPoB: 'St. Marys, Wakefield',
-    nhsPoB: 'St. Marys, Winchester',
-    PoBError: 'yes',
+    orPoB: "St. Mary's, Wakefield",
+    nhsPoB: "Matches these details",
+    PoBError: 'no',
 
     //mother 1
     orMotherFirstName: 'Lucy',
@@ -121,28 +47,111 @@ const records = [
 
     orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
     nhsMotherCurrentAddress: 'Matches these details',
-    currentAddressError: 'yes',
+    currentAddressError: 'no',
 
     orMotherAddressToB: 'Same as current address',
     nhsMotherAddressToB: 'Matches these details',
-    motherAddressToBError: 'yes',
+    motherAddressToBError: 'no',
+
+    motherPoB: 'London',
+
+    motherOccupation: 'Teacher',
+    motherOccupationError: 'no',
+
+    //father or second parent 1
+    fspFirstName: 'Clive',
+    fspLastName: 'MCGOVER',
+
+    fspPoB: 'Hounslow',
+    fspCurrentAddress: "29 Rootfield Drive, Winchester WT8 5UY",
+    fspAddressToB: "Same as mother's current address",
+    fspOccupation: 'Uber driver',
+    fspOccupationError: 'no',
+
+    //statistics - mother 1
+    motherDob: '20 April 2001',
+    motherDobError: 'no',
+    motherEmployment: 'Employed, not supervising',
+    motherFirstMarriage: 'yes',
+    motherSpanishNat: 'no',
+
+    stillbirths: '0',
+    previousBirths: '0',
+
+    //statistics - father or second female parent 1
+    fspDoB: '7 September 1999',
+    fspEmployment: 'Self-employed, not supervising',
+    fspMarriageDate: '3 June 2022',
+    fspSpanishNat: 'No'
+  },
+   {
+    id: 2,
+    recordStatus: 'pending',
+    qualification1: 'Mother',
+    qualification2: 'Father',
+    relationshipType: 'Married or civil partnership',
+    printNumber: '1',
+    submissionDate: '4 February 2026',
+    daysSinceSubmission: '4',
+    referenceNumber: '2026/849345386/WA',
+    //child 2
+    childFirstName: 'Trevor',
+    childFirstNameError: 'no',
+
+    childLastName: 'HOUND',
+    childMiddleName: '',
+
+    orNHS: '987 654 3210',
+    nhsNHS: 'Matches these details',
+
+    orDoB: '13 January 2026',
+    nhsDoB: 'Matches these details',
+    daysSinceBirth: '22',
+
+    orSex: 'Female',
+    nhsSex: 'Matches these details',
+    sexError: 'no',
+
+    orPoB: 'Whittington, Wakefield',
+    nhsPoB: 'Matches these details',
+    PoBError: 'no',
+
+    //mother 2
+    orMotherFirstName: 'Ophelia',
+    nhsMotherFirstName: 'Ophelia',
+    mFNameError: 'no',
+
+    orMotherLastName: 'HOUND',
+    nhsMotherLastName: 'HOUND',
+    mLNameError: 'no',
+
+    maidenName: '',
+    differentMaidenName: '',
+
+    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    nhsMotherCurrentAddress: 'Matches these details',
+    currentAddressError: 'no',
+
+    orMotherAddressToB: 'Same as current address',
+    nhsMotherAddressToB: 'Matches these details',
+    motherAddressToBError: 'no',
 
     motherPoB: 'Fife, Scotland',
 
-    motherOccupation: 'Uber Hairdressser',
-    motherOccupationError: 'yes',
+    motherOccupation: 'Hairdressser',
+    motherOccupationError: 'no',
 
-    //father or second parent 1
+    //father or second parent 2
     fspFirstName: 'Jimmy',
-    fspLastName: 'MCGOVER',
+    fspLastName: 'HOUND',
 
     fspPoB: 'Dublin, Ireland',
     fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
     fspAddressToB: 'Same as current address',
-    fspOccupation: 'Uber driver',
-    fspOccupationError: 'yes',
+    fspOccupation: 'Driver',
+    fspOccupationError: 'no',
 
-    //statistics - mother 1
+    //statistics - mother 2
     motherDob: '20 April 2001',
     motherDobError: 'no',
     motherEmployment: 'Employed, not supervising',
@@ -152,7 +161,7 @@ const records = [
     stillbirths: '0',
     previousBirths: '0',
 
-    //statistics - father or second female parent 1
+    //statistics - father or second female parent 2
     fspDoB: '7 September 1999',
     fspEmployment: 'Self-employed, not supervising',
     fspMarriageDate: '3 June 2022',
