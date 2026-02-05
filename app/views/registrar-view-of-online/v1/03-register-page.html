@@ -25,7 +25,10 @@ Select the registrar’s designation – {{ serviceName }} – GOV.UK Prototype 
           <h1 class="govuk-heading-l">
             Register page 
           </h1>
-          <form class="form" action="04-check-answers-page.html">
+         
+<form method="post" action="/registrar-view-of-online/v1/03-register-page">
+  <input type="hidden" name="id" value="{{ record.id }}">
+
             
 
        <div class="govuk-form-group">

@@ -16,15 +16,17 @@
     <div class="govuk-grid-column-three-quarters  govuk-!-margin-bottom-6">
  <span class="govuk-caption-l">
       Registration {{ currentIndex + 1 }} of {{ totalRecords }}
+      
     </span>
+    <input type="hidden" name="id" value="{{ record.id }}">
       <h1 class="govuk-heading-xl">
         Confirm online birth registration
       </h1>
-      <p class="govuk-body">Submitted on: {{ record.submissionDate }} <br>
-Informant ID checked by GOV.UK One Login</p>
+      <p class="govuk-hint govuk-!-margin-bottom-2">Submitted on: {{ record.submissionDate }} <br>
+        Reference:  {{ record.referenceNumber }}</p>
+ <p class="govuk-hint">Informant ID checked by GOV.UK One Login</p>
 
-
-<p class="govuk-body">Review these details to complete this registration and get any ordered birth certificates.</p>
+<p class="govuk-body govuk-!-margin-top-6">Review these details to complete this registration and get any ordered birth certificates.</p>
        <h2 class="govuk-heading-l">
         Informant details
       </h2>
@@ -44,7 +46,7 @@ Informant ID checked by GOV.UK One Login</p>
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Informant(s)</dt>
       <dd class="govuk-summary-list__value">
-        {% if record.qualification2 == "none" %}
+        {% if record.qualification2 == "none" or record.relationshipType == "Married or in civil partnership" or record.relationshipType == "Married or in civil partnership at time of conception" %}
         {{ record.qualification1 }} 
          {% else %}
         {{ record.qualification1 }} and  {{ record.qualification2 }}
@@ -63,7 +65,7 @@ Informant ID checked by GOV.UK One Login</p>
       <dt class="govuk-summary-list__key">Certificates ordered</dt>
       <dd class="govuk-summary-list__value">
 
-        {% if record.printNumber == "none" %}
+        {% if record.printNumber == "0" %}
 
 <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 " style="border-color: #FFB266; background-color: #FFE5CC;">
   <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
@@ -392,6 +394,13 @@ Informant ID checked by GOV.UK One Login</p>
       </dd>
     </div>
 
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspCurrentAddress }} 
+      </dd>
+    </div>
+
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Address at time of birth</dt>
       <dd class="govuk-summary-list__value">
@@ -428,7 +437,8 @@ Informant ID checked by GOV.UK One Login</p>
     <div class="govuk-grid-column-three-quarters">
    
 
-      <form action="/registrar-view-of-online/v1/confirm-registration-form" method="post" novalidate>
+      <form action="/registrar-view-of-online/v1/04-check-answers-page" method="post" novalidate>
+        <input type="hidden" name="id" value="{{ record.id }}">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 

@@ -49,12 +49,7 @@
       <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
         <div class="govuk-grid-column-full">
 
-      <p class="govuk-body">Online registration {{ currentIndex + 1 }} of {{ totalRecords }} has been completed.</p> 
-    
-
-<!-- {{ govukButton({
-  text: "View next online submission"
-}) }} -->
+      <!-- <p class="govuk-body">Online registration {{ currentIndex + 1 }} of {{ totalRecords }} has been completed.</p> 
  {% if hasMoreRecords %}
        <form method="post" action="/registrar-view-of-online/v1/06-confirmation-page">
        
@@ -66,9 +61,28 @@
       <p class="govuk-body govuk-!-margin-top-6">
         <strong>There are no more pending registrations.</strong>
       </p>
-    {% endif %}
+    {% endif %} -->
 
-</form>
+
+     <input type="hidden" name="id" value="{{ record.id }}">
+        <p class="govuk-body">
+          This was registration {{ currentIndex + 1 }} of {{ totalRecords }}.
+        </p>
+     
+
+      {% if nextId %}
+      <a href="/registrar-view-of-online/v1/04-check-answers-page?id={{ nextId }}"
+           class="govuk-button"
+           data-module="govuk-button">
+          View next online registration
+        </a>
+      {% else %}
+        <p class="govuk-body">
+          There are no more online registrations to review.
+        </p>
+      {% endif %}
+
+
 </div>
 </div>
 
