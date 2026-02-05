@@ -24,17 +24,16 @@
       </h1>
       <p class="govuk-hint govuk-!-margin-bottom-2">Submitted on: {{ record.submissionDate }} <br>
         Reference:  {{ record.referenceNumber }}</p>
- <p class="govuk-hint">Informant ID verified by GOV.UK One Login</p>
-
+ <p class="govuk-hint">Informant ID checked by GOV.UK One Login</p>
 
 <p class="govuk-body govuk-!-margin-top-6">Review these details to complete this registration and get any ordered birth certificates.</p>
        <h2 class="govuk-heading-l">
-        Certificate details
+        Informant details
       </h2>
 
   <dl class="govuk-summary-list">
      <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Who is on certificate</dt>
+      <dt class="govuk-summary-list__key">Qualification</dt>
       <dd class="govuk-summary-list__value">
         {% if record.qualification2 == "none" %}
         {{ record.qualification1 }} 
@@ -459,7 +458,7 @@
     },
     {
       value: "no-an-issue",
-      text: "No, there is an issue with this submission"
+      text: "No, there is an issue with this registration"
     }
    
   ]
