@@ -82,9 +82,18 @@
         
          {% else %} 
  <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Informant</dt>
+      <dt class="govuk-summary-list__key">Second parent</dt>
       <dd class="govuk-summary-list__value">
-        {{ record.qualification2 }} 
+        {{ record.qualification2 }} - 
+
+         {% if record.relationshipType == "Yes" %}
+         Married or in a civil partnership
+         {% elif record.relationshipType == "No" %}
+         Not married or in a civil partnership
+           {% else %} 
+            {{ record.relationshipType }}
+           {% endif %}
+
       </dd>
       <dd class="govuk-summary-list__actions">
       </dd>

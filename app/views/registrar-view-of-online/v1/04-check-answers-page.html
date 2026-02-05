@@ -7,12 +7,191 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: "02-pending-list"
   }) }}
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full " style="margin-top: -30px;">
+
+       {% if record.recordStatus == "inreview" %}
+       
+<div class="hods-status-message govuk-!-margin-bottom-9">
+  <div>
+    <div class="hods-status-message__status">
+      In review
+    </div>
+    <p class="hods-status-message__extra" style="color: white;">
+      This registration is being viewed by Hannah Jackson.
+    </p>
+  </div>
+<ul class="hods-status-message__actions">
+    <li
+      class="hods-status-message__actions__item hods-status-message__actions__item--active"
+    >
+      <a
+        class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#"
+      >
+        Review
+      </a>
+    </li>
+    <li
+      class="hods-status-message__actions__item hods-status-message__actions__item--active"
+    >
+      <a
+        class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#"
+      >
+        Extend hold
+      </a>
+    </li>
+  </ul>
+</div>
+ {% elif record.recordStatus == "onhold" %}
+ 
+ <div class="hods-status-message govuk-!-margin-bottom-0">
+  <div>
+    <div class="hods-status-message__status">
+      On hold     
+    </div>
+    <p class="hods-status-message__extra" style="color: white;">
+     
+    </p>
+  </div>
+<ul class="hods-status-message__actions">
+    <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
+      <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#">
+        Change to pending
+      </a>
+    </li>
+    <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
+      <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#">
+        Appointment required
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="govuk-notification-banner govuk-!-margin-top-0" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">
+      This registration was marked as on hold on 3 January 2026 to check information with the informant.
+    </p>
+     <dl class="govuk-summary-list" >
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Informant</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification1 }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification1 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07886 383 761
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      protonmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherCurrentAddress }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+     {% if record.qualification2 == "none" %}
+        
+         {% else %} 
+ <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Second parent</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification2 }} - 
+
+         {% if record.relationshipType == "Yes" %}
+         Married or in a civil partnership
+         {% elif record.relationshipType == "No" %}
+         Not married or in a civil partnership
+           {% else %} 
+            {{ record.relationshipType }}
+           {% endif %}
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07975 555 778
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      fastmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+          {% endif %}
+  </dl>
+  </div>
+</div>
+         {% else %}
+       
+        {% endif %}
+
+
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters  govuk-!-margin-bottom-6">
  <span class="govuk-caption-l">
       Registration {{ currentIndex + 1 }} of {{ totalRecords }}
@@ -438,7 +617,9 @@
   <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-9" id="form-div">
     <div class="govuk-grid-column-three-quarters">
    
+  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
 
+  {% else %}
       <form action="/registrar-view-of-online/v1/04-check-answers-page" method="post" novalidate>
         <input type="hidden" name="id" value="{{ record.id }}">
 
@@ -471,7 +652,7 @@
         }) }}
 
       </form>
-
+ {% endif %}
     </div>
   </div>
 
