@@ -28,58 +28,106 @@
       </h2>
 
      <dl class="govuk-summary-list" >
-    <!-- First Name -->
+    
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Name</dt>
+      <dt class="govuk-summary-list__key">Informant</dt>
       <dd class="govuk-summary-list__value">
-         {{ data['deceasedFirstName'] or 'Baby' }} {{ data['deceasedMiddleName'] or '' }} {{ (data['deceasedLastName'] or 'DUFFY') | upper }}
-          
+        {{ record.qualification1 }} 
       </dd>
       <dd class="govuk-summary-list__actions">
       </dd>
     </div>
 
-    <!-- Last Name -->
+    <!--  Name -->
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Sex</dt>
+      <dt class="govuk-summary-list__key">{{ record.qualification1 }}'s name</dt>
       <dd class="govuk-summary-list__value">
-      {{ data['sex'] or 'Male' }}
+      {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
       </dd>
       <dd class="govuk-summary-list__actions">
         </dd>
     </div>
 
 
-   <!-- Last Name -->
+   <!-- Phone -->
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dt class="govuk-summary-list__key">Phone number</dt>
       <dd class="govuk-summary-list__value">
-        {% if data['dateOfDeath-day'] and data['dateOfDeath-month'] and data['dateOfDeath-year'] %}
-      {{ data['dateOfDeath-day'] }}/{{ data['dateOfDeath-month'] }}/{{ data['dateOfDeath-year'] }}
-    {% else %}
-      21 August 2025
-    {% endif %}
+       07886 383 761
       </dd>
       <dd class="govuk-summary-list__actions">
        </dd>
     </div>
 
-     <!-- Last Name -->
+     <!-- Email -->
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dt class="govuk-summary-list__key">Email</dt>
       <dd class="govuk-summary-list__value">
-      {{ data['MCCDAddressLine1'] or 'Central Hospital, Wakefield' }}
+      protonmail@email.com
       </dd>
       <dd class="govuk-summary-list__actions">
         </dd>
     </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherCurrentAddress }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+     {% if record.qualification2 == "none" %}
+        
+         {% else %} 
+ <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Informant</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification2 }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07975 555 778
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      fastmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+          {% endif %}
   </dl>
  
 </div>
  
 
-      <form action="/registrar-view-of-online/v1/status-registration-form" method="post" novalidate>
-
+      <form action="/registrar-view-of-online/v1/05a-next-steps-contact" method="post" novalidate>
+ <input type="hidden" name="id" value="{{ record.id }}">
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({

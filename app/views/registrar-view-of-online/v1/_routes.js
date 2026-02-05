@@ -142,6 +142,51 @@ module.exports = function (router) {
   })
 
   // ---------------------------
+  // 05a - Next step - contact (GET + POST)
+  // ---------------------------
+
+  // GET 05a NEXT step
+  router.get('/registrar-view-of-online/v1/05a-next-steps-contact', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+    const record = getRecordById(req, id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v1/record-not-found')
+    }
+
+    res.render('registrar-view-of-online/v1/05a-next-steps-contact', { record, id })
+  })
+
+  // POST 05a Next steps Status form - for when there is an issue on hold or in-person 
+router.post('/registrar-view-of-online/v1/05a-next-steps-contact', function (req, res) {
+
+  // Ensure session data exists
+  req.session.data = req.session.data || {};
+  const id = parseInt(req.body.id, 10)
+
+  // Save the selected radio button values to the session
+  const selectedOption = req.body.userRegistrationStatus;
+  
+   //console.log('Selected option:', selectedOption);
+  req.session.data['userRegistrationStatus'] = selectedOption;
+  
+  // Redirect based on the selected option
+  if (selectedOption === 'status-on-hold') {
+    res.redirect('06a-confirmation-hold');
+  } else if (selectedOption === 'status-in-person') {
+    res.redirect('06b-confirmation-appointment');
+  } else if (selectedOption === 'status-complete') {
+    //res.redirect('06-confirmation-page');
+     // Go to 06 confirmation for this record
+    res.redirect('06-confirmation-page?id=' + id)
+  } else {
+    // Handle unexpected values (optional)
+    //res.redirect('06-confirmation-page'); // Redirect back to the form if no valid option is selected
+    res.redirect('06-confirmation-page?id=' + id)
+  }
+}); 
+
+  // ---------------------------
   // 06 – Confirmation + next record (GET)
   // ---------------------------
 
@@ -175,29 +220,9 @@ module.exports = function (router) {
 
   
 
-// POST Status form - for when there is an issue on hold or in-person 
-router.post('/registrar-view-of-online/v1/status-registration-form', function (req, res) {
 
-  // Ensure session data exists
-  req.session.data = req.session.data || {};
 
-  // Save the selected radio button values to the session
-  const selectedOption = req.body.userRegistrationStatus;
-  
-   //console.log('Selected option:', selectedOption);
-  req.session.data['userRegistrationStatus'] = selectedOption;
-  
-  // Redirect based on the selected option
-  if (selectedOption === 'status-on-hold') {
-    res.redirect('06a-confirmation-hold');
-  } else if (selectedOption === 'status-in-person') {
-    res.redirect('06b-confirmation-appointment');
-  } else if (selectedOption === 'status-complete') {
-    res.redirect('06-confirmation-page');
-  } else {
-    // Handle unexpected values (optional)
-    res.redirect('06-confirmation-page'); // Redirect back to the form if no valid option is selected
-  }
-});  
+
+//need this
 };
 
