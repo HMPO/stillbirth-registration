@@ -2,7 +2,7 @@
 const records = [
   {
     id: 1,
-    recordStatus: 'onhold',
+    recordStatus: 'inreview',
     qualification1: 'Mother',
     qualification2: 'Father',
     relationshipType: 'Yes',
@@ -72,7 +72,7 @@ const records = [
     motherDobError: 'no',
     motherEmployment: 'Employed, not supervising',
     motherFirstMarriage: 'Yes',
-    motherSpanishNat: 'no',
+    motherSpanishNat: 'No',
 
     stillbirths: '0',
     previousBirths: '0',
@@ -85,7 +85,7 @@ const records = [
   },
    {
     id: 2,
-    recordStatus: 'inreview',
+    recordStatus: 'onhold',
     qualification1: 'Mother',
     qualification2: 'Father',
     relationshipType: 'Yes',
@@ -940,22 +940,22 @@ const records = [
   nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
-  nhsPoB: "St. Mary's, Winchester",
-  PoBError: 'yes',
+  nhsPoB: "St. Mary's, Wakefield",
+  PoBError: 'no',
 
   // mother 12 (different surname)
   orMotherFirstName: 'Meera',
   nhsMotherFirstName: 'Meera',
   mFNameError: 'no',
 
-  orMotherLastName: 'ALLEN',
+  orMotherLastName: 'ALLEN-REED',
   nhsMotherLastName: 'ALLEN',
-  mLNameError: 'no',
+  mLNameError: 'yes',
 
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '32 Park Crescent, Winchester L8 9RS',
+  orMotherCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -973,7 +973,7 @@ const records = [
   fspLastName: 'REED',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '32 Park Crescent, Winchester L8 9RS',
+  fspCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Construction worker',
   fspOccupationError: 'no',
