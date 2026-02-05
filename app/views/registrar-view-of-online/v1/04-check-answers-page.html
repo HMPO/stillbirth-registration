@@ -37,7 +37,7 @@
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Informant(s)</dt>
       <dd class="govuk-summary-list__value">
-        {% if record.qualification2 == "none" or record.relationshipType == "Married or in civil partnership" or record.relationshipType == "Married or in civil partnership at time of conception" %}
+        {% if record.qualification2 == "none" or record.relationshipType == "Yes" or record.relationshipType == "Married or in civil partnership at time of conception" %}
         {{ record.qualification1 }} 
          {% else %}
         {{ record.qualification1 }} and  {{ record.qualification2 }}
@@ -67,11 +67,11 @@
       <dt class="govuk-summary-list__key">Certificates ordered</dt>
       <dd class="govuk-summary-list__value">
 
-        {% if record.printNumber == "0" %}
+        {% if record.printNumber == "None" %}
 
 <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 " style="border-color: #FFB266; background-color: #FFE5CC;">
   <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
-    <span class="govuk-visually-hidden" >Error:</span> No certificates ordered
+    <span class="govuk-visually-hidden" >Error:</span> None
   </p>
 </div>
          {% else %}
