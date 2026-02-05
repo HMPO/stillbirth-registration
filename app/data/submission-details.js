@@ -44,7 +44,7 @@ const records = [
     maidenName: '',
     differentMaidenName: '',
 
-    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
     nhsMotherCurrentAddress: 'Matches these details',
     currentAddressError: 'no',
 
@@ -939,8 +939,8 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Matches these details',
 
-  orPoB: "St. Mary's, Winchester",
-  nhsPoB: "St. Mary's, Wakefield",
+  orPoB: "St. Mary's, Wakefield",
+  nhsPoB: "St. Mary's, Winchester",
   PoBError: 'yes',
 
   // mother 12 (different surname)
