@@ -37,12 +37,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-
-<p class="govuk-body">
-  Total records: {{ data.records | length }}
-</p>
-
-<p class="govuk-body">Showing 1 to 20 of 46</p>
+<p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
@@ -105,8 +100,8 @@
 {% set printHtml %}
 <h2 class="govuk-heading-m">Print certificates</h2>
 
-<div class="govuk-grid-row govuk-!-margin-1">
-  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1;">
+<div class="govuk-grid-row govuk-!-padding-2">
+  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;">
   
   <div class="govuk-!-padding-bottom-3">
       <span class="app-step-circle govuk-!-margin-right-1">
@@ -119,7 +114,7 @@
     <strong class="govuk-body govuk-!-font-weight-bold">Print certificates</strong></div>
   
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-7">
       <ul class="govuk-list"><li>
       Open by PDF number to view and print a certificate
 </li></ul>
@@ -128,20 +123,165 @@
     
   </div>
 
-  <div class="govuk-grid-column-one-third" style="background-color: #f3f2f1;">
+  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;"">
+  
+  <div class="govuk-!-padding-bottom-3">
+      <span class="app-step-circle govuk-!-margin-right-1">
+        <span class="app-step-circle__number">
+          <span class="govuk-visually-hidden">Step </span>
+          2
+        </span>
+      </span>
+    
+    <strong class="govuk-body govuk-!-font-weight-bold">Get addresses</strong></div>
+  
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <ul class="govuk-list"><li>
+      Download postal addresses for selected certificates
+</li></ul>
+
+<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-3"><a href="" class="govuk-link govuk-link--no-visited-state">Download addresses (CSV)</a></p>
+      </div>
+      </div>
+    
   </div>
 
-  <div class="govuk-grid-column-one-third" style="background-color: #f3f2f1;">
+  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;"">
+  
+  <div class="govuk-!-padding-bottom-4">
+      <span class="app-step-circle govuk-!-margin-right-1">
+        <span class="app-step-circle__number">
+          <span class="govuk-visually-hidden">Step </span>
+          3
+        </span>
+      </span>
+    
+    <strong class="govuk-body govuk-!-font-weight-bold">Mark as done</strong>
+  </div>
+  
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <ul class="govuk-list"><li>
+      Open by PDF number to view and print a certificate
+</li></ul>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+<form action="02-pending-list.html#print">
+{{ govukButton({
+  text: "Mark as done",
+  classes: "govuk-button--warning govuk-!-margin-bottom-0"
+}) }}
+</form>
+      </div>
+      </div>
+    
   </div>
 </div>
 
+ <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full govuk-!-margin-top-4">
+
+<p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
+
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="vertical-align: bottom;"><span class="govuk-body-s">Select all</span>
+      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label>
+      </div>
+      </div>
+    </th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px; vertical-align: middle;">Cerificate pdf</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px; vertical-align: middle;">Mother's name</th>
+      
+      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Number of certificates</th>
+      
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+ 
+ {% for record in data.records %}
+ {% if record.printNumber == "0" %}
+
+ {% else%}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+<div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+        <input class="govuk-checkboxes__input govuk-!-margin-bottom-0" id="organisation" name="organisation" type="checkbox" value="hmrc">
+        <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label>
+      </div>
+      </div>
+
+                </td>
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                 <a href="/registrar-view-of-online/v1/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
+                    {{ record.referenceNumber }}.pdf
+                  </a>
+                </td>
+                <td class="govuk-table__cell">
+                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.printNumber }} 
+                </td>
+                 
+              </tr>
+            
+            {% endif %}
+            {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+      </div>
+    </div>
 
 {% endset -%}
 
 {% set inpersonHtml %}
 <h2 class="govuk-heading-m">In-person</h2>
 
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">NHS number</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
+      
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>birth</th>
+      
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '27', 'no','4-week', 'no', 'no')">390 123 4567</a></td>
+      <td class="govuk-table__cell">HUSEIN, Lila</td>
+      
+      <td class="govuk-table__cell">5</td>
+      <td class="govuk-table__cell">47</td>
+      
+     
+    </tr>
+    </tbody>
+    </table>
+
 {% endset -%}
+
+
 {{ govukTabs({
   items: [
    

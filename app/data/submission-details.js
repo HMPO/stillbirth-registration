@@ -2,13 +2,13 @@
 const records = [
   {
     id: 1,
-    recordStatus: 'inreview',
+    recordStatus: 'onhold',
     qualification1: 'Mother',
     qualification2: 'Father',
     relationshipType: 'Married or in civil partnership',
     printNumber: '1',
     submissionDate: '4 February 2026',
-    daysSinceSubmission: '4',
+    daysSinceSubmission: '7',
     referenceNumber: '2026/849345385/WA',
     
     //child 1
@@ -62,9 +62,9 @@ const records = [
     fspLastName: 'MCGOVER',
 
     fspPoB: 'Hounslow',
-    fspCurrentAddress: "29 Rootfield Drive, Winchester WT8 5UY",
+    fspCurrentAddress: "Same as mother's current address",
     fspAddressToB: "Same as mother's current address",
-    fspOccupation: 'Uber driver',
+    fspOccupation: 'Driver',
     fspOccupationError: 'no',
 
     //statistics - mother 1
@@ -85,13 +85,13 @@ const records = [
   },
    {
     id: 2,
-    recordStatus: 'pending',
+    recordStatus: 'inreview',
     qualification1: 'Mother',
     qualification2: 'Father',
-    relationshipType: 'Married or civil partnership',
+    relationshipType: 'Married or in civil partnership',
     printNumber: '1',
     submissionDate: '4 February 2026',
-    daysSinceSubmission: '2',
+    daysSinceSubmission: '7',
     referenceNumber: '2026/849345386/WA',
     //child 2
     childFirstName: 'Trevor',
@@ -127,7 +127,7 @@ const records = [
     maidenName: '',
     differentMaidenName: '',
 
-    orMotherCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
+    orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
     nhsMotherCurrentAddress: 'Matches these details',
     currentAddressError: 'no',
 
@@ -145,15 +145,15 @@ const records = [
     fspLastName: 'HOUND',
 
     fspPoB: 'Dublin, Ireland',
-    fspCurrentAddress: '29 Rootfield Drive, Winchester WT8 5UY',
-    fspAddressToB: 'Same as current address',
-    fspOccupation: 'Driver',
+    fspCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
+    fspAddressToB: "Same as mother's current address",
+    fspOccupation: 'Uber driver',
     fspOccupationError: 'no',
 
     //statistics - mother 2
     motherDob: '20 April 2001',
     motherDobError: 'no',
-    motherEmployment: 'Employed, not supervising',
+    motherEmployment: 'Employed, supervising',
     motherFirstMarriage: 'Yes',
     motherSpanishNat: 'No',
 
@@ -169,11 +169,11 @@ const records = [
   id: 3,
   recordStatus: 'pending',
   qualification1: 'Mother',
-  qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  qualification2: 'none',
+  relationshipType: 'Not married or in a civil partnership',
   printNumber: '1',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '8',
+  daysSinceSubmission: '7',
   referenceNumber: '9096411180994545',
 
   // child 3
@@ -188,7 +188,7 @@ const records = [
 
   orDoB: '30 January 2026',
   nhsDoB: 'Matches these details',
-  daysSinceBirth: '1',
+  daysSinceBirth: '3',
 
   orSex: 'Female',
   nhsSex: 'Matches these details',
@@ -209,7 +209,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '12 Queen Street, Leeds LS1 4AB',
+  orMotherCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -227,15 +227,15 @@ const records = [
   fspLastName: 'BAXTER',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '12 Queen Street, Leeds LS1 4AB',
-  fspAddressToB: 'Same as current address',
+  fspCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
+  fspAddressToB: "Same as mother's current address",
   fspOccupation: 'Electrician',
   fspOccupationError: 'no',
 
   // statistics - mother 3
   motherDob: '20 April 2001',
   motherDobError: 'no',
-  motherEmployment: 'Employed, not supervising',
+  motherEmployment: 'No gainful employment',
   motherFirstMarriage: 'Yes',
   motherSpanishNat: 'No',
 
@@ -252,10 +252,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Married or in civil partnership',
   printNumber: '1',
   submissionDate: '4 February 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '6',
   referenceNumber: '5176807879976211',
 
   // child 4
@@ -291,7 +291,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '5 Riverside Close, York YO1 6DF',
+  orMotherCurrentAddress: '5 Riverside Close, Wakefield WO1 6DF',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -309,8 +309,8 @@ const records = [
   fspLastName: 'SINGH',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '5 Riverside Close, York YO1 6DF',
-  fspAddressToB: 'Same as current address',
+  fspCurrentAddress: "Same as mother's current address",
+  fspAddressToB: "Same as mother's current address",
   fspOccupation: 'Bus driver',
   fspOccupationError: 'no',
 
@@ -335,10 +335,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Not married or in a civil partnership',
   printNumber: '1',
   submissionDate: '1 February 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '6',
   referenceNumber: '6276032933248051',
 
   // child 5
@@ -374,7 +374,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '88 Mill Lane, Bristol BS3 4GH',
+  orMotherCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -392,9 +392,9 @@ const records = [
   fspLastName: 'KELLY',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '88 Mill Lane, Bristol BS3 4GH',
+  fspCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
   fspAddressToB: 'Same as current address',
-  fspOccupation: 'Warehouse worker',
+  fspOccupation: 'Amazon Warehouse worker',
   fspOccupationError: 'no',
 
   // statistics - mother 5
@@ -418,10 +418,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Married or in civil partnership',
   printNumber: '1',
   submissionDate: '2 February 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '5',
   referenceNumber: '4275847818426044',
 
   // child 6
@@ -457,7 +457,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '24 Oakwood Avenue, Manchester M20 3JK',
+  orMotherCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -475,7 +475,7 @@ const records = [
   fspLastName: 'JAMESON',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '24 Oakwood Avenue, Manchester M20 3JK',
+  fspCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'IT consultant',
   fspOccupationError: 'no',
@@ -500,8 +500,8 @@ const records = [
   id: 7,
   recordStatus: 'pending',
   qualification1: 'Mother',
-  qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  qualification2: 'Second female parent',
+  relationshipType: 'Married or in civil partnership at time of conception',
   printNumber: '1',
   submissionDate: '2 February 2026',
   daysSinceSubmission: '4',
@@ -540,7 +540,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '3 Church Road, Newcastle NE1 5PL',
+  orMotherCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -554,13 +554,13 @@ const records = [
   motherOccupationError: 'no',
 
   // father or second parent 7
-  fspFirstName: 'Owen',
+  fspFirstName: 'Nurita',
   fspLastName: 'OSBORNE',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '3 Church Road, Newcastle NE1 5PL',
+  fspCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
   fspAddressToB: 'Same as current address',
-  fspOccupation: 'Chef',
+  fspOccupation: 'Dominos Chef',
   fspOccupationError: 'no',
 
   // statistics - mother 7
@@ -584,10 +584,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Married or in civil partnership',
   printNumber: '1',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '3',
   referenceNumber: '7509741457818402',
 
   // child 8
@@ -623,7 +623,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '47 Kingsway, Cardiff CF10 3AA',
+  orMotherCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -641,7 +641,7 @@ const records = [
   fspLastName: 'TURNER',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '47 Kingsway, Cardiff CF10 3AA',
+  fspCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Teacher',
   fspOccupationError: 'no',
@@ -667,10 +667,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
-  printNumber: '1',
+  relationshipType: 'Married or in civil partnership',
+  printNumber: '2',
   submissionDate: '3 February 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '3',
   referenceNumber: '7647380067736981',
 
   // child 9
@@ -706,7 +706,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '19 Highfield Court, Sheffield S10 2XY',
+  orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -724,7 +724,7 @@ const records = [
   fspLastName: 'PATEL',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '19 Highfield Court, Sheffield S10 2XY',
+  fspCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
   fspOccupationError: 'no',
@@ -750,10 +750,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
-  printNumber: '1',
+  relationshipType: 'Married or in civil partnership',
+  printNumber: '0',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '2',
   referenceNumber: '0350801284377829',
 
   // child 10
@@ -789,7 +789,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '61 Meadow View, Nottingham NG2 3ZT',
+  orMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -807,7 +807,7 @@ const records = [
   fspLastName: 'MURPHY',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '61 Meadow View, Nottingham NG2 3ZT',
+  fspCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Plumber',
   fspOccupationError: 'no',
@@ -833,15 +833,15 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Married or in civil partnership',
   printNumber: '1',
   submissionDate: '30 January 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '2',
   referenceNumber: '5335676801370276',
 
   // child 11
   childFirstName: 'Zara',
-  childFirstNameError: 'no',
+  childFirstNameError: 'yes',
 
   childLastName: 'WALSH',
   childMiddleName: '',
@@ -872,7 +872,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '14 Brookside, Leicester LE2 1PQ',
+  orMotherCurrentAddress: '14 Brookside, Wakefield LE2 1PQ',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -890,7 +890,7 @@ const records = [
   fspLastName: 'WALSH',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '14 Brookside, Leicester LE2 1PQ',
+  fspCurrentAddress: '14 Brookside, Wakefield LE2 1PQ',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Paramedic',
   fspOccupationError: 'no',
@@ -916,10 +916,10 @@ const records = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'Married or civil partnership',
+  relationshipType: 'Married or in civil partnership',
   printNumber: '1',
   submissionDate: '3 February 2026',
-  daysSinceSubmission: '4',
+  daysSinceSubmission: '1',
   referenceNumber: '9771630942943272',
 
   // child 12
@@ -939,9 +939,9 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
-  nhsPoB: 'Matches these details',
-  PoBError: 'no',
+  orPoB: "St. Mary's, Winchester",
+  nhsPoB: "St. Mary's, Wakefield",
+  PoBError: 'yes',
 
   // mother 12 (different surname)
   orMotherFirstName: 'Meera',
@@ -955,7 +955,7 @@ const records = [
   maidenName: '',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '32 Park Crescent, Liverpool L8 9RS',
+  orMotherCurrentAddress: '32 Park Crescent, Winchester L8 9RS',
   nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
@@ -973,7 +973,7 @@ const records = [
   fspLastName: 'REED',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '32 Park Crescent, Liverpool L8 9RS',
+  fspCurrentAddress: '32 Park Crescent, Winchester L8 9RS',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Construction worker',
   fspOccupationError: 'no',
@@ -990,7 +990,7 @@ const records = [
 
   // statistics - father or second female parent 12
   fspDoB: '7 September 1999',
-  fspEmployment: 'Self-employed, not supervising',
+  fspEmployment: 'Employed, not supervising',
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
 }
