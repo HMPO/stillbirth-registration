@@ -172,9 +172,9 @@ router.post('/registrar-view-of-online/v1/05a-next-steps-contact', function (req
   
   // Redirect based on the selected option
   if (selectedOption === 'status-on-hold') {
-    res.redirect('06a-confirmation-hold');
+    res.redirect('06a-confirmation-hold?id=' + id);
   } else if (selectedOption === 'status-in-person') {
-    res.redirect('06b-confirmation-appointment');
+    res.redirect('06b-confirmation-appointment?id=' + id);
   } else if (selectedOption === 'status-complete') {
     //res.redirect('06-confirmation-page');
      // Go to 06 confirmation for this record
@@ -218,9 +218,70 @@ router.post('/registrar-view-of-online/v1/05a-next-steps-contact', function (req
 
   // No POST needed for 06 if your "next" button is a link to 04 with nextId
 
-  
 
+  // ---------------------------
+  // 06a – Confirmation + next record (GET)
+  // ---------------------------
 
+  router.get('/registrar-view-of-online/v1/06a-confirmation-hold', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+
+    const records = getRecords(req)
+    const record = records.find(r => r.id === id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v1/record-not-found')
+    }
+
+    const currentIndex = records.findIndex(r => r.id === id)
+    const totalRecords = records.length
+
+    const nextId =
+      currentIndex + 1 < totalRecords
+        ? records[currentIndex + 1].id
+        : null
+
+    res.render('registrar-view-of-online/v1/06a-confirmation-hold', {
+      record,
+      currentIndex,
+      totalRecords,
+      nextId
+    })
+  })
+
+  // No POST needed for 06 if your "next" button is a link to 04 with nextId
+
+// ---------------------------
+  // 06b – Confirmation + next record (GET)
+  // ---------------------------
+
+  router.get('/registrar-view-of-online/v1/06b-confirmation-appointment', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+
+    const records = getRecords(req)
+    const record = records.find(r => r.id === id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v1/record-not-found')
+    }
+
+    const currentIndex = records.findIndex(r => r.id === id)
+    const totalRecords = records.length
+
+    const nextId =
+      currentIndex + 1 < totalRecords
+        ? records[currentIndex + 1].id
+        : null
+
+    res.render('registrar-view-of-online/v1/06b-confirmation-appointment', {
+      record,
+      currentIndex,
+      totalRecords,
+      nextId
+    })
+  })
+
+  // No POST needed for 06 if your "next" button is a link to 04 with nextId
 
 
 //need this

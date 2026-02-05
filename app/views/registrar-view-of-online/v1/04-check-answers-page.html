@@ -282,7 +282,7 @@
       <dd class="govuk-summary-list__value">{{ record.orDoB}}</dd>
     </div>
      <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Child's Sex</dt>
+      <dt class="govuk-summary-list__key">Child's sex</dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body">{{ record.orSex }}</p>
       </dd>
@@ -312,7 +312,7 @@
       <dd class="govuk-summary-list__value">{{ record.nhsDoB}}</dd>
     </div>
      <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Child's Sex</dt>
+      <dt class="govuk-summary-list__key">Child's sex</dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body">{{ record.nhsSex }}</p>
       </dd>
@@ -411,7 +411,7 @@
         {% if record.currentAddressError == "yes" %}
           <mark class="hods-highlight"><strong> {{ record.nhsMotherCurrentAddress }} </strong></mark>
         {% else %}
-        {{ record.nhsMotherCurrentAddress }} </br><br>
+        {{ record.nhsMotherCurrentAddress }} 
         {% endif %}
       </dd>
     </div>

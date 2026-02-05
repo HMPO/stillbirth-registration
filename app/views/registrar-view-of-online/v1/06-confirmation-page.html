@@ -49,20 +49,6 @@
       <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
         <div class="govuk-grid-column-full">
 
-      <!-- <p class="govuk-body">Online registration {{ currentIndex + 1 }} of {{ totalRecords }} has been completed.</p> 
- {% if hasMoreRecords %}
-       <form method="post" action="/registrar-view-of-online/v1/06-confirmation-page">
-       
-        {{ govukButton({
-          text: "View next online registration"
-        }) }}
-      </form>
-    {% else %}
-      <p class="govuk-body govuk-!-margin-top-6">
-        <strong>There are no more pending registrations.</strong>
-      </p>
-    {% endif %} -->
-
 
      <input type="hidden" name="id" value="{{ record.id }}">
         <p class="govuk-body">

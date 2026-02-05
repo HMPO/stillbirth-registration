@@ -699,20 +699,20 @@ const records = [
   nhsMotherFirstName: 'Gemma',
   mFNameError: 'no',
 
-  orMotherLastName: 'CLARK',
-  nhsMotherLastName: 'CLARK',
+  orMotherLastName: 'PATEL',
+  nhsMotherLastName: 'PATEL',
   mLNameError: 'no',
 
   maidenName: '',
   differentMaidenName: '',
 
   orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
-  nhsMotherCurrentAddress: 'Matches these details',
-  currentAddressError: 'no',
+  nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
+  currentAddressError: 'yes',
 
-  orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: 'Matches these details',
-  motherAddressToBError: 'no',
+  orMotherAddressToB: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  nhsMotherAddressToB: '19 Highfield Court, Wakefield S10 2XY',
+  motherAddressToBError: 'yes',
 
   motherPoB: 'London',
 
@@ -720,11 +720,11 @@ const records = [
   motherOccupationError: 'no',
 
   // father or second parent 9
-  fspFirstName: 'Thomas',
+  fspFirstName: 'Sidu',
   fspLastName: 'PATEL',
 
   fspPoB: 'Hounslow',
-  fspCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
+  fspCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
   fspOccupationError: 'no',

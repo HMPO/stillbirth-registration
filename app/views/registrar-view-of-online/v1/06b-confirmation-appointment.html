@@ -45,13 +45,19 @@
 
       <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
         <div class="govuk-grid-column-full">
- <form action="04-check-answers-page" method="post" novalidate>
-{% from "govuk/components/button/macro.njk" import govukButton %}
+           <input type="hidden" name="id" value="{{ record.id }}">
 
-{{ govukButton({
-  text: "View next online registration"
-}) }}
-</form>
+       {% if nextId %}
+      <a href="/registrar-view-of-online/v1/04-check-answers-page?id={{ nextId }}"
+           class="govuk-button"
+           data-module="govuk-button">
+          View next online registration
+        </a>
+      {% else %}
+        <p class="govuk-body">
+          There are no more online registrations to review.
+        </p>
+      {% endif %}    
 </div>
 </div>
 
