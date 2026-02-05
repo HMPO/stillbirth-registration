@@ -71,7 +71,7 @@ const records = [
     motherDob: '20 April 2001',
     motherDobError: 'no',
     motherEmployment: 'Employed, not supervising',
-    motherFirstMarriage: 'yes',
+    motherFirstMarriage: 'Yes',
     motherSpanishNat: 'no',
 
     stillbirths: '0',

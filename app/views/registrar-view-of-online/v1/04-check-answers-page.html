@@ -32,16 +32,7 @@
       </h2>
 
   <dl class="govuk-summary-list">
-     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Qualification</dt>
-      <dd class="govuk-summary-list__value">
-        {% if record.qualification2 == "none" %}
-        {{ record.qualification1 }} 
-         {% else %}
-        {{ record.qualification1 }} and  {{ record.qualification2 }}
-        {% endif %}
-      </dd>
-    </div>
+    
    
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Informant(s)</dt>
@@ -60,6 +51,17 @@
           {{ record.relationshipType }}
         </dd>
       </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Named on certificate</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.qualification2 == "none" %}
+        {{ record.qualification1 }} 
+         {% else %}
+        {{ record.qualification1 }} and  {{ record.qualification2 }}
+        {% endif %}
+      </dd>
+    </div>
   
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Certificates ordered</dt>
