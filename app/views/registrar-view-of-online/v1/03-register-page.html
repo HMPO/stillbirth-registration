@@ -50,7 +50,8 @@ Select the registrar’s designation – {{ serviceName }} – GOV.UK Prototype 
       <!-- Option 1: Registrar -->
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="designation-registrar" name="designationSelector"
-               type="radio" value="REGISTRAR">
+               type="radio" value="REGISTRAR" {{ checked('designationSelector','REGISTRAR') }}>
+        <!-- <input class="govuk-radios__input" id="home" name="place-of-death" type="radio" value="home" {{ checked('place-of-death', 'home')}}>       -->
         <label class="govuk-label govuk-radios__label" for="designation-registrar">
           Registrar
         </label>
@@ -59,7 +60,7 @@ Select the registrar’s designation – {{ serviceName }} – GOV.UK Prototype 
       <!-- Option 2: Deputy Registrar -->
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="designation-deputy-registrar" name="designationSelector"
-               type="radio" value="DEPUTY_REGISTRAR">
+               type="radio" value="DEPUTY_REGISTRAR" {{ checked('designationSelector','DEPUTY_REGISTRAR') }}>
         <label class="govuk-label govuk-radios__label" for="designation-deputy-registrar">
           Deputy Registrar
         </label>
@@ -68,7 +69,7 @@ Select the registrar’s designation – {{ serviceName }} – GOV.UK Prototype 
       <!-- Option 3: Interim Registrar -->
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="designation-interim-registrar" name="designationSelector"
-               type="radio" value="INTERIM_REGISTRAR">
+               type="radio" value="INTERIM_REGISTRAR" {{ checked('designationSelector','INTERIM_REGISTRAR') }}>
         <label class="govuk-label govuk-radios__label" for="designation-interim-registrar">
           Interim Registrar
         </label>
@@ -77,7 +78,7 @@ Select the registrar’s designation – {{ serviceName }} – GOV.UK Prototype 
       <!-- Option 4: Interim Deputy Registrar -->
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="designation-interim-deputy-registrar" name="designationSelector"
-               type="radio" value="INTERIM_DEPUTY_REGISTRAR">
+               type="radio" value="INTERIM_DEPUTY_REGISTRAR" {{ checked('designationSelector','INTERIM_DEPUTY_REGISTRAR') }}>
         <label class="govuk-label govuk-radios__label" for="designation-interim-deputy-registrar">
           Interim Deputy Registrar
         </label>
