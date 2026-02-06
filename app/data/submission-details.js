@@ -9,7 +9,7 @@ const records = [
     printNumber: '1',
     submissionDate: '4 February 2026',
     daysSinceSubmission: '7',
-    referenceNumber: '2026/849345385-WA',
+    referenceNumber: '2026/8493453855695001-WA',
     
     //child 1
     childFirstName: 'Dougal',
@@ -92,7 +92,7 @@ const records = [
     printNumber: '1',
     submissionDate: '4 February 2026',
     daysSinceSubmission: '7',
-    referenceNumber: '2026/849345386-WA',
+    referenceNumber: '2026/8493453868883245-WA',
     //child 2
     childFirstName: 'Trevor',
     childFirstNameError: 'no',
