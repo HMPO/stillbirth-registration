@@ -932,9 +932,9 @@ const records = [
   orNHS: '033 733 7271',
   nhsNHS: 'Matches these details',
 
-  orDoB: '2 January 2026',
+  orDoB: '27 December 2025',
   nhsDoB: 'Matches these details',
-  daysSinceBirth: '32',
+  daysSinceBirth: '42',
 
   orSex: 'Male',
   nhsSex: 'Matches these details',
