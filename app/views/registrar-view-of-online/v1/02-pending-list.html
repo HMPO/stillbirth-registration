@@ -59,9 +59,16 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
  {% for record in data.records %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                 {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
+                 <a href="/registrar-view-of-online/v1/04-check-answers-page?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
+                    {{ record.referenceNumber }}.pdf
+                  </a>
+                  {% else %}
+
                  <a href="/registrar-view-of-online/v1/03-register-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
+                  {% endif %}
                 </td>
                 <td class="govuk-table__cell">
                   {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
@@ -208,7 +215,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
  
  {% for record in data.records %}
- {% if record.printNumber == "0" %}
+ {% if record.printNumber == "None" %}
 
  {% else%}
               <tr class="govuk-table__row">
@@ -222,9 +229,13 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
                 </td>
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-                 <a href="/registrar-view-of-online/v1/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
+                 
+
+                  <a href="/registrar-view-of-online/v1/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
                     {{ record.referenceNumber }}.pdf
                   </a>
+
+
                 </td>
                 <td class="govuk-table__cell">
                   {{ record.orMotherFirstName }} {{ record.orMotherLastName }}

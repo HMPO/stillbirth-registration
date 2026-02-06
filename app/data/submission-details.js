@@ -9,7 +9,7 @@ const records = [
     printNumber: '1',
     submissionDate: '4 February 2026',
     daysSinceSubmission: '7',
-    referenceNumber: '2026/849345385/WA',
+    referenceNumber: '2026/849345385-WA',
     
     //child 1
     childFirstName: 'Dougal',
@@ -52,7 +52,7 @@ const records = [
     nhsMotherAddressToB: 'Matches these details',
     motherAddressToBError: 'no',
 
-    motherPoB: 'London',
+    motherPoB: 'London, England',
 
     motherOccupation: 'Teacher',
     motherOccupationError: 'no',
@@ -61,7 +61,7 @@ const records = [
     fspFirstName: 'Clive',
     fspLastName: 'MCGOVER',
 
-    fspPoB: 'Hounslow',
+    fspPoB: 'Edinburgh, Scotland',
     fspCurrentAddress: "Same as mother's current address",
     fspAddressToB: "Same as mother's current address",
     fspOccupation: 'Driver',
@@ -92,7 +92,7 @@ const records = [
     printNumber: '1',
     submissionDate: '4 February 2026',
     daysSinceSubmission: '7',
-    referenceNumber: '2026/849345386/WA',
+    referenceNumber: '2026/849345386-WA',
     //child 2
     childFirstName: 'Trevor',
     childFirstNameError: 'no',
@@ -174,7 +174,7 @@ const records = [
   printNumber: '1',
   submissionDate: '31 January 2026',
   daysSinceSubmission: '7',
-  referenceNumber: '9096411180994545',
+  referenceNumber: '2026/9096411180994545-WA',
 
   // child 3
   childFirstName: 'Amelia',
@@ -217,7 +217,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'London, England',
 
   motherOccupation: 'Nurse',
   motherOccupationError: 'no',
@@ -226,7 +226,7 @@ const records = [
   fspFirstName: 'Mark',
   fspLastName: 'BAXTER',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Watford, England',
   fspCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
   fspAddressToB: "Same as mother's current address",
   fspOccupation: 'Electrician',
@@ -256,7 +256,7 @@ const records = [
   printNumber: '1',
   submissionDate: '4 February 2026',
   daysSinceSubmission: '6',
-  referenceNumber: '5176807879976211',
+  referenceNumber: '2026/5176807879976211-WA',
 
   // child 4
   childFirstName: 'Rohan',
@@ -299,7 +299,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Birmingham, England',
 
   motherOccupation: 'Software developer',
   motherOccupationError: 'no',
@@ -308,7 +308,7 @@ const records = [
   fspFirstName: 'David',
   fspLastName: 'SINGH',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Warwick, England',
   fspCurrentAddress: "Same as mother's current address",
   fspAddressToB: "Same as mother's current address",
   fspOccupation: 'Bus driver',
@@ -339,7 +339,7 @@ const records = [
   printNumber: '1',
   submissionDate: '1 February 2026',
   daysSinceSubmission: '6',
-  referenceNumber: '6276032933248051',
+  referenceNumber: '2026/6276032933248051-WA',
 
   // child 5
   childFirstName: 'Layla',
@@ -382,7 +382,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Wakefield, Englan',
 
   motherOccupation: 'Accountant',
   motherOccupationError: 'no',
@@ -391,7 +391,7 @@ const records = [
   fspFirstName: 'Samir',
   fspLastName: 'KELLY',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Coventry, England',
   fspCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Amazon Warehouse worker',
@@ -422,7 +422,7 @@ const records = [
   printNumber: '1',
   submissionDate: '2 February 2026',
   daysSinceSubmission: '5',
-  referenceNumber: '4275847818426044',
+  referenceNumber: '2026/4275847818426044-WA',
 
   // child 6
   childFirstName: 'Milo',
@@ -465,7 +465,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Glasgow, Scotland',
 
   motherOccupation: 'Retail assistant',
   motherOccupationError: 'no',
@@ -474,7 +474,7 @@ const records = [
   fspFirstName: 'Lewis',
   fspLastName: 'JAMESON',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Glasgow, Scotland',
   fspCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'IT consultant',
@@ -505,7 +505,7 @@ const records = [
   printNumber: '1',
   submissionDate: '2 February 2026',
   daysSinceSubmission: '4',
-  referenceNumber: '4599023239155979',
+  referenceNumber: '2026/4599023239155979-WA',
 
   // child 7
   childFirstName: 'Sienna',
@@ -548,7 +548,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Altrincham, England',
 
   motherOccupation: 'Social worker',
   motherOccupationError: 'no',
@@ -557,7 +557,7 @@ const records = [
   fspFirstName: 'Nurita',
   fspLastName: 'TERRY',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Wakefield, England',
   fspCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Dominos Chef',
@@ -588,7 +588,7 @@ const records = [
   printNumber: '1',
   submissionDate: '31 January 2026',
   daysSinceSubmission: '3',
-  referenceNumber: '7509741457818402',
+  referenceNumber: '2026/7509741457818402-WA',
 
   // child 8
   childFirstName: 'Ethan',
@@ -631,7 +631,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'London, England',
 
   motherOccupation: 'Administrator',
   motherOccupationError: 'no',
@@ -640,7 +640,7 @@ const records = [
   fspFirstName: 'Rafael',
   fspLastName: 'TURNER',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Wakefield, England',
   fspCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Teacher',
@@ -671,7 +671,7 @@ const records = [
   printNumber: '2',
   submissionDate: '3 February 2026',
   daysSinceSubmission: '3',
-  referenceNumber: '7647380067736981',
+  referenceNumber: '2026/7647380067736981-WA',
 
   // child 9
   childFirstName: 'Niamh',
@@ -714,7 +714,7 @@ const records = [
   nhsMotherAddressToB: '19 Highfield Court, Wakefield S10 2XY',
   motherAddressToBError: 'yes',
 
-  motherPoB: 'London',
+  motherPoB: 'Cardiff, Wales',
 
   motherOccupation: 'Chef',
   motherOccupationError: 'no',
@@ -723,7 +723,7 @@ const records = [
   fspFirstName: 'Sidu',
   fspLastName: 'PATEL',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Delhi, Outside the UK',
   fspCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
@@ -754,7 +754,7 @@ const records = [
   printNumber: 'None',
   submissionDate: '31 January 2026',
   daysSinceSubmission: '2',
-  referenceNumber: '0350801284377829',
+  referenceNumber: '2026/0350801284377829-WA',
 
   // child 10
   childFirstName: 'Caleb',
@@ -797,7 +797,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Belfast, Northern Ireland',
 
   motherOccupation: 'Graphic designer',
   motherOccupationError: 'no',
@@ -806,7 +806,7 @@ const records = [
   fspFirstName: 'Kiran',
   fspLastName: 'MURPHY',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Chipping Norton, England',
   fspCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Plumber',
@@ -837,7 +837,7 @@ const records = [
   printNumber: '1',
   submissionDate: '30 January 2026',
   daysSinceSubmission: '2',
-  referenceNumber: '5335676801370276',
+  referenceNumber: '2026/5335676801370276-WA',
 
   // child 11
   childFirstName: 'Zara',
@@ -880,7 +880,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Leeds, England',
 
   motherOccupation: 'Pharmacist',
   motherOccupationError: 'no',
@@ -889,7 +889,7 @@ const records = [
   fspFirstName: 'Jake',
   fspLastName: 'WALSH',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Swansea, Wales',
   fspCurrentAddress: '14 Brookside, Wakefield LE2 1PQ',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Paramedic',
@@ -920,7 +920,7 @@ const records = [
   printNumber: '1',
   submissionDate: '3 February 2026',
   daysSinceSubmission: '1',
-  referenceNumber: '9771630942943272',
+  referenceNumber: '2025/9771630942943272-WA',
 
   // child 12
   childFirstName: 'Jonah',
@@ -963,7 +963,7 @@ const records = [
   nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
-  motherPoB: 'London',
+  motherPoB: 'Manchester, Englan',
 
   motherOccupation: 'Laboratory technician',
   motherOccupationError: 'no',
@@ -972,7 +972,7 @@ const records = [
   fspFirstName: 'Noel',
   fspLastName: 'REED',
 
-  fspPoB: 'Hounslow',
+  fspPoB: 'Hounslow, England',
   fspCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Construction worker',
