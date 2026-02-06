@@ -934,7 +934,7 @@ const records = [
 
   orDoB: '27 December 2025',
   nhsDoB: 'Matches these details',
-  daysSinceBirth: '42',
+  daysSinceBirth: '43',
 
   orSex: 'Male',
   nhsSex: 'Matches these details',
