@@ -37,6 +37,35 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "published",
+      text: "Date submitted (oldest to newest)",
+      selected: true
+    },
+    {
+      value: "updated",
+      text: "Days since birth (oldest to newest)"
+    },
+    {
+      value: "views",
+      text: "Most recently viewed"
+    },
+    {
+      value: "comments",
+      text: "Date submitted (newest to oldest)"
+    }
+  ]
+}) }}
+
 <p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
@@ -107,70 +136,40 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 {% set printHtml %}
 <h2 class="govuk-heading-m">Print certificates</h2>
 
-<div class="govuk-grid-row govuk-!-padding-2">
-  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;">
-  
-  <div class="govuk-!-padding-bottom-3">
-      <span class="app-step-circle govuk-!-margin-right-1">
-        <span class="app-step-circle__number">
-          <span class="govuk-visually-hidden">Step </span>
-          1
-        </span>
-      </span>
-    
-    <strong class="govuk-body govuk-!-font-weight-bold">Print certificates</strong></div>
-  
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full govuk-!-margin-bottom-7">
-      <ul class="govuk-list"><li>
-      Open by PDF number to view and print a certificate
-</li></ul>
-      </div>
-      </div>
+<div class="govuk-grid-row govuk-!-padding-2" >
+
+  <div class="govuk-grid-column-one-third govuk-!-padding-4 govuk-!-padding-bottom-8" style="border: 2px solid #cecece;">
+    <p><strong class="govuk-body govuk-!-font-weight-bold">To print:</strong></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Open by PDF number to view and print the certificate
+      </li>
+    </ul>
     
   </div>
 
-  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;"">
-  
-  <div class="govuk-!-padding-bottom-3">
-      <span class="app-step-circle govuk-!-margin-right-1">
-        <span class="app-step-circle__number">
-          <span class="govuk-visually-hidden">Step </span>
-          2
-        </span>
-      </span>
-    
-    <strong class="govuk-body govuk-!-font-weight-bold">Get addresses</strong></div>
-  
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <ul class="govuk-list"><li>
-      Download postal addresses for selected certificates
-</li></ul>
+  <div class="govuk-grid-column-two-thirds govuk-!-padding-4" style="background-color: #f3f2f1; border-left: 10px solid white;">
+    <p><strong class="govuk-body govuk-!-font-weight-bold">Select items to:</strong></p> 
+     <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+      <ul class="govuk-list govuk-list--bullet govuk-!-padding-right-4">
+        <li>
+          Download addresses as CSV 
+        </li>
+      </ul>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+<form action="02-pending-list.html#print">
+{{ govukButton({
+  text: "Download addresses",
+  classes: "govuk-button--inverse govuk-!-margin-bottom-0"
+}) }}
+</form>
+    </div>
 
-<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-3"><a href="#" class="govuk-link govuk-link--no-visited-state">Download addresses (CSV)</a></p>
-      </div>
-      </div>
-    
-  </div>
 
-  <div class="govuk-grid-column-one-third govuk-!-padding-3" style="background-color: #f3f2f1; border: 10px solid white;"">
-  
-  <div class="govuk-!-padding-bottom-4">
-      <span class="app-step-circle govuk-!-margin-right-1">
-        <span class="app-step-circle__number">
-          <span class="govuk-visually-hidden">Step </span>
-          3
-        </span>
-      </span>
-    
-    <strong class="govuk-body govuk-!-font-weight-bold">Mark as done</strong>
-  </div>
-  
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <ul class="govuk-list"><li>
-      This will remove selected certificates from the print list
+<div class="govuk-grid-column-one-half">
+      <ul class="govuk-list govuk-list--bullet"><li>
+     Mark as done and remove from the list
 </li></ul>
 {% from "govuk/components/button/macro.njk" import govukButton %}
 <form action="02-pending-list.html#print">
@@ -179,10 +178,9 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   classes: "govuk-button--warning govuk-!-margin-bottom-0"
 }) }}
 </form>
-      </div>
-      </div>
-    
-  </div>
+</div>
+</div>
+</div>
 </div>
 
  <div class="govuk-grid-row">
@@ -194,7 +192,13 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" style="vertical-align: bottom;"><span class="govuk-body-s">Select all</span>
+     
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px; vertical-align: middle;">Cerificate PDF number</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px; vertical-align: middle;">Mother's name</th>
+      
+      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Number of certificates</th>
+       <th scope="col" class="govuk-table__header" style="vertical-align: bottom;"><span class="govuk-body-s">Select all</span>
       <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
       <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
         <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
@@ -202,12 +206,6 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
       </div>
       </div>
     </th>
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px; vertical-align: middle;">Cerificate PDF number</th>
-      <th scope="col" class="govuk-table__header" style="width: 400px; vertical-align: middle;">Mother's name</th>
-      
-      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Days since<br>submitted</th>
-      <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Number of certificates</th>
-      
     </tr>
   </thead>
   <tbody class="govuk-table__body">
@@ -219,23 +217,10 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
  {% else%}
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">
-<div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
-        <input class="govuk-checkboxes__input govuk-!-margin-bottom-0" id="organisation" name="organisation" type="checkbox" value="hmrc">
-        <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label>
-      </div>
-      </div>
-
-                </td>
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-                 
-
                   <a href="/registrar-view-of-online/v1/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
                     {{ record.referenceNumber }}.pdf
                   </a>
-
-
                 </td>
                 <td class="govuk-table__cell">
                   {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
@@ -246,7 +231,17 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                  <td class="govuk-table__cell">
                   {{ record.printNumber }} 
                 </td>
-                 
+                
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+                      <input class="govuk-checkboxes__input govuk-!-margin-bottom-0" id="organisation" name="organisation"
+                        type="checkbox" value="hmrc">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label>
+                    </div>
+                  </div>
+                
+                </td>
               </tr>
             
             {% endif %}
@@ -263,7 +258,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 {% endset -%}
 
 {% set inpersonHtml %}
-<h2 class="govuk-heading-m">In-person</h2>
+<h2 class="govuk-heading-m">Appointments required (0)</h2>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
@@ -311,7 +306,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
       }
     },
     {
-      label: "In-person (0)",
+      label: "Appointments required (0)",
       id: "inperson",
       panel: {
         html: inpersonHtml

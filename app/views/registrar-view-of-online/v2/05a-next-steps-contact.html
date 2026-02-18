@@ -1,0 +1,187 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Next steps for this registration
+      </h1>
+      <p class="govuk-body">If there is an issue with the birth registration, you can contact the informant using their details below.</p>
+      
+      
+      <div class="govuk-!-margin-bottom-7 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
+        
+      <h2 class="govuk-heading-m">
+        Contact details
+      </h2>
+
+     <dl class="govuk-summary-list" >
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Informant</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification1 }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification1 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07886 383 761
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      protonmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherCurrentAddress }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+     {% if record.qualification2 == "none" %}
+        
+         {% else %} 
+ <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Second parent</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification2 }} - 
+
+         {% if record.relationshipType == "Yes" %}
+         Married or in a civil partnership
+         {% elif record.relationshipType == "No" %}
+         Not married or in a civil partnership
+           {% else %} 
+            {{ record.relationshipType }}
+           {% endif %}
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07975 555 778
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      fastmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+          {% endif %}
+  </dl>
+ 
+</div>
+ 
+
+      <form action="/registrar-view-of-online/v1/05a-next-steps-contact" method="post" novalidate>
+ <input type="hidden" name="id" value="{{ record.id }}">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "userRegistrationStatus",
+  fieldset: {
+    legend: {
+      text: "Update registration status",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: ""
+  },
+  items: [
+    {
+      value: "status-on-hold",
+      text: "Mark registration as being on hold",
+      hint: {
+        text: "This will pause the registration while you contact the informant"
+      }
+    },
+    {
+      value: "status-in-person",
+      text: "Mark as requiring an in-person appointment",
+      hint: {
+        text: "Select if you will contact the informant to book an in-person appointment"
+      }
+    },
+    {
+      value: "status-complete",
+      text: "Mark registration as complete",
+      hint: {
+        text: "If you have contacted the informant and are satisfied with the registration, mark as complete"
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

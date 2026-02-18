@@ -1,0 +1,755 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "02-pending-list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full " style="margin-top: -30px;">
+
+       {% if record.recordStatus == "inreview" %}
+       
+<div class="hods-status-message govuk-!-margin-bottom-9">
+  <div>
+    <div class="hods-status-message__status">
+      In review
+    </div>
+    <p class="hods-status-message__extra" style="color: white;">
+      This registration is being viewed by Hannah Jackson.
+    </p>
+  </div>
+
+</div>
+ {% elif record.recordStatus == "onhold" %}
+ 
+ <div class="hods-status-message govuk-!-margin-bottom-0">
+  <div>
+    <div class="hods-status-message__status">
+      On hold     
+    </div>
+    <p class="hods-status-message__extra" style="color: white;">
+     
+    </p>
+  </div>
+<ul class="hods-status-message__actions">
+    <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
+      <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#">
+        Change to pending
+      </a>
+    </li>
+    <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
+      <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
+        href="#">
+        Appointment required
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="govuk-notification-banner govuk-!-margin-top-0" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-body">
+      This registration was marked as on hold by Hannah Jackson on 3 January 2026 to check information with the informant.
+    </p>
+
+     <h2 class="govuk-heading-s">
+        Informant contact details
+      </h2>
+     <dl class="govuk-summary-list" >
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Informant</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification1 }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification1 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07886 383 761
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      protonmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherCurrentAddress }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+     {% if record.qualification2 == "none" %}
+        
+         {% else %} 
+ <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Second parent</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification2 }} - 
+
+         {% if record.relationshipType == "Yes" %}
+         Married or in a civil partnership
+         {% elif record.relationshipType == "No" %}
+         Not married or in a civil partnership
+           {% else %} 
+            {{ record.relationshipType }}
+           {% endif %}
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
+
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07975 555 778
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      fastmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+          {% endif %}
+  </dl>
+  </div>
+</div>
+         {% else %}
+       
+        {% endif %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters  govuk-!-margin-bottom-6">
+ <span class="govuk-caption-l">
+      Registration {{ currentIndex + 1 }} of {{ totalRecords }}
+      
+    </span>
+    <input type="hidden" name="id" value="{{ record.id }}">
+      <h1 class="govuk-heading-xl">
+        Confirm online birth registration
+      </h1>
+      <p class="govuk-hint govuk-!-margin-bottom-2">Submitted on: {{ record.submissionDate }} <br>
+        Reference:  {{ record.referenceNumber }}</p>
+ <p class="govuk-hint">Informant ID checked by GOV.UK One Login</p>
+
+<p class="govuk-body govuk-!-margin-top-6">Review these details to complete this registration and get any ordered birth certificates.</p>
+       <h2 class="govuk-heading-l">
+        Informant details
+      </h2>
+
+  <dl class="govuk-summary-list">
+    
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Informant</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.qualification2 == "none" or record.relationshipType == "Yes" or record.relationshipType == "Married or in civil partnership at time of conception" %}
+        {{ record.qualification1 }} 
+         {% else %}
+        {{ record.qualification1 }} and  {{ record.qualification2 }}
+        {% endif %}
+      </dd>
+    </div>
+
+       <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Married or in civil partnership</dt>
+        <dd class="govuk-summary-list__value">
+          {{ record.relationshipType }}
+        </dd>
+      </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Named on certificate</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.qualification2 == "none" %}
+        {{ record.qualification1 }} 
+         {% else %}
+        {{ record.qualification1 }} and  {{ record.qualification2 }}
+        {% endif %}
+      </dd>
+    </div>
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Certificates ordered</dt>
+      <dd class="govuk-summary-list__value">
+
+        {% if record.printNumber == "None" %}
+
+<div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 " style="border-color: #FFB266; background-color: #FFE5CC;">
+  <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
+    <span class="govuk-visually-hidden" >Error:</span> None
+  </p>
+</div>
+         {% else %}
+        {{ record.printNumber }} 
+        {% endif %}
+      
+      </dd>
+     
+    </div>
+
+   
+  </dl>
+  </div>
+  </div>
+
+   <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-6">
+
+       <h2 class="govuk-heading-l govuk-!-width-three-quarters">
+        Details from online registration and NHS birth notification
+      </h2>
+
+    <h2 class="govuk-heading-m">
+        Child's details
+      </h2>
+
+      <div class="govuk-grid-row ">
+        <div class="govuk-grid-column-one-half" >
+          <h3 class="govuk-heading-s govuk-!-width-full govuk-!-margin-bottom-0" style="border-bottom: 2px solid #b1b4b6">Online registration</h3>
+        </div>
+      
+        <div class="govuk-grid-column-one-half ">
+          <h3 class="govuk-heading-s govuk-!-width-full govuk-!-margin-bottom-0" style="border-bottom: 2px solid #b1b4b6">NHS birth notification</h3>
+        </div>
+      </div>
+
+         <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-one-half">
+      <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">NHS number</dt>
+      <dd class="govuk-summary-list__value">{{ record.orNHS }}</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">{{ record.orDoB}}</dd>
+    </div>
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Child's sex</dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body">{{ record.orSex }}</p>
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.PoBError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.orPoB }} </strong></mark>
+        {% else %}
+        {{ record.orPoB }} 
+        {% endif %}
+      </dd>
+    </div>
+   
+  </dl>
+</div>
+
+<div class="govuk-grid-column-one-half">
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">NHS number</dt>
+      <dd class="govuk-summary-list__value">{{ record.nhsNHS }}</dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">{{ record.nhsDoB}}</dd>
+    </div>
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Child's sex</dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body">{{ record.nhsSex }}</p>
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.PoBError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.nhsPoB }} </strong></mark>
+        {% else %}
+        {{ record.nhsPoB }} 
+        {% endif %}
+      </dd>
+    </div>
+   
+  </dl>
+</div>
+</div>
+
+ <h2 class="govuk-heading-m">
+        Mother's details
+      </h2>
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-one-half">
+      <h3 class="govuk-heading-s govuk-!-width-full govuk-!-margin-bottom-0" style="border-bottom: 2px solid #b1b4b6">
+        Online registration</h3>
+    </div>
+  
+    <div class="govuk-grid-column-one-half ">
+      <h3 class="govuk-heading-s govuk-!-width-full govuk-!-margin-bottom-0" style="border-bottom: 2px solid #b1b4b6">NHS
+        birth notification</h3>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row ">
+<div class="govuk-grid-column-one-half">
+    <dl class="govuk-summary-list ">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Mother's full name</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}  {{ record.orMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
+         {{ record.orMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.orMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
+          <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}</strong></mark>  {{ record.orMotherLastName }}
+         {% else %}
+        {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+        {% endif %}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.currentAddressError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.orMotherCurrentAddress }} </strong></mark>
+        {% else %}
+        {{ record.orMotherCurrentAddress }}
+        {% endif %}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Address at time of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.motherAddressToBError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.orMotherAddressToB }} </strong></mark>
+        {% else %}
+        {{ record.orMotherAddressToB }} 
+        {% endif %}
+      </dd>
+    </div>
+   
+  </dl>
+</div>
+
+<div class="govuk-grid-column-one-half">
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Mother's full name</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}  {{ record.nhsMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
+         {{ record.nhsMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.nhsMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}</strong></mark>  {{ record.nhsMotherLastName }}
+         {% else %}
+        Matches these details
+        {% endif %}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value"> 
+        {% if record.currentAddressError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherCurrentAddress }} </strong></mark>
+        {% else %}
+        {{ record.nhsMotherCurrentAddress }} 
+        {% endif %}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Address at time of birth</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.motherAddressToBError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherAddressToB }} </strong></mark>
+        {% else %}
+        {{ record.nhsMotherAddressToB }} 
+        {% endif %}
+      </dd>
+    </div>
+   
+  </dl>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+<h2 class="govuk-heading-l">
+        Details from online registration 
+      </h2>
+       <h2 class="govuk-heading-m">
+        Child's details
+      </h2>
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Child's first name</dt>
+      <dd class="govuk-summary-list__value">
+        {% if record.childFirstNameError == "yes" %}
+        <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 "
+          style="border-color: #FFB266; background-color: #FFE5CC;">
+          <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
+            <span class="govuk-visually-hidden">Error:</span> Not provided
+          </p>
+        </div>
+        {% else %}
+        {{ record.childFirstName }}
+        {% endif %}
+      </dd>
+    
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Child's last name</dt>
+      <dd class="govuk-summary-list__value">
+         {{ record.childLastName }}
+      </dd>
+    
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Child's middle and other name(s)</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.childMiddleName }} 
+      </dd>
+     
+    </div>
+   
+  </dl>
+  </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+       <h2 class="govuk-heading-m">
+        Mother's details
+      </h2>
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Maiden name</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.maidenName }} 
+      </dd>
+    
+    </div>
+
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Last name at marriage (if different from maiden name)</dt>
+      <dd class="govuk-summary-list__value">
+         {{ record.differentMaidenName }}
+      </dd>
+    
+    </div>
+
+  
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.motherPoB }} 
+      </dd>
+     
+    </div>
+   
+<div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Occupation</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.motherOccupationError == "yes" %}
+         {{ record.motherOccupation }}
+        <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 "
+          style="border-color: #FFB266; background-color: #FFE5CC;">
+          <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
+            <span class="govuk-visually-hidden">Error:</span>This may be a company name
+          </p>
+        </div>
+        {% else %}
+        {{ record.motherOccupation }}
+        {% endif %}
+      </dd>
+     
+    </div>
+
+  </dl>
+  </div>
+  </div>
+
+   {% if record.qualification2 == "none" %}
+        
+         {% else %}  
+   <div class="govuk-grid-row" id="2nd-parent">
+    <div class="govuk-grid-column-three-quarters">
+
+       <h2 class="govuk-heading-m">
+        {{ record.qualification2}}'s details
+      </h2>
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2}}'s  name</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspCurrentAddress }} 
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Address at time of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspAddressToB }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspPoB }} 
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Occupation</dt>
+      <dd class="govuk-summary-list__value">
+         {% if record.fspOccupationError == "yes" %}
+         {{ record.fspOccupation }}
+        <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-top-1 "
+          style="border-color: #FFB266; background-color: #FFE5CC;">
+          <p id="national-insurance-number-error" class="govuk-error-message govuk-!-padding-bottom-1" style="color: #003300;">
+            <span class="govuk-visually-hidden">Error:</span>This may be a company name
+          </p>
+        </div>
+        {% else %}
+        {{ record.fspOccupation }}
+        {% endif %}
+      </dd>
+     
+    </div>
+   
+  </dl>
+  </div>
+  </div>
+ {% endif %}
+
+
+
+  <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-9" id="form-div">
+    <div class="govuk-grid-column-three-quarters">
+   
+  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
+
+  {% else %}
+      <form action="/registrar-view-of-online/v1/04-check-answers-page" method="post" novalidate>
+        <input type="hidden" name="id" value="{{ record.id }}">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "userRegistrationSatisfactory",
+  fieldset: {
+    legend: {
+      text: "Is this registration complete?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes-complete",
+      text: "Yes, mark registration as complete"
+    },
+    {
+      value: "no-an-issue",
+      text: "No, there is an issue with this registration"
+    }
+   
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+ {% endif %}
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters" >
+      <div class="govuk-!-padding-4" style="background-color: #f3f2f1;">
+ <h2 class="govuk-heading-l">
+        Statistics
+      </h2>
+      <h3 class="govuk-heading-m">Mother</h3>
+
+       <div class="govuk-grid-row" id="stats-mum">
+    <div class="govuk-grid-column-full">
+
+      
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.motherDob }} 
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Employment status</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.motherEmployment }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">First marriage or civil partnership</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.motherFirstMarriage }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Spanish national</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.motherSpanishNat }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Number of stillbirths</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.stillbirths }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Number of previous births</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.previousBirths }} 
+      </dd>
+    </div>
+   
+   
+  </dl>
+  </div>
+  </div>
+
+       {% if record.qualification2 == "none" %}
+        
+         {% else %}
+      <h3 class="govuk-heading-m"> {{ record.qualification2 }}</h3>
+
+       <div class="govuk-grid-row" id="stats-2nd">
+    <div class="govuk-grid-column-full">
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Date of birth</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspDoB }} 
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Employment status</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspEmployment }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">First marriage or civil partnership</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspMarriageDate }} 
+      </dd>
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Spanish national</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.fspSpanishNat }} 
+      </dd>
+    </div>
+  </dl>
+  </div>
+  </div>
+       {% endif %}
+</div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Registration complete",
+        html: "System reference number<br><strong>2851234333</strong>"
+      }) }}
+
+      <br>
+
+      <!-- <h2 class="govuk-heading-m">
+        What to do next
+      </h2> 
+-->
+      <p class="govuk-body">
+        We’ve emailed the informant with a confirmation of registration. </p>
+
+<p class="govuk-body">The informant ordered:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>2 standard certificates</li>
+</ul>
+
+<p class="govuk-body">These must be printed and sent to the informant.</p>
+      </p>
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+
+      <form action="04-check-answers-page" method="post" novalidate>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "View next online registration"
+}) }}
+</form>
+</div>
+</div>
+
+       <p  class="govuk-body govuk-!-margin-bottom-3">
+        <a href="02-pending-list.html#print">
+          Go to print certificates
+        </a>
+      </p>
+
+      <p  class="govuk-body">
+        <a href="01-life-event-home.html">
+          Return to online birth registrations
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
