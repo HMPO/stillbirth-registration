@@ -167,7 +167,7 @@ const records = [
     fspSpanishNat: 'No'
   },{
   id: 3,
-  recordStatus: 'pending',
+  recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'none',
   relationshipType: 'No',
@@ -249,7 +249,7 @@ const records = [
   fspSpanishNat: 'No'
 },{
   id: 4,
-  recordStatus: 'pending',
+  recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
@@ -332,7 +332,7 @@ const records = [
 },
 {
   id: 5,
-  recordStatus: 'pending',
+  recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'No',
@@ -415,7 +415,7 @@ const records = [
 },
 {
   id: 6,
-  recordStatus: 'pending',
+  recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
@@ -498,7 +498,7 @@ const records = [
 },
 {
   id: 7,
-  recordStatus: 'pending',
+  recordStatus: 'inperson',
   qualification1: 'Mother',
   qualification2: 'Second female parent',
   relationshipType: 'Married or in civil partnership at time of conception',
@@ -913,7 +913,7 @@ const records = [
 },
 {
   id: 12,
-  recordStatus: 'pending',
+  recordStatus: 'inperson',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',

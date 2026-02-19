@@ -1,5 +1,6 @@
 {
   "serviceName": "Life event registration",
+  "serviceUrl": "/registrar-view-of-online/v2/01-life-event-home",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

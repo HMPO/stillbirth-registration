@@ -176,7 +176,7 @@ router.post('/registrar-view-of-online/v2/05a-next-steps-contact', function (req
   if (selectedOption === 'status-on-hold') {
     res.redirect('06a-confirmation-hold?id=' + id);
   } else if (selectedOption === 'status-in-person') {
-    res.redirect('06b-confirmation-appointment?id=' + id);
+    res.redirect('05c-confirm-appt-req?id=' + id);
   } else if (selectedOption === 'status-complete') {
     //res.redirect('06-confirmation-page');
      // Go to 06 confirmation for this record

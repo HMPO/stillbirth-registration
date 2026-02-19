@@ -66,7 +66,8 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   ]
 }) }}
 
-<p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
+<p class="govuk-body">Showing 1 to 6 of 6 </p>
+<!-- this is a count of all records in the data set: {{ data.records | length }} of {{ data.records | length }} -->
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth registrations</caption>
@@ -86,6 +87,10 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
 
  {% for record in data.records %}
+ {% if record.recordStatus == "inreview" 
+     or record.recordStatus == "onhold" 
+     or record.recordStatus == "pending"
+ %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
@@ -121,6 +126,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                   
                 </td>
               </tr>
+                {% endif %}
             {% endfor %}
 
   </tbody>
@@ -216,7 +222,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   ]
 }) }}
 
-<p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
+<p class="govuk-body">Showing 1 to 4 of 4</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
@@ -245,7 +251,8 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
  {% for record in data.records %}
  {% if record.printNumber == "None" %}
 
- {% else%}
+  {% elif record.recordStatus == "print" and record.printNumber != "None" %}
+    
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                   <a href="/registrar-view-of-online/v2/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
@@ -297,7 +304,7 @@ View these registrations to start an in-person registration. The registration is
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">NHS number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Reference number</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Child's name</th>
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
@@ -306,15 +313,45 @@ View these registrations to start an in-person registration. The registration is
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
+    <!-- <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '27', 'no','4-week', 'no', 'no')">390 123 4567</a></td>
       <td class="govuk-table__cell">HUSEIN, Lila</td>
        <td class="govuk-table__cell">HUSEIN, Jebul</td>
       <td class="govuk-table__cell">5</td>
       <td class="govuk-table__cell">47</td>
-      
-     
-    </tr>
+    </tr> -->
+
+ {% for record in data.records %}
+  {% if record.recordStatus == "inperson" %}
+    
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                  
+                  <a href="/registrar-view-of-online/v2/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                    {{ record.referenceNumber }}
+                  </a>
+                </td>
+                 <td class="govuk-table__cell">
+                 {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+                <td class="govuk-table__cell">
+                  {{ record.childFirstName }} {{ record.childLastName }}
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceBirth }} 
+                </td>
+                
+               
+              </tr>
+            
+            {% endif %}
+            {% endfor %}
+
+
+
     </tbody>
     </table>
 
@@ -325,21 +362,21 @@ View these registrations to start an in-person registration. The registration is
   items: [
    
     {
-      label: "Pending registrations (12)",
+      label: "Pending registrations (6)",
       id: "pending",
       panel: {
         html: pendingHtml
       }
     },
     {
-      label: "Print certificates (9)",
+      label: "Print certificates (4)",
       id: "print",
       panel: {
         html: printHtml
       }
     },
     {
-      label: "Appointments required (0)",
+      label: "Appointments required (2)",
       id: "inperson",
       panel: {
         html: inpersonHtml

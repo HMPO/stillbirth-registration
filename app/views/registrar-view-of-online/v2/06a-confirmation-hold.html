@@ -33,10 +33,17 @@
         What to do next
       </h2> 
 -->
-      <p class="govuk-body">
-        This registration is now on hold. </p>
+      <p class="govuk-body">This registration is now on hold. </p>
+      <p class="govuk-body" style="color: #ca3535;">After 42 days since birth this will move into Unregistered births.</p>
 
-<p class="govuk-body"><b>What happens next</b></p>
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "View added notes",
+  text: "Notes added previously go here."
+}) }}
+
+<p class="govuk-body govuk-!-margin-top-7"><b>What happens next</b></p>
 
 <p class="govuk-body">Contact the informant to request more information. </p>
 

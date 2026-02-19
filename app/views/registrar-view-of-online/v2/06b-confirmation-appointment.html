@@ -36,6 +36,15 @@
       <p class="govuk-body">
         This registration requires an in-person appointment. </p>
 
+          <p class="govuk-body">This can also be accessed in Unregistered births.</p>
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "View added notes",
+  text: "Notes added previously go here."
+}) }}
+
 <p class="govuk-body"><b>What happens next</b></p>
 
 <p class="govuk-body">You must contact the informant and ask them to book an in-person appointment. </p>
