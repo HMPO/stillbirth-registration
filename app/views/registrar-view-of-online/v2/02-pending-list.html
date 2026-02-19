@@ -89,12 +89,12 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
-                 <a href="/registrar-view-of-online/v1/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/registrar-view-of-online/v2/04-check-answers-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% else %}
 
-                 <a href="/registrar-view-of-online/v1/03-register-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/registrar-view-of-online/v2/03-register-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% endif %}
@@ -186,6 +186,36 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
  <div class="govuk-grid-row">
       <div class="govuk-grid-column-full govuk-!-margin-top-4">
 
+   {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+   {
+      value: "updated",
+      text: "Date processed (oldest to newest)",
+      selected: true
+    },
+    {
+      value: "published",
+      text: "Date processed (newest to oldest)"
+    },
+   
+    {
+      value: "views",
+      text: "Most recently viewed"
+    },
+    {
+      value: "comments",
+      text: "Date submitted (oldest to newest)"
+    }
+  ]
+}) }}
+
 <p class="govuk-body">Showing 1 to {{ data.records | length }} of {{ data.records | length }}</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
@@ -194,7 +224,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     <tr class="govuk-table__row">
      
       <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px; vertical-align: middle;">Cerificate PDF number</th>
-      <th scope="col" class="govuk-table__header" style="width: 400px; vertical-align: middle;">Mother's name</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px; vertical-align: middle;">Child's name</th>
       
       <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Days since<br>submitted</th>
       <th scope="col" class="govuk-table__header" style="width: 120px; vertical-align: middle;">Number of certificates</th>
@@ -218,12 +248,12 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
  {% else%}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-                  <a href="/registrar-view-of-online/v1/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
+                  <a href="/registrar-view-of-online/v2/07-cert?id={{ record.id }}.pdf" target="_blank" class="govuk-link">
                     {{ record.referenceNumber }}.pdf
                   </a>
                 </td>
                 <td class="govuk-table__cell">
-                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                  {{ record.childFirstName }} {{ record.childLastName }}
                 </td>
                  <td class="govuk-table__cell">
                   {{ record.daysSinceSubmission }} 
@@ -258,7 +288,10 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 {% endset -%}
 
 {% set inpersonHtml %}
-<h2 class="govuk-heading-m">Appointments required (0)</h2>
+<h2 class="govuk-heading-m">Appointments required</h2>
+ <p class="govuk-body">
+View these registrations to start an in-person registration. The registration is removed from this list once the child’s NHS number has been registered.
+</p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
@@ -266,7 +299,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">NHS number</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
-      
+      <th scope="col" class="govuk-table__header" style="width: 400px;">Child's name</th>
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>birth</th>
       
@@ -276,7 +309,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;"><a href="#" onclick="passData(event, '390 123 4567', '1 October 2025', 'Lila', 'HUSEIN', 'Male', 'Live', '12 Maple Avenue', 'WK3A 0TJ', '29 September 1998', '27', 'no','4-week', 'no', 'no')">390 123 4567</a></td>
       <td class="govuk-table__cell">HUSEIN, Lila</td>
-      
+       <td class="govuk-table__cell">HUSEIN, Jebul</td>
       <td class="govuk-table__cell">5</td>
       <td class="govuk-table__cell">47</td>
       

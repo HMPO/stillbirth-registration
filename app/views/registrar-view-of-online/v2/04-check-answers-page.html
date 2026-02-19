@@ -610,10 +610,21 @@
   {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
 
   {% else %}
-      <form action="/registrar-view-of-online/v1/04-check-answers-page" method="post" novalidate>
+      <form action="/registrar-view-of-online/v2/04-check-answers-page" method="post" novalidate>
         <input type="hidden" name="id" value="{{ record.id }}">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {% set issueHtml %}
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Add any notes about this registration. This is visible to all registrars"
+  }
+}) }}
+{% endset -%}
 
 {{ govukRadios({
   name: "userRegistrationSatisfactory",
@@ -631,7 +642,14 @@
     },
     {
       value: "no-an-issue",
-      text: "No, there is an issue with this registration"
+      text: "No, there is an issue with this registration",
+      conditional: {
+        html: issueHtml
+      }
+    },
+    {
+      value: "no-another-district",
+      text: "No, send registration to another district"
     }
    
   ]

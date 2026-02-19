@@ -109,6 +109,8 @@ module.exports = function (router) {
       res.redirect('/registrar-view-of-online/v2/05-sign-page?id=' + id)
     } else if (selectedOption === 'no-an-issue') {
       res.redirect('/registrar-view-of-online/v2/05a-next-steps-contact?id=' + id)
+     } else if (selectedOption === 'no-another-district') {
+      res.redirect('/registrar-view-of-online/v2/05b-next-steps-district?id=' + id)  
     } else {
       // Fallback – treat as yes
       res.redirect('/registrar-view-of-online/v2/05-sign-page?id=' + id)

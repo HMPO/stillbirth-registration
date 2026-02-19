@@ -21,7 +21,7 @@
       <p class="govuk-body">If there is an issue with the birth registration, you can contact the informant using their details below.</p>
       
       
-      <div class="govuk-!-margin-bottom-7 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
+      <div class="govuk-!-margin-bottom-5 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
         
       <h2 class="govuk-heading-m">
         Contact details
@@ -133,9 +133,56 @@
   </dl>
  
 </div>
+
+
+  <div class="govuk-!-padding-3 govuk-!-padding-bottom-0 govuk-!-margin-bottom-5" style="border: 4px solid #f3f2f1;">
+  
+    <h3 class="govuk-heading-m">Notes</h3>
+    <p id="note-text" class="govuk-body">Any notes added previously go here.</p>
+  
+  
+    <details class="govuk-details" id="note-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Add or edit note
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <div class="govuk-form-group">
+          <textarea class="govuk-textarea govuk-!-margin-bottom-1" id="more-detail" name="moreDetail" rows="5"
+            aria-describedby="more-detail-hint"></textarea>
+          <p class="govuk-hint govuk-!-font-size-16">Up to 879 characters in total for each note</p>
+        </div>
+        <div class="govuk-button-group">
+          <button type="button" id="add-note-btn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add note
+          </button>
+          <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+        </div>
+      </div>
+    </details>
+  
+    <script>
+      document.getElementById('add-note-btn').addEventListener('click', function () {
+        const noteText = document.getElementById('more-detail').value.trim();
+        const noteDisplay = document.getElementById('note-text');
+        const detailsComponent = document.getElementById('note-details');
+
+        // Update the <p> text
+        noteDisplay.textContent = noteText !== '' ? noteText : 'None';
+
+        // Close the details component
+        detailsComponent.removeAttribute('open');
+
+        // Optionally clear the textarea
+        document.getElementById('more-detail').value = '';
+      });
+    </script>
+  
+  </div>
  
 
-      <form action="/registrar-view-of-online/v1/05a-next-steps-contact" method="post" novalidate>
+      <form action="/registrar-view-of-online/v2/05a-next-steps-contact" method="post" novalidate>
  <input type="hidden" name="id" value="{{ record.id }}">
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
