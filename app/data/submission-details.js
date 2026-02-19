@@ -498,7 +498,7 @@ const records = [
 },
 {
   id: 7,
-  recordStatus: 'inperson',
+  recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Second female parent',
   relationshipType: 'Married or in civil partnership at time of conception',
@@ -664,7 +664,7 @@ const records = [
 },
 {
   id: 9,
-  recordStatus: 'pending',
+  recordStatus: 'inperson',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
