@@ -188,6 +188,59 @@ router.post('/registrar-view-of-online/v2/05a-next-steps-contact', function (req
   }
 }); 
 
+ // ---------------------------
+  // 05b - Next step - district change (GET + POST)
+  // ---------------------------
+
+  // GET 05b NEXT step
+  router.get('/registrar-view-of-online/v2/05b-next-steps-district', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+    const record = getRecordById(req, id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+    }
+
+    res.render('registrar-view-of-online/v2/05b-next-steps-district', { record, id })
+  })
+
+  // POST 05a Next steps Status form - for when there is an issue on hold or in-person 
+router.post('/registrar-view-of-online/v2/05b-next-steps-district', function (req, res) {
+    const id = parseInt(req.body.id, 10)
+
+    // store any 'signed' flag here if you need to
+
+    // Go to 06 confirmation for this record
+    res.redirect('/registrar-view-of-online/v2/06e-confirmation-district-routing?id=' + id)
+  })
+
+// ---------------------------
+  // 05c – Confirm appt page (GET + POST)
+  // ---------------------------
+
+  // GET 05c-confirm-appt-req – second confirmation step for appt
+  router.get('/registrar-view-of-online/v2/05c-confirm-appt-req', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+    const record = getRecordById(req, id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+    }
+
+    res.render('registrar-view-of-online/v2/05c-confirm-appt-req', { record, id })
+  })
+
+  // POST 05-sign-page – user confirms they want to accept
+  router.post('/registrar-view-of-online/v2/05c-confirm-appt-req', function (req, res) {
+    const id = parseInt(req.body.id, 10)
+
+    // store any 'signed' flag here if you need to
+
+    // Go to 06 confirmation for this record
+    res.redirect('/registrar-view-of-online/v2/06b-confirmation-appointment?id=' + id)
+  })
+
+
   // ---------------------------
   // 06 – Confirmation + next record (GET)
   // ---------------------------

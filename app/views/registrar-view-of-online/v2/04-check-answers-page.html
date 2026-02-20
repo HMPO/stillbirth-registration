@@ -396,6 +396,9 @@
  <p class="govuk-body ">
 The submitted details have been compared with the NHS birth notification and GOV.UK One Login. Any differences are highlighted.
 </p>
+<!-- <p class="govuk-body"><a class="govuk-link" href="04a-notification-detail-multiple" target="_blank">
+       <span class="govuk-link">NHS birth notification (opens in a new tab)</span>
+      </a></p> -->
 </div>
  <!-- tabs start -->
 
@@ -409,11 +412,11 @@ The submitted details have been compared with the NHS birth notification and GOV
         Online registration
       </a>
     </li>
-    <li class="govuk-tabs__list-item">
+    <!-- <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#past-week">
         View draft certificate
       </a>
-    </li>
+    </li> -->
     <li class="govuk-!-padding-top-3" style="text-align: right;">
       <a class="govuk-link" href="04a-notification-detail-multiple" target="_blank">
        <span class="govuk-link">NHS birth notification (opens in a new tab)</span>
@@ -553,7 +556,7 @@ The submitted details have been compared with the NHS birth notification and GOV
  <h2 class="govuk-heading-l">
         Mother's details
       </h2> 
- {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
+ {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
       <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
         style="border-color: #FFB266; background-color: #FFE5CC;">
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
@@ -561,12 +564,14 @@ The submitted details have been compared with the NHS birth notification and GOV
           <span class="govuk-visually-hidden">Error:</span>
         <ul class="govuk-list govuk-list--bullet">
           <li>Some details are different to the NHS birth notification</li>
-          <!-- <li>Check if this birth should be registered in this district</li> -->
+        
         </ul>
         </p>
       </div>
-
-       <dl class="govuk-summary-list ">
+    
+ <dl class="govuk-summary-list ">
+         {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
+      
     <div class="govuk-summary-list__row" id="full name">
       <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
         Mother's full name</span></dt>
@@ -582,6 +587,30 @@ The submitted details have been compared with the NHS birth notification and GOV
         {% endif %}
       </dd>
     </div>
+   
+     {% else %}
+    {% endif %}
+
+     {% if record.currentAddressError == "yes" %}
+      <div class="govuk-summary-list__row" id="current address">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
+        Mother's Current address</span></dt>
+      <dd class="govuk-summary-list__value"> 
+          <mark class="hods-highlight"><strong>{{ record.nhsMotherCurrentAddress }}</strong></mark>
+      </dd>
+    </div>
+     {% else %}
+    {% endif %}
+     {% if record.motherAddressToBError == "yes" %}
+      <div class="govuk-summary-list__row" id="current address">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
+        Mother's address at time of birth</span></dt>
+      <dd class="govuk-summary-list__value"> 
+          <mark class="hods-highlight"><strong>{{ record.nhsMotherAddressToB }}</strong></mark>
+      </dd>
+    </div>
+     {% else %}
+    {% endif %}
     </dl>
  {% else %}
   
@@ -638,21 +667,17 @@ The submitted details have been compared with the NHS birth notification and GOV
      <div class="govuk-summary-list__row" id="addresscurrent">
       <dt class="govuk-summary-list__key">Current address</dt>
       <dd class="govuk-summary-list__value">
-         {% if record.currentAddressError == "yes" %}
-          <mark class="hods-highlight"><strong> {{ record.orMotherCurrentAddress }} </strong></mark>
-        {% else %}
+         
         {{ record.orMotherCurrentAddress }}
-        {% endif %}
+       
       </dd>
     </div>
     <div class="govuk-summary-list__row" id="addresstob">
       <dt class="govuk-summary-list__key">Address at time of birth</dt>
       <dd class="govuk-summary-list__value">
-        {% if record.motherAddressToBError == "yes" %}
-          <mark class="hods-highlight"><strong>{{ record.orMotherAddressToB }}</strong></mark>
-        {% else %}
+       
         {{ record.orMotherAddressToB }} 
-        {% endif %}
+       
       </dd>
     </div>
 
