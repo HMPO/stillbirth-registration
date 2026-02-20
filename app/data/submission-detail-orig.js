@@ -19,17 +19,17 @@ const records = [
     childMiddleName: '',
 
     orNHS: '987 654 3210',
-    nhsNHS: '987 654 3210',
+    nhsNHS: 'Matches these details',
 
     orDoB: '29 January 2026',
-    nhsDoB: '29 January 2026',
+    nhsDoB: 'Matches these details',
     daysSinceBirth: '6',
 
     orSex: 'Male',
-    nhsSex: 'Male',
+    nhsSex: 'Matches these details',
 
     orPoB: "St. Mary's, Wakefield",
-    nhsPoB: "St. Mary's, Wakefield",
+    nhsPoB: "Matches these details",
     PoBError: 'no',
 
     //mother 1
@@ -45,11 +45,11 @@ const records = [
     differentMaidenName: '',
 
     orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
-    nhsMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
+    nhsMotherCurrentAddress: 'Matches these details',
     currentAddressError: 'no',
 
     orMotherAddressToB: 'Same as current address',
-    nhsMotherAddressToB: '29 Rootfield Drive, Wakefield WT8 5UY',
+    nhsMotherAddressToB: 'Matches these details',
     motherAddressToBError: 'no',
 
     motherPoB: 'London, England',
@@ -101,18 +101,18 @@ const records = [
     childMiddleName: '',
 
     orNHS: '987 654 3210',
-    nhsNHS: '987 654 3210',
+    nhsNHS: 'Matches these details',
 
     orDoB: '13 January 2026',
-    nhsDoB: '13 January 2026',
+    nhsDoB: 'Matches these details',
     daysSinceBirth: '22',
 
     orSex: 'Female',
-    nhsSex: 'Female',
+    nhsSex: 'Matches these details',
     sexError: 'no',
 
     orPoB: 'Whittington Hospital, Wakefield',
-    nhsPoB: 'Whittington Hospital, Wakefield',
+    nhsPoB: 'Matches these details',
     PoBError: 'no',
 
     //mother 2
@@ -128,11 +128,11 @@ const records = [
     differentMaidenName: '',
 
     orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
-    nhsMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
+    nhsMotherCurrentAddress: 'Matches these details',
     currentAddressError: 'no',
 
     orMotherAddressToB: 'Same as current address',
-    nhsMotherAddressToB: '29 Rootfield Drive, Wakefield WT8 5UY',
+    nhsMotherAddressToB: 'Matches these details',
     motherAddressToBError: 'no',
 
     motherPoB: 'Fife, Scotland',
@@ -184,17 +184,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '679 068 6287',
-  nhsNHS: '679 068 6287',
+  nhsNHS: 'Matches these details',
 
   orDoB: '30 January 2026',
-  nhsDoB: '30 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '3',
 
   orSex: 'Female',
-  nhsSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
-  nhsPoB: "St. Mary's, Wakefield",
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 3
@@ -210,11 +210,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
-  nhsMotherCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '12 Queen Street, Wakefield WS1 4AB',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'London, England',
@@ -266,17 +266,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '028 123 5895',
-  nhsNHS: '028 123 5895',
+  nhsNHS: 'Matches these details',
 
   orDoB: '10 January 2026',
-  nhsDoB: '10 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '25',
 
   orSex: 'Male',
-  nhsSex: 'Male',
+  nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
-  nhsPoB: "St. Mary's, Wakefield",
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 4
@@ -292,11 +292,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '5 Riverside Close, Wakefield WO1 6DF',
-  nhsMotherCurrentAddress: '5 Riverside Close, Wakefield WO1 6DF',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '5 Riverside Close, Wakefield WO1 6DF',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Birmingham, England',
@@ -349,17 +349,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '892 569 0942',
-  nhsNHS: '892 569 0942',
+  nhsNHS: 'Matches these details',
 
   orDoB: '14 January 2026',
-  nhsDoB: '14 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '18',
 
-  orSex: '14 January 2026',
-  nhsSex: '14 January 2026',
+  orSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
-  nhsPoB: "St. Mary's, Wakefield",
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 5
@@ -375,11 +375,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
-  nhsMotherCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '88 Mill Lane, Wakefield WS3 4GH',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Wakefield, Englan',
@@ -432,17 +432,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '718 878 3493',
-  nhsNHS: '718 878 3493',
+  nhsNHS: 'Matches these details',
 
   orDoB: '25 January 2026',
-  nhsDoB: '25 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '8',
 
   orSex: 'Male',
-  nhsSex: 'Male',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 6
@@ -458,11 +458,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
-  nhsMotherCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '24 Oakwood Avenue, Wakefield W20 3JK',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Glasgow, Scotland',
@@ -515,17 +515,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '911 178 2367',
-  nhsNHS: '911 178 2367',
+  nhsNHS: 'Matches these details',
 
   orDoB: '2 January 2026',
-  nhsDoB: '2 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '29',
 
   orSex: 'Female',
-  nhsSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
-  nhsPoB: "St. Mary's, Wakefield",
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 7
@@ -541,11 +541,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
-  nhsMotherCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '47 Kingsway, Wakefield CF10 3AA',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'London, England',
@@ -598,17 +598,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '989 452 8068',
-  nhsNHS: '989 452 8068',
+  nhsNHS: 'Matches these details',
 
   orDoB: '10 January 2026',
-  nhsDoB: '10 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '23',
 
   orSex: 'Female',
-  nhsSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 8
@@ -624,11 +624,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
-  nhsMotherCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '3 Church Road, Wakefield NE1 5PL',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Altrincham, England',
@@ -681,17 +681,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '425 365 8546',
-  nhsNHS: '425 365 8546',
+  nhsNHS: 'Matches these details',
 
   orDoB: '28 January 2026',
-  nhsDoB: '28 January 2026',
-  daysSinceBirth: '43',
+  nhsDoB: 'Matches these details',
+  daysSinceBirth: '6',
 
   orSex: 'Female',
-  nhsSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 9 (different surname)
@@ -724,7 +724,7 @@ const records = [
   fspLastName: 'PATEL',
 
   fspPoB: 'Delhi, Outside the UK',
-  fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  fspCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
   fspOccupationError: 'no',
@@ -764,17 +764,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '429 275 0611',
-  nhsNHS: '429 275 0611',
+  nhsNHS: 'Matches these details',
 
   orDoB: '17 January 2026',
-  nhsDoB: '17 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '14',
 
   orSex: 'Male',
-  nhsSex: 'Male',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 10 (different surname)
@@ -790,11 +790,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
-  nhsMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '61 Meadow View, Wakefield NG2 3ZT',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Belfast, Northern Ireland',
@@ -847,17 +847,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '598 670 8818',
-  nhsNHS: '598 670 8818',
+  nhsNHS: 'Matches these details',
 
   orDoB: '4 January 2026',
-  nhsDoB: '4 January 2026',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '26',
 
   orSex: 'Male',
-  nhsSex: 'Male',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Huddersfield',
-  nhsPoB: 'Whittington Hospital, Huddersfield',
+  nhsPoB: 'Matches these details',
   PoBError: 'yes',
 
   // mother 11 (different surname)
@@ -873,11 +873,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '14 Brookside, Huddersfield LE2 1PQ',
-  nhsMotherCurrentAddress: '14 Brookside, Huddersfield LE2 1PQ',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '14 Brookside, Huddersfield LE2 1PQ',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Leeds, England',
@@ -930,14 +930,14 @@ const records = [
   childMiddleName: 'Peter, Thomas',
 
   orNHS: '033 733 7271',
-  nhsNHS: '033 733 7271',
+  nhsNHS: 'Matches these details',
 
   orDoB: '27 December 2025',
-  nhsDoB: '27 December 2025',
+  nhsDoB: 'Matches these details',
   daysSinceBirth: '43',
 
   orSex: 'Male',
-  nhsSex: 'Male',
+  nhsSex: 'Matches these details',
 
   orPoB: "St. Mary's, Wakefield",
   nhsPoB: "St. Mary's, Wakefield",
@@ -956,11 +956,11 @@ const records = [
   differentMaidenName: '',
 
   orMotherCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
-  nhsMotherCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
+  nhsMotherCurrentAddress: 'Matches these details',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '32 Park Crescent, Wakefield L8 9RS',
+  nhsMotherAddressToB: 'Matches these details',
   motherAddressToBError: 'no',
 
   motherPoB: 'Manchester, Englan',
@@ -1013,17 +1013,17 @@ const records = [
   childMiddleName: '',
 
   orNHS: '425 365 8546',
-  nhsNHS: '425 365 8546',
+  nhsNHS: 'Matches these details',
 
   orDoB: '28 January 2026',
-  nhsDoB: '28 January 2026',
-  daysSinceBirth: '43',
+  nhsDoB: 'Matches these details',
+  daysSinceBirth: '6',
 
   orSex: 'Female',
-  nhsSex: 'Female',
+  nhsSex: 'Matches these details',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Matches these details',
   PoBError: 'no',
 
   // mother 13 (different surname)
@@ -1056,7 +1056,7 @@ const records = [
   fspLastName: 'PATEL',
 
   fspPoB: 'Delhi, Outside the UK',
-  fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  fspCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
   fspOccupationError: 'no',

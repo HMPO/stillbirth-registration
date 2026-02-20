@@ -118,6 +118,32 @@ module.exports = function (router) {
   })
 
   // ---------------------------
+  // 04a notification (GET + POST)
+  // ---------------------------
+
+  // GET 04a 
+  router.get('/registrar-view-of-online/v2/04a-notification-detail', function (req, res) {
+    const id = parseInt(req.query.id, 10)
+    const record = getRecordById(req, id)
+
+    if (!record) {
+      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+    }
+
+    res.render('registrar-view-of-online/v2/04a-notification-detail', { record, id })
+  })
+
+  // POST 04a 
+router.post('/registrar-view-of-online/v2/04a-notification-detail', function (req, res) {
+    const id = parseInt(req.body.id, 10)
+
+    // store any 'signed' flag here if you need to
+
+    // Go to 06 confirmation for this record
+   // res.redirect('/registrar-view-of-online/v2/06e-confirmation-district-routing?id=' + id)
+  })
+
+  // ---------------------------
   // 05 – Sign page (GET + POST)
   // ---------------------------
 
