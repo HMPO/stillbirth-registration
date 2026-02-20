@@ -500,7 +500,7 @@ The submitted details have been compared with the NHS birth notification and GOV
       <dd class="govuk-summary-list__value">
         {% if record.PoBError == "yes" %}
        <p class="govuk-body">{{ record.orPoB }}</p>  
-<p class="govuk-body"><mark class="hods-highlight"><strong>This address is not in this district</strong></mark></p>
+<p class="govuk-body"><mark class="hods-highlight"><strong>The communal establishment is not in this district</strong></mark></p>
         {% else %}
         {{ record.orPoB }} 
         {% endif %}
@@ -553,11 +553,47 @@ The submitted details have been compared with the NHS birth notification and GOV
  <h2 class="govuk-heading-l">
         Mother's details
       </h2> 
+ {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
+        style="border-color: #FFB266; background-color: #FFE5CC;">
+        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          <span class="govuk-visually-hidden">Error:</span>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Some details are different to the NHS birth notification</li>
+          <!-- <li>Check if this birth should be registered in this district</li> -->
+        </ul>
+        </p>
+      </div>
+
+       <dl class="govuk-summary-list ">
+    <div class="govuk-summary-list__row" id="full name">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
+        Mother's full name</span></dt>
+      <dd class="govuk-summary-list__value"> 
+         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}  {{ record.nhsMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
+         {{ record.nhsMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.nhsMotherLastName }}</strong></mark>
+       {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
+          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}</strong></mark>  {{ record.nhsMotherLastName }}
+         {% else %}
+         <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}  {{ record.nhsMotherLastName }}</strong></mark>
+        {% endif %}
+      </dd>
+    </div>
+    </dl>
+ {% else %}
+  
+        {% endif %}
+      
     <dl class="govuk-summary-list ">
     <div class="govuk-summary-list__row" id="full name">
       <dt class="govuk-summary-list__key govuk-!-width-one-third">Mother's full name</dt>
-      <dd class="govuk-summary-list__value">
-         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
+      <dd class="govuk-summary-list__value"> {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+
+
+         <!-- {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
           <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}  {{ record.orMotherLastName }}</strong></mark>
        {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
          {{ record.orMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.orMotherLastName }}</strong></mark>
@@ -565,13 +601,13 @@ The submitted details have been compared with the NHS birth notification and GOV
           <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}</strong></mark>  {{ record.orMotherLastName }}
          {% else %}
         {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
-        {% endif %}
+        {% endif %} -->
       </dd>
     </div>
    
    
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Maiden name</dt>
+      <dt class="govuk-summary-list__key">Maiden name (if different from full name)</dt>
       <dd class="govuk-summary-list__value">
         {{ record.maidenName }} 
       </dd>
