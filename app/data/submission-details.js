@@ -581,7 +581,7 @@ const records = [
 },
 {
   id: 8,
-  recordStatus: 'pending',
+  recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
@@ -913,7 +913,7 @@ const records = [
 },
 {
   id: 12,
-  recordStatus: 'inperson',
+  recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
