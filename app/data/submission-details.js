@@ -111,7 +111,7 @@ const records = [
     nhsSex: 'Matches these details',
     sexError: 'no',
 
-    orPoB: 'Whittington, Wakefield',
+    orPoB: 'Whittington Hospital, Wakefield',
     nhsPoB: 'Matches these details',
     PoBError: 'no',
 
@@ -441,7 +441,7 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
+  orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Matches these details',
   PoBError: 'no',
 
@@ -524,7 +524,7 @@ const records = [
   orSex: 'Female',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
+  orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Matches these details',
   PoBError: 'no',
 
@@ -690,7 +690,7 @@ const records = [
   orSex: 'Female',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
+  orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Matches these details',
   PoBError: 'no',
 
@@ -773,7 +773,7 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
+  orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Matches these details',
   PoBError: 'no',
 
@@ -840,7 +840,7 @@ const records = [
   referenceNumber: '2026/5335676801370276-WA',
 
   // child 11
-  childFirstName: 'Zara',
+  childFirstName: '',
   childFirstNameError: 'yes',
 
   childLastName: 'WALSH',
@@ -856,9 +856,9 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Matches these details',
 
-  orPoB: 'Whittington, Wakefield',
+  orPoB: 'Whittington Hospital, Winchester',
   nhsPoB: 'Matches these details',
-  PoBError: 'no',
+  PoBError: 'yes',
 
   // mother 11 (different surname)
   orMotherFirstName: 'Chloe',
