@@ -583,6 +583,172 @@ const records = [
   id: 8,
   recordStatus: 'pending',
   qualification1: 'Mother',
+  qualification2: 'Second female parent',
+  relationshipType: 'Married or in civil partnership at time of conception',
+  printNumber: '1',
+  submissionDate: '2 February 2026',
+  daysSinceSubmission: '4',
+  referenceNumber: '2026/4599023239155979-WA',
+
+  // child 8
+  childFirstName: 'Sienna',
+  childFirstNameError: 'no',
+
+  childLastName: 'OSBORNE',
+  childMiddleName: '',
+
+  orNHS: '989 452 8068',
+  nhsNHS: '989 452 8068',
+
+  orDoB: '10 January 2026',
+  nhsDoB: '10 January 2026',
+  daysSinceBirth: '23',
+
+  orSex: 'Female',
+  nhsSex: 'Female',
+
+  orPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Whittington Hospital, Wakefield',
+  PoBError: 'no',
+
+  // mother 8
+  orMotherFirstName: 'Farah',
+  nhsMotherFirstName: 'Farah',
+  mFNameError: 'no',
+
+  orMotherLastName: 'OSBORNE',
+  nhsMotherLastName: 'OSBORNE',
+  mLNameError: 'no',
+
+  maidenName: '',
+  differentMaidenName: '',
+
+  orMotherCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
+  nhsMotherCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
+  currentAddressError: 'no',
+
+  orMotherAddressToB: 'Same as current address',
+  nhsMotherAddressToB: '3 Church Road, Wakefield NE1 5PL',
+  motherAddressToBError: 'no',
+
+  motherPoB: 'Altrincham, England',
+
+  motherOccupation: 'Social worker',
+  motherOccupationError: 'no',
+
+  // father or second parent 8
+  fspFirstName: 'Nurita',
+  fspLastName: 'TERRY',
+
+  fspPoB: 'Wakefield, England',
+  fspCurrentAddress: '3 Church Road, Wakefield NE1 5PL',
+  fspAddressToB: 'Same as current address',
+  fspOccupation: 'Dominos Chef',
+  fspOccupationError: 'no',
+
+  // statistics - mother 8
+  motherDob: '20 April 2001',
+  motherDobError: 'no',
+  motherEmployment: 'Employed, not supervising',
+  motherFirstMarriage: 'Yes',
+  motherSpanishNat: 'No',
+
+  stillbirths: '0',
+  previousBirths: '0',
+
+  // statistics - father or second female parent 8
+  fspDoB: '7 September 1999',
+  fspEmployment: 'Self-employed, not supervising',
+  fspMarriageDate: '3 June 2022',
+  fspSpanishNat: 'No'
+},
+{
+  id: 9,
+  recordStatus: 'pending',
+  qualification1: 'Mother',
+  qualification2: 'Father',
+  relationshipType: 'Yes',
+  printNumber: '2',
+  submissionDate: '3 February 2026',
+  daysSinceSubmission: '3',
+  referenceNumber: '2026/7647380067736981-WA',
+
+  // child 9
+  childFirstName: 'Niamh',
+  childFirstNameError: 'no',
+
+  childLastName: 'PATEL',
+  childMiddleName: '',
+
+  orNHS: '425 365 8546',
+  nhsNHS: '425 365 8546',
+
+  orDoB: '28 January 2026',
+  nhsDoB: '28 January 2026',
+  daysSinceBirth: '43',
+
+  orSex: 'Female',
+  nhsSex: 'Female',
+
+  orPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Whittington Hospital, Wakefield',
+  PoBError: 'no',
+
+  // mother 9 (different surname)
+  orMotherFirstName: 'Gemma',
+  nhsMotherFirstName: 'Gemma',
+  mFNameError: 'no',
+
+  orMotherLastName: 'PATEL',
+  nhsMotherLastName: 'PATEL',
+  mLNameError: 'no',
+
+  maidenName: 'TYLER',
+  differentMaidenName: '',
+
+  orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
+  nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
+  currentAddressError: 'yes',
+
+  orMotherAddressToB: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  nhsMotherAddressToB: '19 Highfield Court, Wakefield S10 2XY',
+  motherAddressToBError: 'yes',
+
+  motherPoB: 'Cardiff, Wales',
+
+  motherOccupation: 'Chef',
+  motherOccupationError: 'no',
+
+  // father or second parent 9
+  fspFirstName: 'Sidu',
+  fspLastName: 'PATEL',
+
+  fspPoB: 'Delhi, Outside the UK',
+  fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  fspAddressToB: 'Same as current address',
+  fspOccupation: 'Security guard',
+  fspOccupationError: 'no',
+
+  // statistics - mother 9
+  motherDob: '20 April 2001',
+  motherDobError: 'no',
+  motherEmployment: 'Employed, not supervising',
+  motherFirstMarriage: 'Yes',
+  motherSpanishNat: 'No',
+
+  stillbirths: '0',
+  previousBirths: '0',
+
+  // statistics - father or second female parent 9
+  fspDoB: '7 September 1999',
+  fspEmployment: 'Self-employed, not supervising',
+  fspMarriageDate: '3 June 2022',
+  fspSpanishNat: 'No'
+},
+{
+  id: 10,
+  recordStatus: 'pending',
+  qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
   printNumber: 'None',
@@ -663,7 +829,7 @@ const records = [
   fspSpanishNat: 'No'
 },
 {
-  id: 9,
+  id: 11,
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -746,73 +912,73 @@ const records = [
   fspSpanishNat: 'No'
 },
 {
-  id: 10,
+  id: 12,
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
-  printNumber: '2',
+  printNumber: '1',
   submissionDate: '3 February 2026',
-  daysSinceSubmission: '3',
-  referenceNumber: '2026/7647380067736981-WA',
+  daysSinceSubmission: '1',
+  referenceNumber: '2025/9771630942943272-WA',
 
-  // child 9
-  childFirstName: 'Niah',
+  // child 12
+  childFirstName: 'Jonah',
   childFirstNameError: 'no',
 
-  childLastName: 'PATEL',
-  childMiddleName: '',
+  childLastName: 'REED',
+  childMiddleName: 'Peter, Thomas',
 
-  orNHS: '425 365 8546',
-  nhsNHS: '425 365 8546',
+  orNHS: '033 733 7271',
+  nhsNHS: '033 733 7271',
 
-  orDoB: '28 January 2026',
-  nhsDoB: '28 January 2026',
+  orDoB: '27 December 2025',
+  nhsDoB: '27 December 2025',
   daysSinceBirth: '43',
 
-  orSex: 'Female',
-  nhsSex: 'Female',
+  orSex: 'Male',
+  nhsSex: 'Male',
 
-  orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoB: "St. Mary's, Wakefield",
+  nhsPoB: "St. Mary's, Wakefield",
   PoBError: 'no',
 
-  // mother 9 (different surname)
+  // mother 12 (different surname)
   orMotherFirstName: 'Meera',
   nhsMotherFirstName: 'Meera',
   mFNameError: 'no',
 
-  orMotherLastName: 'PATEL',
-  nhsMotherLastName: 'PATEL',
-  mLNameError: 'no',
+  orMotherLastName: 'ALLEL-REED',
+  nhsMotherLastName: 'ALLEN',
+  mLNameError: 'yes',
 
-  maidenName: 'PATEL',
+  maidenName: 'ALLEL',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
-  nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
-  currentAddressError: 'yes',
+  orMotherCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
+  nhsMotherCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
+  currentAddressError: 'no',
 
-  orMotherAddressToB: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
-  nhsMotherAddressToB: '19 Highfield Court, Wakefield S10 2XY',
-  motherAddressToBError: 'yes',
+  orMotherAddressToB: 'Same as current address',
+  nhsMotherAddressToB: '32 Park Crescent, Wakefield L8 9RS',
+  motherAddressToBError: 'no',
 
-  motherPoB: 'Cardiff, Wales',
+  motherPoB: 'Manchester, Englan',
 
-  motherOccupation: 'I work kitchen',
+  motherOccupation: 'Laboratory technician',
   motherOccupationError: 'no',
 
-  // father or second parent 9
-  fspFirstName: 'Sidu',
-  fspLastName: 'PATEL',
+  // father or second parent 12
+  fspFirstName: 'Noel',
+  fspLastName: 'REED',
 
-  fspPoB: 'Delhi, Outside the UK',
-  fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  fspPoB: 'Hounslow, England',
+  fspCurrentAddress: '32 Park Crescent, Wakefield L8 9RS',
   fspAddressToB: 'Same as current address',
-  fspOccupation: 'Security guard',
+  fspOccupation: 'Construction worker',
   fspOccupationError: 'no',
 
-  // statistics - mother 9
+  // statistics - mother 12
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -822,14 +988,14 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 9
+  // statistics - father or second female parent 12
   fspDoB: '7 September 1999',
-  fspEmployment: 'Self-employed, not supervising',
+  fspEmployment: 'Employed, not supervising',
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
 },
 {
-  id: 11,
+  id: 13,
   recordStatus: 'inperson',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -840,7 +1006,7 @@ const records = [
   referenceNumber: '2026/7647380067736981-WA',
 
   // child 13
-  childFirstName: 'Niah',
+  childFirstName: 'Niamh',
   childFirstNameError: 'no',
 
   childLastName: 'PATEL',
@@ -861,15 +1027,15 @@ const records = [
   PoBError: 'no',
 
   // mother 13 (different surname)
-  orMotherFirstName: 'Meera',
-  nhsMotherFirstName: 'Meera',
+  orMotherFirstName: 'Gemma',
+  nhsMotherFirstName: 'Gemma',
   mFNameError: 'no',
 
   orMotherLastName: 'PATEL',
   nhsMotherLastName: 'PATEL',
   mLNameError: 'no',
 
-  maidenName: 'PATEL',
+  maidenName: 'TYLER',
   differentMaidenName: '',
 
   orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
@@ -882,7 +1048,7 @@ const records = [
 
   motherPoB: 'Cardiff, Wales',
 
-  motherOccupation: 'I work kitchen',
+  motherOccupation: 'Chef',
   motherOccupationError: 'no',
 
   // father or second parent 13
