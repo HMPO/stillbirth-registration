@@ -690,9 +690,9 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Male',
 
-  orPoB: 'Whittington Hospital, Huddersfield',
-  nhsPoB: 'Whittington Hospital, Huddersfield',
-  PoBError: 'yes',
+  orPoB: '14 Brookside Park, Brighton BH2 1PQ',
+  nhsPoB: '14 Brookside Park, Brighton BH2 1PQ',
+  PoBError: 'no',
 
   // mother 11 (different surname)
   orMotherFirstName: 'Chloe',
@@ -706,12 +706,12 @@ const records = [
   maidenName: 'PRICE',
   differentMaidenName: '',
 
-  orMotherCurrentAddress: '14 Brookside, Huddersfield LE2 1PQ',
-  nhsMotherCurrentAddress: '14 Brookside, Huddersfield LE2 1PQ',
+  orMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
+  nhsMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
   currentAddressError: 'no',
 
   orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '14 Brookside, Huddersfield LE2 1PQ',
+  nhsMotherAddressToB: '14 Brookside Park, Brighton BH2 1PQ',
   motherAddressToBError: 'no',
 
   motherPoB: 'Leeds, England',
