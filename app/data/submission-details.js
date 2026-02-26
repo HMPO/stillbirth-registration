@@ -8,7 +8,7 @@ const records = [
     relationshipType: 'Yes',
     printNumber: '1',
     submissionDate: '4 February 2026',
-    daysSinceSubmission: '7',
+    daysSinceSubmission: '5',
     referenceNumber: '2026/8493453855695001-WA',
     
     //child 1
@@ -91,7 +91,7 @@ const records = [
     relationshipType: 'Yes',
     printNumber: '1',
     submissionDate: '4 February 2026',
-    daysSinceSubmission: '7',
+    daysSinceSubmission: '5',
     referenceNumber: '2026/8493453868883245-WA',
     //child 2
     childFirstName: 'Trevor',
@@ -173,7 +173,7 @@ const records = [
   relationshipType: 'No',
   printNumber: '1',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '7',
+  daysSinceSubmission: '5',
   referenceNumber: '2026/9096411180994545-WA',
 
   // child 3
@@ -255,7 +255,7 @@ const records = [
   relationshipType: 'Yes',
   printNumber: '1',
   submissionDate: '4 February 2026',
-  daysSinceSubmission: '6',
+  daysSinceSubmission: '4',
   referenceNumber: '2026/5176807879976211-WA',
 
   // child 4
@@ -338,7 +338,7 @@ const records = [
   relationshipType: 'No',
   printNumber: '1',
   submissionDate: '1 February 2026',
-  daysSinceSubmission: '6',
+  daysSinceSubmission: '4',
   referenceNumber: '2026/6276032933248051-WA',
 
   // child 5
@@ -421,7 +421,7 @@ const records = [
   relationshipType: 'Yes',
   printNumber: '1',
   submissionDate: '2 February 2026',
-  daysSinceSubmission: '5',
+  daysSinceSubmission: '4',
   referenceNumber: '2026/4275847818426044-WA',
 
   // child 6
@@ -504,7 +504,7 @@ const records = [
   relationshipType: 'Yes',
   printNumber: '1',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '3',
+  daysSinceSubmission: '4',
   referenceNumber: '2026/7509741457818402-WA',
 
   // child 7
@@ -587,7 +587,7 @@ const records = [
   relationshipType: 'Yes',
   printNumber: 'None',
   submissionDate: '31 January 2026',
-  daysSinceSubmission: '2',
+  daysSinceSubmission: '4',
   referenceNumber: '2026/0350801284377829-WA',
 
   // child 10
@@ -670,7 +670,7 @@ const records = [
   relationshipType: 'Yes',
   printNumber: '1',
   submissionDate: '30 January 2026',
-  daysSinceSubmission: '2',
+  daysSinceSubmission: '3',
   referenceNumber: '2026/5335676801370276-WA',
 
   // child 11
