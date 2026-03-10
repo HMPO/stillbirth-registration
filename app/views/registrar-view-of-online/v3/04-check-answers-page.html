@@ -436,10 +436,10 @@
     <!-- <h2 class="govuk-heading-m">Online registration</h2> -->
     
  <div class="govuk-!-width-three-quarters">
-
+<h2 class="govuk-heading-s">Details submitted by the informant</h2>
 <div class="govuk-inset-text">
- <p class="govuk-body">
-  Review the online registration details submitted by the informant.
+ <!-- <p class="govuk-body">
+  Review the online registration details submitted by the informant.</p> -->
  <p class="govuk-body ">
 We’ve highlighted any information from the NHS birth notification and GOV.UK One Login that does not match these details.
 </p>
@@ -776,7 +776,7 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 
    
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row" id="stats-content">
     <div class="govuk-grid-column-three-quarters" >
       <div class="govuk-!-padding-4 govuk-!-width-full" style="background-color: #f3f2f1;">
  <!-- <h2 class="govuk-heading-l">
@@ -884,14 +884,136 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 
  </div>
 
-  </div>
+ 
 
    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-nhs-notification">
+
+    <div class="govuk-inset-text govuk-!-width-three-quarters" style="border-color: #cfe4dc; background-color: #f3f8f6">
+ <p class="govuk-body ">
+Details provided by the informant appear to match the NHS birth notification.
+</p>
+</div>
+
     <h2 class="govuk-heading-s">NHS birth notification</h2>
+
+
+
+      {% set data = {
     
+    'time-of-birth': '03:45am',
+    
+    'child-life': 'Live',
+     'nhs-number2': '390 987 6543',
+    'date-of-birth2': '2 October 2025',
+    'time-of-birth2': '12:05pm',
+    'childs-sex2': 'Male',
+    'child-life2': 'Live',
+    
+    'mothers-dob': '14 July 2001',
+    
+    'mothers-pcode': 'WA9 9AA',
+    
+    'mothers-pcode2': 'WA9 9AA'
+} %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-4">
+  <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+
+    <div class="govuk-grid-row" id="heading">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-s">
+      <strong>Details from the NHS birth notification</strong></h2>
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="mother">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Mother's first name</strong><br>
+       {{ record.nhsMotherFirstName }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Mother's last name</strong><br>
+      {{ record.nhsMotherLastName | upper }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+      <p class="govuk-body-s"><strong>Mother's NHS number</strong><br>
+      1087 654 321
+    </p>
+  </div>
+
+</div>
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-bottom-4">
+    <hr class="govuk-section-break govuk-section-break--visible">
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="child-1-name">
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Child's NHS number</strong><br>
+        {{ record.nhsNHS }} 
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+     <p class="govuk-body-s">
+      <strong>Date and time of birth</strong><br>
+       {{ record.nhsDoB }}<br>{{ data['time-of-birth'] }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Sex</strong><br>
+       {{ record.nhsSex }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>Live or stillborn</strong><br>
+      {{ data['child-life'] }}
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row" id="child-1-place">
+  <div class="govuk-grid-column-one-quarter">
+   <p class="govuk-body-s">
+      <strong>Place of birth<br>
+      </strong>Hospital:<br>
+      {{ record.nhsPoB }}
+    </p>
+  </div>
+ <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s">
+      <strong>District on notification</strong><br>
+      Wakefield
+    </p>
+  </div>
+   <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s"><strong>Current address on notification</strong><br>
+       {{ record.nhsMotherCurrentAddress }}
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <p class="govuk-body-s"><strong>Discharge address on notification</strong><br>
+      {{ record.nhsMotherAddressToB }}
+    </p>
+  </div>
+</div>
+</div>
+</div>
   </div>
 
    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-one-login">
+     <div class="govuk-inset-text govuk-!-width-three-quarters" style="border-color: #cfe4dc; background-color: #f3f8f6">
+ <p class="govuk-body ">
+Names provided by the informant appear to match GOV.UK One Login.
+</p>
+</div>
     <h2 class="govuk-heading-s">GOV.UK One Login names</h2>
   </div>
 
