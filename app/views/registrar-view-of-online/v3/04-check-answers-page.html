@@ -423,7 +423,7 @@
     <!-- <li class="govuk-!-padding-top-3" style="text-align: right;">
  
 <a class="govuk-link"
-   href="/registrar-view-of-online/v2/04a-notification-detail?id={{ record.id }}"
+   href="/registrar-view-of-online/v3/04a-notification-detail?id={{ record.id }}"
    target="_blank"
    rel="noreferrer noopener">
   NHS birth notification (opens in a new tab)
@@ -914,14 +914,14 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 
 {{ govukButton({
   text: "Continue to register a birth",
-  href: "/registrar-view-of-online/v2/11-who-is-informant",
+  href: "/registrar-view-of-online/v3/11-who-is-informant",
   attributes: {
     target: "_blank"
   }
 }) }}
 
   {% else %}
-      <form action="/registrar-view-of-online/v2/04-check-answers-page" method="post" novalidate>
+      <form action="/registrar-view-of-online/v3/04-check-answers-page" method="post" novalidate>
         <input type="hidden" name="id" value="{{ record.id }}">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}

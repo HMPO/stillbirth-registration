@@ -41,8 +41,8 @@ module.exports = function (router) {
   // ---------------------------
   // 02 – Pending list (GET)
   // ---------------------------
-  router.get('/registrar-view-of-online/v2/02-pending-list', function (req, res) {
-    res.render('registrar-view-of-online/v2/02-pending-list')
+  router.get('/registrar-view-of-online/v3/02-pending-list', function (req, res) {
+    res.render('registrar-view-of-online/v3/02-pending-list')
   })
 
   // ---------------------------
@@ -50,26 +50,26 @@ module.exports = function (router) {
   // ---------------------------
 
   // GET 03-register-page (first confirmation step)
-  router.get('/registrar-view-of-online/v2/03-register-page', function (req, res) {
+  router.get('/registrar-view-of-online/v3/03-register-page', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/03-register-page', { record })
+    res.render('registrar-view-of-online/v3/03-register-page', { record })
   })
 
   // POST 03-register-page
-  router.post('/registrar-view-of-online/v2/03-register-page', function (req, res) {
+  router.post('/registrar-view-of-online/v3/03-register-page', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     // Save checkbox state in session if needed
     req.session.data['register-confirm-' + id] = req.body.registerConfirm
 
     // Go to 04 for this record
-    res.redirect('/registrar-view-of-online/v2/04-check-answers-page?id=' + id)
+    res.redirect('/registrar-view-of-online/v3/04-check-answers-page?id=' + id)
   })
 
   // ---------------------------
@@ -77,19 +77,19 @@ module.exports = function (router) {
   // ---------------------------
 
   // GET 04-check-answers-page
-  router.get('/registrar-view-of-online/v2/04-check-answers-page', function (req, res) {
+  router.get('/registrar-view-of-online/v3/04-check-answers-page', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const records = getRecords(req)
 
     const record = records.find(r => r.id === id)
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
     const currentIndex = records.findIndex(r => r.id === id)
     const totalRecords = records.length
 
-    res.render('registrar-view-of-online/v2/04-check-answers-page', {
+    res.render('registrar-view-of-online/v3/04-check-answers-page', {
       record,
       currentIndex,
       totalRecords
@@ -97,7 +97,7 @@ module.exports = function (router) {
   })
 
   // POST 04-check-answers-page – radio branching
-  router.post('/registrar-view-of-online/v2/04-check-answers-page', function (req, res) {
+  router.post('/registrar-view-of-online/v3/04-check-answers-page', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     req.session.data = req.session.data || {}
@@ -106,14 +106,14 @@ module.exports = function (router) {
     req.session.data['userRegistrationSatisfactory'] = selectedOption
 
     if (selectedOption === 'yes-complete') {
-      res.redirect('/registrar-view-of-online/v2/05-sign-page?id=' + id)
+      res.redirect('/registrar-view-of-online/v3/05-sign-page?id=' + id)
     } else if (selectedOption === 'no-an-issue') {
-      res.redirect('/registrar-view-of-online/v2/05a-next-steps-contact?id=' + id)
+      res.redirect('/registrar-view-of-online/v3/05a-next-steps-contact?id=' + id)
      } else if (selectedOption === 'no-another-district') {
-      res.redirect('/registrar-view-of-online/v2/05c-next-steps-district?id=' + id)  
+      res.redirect('/registrar-view-of-online/v3/05c-next-steps-district?id=' + id)  
     } else {
       // Fallback – treat as yes
-      res.redirect('/registrar-view-of-online/v2/05-sign-page?id=' + id)
+      res.redirect('/registrar-view-of-online/v3/05-sign-page?id=' + id)
     }
   })
 
@@ -122,25 +122,25 @@ module.exports = function (router) {
   // ---------------------------
 
   // GET 04a 
-  router.get('/registrar-view-of-online/v2/04a-notification-detail', function (req, res) {
+  router.get('/registrar-view-of-online/v3/04a-notification-detail', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/04a-notification-detail', { record, id })
+    res.render('registrar-view-of-online/v3/04a-notification-detail', { record, id })
   })
 
   // POST 04a 
-router.post('/registrar-view-of-online/v2/04a-notification-detail', function (req, res) {
+router.post('/registrar-view-of-online/v3/04a-notification-detail', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
 
     // Go to 06 confirmation for this record
-   // res.redirect('/registrar-view-of-online/v2/06c-confirmation-district-routing?id=' + id)
+   // res.redirect('/registrar-view-of-online/v3/06c-confirmation-district-routing?id=' + id)
   })
 
   // ---------------------------
@@ -148,25 +148,25 @@ router.post('/registrar-view-of-online/v2/04a-notification-detail', function (re
   // ---------------------------
 
   // GET 05-sign-page – second confirmation step
-  router.get('/registrar-view-of-online/v2/05-sign-page', function (req, res) {
+  router.get('/registrar-view-of-online/v3/05-sign-page', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/05-sign-page', { record, id })
+    res.render('registrar-view-of-online/v3/05-sign-page', { record, id })
   })
 
   // POST 05-sign-page – user confirms they want to accept
-  router.post('/registrar-view-of-online/v2/05-sign-page', function (req, res) {
+  router.post('/registrar-view-of-online/v3/05-sign-page', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
 
     // Go to 06 confirmation for this record
-    res.redirect('/registrar-view-of-online/v2/06-confirmation-page?id=' + id)
+    res.redirect('/registrar-view-of-online/v3/06-confirmation-page?id=' + id)
   })
 
   // ---------------------------
@@ -174,19 +174,19 @@ router.post('/registrar-view-of-online/v2/04a-notification-detail', function (re
   // ---------------------------
 
   // GET 05a NEXT step
-  router.get('/registrar-view-of-online/v2/05a-next-steps-contact', function (req, res) {
+  router.get('/registrar-view-of-online/v3/05a-next-steps-contact', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/05a-next-steps-contact', { record, id })
+    res.render('registrar-view-of-online/v3/05a-next-steps-contact', { record, id })
   })
 
   // POST 05a Next steps Status form - for when there is an issue on hold or in-person 
-router.post('/registrar-view-of-online/v2/05a-next-steps-contact', function (req, res) {
+router.post('/registrar-view-of-online/v3/05a-next-steps-contact', function (req, res) {
 
   // Ensure session data exists
   req.session.data = req.session.data || {};
@@ -219,25 +219,25 @@ router.post('/registrar-view-of-online/v2/05a-next-steps-contact', function (req
   // ---------------------------
 
   // GET 05b-confirm-appt-req – second confirmation step for appt
-  router.get('/registrar-view-of-online/v2/05b-confirm-appt-req', function (req, res) {
+  router.get('/registrar-view-of-online/v3/05b-confirm-appt-req', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/05b-confirm-appt-req', { record, id })
+    res.render('registrar-view-of-online/v3/05b-confirm-appt-req', { record, id })
   })
 
   // POST 05a confirm appt – user confirms they want to accept
-  router.post('/registrar-view-of-online/v2/05b-confirm-appt-req', function (req, res) {
+  router.post('/registrar-view-of-online/v3/05b-confirm-appt-req', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
 
     // Go to 06 confirmation for this record
-    res.redirect('/registrar-view-of-online/v2/06b-confirmation-appointment?id=' + id)
+    res.redirect('/registrar-view-of-online/v3/06b-confirmation-appointment?id=' + id)
   })
 
 // ---------------------------
@@ -245,39 +245,39 @@ router.post('/registrar-view-of-online/v2/05a-next-steps-contact', function (req
   // ---------------------------
 
   // GET 05c NEXT step
-  router.get('/registrar-view-of-online/v2/05c-next-steps-district', function (req, res) {
+  router.get('/registrar-view-of-online/v3/05c-next-steps-district', function (req, res) {
     const id = parseInt(req.query.id, 10)
     const record = getRecordById(req, id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
-    res.render('registrar-view-of-online/v2/05c-next-steps-district', { record, id })
+    res.render('registrar-view-of-online/v3/05c-next-steps-district', { record, id })
   })
 
   // POST 05c Next steps Status form - for when there is an issue on hold or in-person 
-router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (req, res) {
+router.post('/registrar-view-of-online/v3/05c-next-steps-district', function (req, res) {
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
 
     // Go to 06 confirmation for this record
-    res.redirect('/registrar-view-of-online/v2/06c-confirmation-district-routing?id=' + id)
+    res.redirect('/registrar-view-of-online/v3/06c-confirmation-district-routing?id=' + id)
   })
 
   // ---------------------------
   // 06 – Confirmation + next record (GET)
   // ---------------------------
 
-  router.get('/registrar-view-of-online/v2/06-confirmation-page', function (req, res) {
+  router.get('/registrar-view-of-online/v3/06-confirmation-page', function (req, res) {
     const id = parseInt(req.query.id, 10)
 
     const records = getRecords(req)
     const record = records.find(r => r.id === id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
     const currentIndex = records.findIndex(r => r.id === id)
@@ -288,7 +288,7 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
         ? records[currentIndex + 1].id
         : null
 
-    res.render('registrar-view-of-online/v2/06-confirmation-page', {
+    res.render('registrar-view-of-online/v3/06-confirmation-page', {
       record,
       currentIndex,
       totalRecords,
@@ -303,14 +303,14 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
   // 06a – Confirmation + next record (GET)
   // ---------------------------
 
-  router.get('/registrar-view-of-online/v2/06a-confirmation-hold', function (req, res) {
+  router.get('/registrar-view-of-online/v3/06a-confirmation-hold', function (req, res) {
     const id = parseInt(req.query.id, 10)
 
     const records = getRecords(req)
     const record = records.find(r => r.id === id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
     const currentIndex = records.findIndex(r => r.id === id)
@@ -321,7 +321,7 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
         ? records[currentIndex + 1].id
         : null
 
-    res.render('registrar-view-of-online/v2/06a-confirmation-hold', {
+    res.render('registrar-view-of-online/v3/06a-confirmation-hold', {
       record,
       currentIndex,
       totalRecords,
@@ -335,14 +335,14 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
   // 06b – Confirmation + next record (GET)
   // ---------------------------
 
-  router.get('/registrar-view-of-online/v2/06b-confirmation-appointment', function (req, res) {
+  router.get('/registrar-view-of-online/v3/06b-confirmation-appointment', function (req, res) {
     const id = parseInt(req.query.id, 10)
 
     const records = getRecords(req)
     const record = records.find(r => r.id === id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
     const currentIndex = records.findIndex(r => r.id === id)
@@ -353,7 +353,7 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
         ? records[currentIndex + 1].id
         : null
 
-    res.render('registrar-view-of-online/v2/06b-confirmation-appointment', {
+    res.render('registrar-view-of-online/v3/06b-confirmation-appointment', {
       record,
       currentIndex,
       totalRecords,
@@ -366,14 +366,14 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
   // 06c – District Confirmation + next record (GET)
   // ---------------------------
 
-  router.get('/registrar-view-of-online/v2/06c-confirmation-district-routing', function (req, res) {
+  router.get('/registrar-view-of-online/v3/06c-confirmation-district-routing', function (req, res) {
     const id = parseInt(req.query.id, 10)
 
     const records = getRecords(req)
     const record = records.find(r => r.id === id)
 
     if (!record) {
-      return res.status(404).render('registrar-view-of-online/v2/record-not-found')
+      return res.status(404).render('registrar-view-of-online/v3/record-not-found')
     }
 
     const currentIndex = records.findIndex(r => r.id === id)
@@ -384,7 +384,7 @@ router.post('/registrar-view-of-online/v2/05c-next-steps-district', function (re
         ? records[currentIndex + 1].id
         : null
 
-    res.render('registrar-view-of-online/v2/06c-confirmation-district-routing', {
+    res.render('registrar-view-of-online/v3/06c-confirmation-district-routing', {
       record,
       currentIndex,
       totalRecords,
