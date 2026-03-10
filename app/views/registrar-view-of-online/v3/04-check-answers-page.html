@@ -1163,6 +1163,8 @@ Names provided by the informant appear to match GOV.UK One Login.
       <form action="/registrar-view-of-online/v3/04-check-answers-page" method="post" novalidate>
         <input type="hidden" name="id" value="{{ record.id }}">
 
+
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
@@ -1180,7 +1182,7 @@ Names provided by the informant appear to match GOV.UK One Login.
   name: "userRegistrationSatisfactory",
   fieldset: {
     legend: {
-      text: "Is this registration complete?",
+      text: "What do you want to do with this registration?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -1188,18 +1190,27 @@ Names provided by the informant appear to match GOV.UK One Login.
   items: [
     {
       value: "yes-complete",
-      text: "Yes, mark registration as complete"
+      text: "Go to declaration",
+      hint: {
+        text: "Select if you are ready to complete this registration"
+      }
     },
     {
       value: "no-an-issue",
-      text: "No, there is an issue with this registration",
+      text: "Get contact details for the informant",
+      hint: {
+        text: "Select if there is an issue with this registration"
+      },
       conditional: {
         html: issueHtml
       }
     },
     {
       value: "no-another-district",
-      text: "No, send registration to another district"
+      text: "Send registration to another district",
+      hint: {
+        text: "You can contact the informant and add notes before sending to another district"
+      }
     }
    
   ]
