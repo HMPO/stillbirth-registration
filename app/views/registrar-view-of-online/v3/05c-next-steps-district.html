@@ -1,0 +1,179 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Send this registration to another district
+      </h1>
+
+      <form action="/registrar-view-of-online/v2/05c-next-steps-district" method="post" novalidate>
+ <input type="hidden" name="id" value="{{ record.id }}">
+      <p class="govuk-body">
+        Select a district to send this registration to. Once sent, you can no longer access this registration.
+      </p>
+      
+      
+      <div class="govuk-!-margin-bottom-5 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
+        
+      <h2 class="govuk-heading-m">
+        Place of birth details
+      </h2>
+
+
+
+     <dl class="govuk-summary-list" >
+    
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-one-half"><span class="govuk-body">Online registration:</span><br>Place of birth</dt>
+      <dd class="govuk-summary-list__value">
+       {{ record.orPoB }}
+      </dd>
+     
+    </div>
+
+     <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"><span class="govuk-body">NHS birth notification:</span><br>Place of birth
+    
+      </dt>
+      <dd class="govuk-summary-list__value">
+       {{ record.nhsPoB }}<br>
+      
+      </dd>
+      
+    </div>
+      <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"><span class="govuk-body">NHS birth notification:</span><br>
+      District on notification
+      </dt>
+      <dd class="govuk-summary-list__value">
+       <mark class="hods-highlight"><strong>Wakefield</strong></mark>
+      </dd>
+     
+    </div>
+
+    </dl>
+    </div>
+ 
+
+      
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+      {% set chooseDistrictHtml %}
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  
+  items: [
+  {
+      value: "published",
+      text: "",
+      selected: true
+    },
+
+    {
+      value: "published",
+      text: "Bath and North East Somerset"
+    },
+    {
+      value: "published",
+      text: "Bedford"
+    },
+    {
+      value: "published",
+      text: "Blackpool"
+    },
+    {
+      value: "published",
+      text: "Bournemouth"
+    },
+
+    {
+      value: "published",
+      text: "Brighton and Hove"
+    },
+    {
+      value: "updated",
+      text: "Bristol"
+    },
+    {
+      value: "views",
+      text: "Cardiff"
+    },
+    {
+      value: "views1",
+      text: "Huddersfield"
+    },
+    {
+      value: "views2",
+      text: "Leeds"
+    },
+    {
+      value: "comments",
+      text: "London"
+    },
+    {
+      value: "views3",
+      text: "Manchester"
+    },
+    {
+      value: "views4",
+      text: "Newcastle"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  name: "userRegistrationStatus",
+  fieldset: {
+    legend: {
+      text: "Where do you want to send this registration?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "This includes any districts on the NHS birth notification."
+  },
+  items: [
+    {
+      value: "district-bury",
+      text: "Bury"
+    },
+    {
+      value: "district-southport",
+      text: "Southport"
+    },
+    {
+      value: "district-other",
+      text: "Other (not listed on the NHS birth notification)",
+      conditional: {
+        html: chooseDistrictHtml
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

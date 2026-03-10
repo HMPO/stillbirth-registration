@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title">
+    Registration sent to<br>
+    Brighton and Hove
+  </h1>
+  <div class="govuk-panel__body">
+     Reference number<br>2026/HDJ2123F-WA
+  </div>
+</div>
+
+      <br>
+
+  
+      <p class="govuk-body">
+        You’ve successfully sent this registration to Brighton and Hove.</p>
+
+<p class="govuk-body">You can no longer access this registration.</p>
+
+
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+
+           <input type="hidden" name="id" value="{{ record.id }}">
+           
+     {% if nextId %}
+           <a href="/registrar-view-of-online/v2/04-check-answers-page?id={{ nextId }}"
+           class="govuk-button"
+           data-module="govuk-button">
+          View next online registration
+        </a>
+         {% else %}
+        <p class="govuk-body">
+          There are no more online registrations to review.
+        </p>
+      {% endif %}
+
+</div>
+</div>
+
+       <p  class="govuk-body govuk-!-margin-bottom-3">
+        <a href="02-pending-list.html">
+          Go to pending registrations
+        </a>
+      </p>
+
+      <p  class="govuk-body">
+        <a href="01-life-event-home.html">
+          Return to online birth registrations
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
