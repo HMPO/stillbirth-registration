@@ -9,10 +9,17 @@
   <div class="govuk-grid-row ">
     <div class="govuk-grid-column-two-thirds">
 
-      {{ govukPanel({
-        titleText: "Registration complete",
-        html: "Reference number<br><strong>2026/2851234333-WA</strong>"
-      }) }}
+      <div class="govuk-panel govuk-panel--confirmation">
+  <h1 class="govuk-panel__title">
+    Registration complete
+  </h1>
+  <div class="govuk-panel__body">
+    System reference number<br><strong>{{ record.referenceNumber }}</strong>
+    <br><br>
+    NHS number<br><strong>{{ record.nhsNHS }}</strong>
+  </div>
+</div>
+
 
       <br>
 
@@ -72,18 +79,23 @@
 </div>
 </div>
 
-       <p  class="govuk-body govuk-!-margin-bottom-3">
+       <p class="govuk-body govuk-!-margin-bottom-3">
         <a href="02-pending-list.html#print">
           Go to print certificates
         </a>
       </p>
 
-      <p  class="govuk-body">
+      <p class="govuk-body">
         <a href="02-pending-list">
           Return to online birth registrations
         </a>
       </p>
 
+ <p class="govuk-body">
+        <a href="01-life-event-home">
+          Return to homepage
+        </a>
+      </p>
 
     </div>
   </div>

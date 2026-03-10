@@ -10,11 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
 
      <div class="govuk-notification-banner " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="text-align: center; border-color: #f47738;">
-  <!-- <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div> -->
+  
   <div class="govuk-notification-banner__content">
     <h2 class="govuk-panel__title govuk-heading-m" >
       Registration on hold
@@ -22,7 +18,9 @@
 
    <div class="govuk-panel__body govuk-body-l">
             System reference number<br>
-            <strong>HDJ2123F</strong>
+            <strong>{{ record.referenceNumber }}</strong>
+    <br><br>
+    NHS number<br><strong>{{ record.nhsNHS }}</strong>
           </div>
   </div>
 </div>
@@ -33,8 +31,7 @@
         What to do next
       </h2> 
 -->
-      <p class="govuk-body">This registration is now on hold. </p>
-      <p class="govuk-body" style="color: #ca3535;">After 42 days since birth this will move into Unregistered births.</p>
+      <p class="govuk-body">This registration is now on hold. After 42 days since birth this will move into <strong>Unregistered births</strong>.</p>
 
         {% from "govuk/components/details/macro.njk" import govukDetails %}
 
@@ -80,7 +77,11 @@
           Return to online birth registrations
         </a>
       </p>
-
+ <p class="govuk-body">
+        <a href="01-life-event-home">
+          Return to homepage
+        </a>
+      </p>
 
     </div>
   </div>

@@ -22,7 +22,9 @@
 
    <div class="govuk-panel__body govuk-body-l">
             System reference number<br>
-            <strong>HDJ2123F</strong>
+           <strong>{{ record.referenceNumber }}</strong>
+    <br><br>
+    NHS number<br><strong>{{ record.nhsNHS }}</strong>
           </div>
   </div>
 </div>
@@ -84,7 +86,11 @@
           Return to online birth registration
         </a>
       </p>
-
+ <p class="govuk-body">
+        <a href="01-life-event-home">
+          Return to homepage
+        </a>
+      </p>
 
     </div>
   </div>
