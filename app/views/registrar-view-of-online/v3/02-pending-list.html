@@ -31,7 +31,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% set pendingHtml %}
-<h2 class="govuk-heading-m">Pending registrations</h2>
+<!-- <h2 class="govuk-heading-m">Pending registrations</h2> -->
 
 
     <div class="govuk-grid-row">
@@ -118,10 +118,10 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                     
         <strong class="govuk-tag govuk-tag--yellow">On hold</strong>
          {% elif record.recordStatus == "inreview" %}
-         <strong class="govuk-tag govuk-tag--grey">In review</strong>
+         <strong class="govuk-tag govuk-tag--grey">Read-only</strong>
 
           {% else %}
-       <strong class="govuk-tag govuk-tag--orange">Pending</strong>
+       <strong class="govuk-tag govuk-tag--orange">Ready to review</strong>
         {% endif %}
                   
                 </td>
@@ -135,7 +135,9 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
 
       </div>
+      
     </div>
+   
 
 {% endset -%}
 
@@ -359,14 +361,14 @@ View these registrations to start an in-person registration. The registration is
   items: [
    
     {
-      label: "Pending registrations (5)",
+      label: "To be processed (5)",
       id: "pending",
       panel: {
         html: pendingHtml
       }
     },
     {
-      label: "Print certificates (5)",
+      label: "Completed and ready to print (5)",
       id: "print",
       panel: {
         html: printHtml
@@ -382,6 +384,6 @@ View these registrations to start an in-person registration. The registration is
   ]
 }) }}
 
-
+ <p class="govuk-body"><a class="govuk-link" href="01-life-event-home.html">Return to homepage</a></p>
 
 {% endblock %}

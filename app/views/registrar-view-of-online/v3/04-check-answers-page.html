@@ -20,7 +20,7 @@
 <div class="hods-status-message govuk-!-margin-bottom-0">
   <div>
     <div class="hods-status-message__status">
-      In review
+      Read-only
     </div>
     
   </div>
@@ -29,7 +29,7 @@
   aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__content">
     <p class="govuk-body">
-      This registration is being viewed by Hannah Jackson.
+      Hannah Jackson has this registration open (since 12:43 pm). You cannot make changes while they have it open.
     </p>
   </div>
 </div>
@@ -52,7 +52,7 @@
      <h2 class="govuk-heading-s">
         Notes
       </h2>
-<p class="govuk-body">Previously added notes go here.</p>
+<p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -210,7 +210,7 @@
     <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
       <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
         href="#">
-        Change to pending
+        Ready to review
       </a>
     </li>
     <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
@@ -229,7 +229,7 @@
      <h2 class="govuk-heading-s">
         Notes
       </h2>
-<p class="govuk-body">Previously added notes go here.</p>
+<p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -386,20 +386,11 @@
       <h1 class="govuk-heading-xl">
         Confirm online birth registration
       </h1>
-      <p class="govuk-hint govuk-!-margin-bottom-2">Submitted on: {{ record.submissionDate }} <br>
-        Reference:  {{ record.referenceNumber }}</p>
+      <p class="govuk-hint govuk-!-margin-bottom-9">Submitted on: {{ record.submissionDate }} <br>
+        System reference:  {{ record.referenceNumber }}</p>
  <!-- <p class="govuk-hint">Informant ID checked by GOV.UK One Login</p> -->
 
- <div class="govuk-!-width-two-thirds govuk-!-margin-bottom-9 govuk-!-margin-top-6">
- <p class="govuk-body">
-  Review these details to complete the registration.
- <p class="govuk-body ">
-The submitted details have been compared with the NHS birth notification and GOV.UK One Login. Any differences are highlighted.
-</p>
-<!-- <p class="govuk-body"><a class="govuk-link" href="04a-notification-detail-multiple" target="_blank">
-       <span class="govuk-link">NHS birth notification (opens in a new tab)</span>
-      </a></p> -->
-</div>
+
  <!-- tabs start -->
 
 <div class="govuk-tabs" data-module="govuk-tabs">
@@ -408,18 +399,28 @@ The submitted details have been compared with the NHS birth notification and GOV
   </h2>
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#past-day">
+      <a class="govuk-tabs__tab" href="#tab-online-reg">
         Online registration
       </a>
     </li>
-    <!-- <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-week">
-        View draft certificate
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#tab-stats">
+        Statistics
       </a>
-    </li> -->
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#tab-nhs-notification">
+        NHS birth notification
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#tab-one-login">
+        GOV.UK One Login names
+      </a>
+    </li>
 
      
-    <li class="govuk-!-padding-top-3" style="text-align: right;">
+    <!-- <li class="govuk-!-padding-top-3" style="text-align: right;">
  
 <a class="govuk-link"
    href="/registrar-view-of-online/v2/04a-notification-detail?id={{ record.id }}"
@@ -428,13 +429,26 @@ The submitted details have been compared with the NHS birth notification and GOV
   NHS birth notification (opens in a new tab)
 </a>
 
-    </li>
+    </li> -->
     
   </ul>
-  <div class="govuk-tabs__panel" id="past-day">
+  <div class="govuk-tabs__panel" id="tab-online-reg">
     <!-- <h2 class="govuk-heading-m">Online registration</h2> -->
     
  <div class="govuk-!-width-three-quarters">
+
+<div class="govuk-inset-text">
+ <p class="govuk-body">
+  Review the online registration details submitted by the informant.
+ <p class="govuk-body ">
+We’ve highlighted any information from the NHS birth notification and GOV.UK One Login that does not match these details.
+</p>
+</div>
+
+
+
+
+
 
  <h2 class="govuk-heading-l">
         Informant details
@@ -752,14 +766,14 @@ The submitted details have been compared with the NHS birth notification and GOV
 
 
 
-<!-- statistics -->
-<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-     <strong style="font-size: 32px;">Statistics</strong>
-    </span>
-  </summary>
-  <div class="govuk-details__text">
+
+
+<!-- end stats -->
+ </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-stats">
+    <h2 class="govuk-heading-s">Statistics</h2>
+    <!-- statistics -->
+
    
 
 <div class="govuk-grid-row">
@@ -869,18 +883,19 @@ The submitted details have been compared with the NHS birth notification and GOV
   </div>
 
  </div>
-</details>
 
-<!-- end stats -->
- </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
-    <h2 class="govuk-heading-s">Draft of printed certificate</h2>
-     <img src="/public/images/birth-cert.jpg" class="govuk-!-width-full">
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
-    <h2 class="govuk-heading-l">NHS birth notification (opens in a new tab)</h2>
+
+   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-nhs-notification">
+    <h2 class="govuk-heading-s">NHS birth notification</h2>
+    
   </div>
-</div>
+
+   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-one-login">
+    <h2 class="govuk-heading-s">GOV.UK One Login names</h2>
+  </div>
+
+<!-- </div> -->
 
 
   <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-0" id="form-div">
