@@ -420,26 +420,17 @@
     </li>
 
      
-    <!-- <li class="govuk-!-padding-top-3" style="text-align: right;">
  
-<a class="govuk-link"
-   href="/registrar-view-of-online/v3/04a-notification-detail?id={{ record.id }}"
-   target="_blank"
-   rel="noreferrer noopener">
-  NHS birth notification (opens in a new tab)
-</a>
-
-    </li> -->
     
   </ul>
   <div class="govuk-tabs__panel" id="tab-online-reg">
     <!-- <h2 class="govuk-heading-m">Online registration</h2> -->
     
  <div class="govuk-!-width-three-quarters">
-<h2 class="govuk-heading-s">Details submitted by the informant</h2>
+<!-- <h2 class="govuk-heading-s">Details submitted by the informant</h2> -->
 <div class="govuk-inset-text">
- <!-- <p class="govuk-body">
-  Review the online registration details submitted by the informant.</p> -->
+ <p class="govuk-body">
+  Review the online registration details submitted by the informant.</p>
  <p class="govuk-body ">
 We’ve highlighted any information from the NHS birth notification and GOV.UK One Login that does not match these details.
 </p>
@@ -771,18 +762,23 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 <!-- end stats -->
  </div>
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-stats">
-    <h2 class="govuk-heading-s">Statistics</h2>
+    <!-- <h2 class="govuk-heading-s">Statistics</h2> -->
     <!-- statistics -->
 
-   
+   <div class="govuk-inset-text">
+ <p class="govuk-body">
+  Details submitted by the informant.</p>
+ 
+</div>
 
 <div class="govuk-grid-row" id="stats-content">
+  
     <div class="govuk-grid-column-three-quarters" >
-      <div class="govuk-!-padding-4 govuk-!-width-full" style="background-color: #f3f2f1;">
+      <div class="govuk-!-padding-0 govuk-!-width-full">
  <!-- <h2 class="govuk-heading-l">
         Statistics
       </h2> -->
-      <h3 class="govuk-heading-m">Mother</h3>
+      <h3 class="govuk-heading-l">Mother</h3>
 
        <div class="govuk-grid-row" id="stats-mum">
     <div class="govuk-grid-column-full">
@@ -848,7 +844,7 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
        {% if record.qualification2 == "none" %}
         
          {% else %}
-      <h3 class="govuk-heading-m"> {{ record.qualification2 }}</h3>
+      <h3 class="govuk-heading-l"> {{ record.qualification2 }}</h3>
 
        <div class="govuk-grid-row" id="stats-2nd">
     <div class="govuk-grid-column-full">
@@ -894,7 +890,7 @@ Details provided by the informant appear to match the NHS birth notification.
 </p>
 </div>
 
-    <h2 class="govuk-heading-s">NHS birth notification</h2>
+    <!-- <h2 class="govuk-heading-s">NHS birth notification</h2> -->
 
 
 
@@ -916,8 +912,8 @@ Details provided by the informant appear to match the NHS birth notification.
     'mothers-pcode2': 'WA9 9AA'
 } %}
 
-<div class="govuk-grid-row govuk-!-margin-bottom-4">
-  <div class="govuk-grid-column-full govuk-!-margin-3 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+<div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-padding-right-6">
+  <div class="govuk-grid-column-full govuk-!-margin-left-3 govuk-!-margin-right-9 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
 
     <div class="govuk-grid-row" id="heading">
   <div class="govuk-grid-column-full">
@@ -1014,7 +1010,128 @@ Details provided by the informant appear to match the NHS birth notification.
 Names provided by the informant appear to match GOV.UK One Login.
 </p>
 </div>
-    <h2 class="govuk-heading-s">GOV.UK One Login names</h2>
+    <!-- <h2 class="govuk-heading-s">GOV.UK One Login names</h2> -->
+<div class="govuk-grid-row" id="stats-content">
+  
+    <div class="govuk-grid-column-three-quarters " >
+
+      <div class="govuk-!-padding-6 govuk-!-width-full" style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+
+          <div class="govuk-grid-row" id="heading">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-s">
+      <strong>Informant names from GOV.UK One Login</strong></h2>
+  </div>
+</div>
+      <h3 class="govuk-heading-s">Mother</h3>
+
+       <div class="govuk-grid-row" id="ol-names-mum">
+    <div class="govuk-grid-column-full">
+
+      
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key "> <p class="govuk-body-s">
+      <strong>Current first names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">{{ record.orMotherFirstName }}</p>
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Current last names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">
+      {{ record.orMotherLastName }} </p>
+      </dd>
+    </div>
+  </dl>
+
+    <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Previous first names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">
+       {{ record.orMotherFirstName }} </p>
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Previous last names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+         <p class="govuk-body-s">
+      {{ record.maidenName }}  {{ record.differentMaidenName }} </p>
+      </dd>
+    </div>
+
+    
+  </dl>
+  </div>
+  </div>
+
+       {% if record.qualification2 == "none" %}
+        
+         {% else %}
+      <h3 class="govuk-heading-s"> {{ record.qualification2 }}</h3>
+
+       <div class="govuk-grid-row" id="stats-2nd">
+    <div class="govuk-grid-column-full">
+
+  <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key "> <p class="govuk-body-s">
+      <strong>Current first names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">{{ record.fspFirstName }}</p>
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Current last names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">
+      {{ record.fspLastName }} </p>
+      </dd>
+    </div>
+  </dl>
+
+       <dl class="govuk-summary-list">
+   
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Previous first names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body-s">
+       {{ record.fspFirstName }} </p>
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
+      <strong>Previous last names</strong></p></dt>
+      <dd class="govuk-summary-list__value">
+         <p class="govuk-body-s">
+      {{ record.fspLastName }} </p>
+      </dd>
+    </div>
+
+    
+  </dl>
+  </div>
+  </div>
+       {% endif %}
+</div>
+    </div>
+  </div>
+
   </div>
 
 <!-- </div> -->
