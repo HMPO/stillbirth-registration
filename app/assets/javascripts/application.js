@@ -81,3 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleBlocks(checkedRadio.value);
   }
 });
+
+window.GOVUKPrototypeKit.documentReady(() => {
+  let selectElement = document.querySelector('#choose-country')
+
+    accessibleAutocomplete.enhanceSelectElement({
+
+      defaultValue: '',
+
+      selectElement: selectElement
+
+    })
+    })

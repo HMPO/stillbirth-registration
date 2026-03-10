@@ -1,5 +1,9 @@
 {% extends "layouts/main.html" %}
 
+{% block pageScripts %}
+  <script src="/public/javascripts/application.js"></script>
+{% endblock %}
+
 {% block pageTitle %}
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -13,7 +17,7 @@
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
         Send this registration to another district
@@ -21,152 +25,230 @@
 
       <form action="/registrar-view-of-online/v3/05c-next-steps-district" method="post" novalidate>
  <input type="hidden" name="id" value="{{ record.id }}">
-      <p class="govuk-body">
-        Select a district to send this registration to. Once sent, you can no longer access this registration.
+     
+
+ <p class="govuk-body">
+        Review and choose a district to send this registration.
       </p>
-      
+     
       
       <div class="govuk-!-margin-bottom-5 govuk-!-margin-top-3 govuk-!-padding-3" style="border: solid 1px grey;">
         
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-s">
         Place of birth details
+      </h2>
+<p class="govuk-body">The NHS birth notification lists the district as Wakefield.</p>
+
+     <table class="govuk-table govuk-table--small-text-until-tablet">
+ 
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"></th>
+      <th scope="col" class="govuk-table__header">Information from informant</th>
+      <th scope="col" class="govuk-table__header">NHS notification details</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <!-- <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">District</th>
+      <td class="govuk-table__cell"><p class="govuk-hint"> &HorizontalLine; </p></td>
+      <td class="govuk-table__cell">Wakefield</td>
+    </tr> -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Place of birth</th>
+      <td class="govuk-table__cell">21a Fortland Rise,<br>Brighton BH1 2AX</td>
+      <td class="govuk-table__cell"><p class="govuk-hint">Matches these details</p></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Place of birth type</th>
+      <td class="govuk-table__cell">Home, in transit or elsewhere</td>
+      <td class="govuk-table__cell">NHS hospital</td>
+    </tr>
+   
+    
+  </tbody>
+</table>
+      
+
+    </div>
+ 
+    <div class="govuk-!-padding-3 govuk-!-margin-bottom-3" style="border: solid 1px grey;">
+
+   <h2 class="govuk-heading-s">
+        Add notes for other registrars to see
+      </h2>
+<!-- <p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p> -->
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Add notes
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div>
+<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add notes
+</button>
+  </div>
+</details>
+</div>
+
+ <div class="govuk-!-padding-3 govuk-!-margin-bottom-9" style="border: solid 1px grey;">
+     <h2 class="govuk-heading-s">
+        Informant contact details
       </h2>
 
 
-
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      View contact details
+    </span>
+  </summary>
+  <div class="govuk-details__text">
      <dl class="govuk-summary-list" >
     
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key govuk-!-width-one-half"><span class="govuk-body">Online registration:</span><br>Place of birth</dt>
+      <dt class="govuk-summary-list__key">Informant</dt>
       <dd class="govuk-summary-list__value">
-       {{ record.orPoB }}
+        {{ record.qualification1 }} 
       </dd>
-     
+      <dd class="govuk-summary-list__actions">
+      </dd>
     </div>
 
-     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key"><span class="govuk-body">NHS birth notification:</span><br>Place of birth
-    
-      </dt>
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification1 }}'s name</dt>
       <dd class="govuk-summary-list__value">
-       {{ record.nhsPoB }}<br>
-      
+      {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
       </dd>
-      
+      <dd class="govuk-summary-list__actions">
+        </dd>
     </div>
-      <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key"><span class="govuk-body">NHS birth notification:</span><br>
-      District on notification
-      </dt>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
       <dd class="govuk-summary-list__value">
-       <mark class="hods-highlight"><strong>Wakefield</strong></mark>
+       07886 383 761
       </dd>
-     
+      <dd class="govuk-summary-list__actions">
+       </dd>
     </div>
 
-    </dl>
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      protonmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
     </div>
- 
 
-      
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-      {% from "govuk/components/select/macro.njk" import govukSelect %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Current address</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.orMotherCurrentAddress }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
 
-      {% set chooseDistrictHtml %}
-{{ govukSelect({
-  id: "sort",
-  name: "sort",
-  
-  items: [
-  {
-      value: "published",
-      text: "",
-      selected: true
-    },
+     {% if record.qualification2 == "none" %}
+        
+         {% else %} 
+ <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Second parent</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.qualification2 }} - 
 
-    {
-      value: "published",
-      text: "Bath and North East Somerset"
-    },
-    {
-      value: "published",
-      text: "Bedford"
-    },
-    {
-      value: "published",
-      text: "Blackpool"
-    },
-    {
-      value: "published",
-      text: "Bournemouth"
-    },
+         {% if record.relationshipType == "Yes" %}
+         Married or in a civil partnership
+         {% elif record.relationshipType == "No" %}
+         Not married or in a civil partnership
+           {% else %} 
+            {{ record.relationshipType }}
+           {% endif %}
 
-    {
-      value: "published",
-      text: "Brighton and Hove"
-    },
-    {
-      value: "updated",
-      text: "Bristol"
-    },
-    {
-      value: "views",
-      text: "Cardiff"
-    },
-    {
-      value: "views1",
-      text: "Huddersfield"
-    },
-    {
-      value: "views2",
-      text: "Leeds"
-    },
-    {
-      value: "comments",
-      text: "London"
-    },
-    {
-      value: "views3",
-      text: "Manchester"
-    },
-    {
-      value: "views4",
-      text: "Newcastle"
-    }
-  ]
-}) }}
-{% endset -%}
+      </dd>
+      <dd class="govuk-summary-list__actions">
+      </dd>
+    </div>
 
-{{ govukRadios({
-  name: "userRegistrationStatus",
-  fieldset: {
-    legend: {
-      text: "Where do you want to send this registration?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "This includes any districts on the NHS birth notification."
-  },
-  items: [
-    {
-      value: "district-bury",
-      text: "Bury"
-    },
-    {
-      value: "district-southport",
-      text: "Southport"
-    },
-    {
-      value: "district-other",
-      text: "Other (not listed on the NHS birth notification)",
-      conditional: {
-        html: chooseDistrictHtml
-      }
-    }
-  ]
-}) }}
+    <!--  Name -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">{{ record.qualification2 }}'s name</dt>
+      <dd class="govuk-summary-list__value">
+      {{ record.fspFirstName }} {{ record.fspLastName }} 
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+
+
+   <!-- Phone -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Phone number</dt>
+      <dd class="govuk-summary-list__value">
+       07975 555 778
+      </dd>
+      <dd class="govuk-summary-list__actions">
+       </dd>
+    </div>
+
+     <!-- Email -->
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">Email</dt>
+      <dd class="govuk-summary-list__value">
+      fastmail@email.com
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        </dd>
+    </div>
+          {% endif %}
+  </dl>
+ </div>
+</details>
+
+    </div>
+
+
+<div class="govuk-form-group">
+  <!-- <form action="" method="get"> -->
+    <label class="govuk-label govuk-fieldset__legend--l" for="choose-country">
+      Where do you want to send this registration?
+    </label>
+    <p class="govuk-hint">Type the name of a district or LRS</p>
+
+    <div class="app-autocomplete">
+      <input
+        class="govuk-input"
+        id="choose-country"
+        name="choose-country"
+        type="text"
+        placeholder="Start typing here"
+        autocomplete="off"
+      >
+
+      <!-- Suggestion list (initially hidden) -->
+      <ul id="choose-country-suggestions" class="app-autocomplete__menu" hidden></ul>
+    </div>
+  <!-- </form> -->
+</div>
+
+ <div class="govuk-inset-text">
+ <p class="govuk-body">
+        Once sent, you can no longer access this registration.
+      </p>
+      </div>
 
         {{ govukButton({
           text: "Continue"
@@ -176,4 +258,96 @@
 
     </div>
   </div>
+
+
+<script>
+  (function () {
+    // Your list of options
+    var locations = [
+      "Bath and North East Somerset",
+      "Bedford",
+      "Blackpool",
+      "Bournemouth",
+      "Brighton and Hove",
+      "Cardiff",
+      "Huddersfield",
+      "Leeds",
+      "London",
+      "Manchester",
+      "Newcastle"
+    ];
+
+    var input = document.getElementById('choose-country');
+    var menu  = document.getElementById('choose-country-suggestions');
+
+    // Minimum characters before showing suggestions
+    var MIN_CHARS = 2;
+
+    function clearSuggestions() {
+      menu.innerHTML = '';
+      menu.hidden = true;
+    }
+
+    function showSuggestions(matches) {
+      if (!matches.length) {
+        clearSuggestions();
+        return;
+      }
+
+      // Build the list items
+      menu.innerHTML = matches.map(function (item) {
+        return (
+          '<li class="app-autocomplete__option" ' +
+          'data-value="' + item.replace(/"/g, '&quot;') + '">' +
+          item +
+          '</li>'
+        );
+      }).join('');
+
+      menu.hidden = false;
+    }
+
+    function filterLocations(query) {
+      var q = query.trim().toLowerCase();
+      if (q.length < MIN_CHARS) {
+        clearSuggestions();
+        return;
+      }
+
+      var matches = locations.filter(function (loc) {
+        // includes() = contains consecutive characters anywhere
+        return loc.toLowerCase().indexOf(q) !== -1;
+      });
+
+      showSuggestions(matches);
+    }
+
+    // When user types in the input
+    input.addEventListener('input', function () {
+      filterLocations(input.value);
+    });
+
+    // When user clicks on a suggestion
+    menu.addEventListener('click', function (event) {
+      var option = event.target.closest('.app-autocomplete__option');
+      if (!option) return;
+
+      var value = option.getAttribute('data-value');
+      input.value = value;
+      clearSuggestions();
+    });
+
+    // Hide suggestions when input loses focus (with small delay so clicks still work)
+    input.addEventListener('blur', function () {
+      setTimeout(function () {
+        clearSuggestions();
+      }, 150);
+    });
+  })();
+</script>
+
+
+
+
+
 {% endblock %}
