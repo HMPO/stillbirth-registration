@@ -806,7 +806,7 @@ const records = [
   fspFirstName: 'Sidu',
   fspLastName: 'PATEL',
 
-  fspPoB: 'Delhi, Outside the UK',
+  fspPoB: 'Delhi, India',
   fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',
@@ -889,7 +889,7 @@ const records = [
   fspFirstName: 'Sidu',
   fspLastName: 'PATEL',
 
-  fspPoB: 'Delhi, Outside the UK',
+  fspPoB: 'Delhi, India',
   fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
   fspAddressToB: 'Same as current address',
   fspOccupation: 'Security guard',

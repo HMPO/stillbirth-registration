@@ -400,10 +400,14 @@
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
       <a class="govuk-tabs__tab" href="#tab-online-reg">
-        Submitted details
+        Online registration
       </a>
     </li>
-   
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#tab-stats">
+        Statistics
+      </a>
+    </li>
     <li class="govuk-tabs__list-item">
       <a class="govuk-tabs__tab" href="#tab-nhs-notification">
         NHS birth notification
@@ -420,23 +424,17 @@
     
   </ul>
   <div class="govuk-tabs__panel" id="tab-online-reg">
-   
+    <!-- <h2 class="govuk-heading-m">Online registration</h2> -->
     
  <div class="govuk-!-width-three-quarters">
-
-    <div class="govuk-inset-text" style="border-color: #cfe4dc; background-color: #f3f8f6">
- <p class="govuk-body ">
-Details submitted by the informant appear to match the NHS birth notification and names from GOV.UK One Login.
-</p>
-</div>
-
-<!-- <div class="govuk-inset-text">
+<!-- <h2 class="govuk-heading-s">Details submitted by the informant</h2> -->
+<div class="govuk-inset-text">
  <p class="govuk-body">
   Review the online registration details submitted by the informant.</p>
  <p class="govuk-body ">
 We’ve highlighted any information from the NHS birth notification and GOV.UK One Login that does not match these details.
 </p>
-</div> -->
+</div>
 
 
 
@@ -757,14 +755,22 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
  {% endif %}
 </div>
 
-<!-- stats -->
- <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-     <strong style="font-size: 32px;">Statistics</strong>
-    </span>
-  </summary>
-  <div class="govuk-details__text">
+
+
+
+
+<!-- end stats -->
+ </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-stats">
+    <!-- <h2 class="govuk-heading-s">Statistics</h2> -->
+    <!-- statistics -->
+
+   <div class="govuk-inset-text">
+ <p class="govuk-body">
+  Details submitted by the informant.</p>
+ 
+</div>
+
 <div class="govuk-grid-row" id="stats-content">
   
     <div class="govuk-grid-column-three-quarters" >
@@ -772,7 +778,7 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
  <!-- <h2 class="govuk-heading-l">
         Statistics
       </h2> -->
-      <h3 class="govuk-heading-m">Mother</h3>
+      <h3 class="govuk-heading-l">Mother</h3>
 
        <div class="govuk-grid-row" id="stats-mum">
     <div class="govuk-grid-column-full">
@@ -838,7 +844,7 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
        {% if record.qualification2 == "none" %}
         
          {% else %}
-      <h3 class="govuk-heading-m"> {{ record.qualification2 }}</h3>
+      <h3 class="govuk-heading-l"> {{ record.qualification2 }}</h3>
 
        <div class="govuk-grid-row" id="stats-2nd">
     <div class="govuk-grid-column-full">
@@ -871,12 +877,8 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 </div>
     </div>
   </div>
-</div>
-</details>
 
-<!-- end stats -->
  </div>
- 
 
  
 
@@ -1008,9 +1010,12 @@ Details provided by the informant appear to match the NHS birth notification.
 Names provided by the informant appear to match GOV.UK One Login.
 </p>
 </div>
+    <!-- <h2 class="govuk-heading-s">GOV.UK One Login names</h2> -->
+<div class="govuk-grid-row" id="stats-content">
   
-<div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-padding-right-6">
-  <div class="govuk-grid-column-full govuk-!-margin-left-3 govuk-!-margin-right-9 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
+    <div class="govuk-grid-column-three-quarters " >
+
+      <div class="govuk-!-padding-6 govuk-!-width-full" style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">
 
           <div class="govuk-grid-row" id="heading">
   <div class="govuk-grid-column-full">
@@ -1018,9 +1023,6 @@ Names provided by the informant appear to match GOV.UK One Login.
       <strong>Informant names from GOV.UK One Login</strong></h2>
   </div>
 </div>
-
- <div class="govuk-grid-row" id="details">
-   <div class="govuk-grid-column-one-half" id="mother-details">
       <h3 class="govuk-heading-s">Mother</h3>
 
        <div class="govuk-grid-row" id="ol-names-mum">
@@ -1030,8 +1032,8 @@ Names provided by the informant appear to match GOV.UK One Login.
 
        <dl class="govuk-summary-list">
    
-    <div class="govuk-summary-list__row" style="border: 0;">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key "> <p class="govuk-body-s">
       <strong>Current first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">{{ record.orMotherFirstName }}</p>
@@ -1039,7 +1041,7 @@ Names provided by the informant appear to match GOV.UK One Login.
     </div>
 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
       <strong>Current last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
@@ -1050,17 +1052,17 @@ Names provided by the informant appear to match GOV.UK One Login.
 
     <dl class="govuk-summary-list">
    
-    <div class="govuk-summary-list__row" style="border: 0;">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
       <strong>Previous first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
-       {{ record.orMotherFirstName }}, {{ record.orMotherFirstName }} </p>
+       {{ record.orMotherFirstName }} </p>
       </dd>
     </div>
 
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
       <strong>Previous last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
          <p class="govuk-body-s">
@@ -1072,20 +1074,19 @@ Names provided by the informant appear to match GOV.UK One Login.
   </dl>
   </div>
   </div>
-  </div>
-<div class="govuk-grid-column-one-half" id="2ndp-details">
+
        {% if record.qualification2 == "none" %}
         
          {% else %}
       <h3 class="govuk-heading-s"> {{ record.qualification2 }}</h3>
 
-       <div class="govuk-grid-row" id="ol-2nd">
+       <div class="govuk-grid-row" id="stats-2nd">
     <div class="govuk-grid-column-full">
 
   <dl class="govuk-summary-list">
    
-    <div class="govuk-summary-list__row" style="border: 0;">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key "> <p class="govuk-body-s">
       <strong>Current first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">{{ record.fspFirstName }}</p>
@@ -1104,8 +1105,8 @@ Names provided by the informant appear to match GOV.UK One Login.
 
        <dl class="govuk-summary-list">
    
-    <div class="govuk-summary-list__row" style="border: 0;">
-      <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
       <strong>Previous first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
@@ -1128,12 +1129,12 @@ Names provided by the informant appear to match GOV.UK One Login.
   </div>
        {% endif %}
 </div>
-</div>
-</div>
     </div>
   </div>
 
+  </div>
 
+<!-- </div> -->
 
 
   <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-0" id="form-div">
