@@ -326,8 +326,9 @@ View these registrations to start an in-person registration. The registration is
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Reference number</th>
+      
       <th scope="col" class="govuk-table__header" style="width: 400px;">Child's NHS number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Reference number</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
       
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
@@ -349,13 +350,12 @@ View these registrations to start an in-person registration. The registration is
     
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
-                  
                   <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
-                    {{ record.referenceNumber }}
+                    {{ record.orNHS }}
                   </a>
                 </td>
                  <td class="govuk-table__cell">
-                  {{ record.orNHS }} 
+                  {{ record.referenceNumber }} 
                 </td>
                  <td class="govuk-table__cell">
                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
