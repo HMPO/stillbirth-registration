@@ -140,9 +140,9 @@ const records = [
     golMotherPreviousFirstNames: 'Tracy, Jane',
     mFNameError: 'no',
 
-    orMotherLastName: 'SMITH',
-    nhsMotherLastName: 'SMITH',
-    golMotherLastNames: 'SMITH, SHORT',
+    orMotherLastName: 'HOUND',
+    nhsMotherLastName: 'HOUND',
+    golMotherLastNames: 'SMITH',
     mLNameError: 'yes',
    
     maidenName: 'THOMSON',
@@ -171,7 +171,7 @@ const records = [
     
     golfspFNameError: 'yes',
     golfspLNameError: 'yes',
-    golfspPrevLNameError: 'no',
+    golfspPrevLNameError: 'yes',
 
     fspPoB: 'Dublin, Ireland',
     fspCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
@@ -439,7 +439,7 @@ const records = [
   maidenName: 'PRICE',
   differentMaidenName: 'WATERS',
   golMotherPreviousLastNames: 'WATERS, PRICE',
-  golmPrevLNameError: 'no',
+  golmPrevLNameError: 'yes',
 
   orMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
   nhsMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',

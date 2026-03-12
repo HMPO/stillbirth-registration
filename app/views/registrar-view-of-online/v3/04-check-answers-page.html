@@ -750,51 +750,34 @@ Details submitted by the informant appear to match the NHS birth notification an
  <h2 class="govuk-heading-l">
         Mother's details
       </h2> 
-
-    
- <dl class="govuk-summary-list ">
-         {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
-    <div class="govuk-summary-list__row" id="full name">
-      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
-        Mother's full name</span></dt>
-      <dd class="govuk-summary-list__value"> 
-         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
-          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}  {{ record.nhsMotherLastName }}</strong></mark>
-       {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
-         {{ record.nhsMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.nhsMotherLastName }}</strong></mark>
-       {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
-          <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}</strong></mark>  {{ record.nhsMotherLastName }}
-         {% else %}
-         <mark class="hods-highlight"><strong> {{ record.nhsMotherFirstName }}  {{ record.nhsMotherLastName }}</strong></mark>
-        {% endif %}
-      </dd>
-    </div>
-   
-     {% else %}
-    {% endif %}
-
-    
-    
-    </dl>
-
       
     <dl class="govuk-summary-list ">
+
     <div class="govuk-summary-list__row" id="full name">
       <dt class="govuk-summary-list__key govuk-!-width-one-third">Mother's full name</dt>
       <dd class="govuk-summary-list__value"> {{ record.orMotherFirstName }} {{ record.orMotherMiddleName }} {{ record.orMotherLastName }}
+      </dd>
+    </div> 
 
 
-         <!-- {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
-          <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}  {{ record.orMotherLastName }}</strong></mark>
+         {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
+    <div class="govuk-summary-list__row" id="full name">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">GOV.UK One Login:<br>
+        Mother's full name</span></dt>
+      <dd class="govuk-summary-list__value"> 
+         {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
+          <mark class="hods-highlight"><strong> {{ record.golMotherFirstName }}  {{ record.golMotherLastNames }}</strong></mark>
        {% elif record.mFNameError == "no" and record.mLNameError == "yes" %}
-         {{ record.orMotherFirstName }}  <mark class="hods-highlight"><strong> {{ record.orMotherLastName }}</strong></mark>
+         {{ record.golMotherFirstName }}  <mark class="hods-highlight"> {{ record.golMotherLastNames }} </mark>
        {% elif record.mFNameError == "yes" and record.mLNameError == "no" %}   
-          <mark class="hods-highlight"><strong> {{ record.orMotherFirstName }}</strong></mark>  {{ record.orMotherLastName }}
+          <mark class="hods-highlight"><strong> {{ record.golMotherFirstName }}</strong></mark>  {{ record.golMotherLastNames }}
          {% else %}
-        {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
-        {% endif %} -->
+         <mark class="hods-highlight"><strong> {{ record.golMotherFirstName }}  {{ record.golMotherLastNames }}</strong></mark>
+        {% endif %}
       </dd>
     </div>
+     {% else %}
+    {% endif %}
    
    
     <div class="govuk-summary-list__row">
@@ -802,7 +785,6 @@ Details submitted by the informant appear to match the NHS birth notification an
       <dd class="govuk-summary-list__value">
         {{ record.maidenName }} 
       </dd>
-    
     </div>
 
        <div class="govuk-summary-list__row">
@@ -818,6 +800,17 @@ Details submitted by the informant appear to match the NHS birth notification an
          {{ record.differentMaidenName }}
       </dd>
     </div>
+
+         {% if record.golmPrevLNameError == "yes" %}
+    <div class="govuk-summary-list__row" id="full name">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">GOV.UK One Login:<br>
+        Mother's previous names</span></dt>
+      <dd class="govuk-summary-list__value">  
+        {{ record.golMotherPreviousFirstNames }} <mark class="hods-highlight">  {{ record.golMotherPreviousLastNames }}</mark>
+      </dd>
+    </div>
+     {% else %}
+    {% endif %}
 
      <!-- <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">First marriage or civil partnership <span class="govuk-body"><br>(from statistics)</span></dt>
@@ -896,11 +889,25 @@ Details submitted by the informant appear to match the NHS birth notification an
        <dl class="govuk-summary-list">
    
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key  govuk-!-width-one-third">{{ record.qualification2}}'s name</dt>
+      <dt class="govuk-summary-list__key  govuk-!-width-one-third">{{ record.qualification2}}'s full name</dt>
       <dd class="govuk-summary-list__value">
         {{ record.fspFirstName }} {{ record.fspLastName }} 
       </dd>
     </div>
+
+<!-- wrong father second parent name -->
+
+  {% if record.golfspFNameError == "yes" %}
+    <div class="govuk-summary-list__row" id="full name">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">GOV.UK One Login:<br>
+        {{ record.qualification2}}'s full name</span></dt>
+      <dd class="govuk-summary-list__value">  
+     <mark class="hods-highlight">  {{ record.golfspFirstName }}</mark> {{ record.golfspLastName }}
+      </dd>
+    </div>
+     {% else %}
+    {% endif %}
+
 
      <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Current address</dt>
@@ -1272,7 +1279,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Previous last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
          <p class="govuk-body-s">
-      {{ record.golMotherLastNames }} </p>
+      {{ record.golMotherPreviousLastNames }} </p>
       </dd>
     </div>
 
