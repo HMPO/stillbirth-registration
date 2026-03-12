@@ -418,12 +418,12 @@ const records = [
   nhsSex: 'Male',
 
   orPoB: 'Ground floor flat, 14a Brookside Park, Brighton BH2 1PQ',
-  nhsPoB: '14 Brookside Park, Brighton BH2 1PQ',
+  nhsPoB: '14a Brookside Park, Brighton BH2 1PQ',
   orPoBType: "Mother's home",
   nhsPoBType: 'At a domestic address',
   PoBError: 'no',
 
-  // mother 5 (different surname)
+  // mother 5 
   orMotherFirstName: 'Chloe',
   orMotherMiddleName: 'Jemima',
   nhsMotherFirstName: 'Chloe',
@@ -438,7 +438,7 @@ const records = [
 
   maidenName: 'PRICE',
   differentMaidenName: 'WATERS',
-  golMotherPreviousLastNames: 'WONG, WATERS',
+  golMotherPreviousLastNames: 'WATERS, PRICE',
   golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',

@@ -421,7 +421,7 @@
   </ul>
   <div class="govuk-tabs__panel" id="tab-online-reg">
      {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golfspFNameError == "yes"  or record.golfspLNameError == "yes" %}
-     <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+     <div class="govuk-form-group govuk-!-width-two-thirds govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
         style="border-color: #FFB266; background-color: #FFE5CC;">
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
           style="color: #003300; font-weight: normal !important;">
@@ -431,7 +431,7 @@
       </div>
 
     {% elif record.currentAddressError == "yes" or record.motherAddressToBError =="yes" or record.PoBError == "yes" %}
-      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+      <div class="govuk-form-group govuk-!-width-two-thirds govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
         style="border-color: #FFB266; background-color: #FFE5CC;">
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
           style="color: #003300; font-weight: normal !important;">
@@ -442,7 +442,7 @@
     {% else %}
 
 
-<div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+<div class="govuk-form-group govuk-!-width-two-thirds govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
         style="border-color: #cfe4dc; background-color: #f3f8f6">
         <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
           style="color: #003300; font-weight: normal !important;">
@@ -636,7 +636,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Any other names known by</dt>
       <dd class="govuk-summary-list__value">
-         
+         {{ record.differentMaidenName }}
       </dd>
     </div>
 
@@ -985,7 +985,7 @@ Details submitted by the informant appear to match the NHS birth notification an
   <div class="govuk-grid-column-one-quarter">
    <p class="govuk-body-s">
       <strong>Place of birth<br>
-      </strong>Hospital:<br>
+      </strong> {{ record.nhsPoBType }}:<br>
       {{ record.nhsPoB }}
     </p>
   </div>
@@ -1080,7 +1080,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Previous first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
-       {{ record.orMotherFirstName }}, {{ record.orMotherFirstName }} </p>
+       {{ record.golMotherPreviousFirstNames }} </p>
       </dd>
     </div>
 
@@ -1089,7 +1089,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Previous last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
          <p class="govuk-body-s">
-      {{ record.maidenName }}  {{ record.differentMaidenName }} </p>
+      {{ record.golMotherLastNames }} </p>
       </dd>
     </div>
 
@@ -1113,7 +1113,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
       <strong>Current first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
-        <p class="govuk-body-s">{{ record.fspFirstName }}</p>
+        <p class="govuk-body-s">{{ record.golfspFirstName }}</p>
       </dd>
     </div>
 
@@ -1122,7 +1122,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Current last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
-      {{ record.fspLastName }} </p>
+      {{ record.golfspLastName }} </p>
       </dd>
     </div>
   </dl>
@@ -1134,7 +1134,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Previous first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
-       {{ record.fspFirstName }} </p>
+       {{ record.golfspFirstName }} </p>
       </dd>
     </div>
 
@@ -1143,7 +1143,7 @@ Details submitted by the informant appear to match the NHS birth notification an
       <strong>Previous last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
          <p class="govuk-body-s">
-      {{ record.fspLastName }} </p>
+      {{ record.golfspLastName }} </p>
       </dd>
     </div>
 
