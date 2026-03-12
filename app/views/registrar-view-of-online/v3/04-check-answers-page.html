@@ -420,21 +420,32 @@
     
   </ul>
   <div class="govuk-tabs__panel" id="tab-online-reg">
-
-    {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
-      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-3"
+     {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golfspFNameError == "yes"  or record.golfspLNameError == "yes" %}
+     <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
         style="border-color: #FFB266; background-color: #FFE5CC;">
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
           style="color: #003300; font-weight: normal !important;">
           <span class="govuk-visually-hidden">Error:</span>
-        Some details from the informant do not match the NHS birth notification or the names from GOV.UK One Login, as highlighted below.
+         Names submitted by the informants do not match names from GOV.UK One Login, as highlighted below.
+        </p>
+      </div>
+
+    {% elif record.currentAddressError == "yes" or record.motherAddressToBError =="yes" or record.PoBError == "yes" %}
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+        style="border-color: #FFB266; background-color: #FFE5CC;">
+        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          <span class="govuk-visually-hidden">Error:</span>
+        Some details from the informant do not match the NHS birth notification, as highlighted below.
         </p>
       </div>
     {% else %}
 
 
-    <div class="govuk-inset-text" style="border-color: #cfe4dc; background-color: #f3f8f6">
- <p class="govuk-body">
+<div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+        style="border-color: #cfe4dc; background-color: #f3f8f6">
+        <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
+          style="color: #003300; font-weight: normal !important;">
 Details submitted by the informant appear to match the NHS birth notification and names from GOV.UK One Login.
 </p>
 </div>
@@ -505,6 +516,12 @@ Details submitted by the informant appear to match the NHS birth notification an
       <dt class="govuk-summary-list__key  govuk-!-width-one-third">Place of birth</dt>
       <dd class="govuk-summary-list__value">
         {{ record.orPoB }} 
+      </dd>
+    </div>
+       <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key  govuk-!-width-one-third">Place of birth type</dt>
+      <dd class="govuk-summary-list__value">
+        {{ record.orPoBType }} 
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -857,27 +874,27 @@ Details submitted by the informant appear to match the NHS birth notification an
 
    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-nhs-notification">
 
-     {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
-      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
+     {% if record.currentAddressError == "yes" or record.motherAddressToBError =="yes" or record.PoBError == "yes" %}
+    
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
         style="border-color: #FFB266; background-color: #FFE5CC;">
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
           style="color: #003300; font-weight: normal !important;">
           <span class="govuk-visually-hidden">Error:</span>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Some details are different to the NHS birth notification</li>
-        
-        </ul>
+        Some details are different to the NHS birth notification
         </p>
       </div>
       {% else %}
 
-     
+           <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+        style="border-color: #cfe4dc; background-color: #f3f8f6">
+        <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          Details provided by the informant appear to match the NHS birth notification.
+        </p>
+      </div>
 
-    <div class="govuk-inset-text govuk-!-width-three-quarters" style="border-color: #cfe4dc; background-color: #f3f8f6">
- <p class="govuk-body ">
-Details provided by the informant appear to match the NHS birth notification.
-</p>
-</div>
+     
  {% endif %}
     <!-- <h2 class="govuk-heading-s">NHS birth notification</h2> -->
 
@@ -994,11 +1011,28 @@ Details provided by the informant appear to match the NHS birth notification.
   </div>
 
    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-one-login">
-     <div class="govuk-inset-text govuk-!-width-three-quarters" style="border-color: #cfe4dc; background-color: #f3f8f6">
- <p class="govuk-body ">
-Names provided by the informant appear to match GOV.UK One Login.
-</p>
-</div>
+
+     {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golmPrevLNameError == "yes" or record.golfspFNameError == "yes"  or record.golfspLNameError == "yes" %}
+ <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+        style="border-color: #FFB266; background-color: #FFE5CC;">
+        <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          <span class="govuk-visually-hidden">Error:</span>
+       Some names are different to the names from GOV.UK One Login
+        </p>
+      </div>
+
+{% else %}
+     <!-- <div class="govuk-inset-text govuk-!-width-full" style="border-color: #cfe4dc; background-color: #f3f8f6"> -->
+
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-1 govuk-!-padding-3"
+        style="border-color: #cfe4dc; background-color: #f3f8f6">
+        <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          Names provided by the informant appear to match GOV.UK One Login.
+        </p>
+      </div>
+{% endif %}
   
 <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-padding-right-6">
   <div class="govuk-grid-column-full govuk-!-margin-left-3 govuk-!-margin-right-9 govuk-!-padding-5"  style="background-color: #f3f2f1; border-bottom: 1px solid #b1b4b6;">

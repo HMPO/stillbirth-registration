@@ -16,7 +16,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'MURPHY',
-  childMiddleName: '',
+  childMiddleName: 'Harry',
 
   orNHS: '429 275 0611',
   nhsNHS: '429 275 0611',
@@ -30,6 +30,8 @@ const records = [
 
   orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 1 (different surname)
@@ -111,7 +113,7 @@ const records = [
     childFirstNameError: 'no',
 
     childLastName: 'HOUND',
-    childMiddleName: '',
+    childMiddleName: 'Barrington',
 
     orNHS: '987 654 3210',
     nhsNHS: '987 654 3210',
@@ -126,6 +128,8 @@ const records = [
 
     orPoB: 'Whittington Hospital, Wakefield',
     nhsPoB: 'Whittington Hospital, Wakefield',
+    orPoBType: 'Hospital, birth centre, or other medical location',
+    nhsPoBType: 'NHS hospital',
     PoBError: 'no',
 
     //mother 2
@@ -207,7 +211,7 @@ const records = [
     childFirstNameError: 'no',
 
     childLastName: 'MCGOVER',
-    childMiddleName: '',
+    childMiddleName: 'James',
 
     orNHS: '987 654 3210',
     nhsNHS: '987 654 3210',
@@ -221,6 +225,8 @@ const records = [
 
     orPoB: "St. Mary's, Wakefield",
     nhsPoB: "St. Mary's, Wakefield",
+    orPoBType: 'Hospital, birth centre, or other medical location',
+    nhsPoBType: 'NHS hospital',
     PoBError: 'no',
 
     //mother 3
@@ -316,6 +322,8 @@ const records = [
 
   orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 4
@@ -409,8 +417,10 @@ const records = [
   orSex: 'Male',
   nhsSex: 'Male',
 
-  orPoB: '14 Brookside Park, Brighton BH2 1PQ',
+  orPoB: 'Ground floor flat, 14a Brookside Park, Brighton BH2 1PQ',
   nhsPoB: '14 Brookside Park, Brighton BH2 1PQ',
+  orPoBType: "Mother's home",
+  nhsPoBType: 'At a domestic address',
   PoBError: 'no',
 
   // mother 5 (different surname)
@@ -492,7 +502,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'BAXTER',
-  childMiddleName: '',
+  childMiddleName: 'Madeleine',
 
   orNHS: '679 068 6287',
   nhsNHS: '679 068 6287',
@@ -506,6 +516,8 @@ const records = [
 
   orPoB: "St. Mary's, Wakefield",
   nhsPoB: "St. Mary's, Wakefield",
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 6
@@ -586,7 +598,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'SINGH',
-  childMiddleName: '',
+  childMiddleName: 'Johnathan',
 
   orNHS: '028 123 5895',
   nhsNHS: '028 123 5895',
@@ -600,6 +612,8 @@ const records = [
 
   orPoB: "St. Mary's, Wakefield",
   nhsPoB: "St. Mary's, Wakefield",
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 7
@@ -681,7 +695,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'KELLY',
-  childMiddleName: '',
+  childMiddleName: 'Hana',
 
   orNHS: '892 569 0942',
   nhsNHS: '892 569 0942',
@@ -695,6 +709,8 @@ const records = [
 
   orPoB: "St. Mary's, Wakefield",
   nhsPoB: "St. Mary's, Wakefield",
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 8
@@ -776,7 +792,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'JAMESON',
-  childMiddleName: '',
+  childMiddleName: 'Juno',
 
   orNHS: '718 878 3493',
   nhsNHS: '718 878 3493',
@@ -790,6 +806,8 @@ const records = [
 
   orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 9
@@ -871,7 +889,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'TURNER',
-  childMiddleName: '',
+  childMiddleName: 'Ben',
 
   orNHS: '911 178 2367',
   nhsNHS: '911 178 2367',
@@ -885,6 +903,8 @@ const records = [
 
   orPoB: "St. Mary's, Wakefield",
   nhsPoB: "St. Mary's, Wakefield",
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 10
@@ -980,6 +1000,8 @@ const records = [
 
   orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 11 (different surname)
@@ -1061,7 +1083,7 @@ const records = [
   childFirstNameError: 'no',
 
   childLastName: 'MURPHY',
-  childMiddleName: '',
+  childMiddleName: 'Harry',
 
   orNHS: '429 275 0611',
   nhsNHS: '429 275 0611',
@@ -1075,6 +1097,8 @@ const records = [
 
   orPoB: 'Whittington Hospital, Wakefield',
   nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 12 (different surname)
