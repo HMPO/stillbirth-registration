@@ -73,7 +73,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth registrations</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">NHS number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">System reference number</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
       
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
@@ -95,12 +95,12 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
                  <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
-                    {{ record.nhsNHS }}
+                    {{ record.referenceNumber }}
                   </a>
                   {% else %}
 
                  <a href="/registrar-view-of-online/v3/03-register-page?id={{ record.id }}" class="govuk-link">
-                    {{ record.nhsNHS }}
+                    {{ record.referenceNumber }}
                   </a>
                   {% endif %}
                 </td>
@@ -238,7 +238,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
      
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 120px; vertical-align: middle; font-size: 0.9rem;">Child's NHS number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 120px; vertical-align: middle; font-size: 0.9rem;">Child's name<br><br></th>
       <th scope="col" class="govuk-table__header" style="width: 300px; vertical-align: middle; font-size: 0.9rem;">Mother's name<br><br></th>
       
       <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Days since<br>submitted</th>
@@ -267,7 +267,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                   
-                    {{ record.nhsNHS }}
+                    {{ record.childFirstName }}  {{ record.childLastName }}
                   
                 </td>
                 <td class="govuk-table__cell">
@@ -281,12 +281,12 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                 
     <!-- <span id="copy-alert" class="govuk-visually-hidden" aria-live="polite"><span>
     <p>Your application reference is: <span id="reference-number">A12-345-X</span> -->
-    <button class="govuk-button govuk-button--secondary copy-button" id="copy-reference-number" style="padding: 2px 4px !important; font-size: 0.85rem; margin:2px !important;">Copy</button>
+    <button class="govuk-button govuk-button--secondary copy-button" id="copy-reference-number" style="padding: 2px 4px !important; font-size: 0.95rem; margin:2px !important;">Copy</button>
     </p>
     
     
                 </td>
-                <td class="govuk-table__cell"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button govuk-button--secondary" style="padding: 2px 4px !important; font-size: 0.85rem; margin:2px !important;">Open PDF</a></td>
+                <td class="govuk-table__cell"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button govuk-button--secondary" style="padding: 2px 4px !important; font-size: 0.95rem; margin:2px !important;">Open PDF</a></td>
                  <td class="govuk-table__cell" style="text-align: center;">
                   {{ record.printNumber }} 
                 </td>
@@ -327,8 +327,8 @@ View these registrations to start an in-person registration. The registration is
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       
-      <th scope="col" class="govuk-table__header" style="width: 400px;">Child's NHS number</th>
-      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Reference number</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px;">System reference number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Child's name</th>
       <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
       
       <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
@@ -351,11 +351,11 @@ View these registrations to start an in-person registration. The registration is
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                   <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
-                    {{ record.orNHS }}
+                    {{ record.referenceNumber }}
                   </a>
                 </td>
                  <td class="govuk-table__cell">
-                  {{ record.referenceNumber }} 
+                  {{ record.childFirstName }}  {{ record.childLastName }}
                 </td>
                  <td class="govuk-table__cell">
                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
