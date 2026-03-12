@@ -224,12 +224,12 @@
 <div class="govuk-notification-banner govuk-!-margin-top-0" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__content">
     <p class="govuk-body">
-      This registration was marked as on hold by Hannah Jackson on 3 January 2026 to check information with the informant.
+      This registration was marked as on hold by by the system because the names from GOV.UK One Login do not match the online registration.
     </p>
      <h2 class="govuk-heading-s">
         Notes
       </h2>
-<p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p>
+<!-- <p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p> -->
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -420,28 +420,31 @@
     
   </ul>
   <div class="govuk-tabs__panel" id="tab-online-reg">
-   
-    
- <div class="govuk-!-width-three-quarters">
+
+    {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-3"
+        style="border-color: #FFB266; background-color: #FFE5CC;">
+        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          <span class="govuk-visually-hidden">Error:</span>
+        Some details from the informant do not match the NHS birth notification or the names from GOV.UK One Login, as highlighted below.
+        </p>
+      </div>
+    {% else %}
+
 
     <div class="govuk-inset-text" style="border-color: #cfe4dc; background-color: #f3f8f6">
- <p class="govuk-body ">
+ <p class="govuk-body">
 Details submitted by the informant appear to match the NHS birth notification and names from GOV.UK One Login.
 </p>
 </div>
-
-<!-- <div class="govuk-inset-text">
- <p class="govuk-body">
-  Review the online registration details submitted by the informant.</p>
- <p class="govuk-body ">
-We’ve highlighted any information from the NHS birth notification and GOV.UK One Login that does not match these details.
-</p>
-</div> -->
+{% endif %}
 
 
 
 
 
+ <div class="govuk-!-width-three-quarters">
 
  <h2 class="govuk-heading-l">
         Informant details
@@ -495,32 +498,13 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
     <h2 class="govuk-heading-l">
         Child's details
       </h2>
- {% if record.PoBError == "yes" %}
-      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
-        style="border-color: #FFB266; background-color: #FFE5CC;">
-        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
-          style="color: #003300; font-weight: normal !important;">
-          <span class="govuk-visually-hidden">Error:</span>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Some details are different to the NHS birth notification</li>
-          <li>Check if this birth should be registered in this district</li>
-        </ul>
-        </p>
-      </div>
- {% else %}
-  
-        {% endif %}
+
       <dl class="govuk-summary-list" id="child">
 
          <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key  govuk-!-width-one-third">Place of birth</dt>
       <dd class="govuk-summary-list__value">
-        {% if record.PoBError == "yes" %}
-       <p class="govuk-body">{{ record.orPoB }}</p>  
-<p class="govuk-body"><mark class="hods-highlight"><strong>The communal establishment is not in this district</strong></mark></p>
-        {% else %}
         {{ record.orPoB }} 
-        {% endif %}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -570,22 +554,10 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
  <h2 class="govuk-heading-l">
         Mother's details
       </h2> 
- {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
-      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
-        style="border-color: #FFB266; background-color: #FFE5CC;">
-        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
-          style="color: #003300; font-weight: normal !important;">
-          <span class="govuk-visually-hidden">Error:</span>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Some details are different to the NHS birth notification</li>
-        
-        </ul>
-        </p>
-      </div>
+
     
  <dl class="govuk-summary-list ">
          {% if record.mFNameError == "yes" or record.mLNameError == "yes" %}
-      
     <div class="govuk-summary-list__row" id="full name">
       <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
         Mother's full name</span></dt>
@@ -605,30 +577,10 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
      {% else %}
     {% endif %}
 
-     {% if record.currentAddressError == "yes" %}
-      <div class="govuk-summary-list__row" id="current address">
-      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
-        Mother's Current address</span></dt>
-      <dd class="govuk-summary-list__value"> 
-          <mark class="hods-highlight"><strong>{{ record.nhsMotherCurrentAddress }}</strong></mark>
-      </dd>
-    </div>
-     {% else %}
-    {% endif %}
-     {% if record.motherAddressToBError == "yes" %}
-      <div class="govuk-summary-list__row" id="current address">
-      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
-        Mother's address at time of birth</span></dt>
-      <dd class="govuk-summary-list__value"> 
-          <mark class="hods-highlight"><strong>{{ record.nhsMotherAddressToB }}</strong></mark>
-      </dd>
-    </div>
-     {% else %}
-    {% endif %}
+    
+    
     </dl>
- {% else %}
-  
-        {% endif %}
+
       
     <dl class="govuk-summary-list ">
     <div class="govuk-summary-list__row" id="full name">
@@ -686,6 +638,19 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
        
       </dd>
     </div>
+
+ {% if record.currentAddressError == "yes" %}
+      <div class="govuk-summary-list__row" id="current address">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
+        Current address</span></dt>
+      <dd class="govuk-summary-list__value"> 
+          <mark class="hods-highlight">{{ record.nhsMotherCurrentAddress }}</mark>
+        </dd>
+    </div>
+     {% else %}
+    {% endif %}
+
+
     <div class="govuk-summary-list__row" id="addresstob">
       <dt class="govuk-summary-list__key">Address at time of birth</dt>
       <dd class="govuk-summary-list__value">
@@ -695,6 +660,16 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
       </dd>
     </div>
 
+     {% if record.motherAddressToBError == "yes" %}
+      <div class="govuk-summary-list__row" id="current address">
+      <dt class="govuk-summary-list__key govuk-!-width-one-third"><span class="govuk-body">NHS birth notification:<br>
+        Address at time of birth</span></dt>
+      <dd class="govuk-summary-list__value"> 
+          <mark class="hods-highlight">{{ record.nhsMotherAddressToB }}</mark>
+      </dd>
+    </div>
+     {% else %}
+    {% endif %}
   
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">Place of birth</dt>
@@ -882,12 +857,28 @@ We’ve highlighted any information from the NHS birth notification and GOV.UK O
 
    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-nhs-notification">
 
+     {% if record.mFNameError == "yes" or record.mLNameError == "yes" or record.currentAddressError == "yes" or record.motherAddressToBError =="yes" %}
+      <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-2 govuk-!-padding-1"
+        style="border-color: #FFB266; background-color: #FFE5CC;">
+        <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
+          style="color: #003300; font-weight: normal !important;">
+          <span class="govuk-visually-hidden">Error:</span>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Some details are different to the NHS birth notification</li>
+        
+        </ul>
+        </p>
+      </div>
+      {% else %}
+
+     
+
     <div class="govuk-inset-text govuk-!-width-three-quarters" style="border-color: #cfe4dc; background-color: #f3f8f6">
  <p class="govuk-body ">
 Details provided by the informant appear to match the NHS birth notification.
 </p>
 </div>
-
+ {% endif %}
     <!-- <h2 class="govuk-heading-s">NHS birth notification</h2> -->
 
 
@@ -1074,7 +1065,7 @@ Names provided by the informant appear to match GOV.UK One Login.
   </div>
   </div>
 <div class="govuk-grid-column-one-half" id="2ndp-details">
-       {% if record.qualification2 == "none" %}
+       {% if record.qualification2 == "none" or record.relationshipType == "Yes" %}
         
          {% else %}
       <h3 class="govuk-heading-s"> {{ record.qualification2 }}</h3>
