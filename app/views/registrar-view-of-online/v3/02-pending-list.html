@@ -26,6 +26,34 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
       </div>
     </div>
 
+
+{# Start by setting counters to 0 #}
+{% set toProcessCount = 0 %}
+{% set printCount = 0 %}
+{% set inpersonCount = 0 %}
+
+{# Loop over all records and increment the right counters #}
+{% for record in data.records %}
+  {# To be processed: pending, onhold, inreview #}
+  {% if record.recordStatus == "pending"
+    or record.recordStatus == "onhold"
+    or record.recordStatus == "inreview"
+    or record.recordStatus == "district"
+  %}
+    {% set toProcessCount = toProcessCount + 1 %}
+  {% endif %}
+
+  {# Completed and ready to print #}
+  {% if record.recordStatus == "print" %}
+    {% set printCount = printCount + 1 %}
+  {% endif %}
+
+  {# Appointments required #}
+  {% if record.recordStatus == "inperson" %}
+    {% set inpersonCount = inpersonCount + 1 %}
+  {% endif %}
+{% endfor %}
+
   
 {% from "govuk/components/tabs/macro.njk" import govukTabs %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -90,6 +118,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
  {% if record.recordStatus == "inreview" 
      or record.recordStatus == "onhold" 
      or record.recordStatus == "pending"
+     or record.recordStatus == "district"
  %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
@@ -243,7 +272,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
       
       <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Days since<br>submitted</th>
       <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Copy  address</th>
-      <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Open PDF to print</th>
+      <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Open PDF<br>to print</th>
       <th scope="col" class="govuk-table__header" style="width: 100px; vertical-align: middle; font-size: 0.9rem;">Number of certificates</th>
        <th scope="col" class="govuk-table__header" style="width: 140px; vertical-align: bottom; font-size: 0.9rem;">Mark as posted
       <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
@@ -382,25 +411,27 @@ View these registrations to start an in-person registration. The registration is
 {% endset -%}
 
 
+
+
+
 {{ govukTabs({
   items: [
-   
     {
-      label: "To be processed (5)",
+      label: "To be processed (" ~ toProcessCount ~ ")",
       id: "pending",
       panel: {
         html: pendingHtml
       }
     },
     {
-      label: "Completed and ready to print (5)",
+      label: "Completed and ready to print (" ~ printCount ~ ")",
       id: "print",
       panel: {
         html: printHtml
       }
     },
     {
-      label: "Appointments required (1)",
+      label: "Appointments required (" ~ inpersonCount ~ ")",
       id: "inperson",
       panel: {
         html: inpersonHtml
@@ -408,7 +439,6 @@ View these registrations to start an in-person registration. The registration is
     }
   ]
 }) }}
-
 
   
     

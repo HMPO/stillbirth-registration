@@ -29,9 +29,41 @@
 
 <div class="govuk-!-padding-bottom-6">
 <h2 class="govuk-heading-m">Births</h2>
-      
+  {# Start by setting counters to 0 #}
+{% set toProcessCount = 0 %}
+{% set printCount = 0 %}
+{% set inpersonCount = 0 %}
+
+{# Loop over all records and increment the right counters #}
+{% for record in data.records %}
+  {# To be processed: pending, onhold, inreview #}
+  {% if record.recordStatus == "pending"
+    or record.recordStatus == "onhold"
+    or record.recordStatus == "inreview"
+    or record.recordStatus == "district"
+  %}
+    {% set toProcessCount = toProcessCount + 1 %}
+  {% endif %}
+
+  {# Completed and ready to print #}
+  {% if record.recordStatus == "print" %}
+    {% set printCount = printCount + 1 %}
+  {% endif %}
+
+  {# Appointments required #}
+  {% if record.recordStatus == "inperson" %}
+    {% set inpersonCount = inpersonCount + 1 %}
+  {% endif %}
+{% endfor %}    
         <ul class="govuk-list">
-          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="02-pending-list.html">Process online birth registrations</a><br> (5 to be processed, 5 for printing, 1 appointment required)
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="02-pending-list.html">Process online birth registrations</a><br> 
+            
+            
+({{ toProcessCount }} to be processed, 
+   {{ printCount }} for printing, 
+   {{ inpersonCount }} appointment{% if inpersonCount != 1 %}s{% endif %} required)
+
+            <!-- (5 to be processed, 5 for printing, 1 appointment required) -->
           </li>
           <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="20-unregistered-births.html">Unregistered births</a>
           </li>

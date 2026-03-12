@@ -419,7 +419,7 @@ const records = [
 
   orPoB: 'Ground floor flat, 14a Brookside Park, Brighton BH2 1PQ',
   nhsPoB: '14a Brookside Park, Brighton BH2 1PQ',
-  orPoBType: "Mother's home",
+  orPoBType: "Homebirth",
   nhsPoBType: 'At a domestic address',
   PoBError: 'no',
 
@@ -970,85 +970,86 @@ const records = [
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
 },
+
 {
   id: 11,
-  recordStatus: 'inperson',
+  recordStatus: 'district',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
-  printNumber: '2',
+  printNumber: '1',
   submissionDate: '18 March 2026',
   daysSinceSubmission: '0',
   referenceNumber: '2026/7647380067736981-WA',
 
   // child 11
-  childFirstName: 'Niah',
+  childFirstName: 'Agnieska',
   childFirstNameError: 'no',
 
-  childLastName: 'PATEL',
+  childLastName: 'LEPOVAWITZ',
   childMiddleName: '',
 
   orNHS: '425 365 8546',
   nhsNHS: '425 365 8546',
 
-  orDoB: '3 February 2026',
-  nhsDoB: '3 February 2026',
-  daysSinceBirth: '43',
+  orDoB: '23 February 2026',
+  nhsDoB: '23 February 2026',
+  daysSinceBirth: '23',
 
   orSex: 'Female',
   nhsSex: 'Female',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Whittington Hospital, Warwick',
   orPoBType: 'Hospital, birth centre, or other medical location',
   nhsPoBType: 'NHS hospital',
   PoBError: 'no',
 
   // mother 11 (different surname)
-  orMotherFirstName: 'Meera',
+  orMotherFirstName: 'Magda',
   orMotherMiddleName: '',
-  nhsMotherFirstName: 'Meera',
-  golMotherFirstName: 'Meera',
-  golMotherPreviousFirstNames: 'Meera',
+  nhsMotherFirstName: 'Magda',
+  golMotherFirstName: 'Magda',
+  golMotherPreviousFirstNames: 'Magda',
   mFNameError: 'no',
 
-  orMotherLastName: 'PATEL',
-  nhsMotherLastName: 'PATEL',
-  golMotherLastNames: 'PATEL',
+  orMotherLastName: 'LEPOVAWITZ',
+  nhsMotherLastName: 'LEPOVAWITZ',
+  golMotherLastNames: 'LEPOVAWITZ',
   mLNameError: 'no',
 
-  maidenName: 'PATEL',
+  maidenName: 'KRAJEWSKA',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'KHAN',
+  golMotherPreviousLastNames: 'LEPOVAWITZ',
   golmPrevLNameError: 'no',
 
-  orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
-  nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
-  currentAddressError: 'yes',
+  orMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
+  nhsMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
+  currentAddressError: 'no',
 
-  orMotherAddressToB: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
-  nhsMotherAddressToB: '19 Highfield Court, Wakefield S10 2XY',
-  motherAddressToBError: 'yes',
+  orMotherAddressToB: 'Same as current address',
+  nhsMotherAddressToB: 'Hyde Park Road, Wakefield S11 4JP',
+  motherAddressToBError: 'no',
 
-  motherPoB: 'Cardiff, Wales',
+  motherPoB: 'Poland',
 
-  motherOccupation: 'I work kitchen',
+  motherOccupation: 'IT',
   motherOccupationError: 'no',
 
   // father or second parent 11
-  fspFirstName: 'Sidu',
-  fspLastName: 'PATEL',
-   golfspFirstName: 'Sidu',
-  golfspLastName: 'PATEL',
+  fspFirstName: 'Petr',
+  fspLastName: 'LEPOVAWITZ',
+   golfspFirstName: 'Petr',
+  golfspLastName: 'LEPOVAWITZ',
   
   golfspFNameError: 'no',
   golfspLNameError: 'no',
   golfspPrevLNameError: 'no',
 
-  fspPoB: 'Delhi, India',
-  fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
+  fspPoB: 'Poland',
+  fspCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
   fspAddressToB: 'Same as current address',
-  fspOccupation: 'Security guard',
+  fspOccupation: 'IT',
   fspOccupationError: 'no',
 
   // statistics - mother 11
@@ -1062,108 +1063,12 @@ const records = [
   previousBirths: '0',
 
   // statistics - father or second female parent 11
-  fspDoB: '7 September 1999',
-  fspEmployment: 'Self-employed, not supervising',
-  fspMarriageDate: '3 June 2022',
-  fspSpanishNat: 'No'
-},
-{
-  id: 12,
-  recordStatus: 'print',
-  qualification1: 'Mother',
-  qualification2: 'Father',
-  relationshipType: 'Yes',
-  printNumber: '1',
-  submissionDate: '14 March 2026',
-  daysSinceSubmission: '4',
-  referenceNumber: '2026/0350801284377829-WA',
-
-  // child 12
-  childFirstName: 'Caleb',
-  childFirstNameError: 'no',
-
-  childLastName: 'MURPHY',
-  childMiddleName: 'Harry',
-
-  orNHS: '429 275 0611',
-  nhsNHS: '429 275 0611',
-
-  orDoB: '4 March 2026',
-  nhsDoB: '4 March 2026',
-  daysSinceBirth: '14',
-
-  orSex: 'Male',
-  nhsSex: 'Male',
-
-  orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
-  orPoBType: 'Hospital, birth centre, or other medical location',
-  nhsPoBType: 'NHS hospital',
-  PoBError: 'no',
-
-  // mother 12 (different surname)
-  orMotherFirstName: 'Anita',
-  orMotherMiddleName: 'Sophie',
-  nhsMotherFirstName: 'Anita',
-  golMotherFirstName: 'Anita',
-  golMotherPreviousFirstNames: 'Anita, Sophie',
-  mFNameError: 'no',
-
-  orMotherLastName: 'WONG',
-  nhsMotherLastName: 'WONG',
-  golMotherLastNames: 'WONG',
-  mLNameError: 'no',
-
-  maidenName: 'WONG',
-  differentMaidenName: '',
-  golMotherPreviousLastNames: 'WONG',
-  golmPrevLNameError: 'no',
-
-  orMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
-  nhsMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
-  currentAddressError: 'no',
-
-  orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: '61 Meadow View, Wakefield NG2 3ZT',
-  motherAddressToBError: 'no',
-
-  motherPoB: 'Belfast, Northern Ireland',
-
-  motherOccupation: 'Graphic designer',
-  motherOccupationError: 'no',
-
-  // father or second parent 12
-  fspFirstName: 'Kiran',
-  fspLastName: 'MURPHY',
-  golfspFirstName: 'Kiran',
-  golfspLastName: 'MURPHY',
-  
-  golfspFNameError: 'no',
-  golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
-
-  fspPoB: 'Chipping Norton, England',
-  fspCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
-  fspAddressToB: 'Same as current address',
-  fspOccupation: 'Plumber',
-  fspOccupationError: 'no',
-
-  // statistics - mother 12
-  motherDob: '20 April 2001',
-  motherDobError: 'no',
-  motherEmployment: 'Employed, not supervising',
-  motherFirstMarriage: 'Yes',
-  motherSpanishNat: 'No',
-
-  stillbirths: '0',
-  previousBirths: '0',
-
-  // statistics - father or second female parent 12
-  fspDoB: '7 September 1999',
+  fspDoB: '13 January 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
 }
+
 ] 
 
 

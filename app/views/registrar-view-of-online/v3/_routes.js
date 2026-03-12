@@ -161,9 +161,23 @@ router.post('/registrar-view-of-online/v3/04a-notification-detail', function (re
 
   // POST 05-sign-page – user confirms they want to accept
   router.post('/registrar-view-of-online/v3/05-sign-page', function (req, res) {
+    
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
+
+    // change the status
+    
+    const records = req.session.data.records || []
+
+    // Find the record with this id
+    const record = records.find(r => String(r.id) === String(id))
+
+    if (record) {
+      // Change the status so it moves list
+      record.recordStatus = 'print'
+    }
+    //end changing status
 
     // Go to 06 confirmation for this record
     res.redirect('/registrar-view-of-online/v3/06-confirmation-page?id=' + id)
@@ -206,6 +220,8 @@ router.post('/registrar-view-of-online/v3/05a-next-steps-contact', function (req
   } else if (selectedOption === 'status-complete') {
     //res.redirect('06-confirmation-page');
      // Go to 06 confirmation for this record
+
+
     res.redirect('06-confirmation-page?id=' + id)
   } else {
     // Handle unexpected values (optional)
@@ -236,6 +252,19 @@ router.post('/registrar-view-of-online/v3/05a-next-steps-contact', function (req
 
     // store any 'signed' flag here if you need to
 
+    // change status so it moves to the appointment list
+
+const records = req.session.data.records || []
+
+    // Find the record with this id
+    const record = records.find(r => String(r.id) === String(id))
+
+    if (record) {
+      // Change the status so it moves list
+      record.recordStatus = 'inperson'
+    }
+// end change status
+
     // Go to 06 confirmation for this record
     res.redirect('/registrar-view-of-online/v3/06b-confirmation-appointment?id=' + id)
   })
@@ -261,6 +290,19 @@ router.post('/registrar-view-of-online/v3/05c-next-steps-district', function (re
     const id = parseInt(req.body.id, 10)
 
     // store any 'signed' flag here if you need to
+
+    // change the status
+    
+    const records = req.session.data.records || []
+
+    // Find the record with this id
+    const record = records.find(r => String(r.id) === String(id))
+
+    if (record) {
+      // Change the status so it moves list
+      record.recordStatus = 'done'
+    }
+    //end changing status
 
     // Go to 06 confirmation for this record
     res.redirect('/registrar-view-of-online/v3/06c-confirmation-district-routing?id=' + id)
