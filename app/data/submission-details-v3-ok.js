@@ -34,22 +34,19 @@ const records = [
 
   // mother 1 (different surname)
   orMotherFirstName: 'Anita',
-  orMotherMiddleName: 'Sophie',
   nhsMotherFirstName: 'Anita',
-  golMotherFirstName: 'Anita, Sophie',
-  golMotherPreviousFirstNames: 'Anita, Sophie',
+  golMotherFirstName: 'Anita',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'WONG',
   nhsMotherLastName: 'WONG',
-  golMotherLastNames: 'WONG',
+  golMotherLastName: 'WONG',
   mLNameError: 'no',
-  
+  golfspPrevLNameError: 'no',
 
   maidenName: 'WONG',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'WONG',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
   nhsMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
@@ -69,10 +66,8 @@ const records = [
   fspLastName: 'MURPHY',
   golfspFirstName: 'Kiran',
   golfspLastName: 'MURPHY',
-
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Chipping Norton, England',
   fspCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
@@ -130,21 +125,21 @@ const records = [
 
     //mother 2
     orMotherFirstName: 'Tracy',
-    orMotherMiddleName: 'Jane',
+    
     nhsMotherFirstName: 'Tracy',
     golMotherFirstName: 'Tracy, Jane',
-    golMotherPreviousFirstNames: 'Tracy, Jane',
     mFNameError: 'no',
+    golmFNameError: 'no',
 
     orMotherLastName: 'SMITH',
     nhsMotherLastName: 'SMITH',
-    golMotherLastNames: 'SMITH, SHORT',
-    mLNameError: 'yes',
-   
+    golMotherLastName: 'SMITH',
+    golMotherPreviousLastName: 'SMITH',
+    mLNameError: 'no',
+    golfspPrevLNameError: 'no',
+
     maidenName: 'THOMSON',
-    differentMaidenName: '',
-    golMotherPreviousLastNames: 'SMITH, SHERIDAN, THOMPSON',
-    golmPrevLNameError: 'yes',
+    differentMaidenName: 'SHORT',
 
     orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
     nhsMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
@@ -162,12 +157,10 @@ const records = [
     //father or second parent 2
     fspFirstName: 'Jimmy',
     fspLastName: 'HOUND',
-    golfspFirstName: 'James',
-    golfspLastName: 'HOUND',
-    
-    golfspFNameError: 'yes',
-    golfspLNameError: 'yes',
-    golfspPrevLNameError: 'no',
+     golfspFirstName: 'James',
+  golfspLastName: 'HOUND',
+  golfspFNameError: 'no',
+  golfspLNameError: 'no',
 
     fspPoB: 'Dublin, Ireland',
     fspCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
@@ -202,7 +195,7 @@ const records = [
     daysSinceSubmission: '1',
     referenceNumber: '2026/8493453855695001-WA',
     
-    //child 3
+    //child 1
     childFirstName: 'Dougal',
     childFirstNameError: 'no',
 
@@ -223,23 +216,21 @@ const records = [
     nhsPoB: "St. Mary's, Wakefield",
     PoBError: 'no',
 
-    //mother 3
+    //mother 1
     orMotherFirstName: 'Lucy',
-    orMotherMiddleName: 'Rebecca',
     nhsMotherFirstName: 'Lucy',
     golMotherFirstName: 'Lucy',
-    golMotherPreviousFirstNames: 'Lucy, Rebecca',
     mFNameError: 'no',
+    golmFNameError: 'no',
 
     orMotherLastName: 'MCGOVER',
     nhsMotherLastName: 'MCGOVER',
-    golMotherLastNames: 'MCGOVER',
+    golMotherLastName: 'MCGOVER',
     mLNameError: 'no',
+    golfspPrevLNameError: 'no',
 
-    maidenName: 'SHORT',
+    maidenName: 'SMITH',
     differentMaidenName: '',
-    golMotherPreviousLastNames: 'SHORT',
-    golmPrevLNameError: 'no',
 
     orMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
     nhsMotherCurrentAddress: '29 Rootfield Drive, Wakefield WT8 5UY',
@@ -254,15 +245,13 @@ const records = [
     motherOccupation: 'Teacher',
     motherOccupationError: 'no',
 
-    //father or second parent 3
+    //father or second parent 1
     fspFirstName: 'Clive',
     fspLastName: 'MCGOVER',
      golfspFirstName: 'Clive  ',
   golfspLastName: 'MCGOVER',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
     fspPoB: 'Edinburgh, Scotland',
     fspCurrentAddress: "Same as mother's current address",
@@ -270,7 +259,7 @@ const records = [
     fspOccupation: 'Driver',
     fspOccupationError: 'no',
 
-    //statistics - mother 3
+    //statistics - mother 1
     motherDob: '20 April 2001',
     motherDobError: 'no',
     motherEmployment: 'Employed, not supervising',
@@ -280,7 +269,7 @@ const records = [
     stillbirths: '0',
     previousBirths: '0',
 
-    //statistics - father or second female parent 3
+    //statistics - father or second female parent 1
     fspDoB: '7 September 1999',
     fspEmployment: 'Self-employed, not supervising',
     fspMarriageDate: '3 June 2022',
@@ -297,7 +286,7 @@ const records = [
   daysSinceSubmission: '0',
   referenceNumber: '2026/7647380067736981-WA',
 
-  // child 4
+  // child 9
   childFirstName: 'Niah',
   childFirstNameError: 'no',
 
@@ -318,23 +307,21 @@ const records = [
   nhsPoB: 'Whittington Hospital, Wakefield',
   PoBError: 'no',
 
-  // mother 4
+  // mother 9 (different surname)
   orMotherFirstName: 'Meera',
-  orMotherMiddleName: '',
   nhsMotherFirstName: 'Meera',
   golMotherFirstName: 'Meera',
-  golMotherPreviousFirstNames: 'Meera',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'PATEL',
   nhsMotherLastName: 'PATEL',
-  golMotherLastNames: 'PATEL',
+  golMotherLastName: 'PATEL',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'PATEL',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'PATEL, KHAN',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
   nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
@@ -349,15 +336,13 @@ const records = [
   motherOccupation: 'I work kitchen',
   motherOccupationError: 'no',
 
-  // father or second parent 4
+  // father or second parent 9
   fspFirstName: 'Sidu',
   fspLastName: 'PATEL',
    golfspFirstName: 'Sidu',
   golfspLastName: 'PATEL',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Delhi, India',
   fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
@@ -365,7 +350,7 @@ const records = [
   fspOccupation: 'Security guard',
   fspOccupationError: 'no',
 
-  // statistics - mother 4
+  // statistics - mother 9
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -375,7 +360,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 4
+  // statistics - father or second female parent 9
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -415,21 +400,19 @@ const records = [
 
   // mother 5 (different surname)
   orMotherFirstName: 'Chloe',
-  orMotherMiddleName: 'Jemima',
   nhsMotherFirstName: 'Chloe',
   golMotherFirstName: 'Chloe',
-  golMotherPreviousFirstNames: 'Chloe, Jemima',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'PRICE',
   nhsMotherLastName: 'PRICE',
-  golMotherLastNames: 'PRICE',
+  golMotherLastName: 'PRICE',
   mLNameError: 'no',
+  golfspPrevLNameError: 'yes',
 
   maidenName: 'PRICE',
   differentMaidenName: 'WATERS',
-  golMotherPreviousLastNames: 'WONG, WATERS',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
   nhsMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
@@ -449,10 +432,8 @@ const records = [
   fspLastName: 'WALSH',
    golfspFirstName: 'Jake',
   golfspLastName: 'WALSH',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Swansea, Wales',
   fspCurrentAddress: "Same as mother's current address",
@@ -487,7 +468,7 @@ const records = [
   daysSinceSubmission: '5',
   referenceNumber: '2026/9096411180994545-WA',
 
-  // child 6
+  // child 3
   childFirstName: 'Amelia',
   childFirstNameError: 'no',
 
@@ -508,23 +489,21 @@ const records = [
   nhsPoB: "St. Mary's, Wakefield",
   PoBError: 'no',
 
-  // mother 6
+  // mother 3
   orMotherFirstName: 'Hannah',
-  orMotherMiddleName: 'Amanda',
   nhsMotherFirstName: 'Hannah',
   golMotherFirstName: 'Hannah',
-  golMotherPreviousFirstNames: 'Hannah, Amanda',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'BAXTER',
   nhsMotherLastName: 'BAXTER',
-  golMotherLastNames: 'BAXTER',
+  golMotherLastName: 'BAXTER',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: '',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'BAXTER',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
   nhsMotherCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
@@ -539,15 +518,13 @@ const records = [
   motherOccupation: 'Nurse',
   motherOccupationError: 'no',
 
-  // father or second parent 6
+  // father or second parent 3
   fspFirstName: 'Mark',
   fspLastName: 'BAXTER',
    golfspFirstName: 'Mark',
   golfspLastName: 'BAXTER',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Watford, England',
   fspCurrentAddress: '12 Queen Street, Wakefield WS1 4AB',
@@ -555,7 +532,7 @@ const records = [
   fspOccupation: 'Electrician',
   fspOccupationError: 'no',
 
-  // statistics - mother 6
+  // statistics - mother 3
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'No gainful employment',
@@ -565,7 +542,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 6
+  // statistics - father or second female parent 3
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -581,7 +558,7 @@ const records = [
   daysSinceSubmission: '4',
   referenceNumber: '2026/5176807879976211-WA',
 
-  // child 7
+  // child 4
   childFirstName: 'Rohan',
   childFirstNameError: 'no',
 
@@ -602,23 +579,21 @@ const records = [
   nhsPoB: "St. Mary's, Wakefield",
   PoBError: 'no',
 
-  // mother 7
+  // mother 4
   orMotherFirstName: 'Rachel',
-  orMotherMiddleName: 'Charlotte',
   nhsMotherFirstName: 'Rachel',
   golMotherFirstName: 'Rachel',
-  golMotherPreviousFirstNames: 'Rachel, Charlotte',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'SINGH',
   nhsMotherLastName: 'SINGH',
-  golMotherLastNames: 'SINGH',
+  golMotherLastName: 'SINGH',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'MILES',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'MILES, SINGH',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '5 Riverside Close, Wakefield WO1 6DF',
   nhsMotherCurrentAddress: '5 Riverside Close, Wakefield WO1 6DF',
@@ -633,15 +608,13 @@ const records = [
   motherOccupation: 'Software developer',
   motherOccupationError: 'no',
 
-  // father or second parent 7
+  // father or second parent 4
   fspFirstName: 'Anil',
   fspLastName: 'SINGH',
    golfspFirstName: 'Anil',
   golfspLastName: 'SINGH',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Warwick, England',
   fspCurrentAddress: "Same as mother's current address",
@@ -649,7 +622,7 @@ const records = [
   fspOccupation: 'Bus driver',
   fspOccupationError: 'no',
 
-  // statistics - mother 7
+  // statistics - mother 4
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -659,7 +632,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 7
+  // statistics - father or second female parent 4
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -676,7 +649,7 @@ const records = [
   daysSinceSubmission: '4',
   referenceNumber: '2026/6276032933248051-WA',
 
-  // child 8
+  // child 5
   childFirstName: 'Layla',
   childFirstNameError: 'no',
 
@@ -697,23 +670,21 @@ const records = [
   nhsPoB: "St. Mary's, Wakefield",
   PoBError: 'no',
 
-  // mother 8
+  // mother 5
   orMotherFirstName: 'Priya',
-  orMotherMiddleName: '',
   nhsMotherFirstName: 'Priya',
   golMotherFirstName: 'Priya',
-  golMotherPreviousFirstNames: 'Priya',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'KELLY',
   nhsMotherLastName: 'KELLY',
-  golMotherLastNames: 'KELLY',
+  golMotherLastName: 'KELLY',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: '',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'KELLY',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
   nhsMotherCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
@@ -728,15 +699,13 @@ const records = [
   motherOccupation: 'Accountant',
   motherOccupationError: 'no',
 
-  // father or second parent 8
+  // father or second parent 5
   fspFirstName: 'Samir',
   fspLastName: 'KELLY',
    golfspFirstName: 'Samir',
   golfspLastName: 'KELLY',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Coventry, England',
   fspCurrentAddress: '88 Mill Lane, Wakefield WS3 4GH',
@@ -744,7 +713,7 @@ const records = [
   fspOccupation: 'Amazon Warehouse worker',
   fspOccupationError: 'no',
 
-  // statistics - mother 8
+  // statistics - mother 5
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -754,7 +723,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 8
+  // statistics - father or second female parent 5
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -771,7 +740,7 @@ const records = [
   daysSinceSubmission: '4',
   referenceNumber: '2026/4275847818426044-WA',
 
-  // child 9
+  // child 6
   childFirstName: 'Milo',
   childFirstNameError: 'no',
 
@@ -792,23 +761,21 @@ const records = [
   nhsPoB: 'Whittington Hospital, Wakefield',
   PoBError: 'no',
 
-  // mother 9
+  // mother 6
   orMotherFirstName: 'Danielle',
-  orMotherMiddleName: 'Melanie',
   nhsMotherFirstName: 'Danielle',
   golMotherFirstName: 'Danielle',
-  golMotherPreviousFirstNames: 'Danielle, Melanie',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'JAMESON',
   nhsMotherLastName: 'JAMESON',
-  golMotherLastNames: 'JAMESON',
+  golMotherLastName: 'JAMESON',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'SELBY',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'SELBY',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
   nhsMotherCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
@@ -823,15 +790,13 @@ const records = [
   motherOccupation: 'Retail assistant',
   motherOccupationError: 'no',
 
-  // father or second parent 9
+  // father or second parent 6
   fspFirstName: 'Lewis',
   fspLastName: 'JAMESON',
    golfspFirstName: 'Lewis',
   golfspLastName: 'JAMESON',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Glasgow, Scotland',
   fspCurrentAddress: '24 Oakwood Avenue, Wakefield W20 3JK',
@@ -839,7 +804,7 @@ const records = [
   fspOccupation: 'IT consultant',
   fspOccupationError: 'no',
 
-  // statistics - mother 9
+  // statistics - mother 6
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -849,7 +814,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 9
+  // statistics - father or second female parent 6
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -866,7 +831,7 @@ const records = [
   daysSinceSubmission: '4',
   referenceNumber: '2026/7509741457818402-WA',
 
-  // child 10
+  // child 7
   childFirstName: 'Ethan',
   childFirstNameError: 'no',
 
@@ -887,23 +852,21 @@ const records = [
   nhsPoB: "St. Mary's, Wakefield",
   PoBError: 'no',
 
-  // mother 10
+  // mother 7
   orMotherFirstName: 'Laura',
-  orMotherMiddleName: 'Alexandra',
   nhsMotherFirstName: 'Laura',
   golMotherFirstName: 'Laura',
-  golMotherPreviousFirstNames: 'Laura, Alexandra',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'TURNER',
   nhsMotherLastName: 'TURNER',
-  golMotherLastNames: 'TURNER',
+  golMotherLastName: 'TURNER',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'BENSON',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'BENSON, TURNER',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
   nhsMotherCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
@@ -918,15 +881,13 @@ const records = [
   motherOccupation: 'Administrator',
   motherOccupationError: 'no',
 
-  // father or second parent 10
+  // father or second parent 7
   fspFirstName: 'Rafael',
   fspLastName: 'TURNER',
    golfspFirstName: 'rafael',
   golfspLastName: 'TURNER',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Wakefield, England',
   fspCurrentAddress: '47 Kingsway, Wakefield CF10 3AA',
@@ -934,7 +895,7 @@ const records = [
   fspOccupation: 'Teacher',
   fspOccupationError: 'no',
 
-  // statistics - mother 10
+  // statistics - mother 7
   motherDob: '20 April 2001',
   motherDobError: 'no',
   motherEmployment: 'Employed, not supervising',
@@ -944,7 +905,7 @@ const records = [
   stillbirths: '0',
   previousBirths: '0',
 
-  // statistics - father or second female parent 10
+  // statistics - father or second female parent 7
   fspDoB: '7 September 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
@@ -984,21 +945,19 @@ const records = [
 
   // mother 11 (different surname)
   orMotherFirstName: 'Meera',
-  orMotherMiddleName: '',
   nhsMotherFirstName: 'Meera',
   golMotherFirstName: 'Meera',
-  golMotherPreviousFirstNames: 'Meera',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'PATEL',
   nhsMotherLastName: 'PATEL',
-  golMotherLastNames: 'PATEL',
+  golMotherLastName: 'PATEL',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'PATEL',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'KHAN',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '19 Highfield Court, Wakefield S10 2XY',
   nhsMotherCurrentAddress: '201 Broomdown Road, Wakefield W10 H9Y',
@@ -1018,10 +977,8 @@ const records = [
   fspLastName: 'PATEL',
    golfspFirstName: 'Sidu',
   golfspLastName: 'PATEL',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Delhi, India',
   fspCurrentAddress: 'Granville Hall, 97b Granville Road, Wakefield S10 3HL',
@@ -1079,21 +1036,19 @@ const records = [
 
   // mother 12 (different surname)
   orMotherFirstName: 'Anita',
-  orMotherMiddleName: 'Sophie',
   nhsMotherFirstName: 'Anita',
   golMotherFirstName: 'Anita',
-  golMotherPreviousFirstNames: 'Anita, Sophie',
   mFNameError: 'no',
+  golmFNameError: 'no',
 
   orMotherLastName: 'WONG',
   nhsMotherLastName: 'WONG',
-  golMotherLastNames: 'WONG',
+  golMotherLastName: 'WONG',
   mLNameError: 'no',
+  golfspPrevLNameError: 'no',
 
   maidenName: 'WONG',
   differentMaidenName: '',
-  golMotherPreviousLastNames: 'WONG',
-  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
   nhsMotherCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',
@@ -1113,10 +1068,8 @@ const records = [
   fspLastName: 'MURPHY',
   golfspFirstName: 'Kiran',
   golfspLastName: 'MURPHY',
-  
   golfspFNameError: 'no',
   golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
 
   fspPoB: 'Chipping Norton, England',
   fspCurrentAddress: '61 Meadow View, Wakefield NG2 3ZT',

@@ -210,7 +210,7 @@
     <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
       <a class="hods-status-message__actions__link hods-status-message__actions__link--active"
         href="#">
-        Ready to review
+        Ready to process
       </a>
     </li>
     <li class="hods-status-message__actions__item hods-status-message__actions__item--active">
@@ -224,12 +224,12 @@
 <div class="govuk-notification-banner govuk-!-margin-top-0" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__content">
     <p class="govuk-body">
-      This registration was marked as on hold by by the system because the names from GOV.UK One Login do not match the online registration.
+      This registration was marked as on hold by Jane Doe on 13 March 2026.
     </p>
      <h2 class="govuk-heading-s">
         Notes
       </h2>
-<!-- <p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p> -->
+<p class="govuk-body">The names from the informants don't match the GOV.UK One Login names.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -585,7 +585,7 @@ Details submitted by the informant appear to match the NHS birth notification an
     <dl class="govuk-summary-list ">
     <div class="govuk-summary-list__row" id="full name">
       <dt class="govuk-summary-list__key govuk-!-width-one-third">Mother's full name</dt>
-      <dd class="govuk-summary-list__value"> {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+      <dd class="govuk-summary-list__value"> {{ record.orMotherFirstName }} {{ record.orMotherMiddleName }} {{ record.orMotherLastName }}
 
 
          <!-- {% if record.mFNameError == "yes" and record.mLNameError == "yes" %}
@@ -1025,16 +1025,16 @@ Names provided by the informant appear to match GOV.UK One Login.
       <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
       <strong>Current first names</strong></p></dt>
       <dd class="govuk-summary-list__value">
-        <p class="govuk-body-s">{{ record.orMotherFirstName }}</p>
+        <p class="govuk-body-s">{{ record.golMotherFirstName }}</p>
       </dd>
     </div>
 
-    <div class="govuk-summary-list__row">
+    <div class="govuk-summary-list__row" style="border: 0;">
       <dt class="govuk-summary-list__key" style="width: 35%;"> <p class="govuk-body-s">
       <strong>Current last names</strong></p></dt>
       <dd class="govuk-summary-list__value">
         <p class="govuk-body-s">
-      {{ record.orMotherLastName }} </p>
+      {{ record.golMotherLastNames }} </p>
       </dd>
     </div>
   </dl>
@@ -1083,7 +1083,7 @@ Names provided by the informant appear to match GOV.UK One Login.
       </dd>
     </div>
 
-    <div class="govuk-summary-list__row">
+    <div class="govuk-summary-list__row" style="border: 0;">
       <dt class="govuk-summary-list__key"> <p class="govuk-body-s">
       <strong>Current last names</strong></p></dt>
       <dd class="govuk-summary-list__value">

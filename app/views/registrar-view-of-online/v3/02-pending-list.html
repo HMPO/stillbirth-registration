@@ -121,7 +121,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
          <strong class="govuk-tag govuk-tag--grey">Read-only</strong>
 
           {% else %}
-       <strong class="govuk-tag govuk-tag--orange">Ready to review</strong>
+       <strong class="govuk-tag govuk-tag--orange">Ready to process</strong>
         {% endif %}
                   
                 </td>
@@ -271,7 +271,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
                   
                 </td>
                 <td class="govuk-table__cell">
-                  {{ record.childFirstName }} {{ record.childLastName }}
+                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
                 </td>
                  <td class="govuk-table__cell" style="text-align: center;">
                   {{ record.daysSinceSubmission }} 
