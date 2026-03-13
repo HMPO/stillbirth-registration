@@ -588,7 +588,7 @@ const records = [
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',
-  printNumber: '1',
+  printNumber: '2',
   submissionDate: '14 March 2026',
   daysSinceSubmission: '4',
   referenceNumber: '2026/5176807879976211-WA',
@@ -1000,7 +1000,7 @@ const records = [
   nhsSex: 'Female',
 
   orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Warwick',
+  nhsPoB: 'Whittington Hospital, Wakefield',
   orPoBType: 'Hospital, birth centre, or other medical location',
   nhsPoBType: 'NHS hospital',
   PoBError: 'no',

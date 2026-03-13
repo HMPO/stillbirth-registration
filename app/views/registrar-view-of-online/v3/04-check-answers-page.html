@@ -29,7 +29,9 @@
   aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__content">
     <p class="govuk-body">
-      Hannah Jackson has this registration open (since 12:43 pm). You cannot make changes while they have it open.
+      Hannah Jackson has this registration open (since 12:43 pm).</p>
+      
+      <p class="govuk-body">You cannot make changes while they have it open.
     </p>
   </div>
 </div>
@@ -50,13 +52,13 @@
       Jane Daniels (registrar) marked this registration as requiring an in-person appointment.
     </p>
      <h2 class="govuk-heading-s">
-        Notes
+        Registrar notes
       </h2>
-<p class="govuk-body">This child has no first name. I could not get in touch with the informant.</p>
+<p class="govuk-body">The addresses don't match for married mother and father. The informant wasn't clear over the phone, so asked them in to register in person.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Add notes
+      Add note
     </span>
   </summary>
   <div class="govuk-details__text">
@@ -67,7 +69,7 @@
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
 </div>
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add notes
+  Add note
 </button>
   </div>
 </details>
@@ -227,13 +229,13 @@
       This registration was marked as on hold by Jane Doe on 13 March 2026.
     </p>
      <h2 class="govuk-heading-s">
-        Notes
+        Registrar notes
       </h2>
 <p class="govuk-body">The names from the informants don't match the GOV.UK One Login names.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Add notes
+      Add note
     </span>
   </summary>
   <div class="govuk-details__text">
@@ -244,7 +246,7 @@
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
 </div>
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add notes
+  Add note
 </button>
   </div>
 </details>
@@ -401,16 +403,16 @@
 <div class="govuk-notification-banner govuk-!-margin-top-0" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__content">
     <p class="govuk-body">
-      Warwick sent this registration to this district on 17 March 2026.
+      Warwick sent this registration to Wakefield on 17 March 2026.
     </p>
      <h2 class="govuk-heading-s">
-        Notes
+        Registrar notes
       </h2>
-<p class="govuk-body">Child has no first name - would need to be checked. NHS birth notification has been marked as wrong district.</p>
+<p class="govuk-body">NHS birth notification has been marked as wrong district.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Add notes
+      Add note
     </span>
   </summary>
   <div class="govuk-details__text">
@@ -421,7 +423,7 @@
   <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
 </div>
 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add notes
+  Add note
 </button>
   </div>
 </details>
@@ -781,7 +783,7 @@ Details submitted by the informant appear to match the NHS birth notification an
    
    
     <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">Maiden name (if different from full name)</dt>
+      <dt class="govuk-summary-list__key">Maiden name</dt>
       <dd class="govuk-summary-list__value">
         {{ record.maidenName }} 
       </dd>
@@ -1067,7 +1069,7 @@ Details submitted by the informant appear to match the NHS birth notification an
         <p id="national-insurance-number-error" class="govuk-error-message  govuk-body"
           style="color: #003300; font-weight: normal !important;">
           <span class="govuk-visually-hidden">Error:</span>
-        Some details are different to the NHS birth notification
+        Some details from the NHS birth notification do not match submitted details.
         </p>
       </div>
       {% else %}
@@ -1208,7 +1210,7 @@ Details submitted by the informant appear to match the NHS birth notification an
         <p id="national-insurance-number-error" class="govuk-error-message govuk-body"
           style="color: #003300; font-weight: normal !important;">
           <span class="govuk-visually-hidden">Error:</span>
-       Some names are different to the names from GOV.UK One Login
+       Names from GOV.UK One Login do not match submitted details.
         </p>
       </div>
 
