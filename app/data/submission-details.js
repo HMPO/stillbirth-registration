@@ -439,7 +439,7 @@ const records = [
   maidenName: 'PRICE',
   differentMaidenName: 'WATERS',
   golMotherPreviousLastNames: 'WATERS, PRICE',
-  golmPrevLNameError: 'yes',
+  golmPrevLNameError: 'no',
 
   orMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
   nhsMotherCurrentAddress: '14 Brookside Park, Brighton BH2 1PQ',
