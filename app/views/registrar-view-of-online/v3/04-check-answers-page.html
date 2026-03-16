@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back",
+    text: "Return to online birth registrations",
     href: "02-pending-list"
   }) }}
 {% endblock %}
@@ -1357,6 +1357,17 @@ Details submitted by the informant appear to match the NHS birth notification an
     <div class="govuk-grid-column-three-quarters">
    
   {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
+   {% if nextId %}
+      <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ nextId }}"
+           class="govuk-button"
+           data-module="govuk-button govuk-button--secondary">
+          View next online registration
+        </a>
+      {% else %}
+        <p class="govuk-body">
+          There are no more online registrations to review.
+        </p>
+      {% endif %}
 
    {% elif record.recordStatus == "inperson" %}
 
