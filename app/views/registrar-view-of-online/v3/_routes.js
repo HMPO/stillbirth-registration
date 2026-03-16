@@ -89,10 +89,16 @@ module.exports = function (router) {
     const currentIndex = records.findIndex(r => r.id === id)
     const totalRecords = records.length
 
+     const nextId =
+      currentIndex + 1 < totalRecords
+        ? records[currentIndex + 1].id
+        : null
+
     res.render('registrar-view-of-online/v3/04-check-answers-page', {
       record,
       currentIndex,
-      totalRecords
+      totalRecords,
+      nextId
     })
   })
 
