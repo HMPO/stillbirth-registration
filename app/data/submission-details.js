@@ -488,6 +488,103 @@ const records = [
 },
 {
   id: 6,
+  recordStatus: 'district',
+  qualification1: 'Mother',
+  qualification2: 'Father',
+  relationshipType: 'Yes',
+  printNumber: '1',
+  submissionDate: '18 March 2026',
+  daysSinceSubmission: '0',
+  referenceNumber: '2026/7647380067736981-WA',
+
+  // child 11
+  childFirstName: 'Agnieska',
+  childFirstNameError: 'no',
+
+  childLastName: 'LEPOVAWITZ',
+  childMiddleName: '',
+
+  orNHS: '425 365 8546',
+  nhsNHS: '425 365 8546',
+
+  orDoB: '23 February 2026',
+  nhsDoB: '23 February 2026',
+  daysSinceBirth: '23',
+
+  orSex: 'Female',
+  nhsSex: 'Female',
+
+  orPoB: 'Whittington Hospital, Wakefield',
+  nhsPoB: 'Whittington Hospital, Wakefield',
+  orPoBType: 'Hospital, birth centre, or other medical location',
+  nhsPoBType: 'NHS hospital',
+  PoBError: 'no',
+
+  // mother 11 (different surname)
+  orMotherFirstName: 'Magda',
+  orMotherMiddleName: '',
+  nhsMotherFirstName: 'Magda',
+  golMotherFirstName: 'Magda',
+  golMotherPreviousFirstNames: 'Magda',
+  mFNameError: 'no',
+
+  orMotherLastName: 'LEPOVAWITZ',
+  nhsMotherLastName: 'LEPOVAWITZ',
+  golMotherLastNames: 'LEPOVAWITZ',
+  mLNameError: 'no',
+
+  maidenName: 'KRAJEWSKA',
+  differentMaidenName: '',
+  golMotherPreviousLastNames: 'LEPOVAWITZ',
+  golmPrevLNameError: 'no',
+
+  orMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
+  nhsMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
+  currentAddressError: 'no',
+
+  orMotherAddressToB: 'Same as current address',
+  nhsMotherAddressToB: 'Hyde Park Road, Wakefield S11 4JP',
+  motherAddressToBError: 'no',
+
+  motherPoB: 'Poland',
+
+  motherOccupation: 'IT',
+  motherOccupationError: 'no',
+
+  // father or second parent 11
+  fspFirstName: 'Petr',
+  fspLastName: 'LEPOVAWITZ',
+   golfspFirstName: 'Petr',
+  golfspLastName: 'LEPOVAWITZ',
+  
+  golfspFNameError: 'no',
+  golfspLNameError: 'no',
+  golfspPrevLNameError: 'no',
+
+  fspPoB: 'Poland',
+  fspCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
+  fspAddressToB: 'Same as current address',
+  fspOccupation: 'IT',
+  fspOccupationError: 'no',
+
+  // statistics - mother 11
+  motherDob: '20 April 2001',
+  motherDobError: 'no',
+  motherEmployment: 'Employed, not supervising',
+  motherFirstMarriage: 'Yes',
+  motherSpanishNat: 'No',
+
+  stillbirths: '0',
+  previousBirths: '0',
+
+  // statistics - father or second female parent 11
+  fspDoB: '13 January 1999',
+  fspEmployment: 'Self-employed, not supervising',
+  fspMarriageDate: '3 June 2022',
+  fspSpanishNat: 'No'
+},
+{
+  id: 7,
   recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'none',
@@ -583,7 +680,7 @@ const records = [
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
 },{
-  id: 7,
+  id: 8,
   recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -680,7 +777,7 @@ const records = [
   fspSpanishNat: 'No'
 },
 {
-  id: 8,
+  id: 9,
   recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -777,7 +874,7 @@ const records = [
   fspSpanishNat: 'No'
 },
 {
-  id: 9,
+  id: 10,
   recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -874,7 +971,7 @@ const records = [
   fspSpanishNat: 'No'
 },
 {
-  id: 10,
+  id: 11,
   recordStatus: 'print',
   qualification1: 'Mother',
   qualification2: 'Father',
@@ -966,104 +1063,6 @@ const records = [
 
   // statistics - father or second female parent 10
   fspDoB: '7 September 1999',
-  fspEmployment: 'Self-employed, not supervising',
-  fspMarriageDate: '3 June 2022',
-  fspSpanishNat: 'No'
-},
-
-{
-  id: 11,
-  recordStatus: 'district',
-  qualification1: 'Mother',
-  qualification2: 'Father',
-  relationshipType: 'Yes',
-  printNumber: '1',
-  submissionDate: '18 March 2026',
-  daysSinceSubmission: '0',
-  referenceNumber: '2026/7647380067736981-WA',
-
-  // child 11
-  childFirstName: 'Agnieska',
-  childFirstNameError: 'no',
-
-  childLastName: 'LEPOVAWITZ',
-  childMiddleName: '',
-
-  orNHS: '425 365 8546',
-  nhsNHS: '425 365 8546',
-
-  orDoB: '23 February 2026',
-  nhsDoB: '23 February 2026',
-  daysSinceBirth: '23',
-
-  orSex: 'Female',
-  nhsSex: 'Female',
-
-  orPoB: 'Whittington Hospital, Wakefield',
-  nhsPoB: 'Whittington Hospital, Wakefield',
-  orPoBType: 'Hospital, birth centre, or other medical location',
-  nhsPoBType: 'NHS hospital',
-  PoBError: 'no',
-
-  // mother 11 (different surname)
-  orMotherFirstName: 'Magda',
-  orMotherMiddleName: '',
-  nhsMotherFirstName: 'Magda',
-  golMotherFirstName: 'Magda',
-  golMotherPreviousFirstNames: 'Magda',
-  mFNameError: 'no',
-
-  orMotherLastName: 'LEPOVAWITZ',
-  nhsMotherLastName: 'LEPOVAWITZ',
-  golMotherLastNames: 'LEPOVAWITZ',
-  mLNameError: 'no',
-
-  maidenName: 'KRAJEWSKA',
-  differentMaidenName: '',
-  golMotherPreviousLastNames: 'LEPOVAWITZ',
-  golmPrevLNameError: 'no',
-
-  orMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
-  nhsMotherCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
-  currentAddressError: 'no',
-
-  orMotherAddressToB: 'Same as current address',
-  nhsMotherAddressToB: 'Hyde Park Road, Wakefield S11 4JP',
-  motherAddressToBError: 'no',
-
-  motherPoB: 'Poland',
-
-  motherOccupation: 'IT',
-  motherOccupationError: 'no',
-
-  // father or second parent 11
-  fspFirstName: 'Petr',
-  fspLastName: 'LEPOVAWITZ',
-   golfspFirstName: 'Petr',
-  golfspLastName: 'LEPOVAWITZ',
-  
-  golfspFNameError: 'no',
-  golfspLNameError: 'no',
-  golfspPrevLNameError: 'no',
-
-  fspPoB: 'Poland',
-  fspCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
-  fspAddressToB: 'Same as current address',
-  fspOccupation: 'IT',
-  fspOccupationError: 'no',
-
-  // statistics - mother 11
-  motherDob: '20 April 2001',
-  motherDobError: 'no',
-  motherEmployment: 'Employed, not supervising',
-  motherFirstMarriage: 'Yes',
-  motherSpanishNat: 'No',
-
-  stillbirths: '0',
-  previousBirths: '0',
-
-  // statistics - father or second female parent 11
-  fspDoB: '13 January 1999',
   fspEmployment: 'Self-employed, not supervising',
   fspMarriageDate: '3 June 2022',
   fspSpanishNat: 'No'
