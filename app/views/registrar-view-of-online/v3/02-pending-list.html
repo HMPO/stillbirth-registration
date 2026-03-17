@@ -75,30 +75,34 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   },
   items: [
     {
-      value: "published",
+      value: "submitted-sort-old",
       text: "Date submitted (oldest to newest)",
-      selected: true
+      selected: (data.sort == "submitted-sort-old")
     },
     {
-      value: "updated",
-      text: "Days since birth (oldest to newest)"
+      value: "updated-sort",
+      text: "Days since birth (oldest to newest)",
+      selected: (data.sort == "updated-sort")
     },
     {
-      value: "views",
-      text: "Most recently viewed"
+      value: "recent-sort",
+      text: "Most recently viewed",
+      selected: (data.sort == "recent-sort")
     },
     {
-      value: "views",
-      text: "On hold first"
+      value: "on-hold-sort",
+      text: "On hold first",
+      selected: (data.sort == "on-hold-sort")
     },
     {
-      value: "comments",
-      text: "Date submitted (newest to oldest)"
+      value: "submitted-sort-new",
+      text: "Date submitted (newest to oldest)",
+      selected: (data.sort == "submitted-sort-new")
     }
   ]
 }) }}
 
-<p class="govuk-body">Showing 1 to 5 of 5 </p>
+<p class="govuk-body">Showing 1 to {{ toProcessCount }} of {{ toProcessCount }} </p>
 <!-- this is a count of all records in the data set: {{ data.records | length }} of {{ data.records | length }} -->
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
@@ -186,8 +190,8 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
    {% from "govuk/components/select/macro.njk" import govukSelect %}
 
 {{ govukSelect({
-  id: "sort",
-  name: "sort",
+  id: "sort1",
+  name: "sort1",
   label: {
     text: "Sort by"
   },
@@ -223,7 +227,7 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-<p class="govuk-body">Showing 1 to 5 of 5</p>
+<p class="govuk-body">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Completed registrations</caption>

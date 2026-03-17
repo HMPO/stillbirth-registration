@@ -41,9 +41,35 @@ module.exports = function (router) {
   // ---------------------------
   // 02 – Pending list (GET)
   // ---------------------------
-  router.get('/registrar-view-of-online/v3/02-pending-list', function (req, res) {
-    res.render('registrar-view-of-online/v3/02-pending-list')
-  })
+ // router.get('/registrar-view-of-online/v3/02-pending-list', function (req, res) {
+
+    //res.render('registrar-view-of-online/v3/02-pending-list', { data: req.query });
+//res.render('registrar-view-of-online/v3/02-pending-list')
+ // })
+
+
+router.get('/registrar-view-of-online/v3/02-pending-list', function (req, res) {
+
+  // 1. Load your records (however you store them)
+  // If you load them from session, change this accordingly
+  const records = req.session.data.records || [];
+
+  // 2. Any OTHER data you want to pass to the page
+  const existingData = {
+    records: records,
+    // add any other variables you normally send
+  };
+
+  // 3. Merge query params (e.g., ?sort=on-hold)
+  const data = {
+    ...existingData,
+    ...req.query
+  };
+
+  // 4. Render the page
+  res.render('registrar-view-of-online/v3/02-pending-list', { data });
+});
+
 
   // ---------------------------
   // 03 – Register page (GET + POST)
