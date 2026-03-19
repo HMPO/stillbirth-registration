@@ -548,7 +548,7 @@ const records = [
 
   motherPoB: 'Poland',
 
-  motherOccupation: 'IT',
+  motherOccupation: 'Commnications',
   motherOccupationError: 'no',
 
   // father or second parent 11
@@ -564,7 +564,7 @@ const records = [
   fspPoB: 'Poland',
   fspCurrentAddress: 'Hyde Park Road, Wakefield S11 4JP',
   fspAddressToB: 'Same as current address',
-  fspOccupation: 'IT',
+  fspOccupation: 'Developer',
   fspOccupationError: 'no',
 
   // statistics - mother 11

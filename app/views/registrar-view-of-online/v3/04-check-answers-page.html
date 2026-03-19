@@ -54,7 +54,7 @@
      <h2 class="govuk-heading-s">
         Registrar notes
       </h2>
-<p class="govuk-body">The addresses don't match for married mother and father. The informant wasn't clear over the phone, so asked them in to register in person.</p>
+<p class="govuk-body">The addresses don't match for married mother and father. The occupation isn't written in the correct format. The informant wasn't clear over the phone, so asked them in to register in person.</p>
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -1395,7 +1395,17 @@ Details submitted by the informant appear to match the NHS birth notification an
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-        {% set issueHtml %}
+{% set issueHtml %}
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    text: "Add any notes about this registration. This is visible to all registrars"
+  }
+}) }}
+{% endset -%}
+
+{% set districtHtml %}
 {{ govukTextarea({
   name: "moreDetail",
   id: "more-detail",
@@ -1437,6 +1447,9 @@ Details submitted by the informant appear to match the NHS birth notification an
       text: "Send registration to another district",
       hint: {
         text: "You can contact the informant and add notes before sending to another district"
+      },
+      conditional: {
+        html: districtHtml
       }
     }
    
