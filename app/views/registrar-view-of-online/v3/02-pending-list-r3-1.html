@@ -181,11 +181,11 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 {% set printHtml %}
 
 
-<!-- <p class="govuk-body govuk-!-width-three-quarters
-">Open and print certificates for completed registrations with certificates ordered. Copy the postal address and only mark as posted once sent.</p> -->
+<p class="govuk-body govuk-!-width-three-quarters
+">Open and print certificates for completed registrations with certificates ordered. Copy the postal address and only mark as posted once sent.</p>
 
  <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
+      <div class="govuk-grid-column-two-thirds">
 
    {% from "govuk/components/select/macro.njk" import govukSelect %}
 
@@ -211,58 +211,26 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     }
   ]
 }) }}
-
-
  </div>
-     
-</div>
-<h3 class="govuk-heading-m govuk-!-margin-bottom-2">Completed certificates to print and post</h3>
-
-
-<div class="govuk-grid-row govuk-!-margin-0">
-<div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: #f3f2f1;">
-  
-  <h3 class="govuk-heading-s govuk-!-padding-bottom-0">
-   Manage print queue
-  </h3>
-  
-<p class="govuk-body">
-Select the certificates you have printed and posted to clear them from this list.
-</p>
-{% from "govuk/components/button/macro.njk" import govukButton %}
-<form action="02-pending-list.html#print">
-{{ govukButton({
-  text: "Remove selected",
-  classes: "govuk-button--warning govuk-!-margin-bottom-0"
-}) }}
-</form>
-      </div>
-      </div>
-    
-
-
-
-<p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-4">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
-
- <!-- <div class="govuk-grid-column-one-third govuk-!-padding-right-0 govuk-!-margin-bottom-0 govuk-!-margin-top-5" style="text-align: right;">
+      <div class="govuk-grid-column-one-third govuk-!-padding-top-6" style="text-align: right;">
         {{ govukButton({
   text: "Mark selected as posted",
-  classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
+  classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-0",
   attributes: {
     id: "mark-posted-btn"
   }
 }) }}
-</div> -->
-
+</div>
+</div>
 
 
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-<!-- <p class="govuk-body govuk-!-margin-top-4">Showing 1 to {{ printCount }}  of {{ printCount }} </p> -->
+<p class="govuk-body">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
-  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Completed registrations</caption> -->
+  <caption class="govuk-table__caption govuk-table__caption--m">Completed registrations</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
      
@@ -270,10 +238,10 @@ Select the certificates you have printed and posted to clear them from this list
       <th scope="col" class="govuk-table__header" style="width: 240px; font-size: 0.9rem;">Mother's name<br><br></th>
       
       <th scope="col" class="govuk-table__header" style=" font-size: 0.9rem;">Days since<br>submitted</th>
-      <th scope="col" class="govuk-table__header" style="width: 130px; font-size: 0.9rem;">Download postal address<br><br></th>
+      <th scope="col" class="govuk-table__header" style="width: 130px; font-size: 0.9rem;">Copy postal address<br><br></th>
       <th scope="col" class="govuk-table__header" style="width: 130px; font-size: 0.9rem;">Open PDF<br>to print</th>
       <th scope="col" class="govuk-table__header" style=" font-size: 0.9rem;">Number of certificates</th>
-      <th scope="col" class="govuk-table__header" style="width: 130px; vertical-align: bottom; font-size: 0.9rem;">Select
+      <th scope="col" class="govuk-table__header" style="width: 130px; vertical-align: bottom; font-size: 0.9rem;">Mark as posted
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
             <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
@@ -305,8 +273,13 @@ Select the certificates you have printed and posted to clear them from this list
                  <td class="govuk-table__cell" style="text-align: center;">
                   {{ record.daysSinceSubmission }} 
                 </td>
-                 <td class="govuk-table__cell" > 
-    <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Get address</button>
+                 <td class="govuk-table__cell" >
+                 
+    <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Copy</button>
+  
+
+    
+    
                 </td>
                 <td class="govuk-table__cell"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button govuk-button--secondary" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF</a></td>
                  <td class="govuk-table__cell" style="text-align: center;">
@@ -451,10 +424,10 @@ View these registrations to start an in-person registration. The registration is
     document.addEventListener('DOMContentLoaded', function () {
       //copy buttons
       var copyButtons = document.querySelectorAll('.moj-copy-button');
-      var originalText = 'Get address';
+      var originalText = 'Copy';
       copyButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-          button.textContent = 'Downloaded';
+          button.textContent = 'Copied';
           button.classList.add('moj-copy-button--copied');
           setTimeout(function () {
             button.textContent = originalText;

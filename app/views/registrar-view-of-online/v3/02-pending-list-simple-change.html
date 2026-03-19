@@ -211,40 +211,15 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
     }
   ]
 }) }}
-
-
  </div>
      
 </div>
-<h3 class="govuk-heading-m govuk-!-margin-bottom-2">Completed certificates to print and post</h3>
-
-
-<div class="govuk-grid-row govuk-!-margin-0">
-<div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: #f3f2f1;">
-  
-  <h3 class="govuk-heading-s govuk-!-padding-bottom-0">
-   Manage print queue
-  </h3>
-  
-<p class="govuk-body">
-Select the certificates you have printed and posted to clear them from this list.
-</p>
-{% from "govuk/components/button/macro.njk" import govukButton %}
-<form action="02-pending-list.html#print">
-{{ govukButton({
-  text: "Remove selected",
-  classes: "govuk-button--warning govuk-!-margin-bottom-0"
-}) }}
-</form>
-      </div>
-      </div>
-    
-
-
-
-<p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-4">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
-
- <!-- <div class="govuk-grid-column-one-third govuk-!-padding-right-0 govuk-!-margin-bottom-0 govuk-!-margin-top-5" style="text-align: right;">
+<div class="govuk-grid-row govuk-!-margin-left-0 govuk-!-margin-right-0" style="border-bottom: 1px solid #b1b4b6;">
+<div class="govuk-grid-column-two-thirds govuk-!-padding-left-0">
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1">Completed certificates to print and post</h3>
+<p class="govuk-body govuk-!-padding-bottom-0">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
+</div>
+ <div class="govuk-grid-column-one-third govuk-!-padding-right-0 govuk-!-margin-bottom-0 govuk-!-margin-top-5" style="text-align: right;">
         {{ govukButton({
   text: "Mark selected as posted",
   classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
@@ -252,8 +227,8 @@ Select the certificates you have printed and posted to clear them from this list
     id: "mark-posted-btn"
   }
 }) }}
-</div> -->
-
+</div>
+</div>
 
 
 
