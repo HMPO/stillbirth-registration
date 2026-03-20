@@ -425,17 +425,17 @@ Select the certificates you have printed and posted to clear them from this list
   {% elif record.recordStatus == "print" and record.printNumber != "None" %}
 <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
-    <h2 class="govuk-summary-card__title govuk-!-width-one-quarter">
+    <h2 class="govuk-summary-card__title govuk-!-width-one-third">
      <p class="govuk-!-margin-bottom-2"><strong>Child's name</strong></p>
       
      <span class="govuk-body"><strong>Mother's name</strong></span>
     </h2>
-     <h2 class="govuk-summary-card__title govuk-!-width-one-half">
+     <h2 class="govuk-summary-card__title govuk-!-width-one-third">
        <p class="govuk-!-margin-bottom-2">  {{ record.childFirstName }}  {{ record.childLastName }}</p>
       
        <span class="govuk-body"> {{ record.orMotherFirstName }} {{ record.orMotherLastName }}</span>
     </h2>
-    <h2 class="govuk-summary-card__title govuk-!-width-one-quarter" style="text-align: right;">
+    <h2 class="govuk-summary-card__title govuk-!-width-one-third" style="text-align: right;">
      
    <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters"> Days since <br>submitted</div>  <div class="govuk-grid-column-one-quarter govuk-body"> {{ record.daysSinceSubmission }} </div>
@@ -445,13 +445,13 @@ Select the certificates you have printed and posted to clear them from this list
   <div class="govuk-summary-card__content">
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key govuk-!-width-one-quarter">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
           Number of certificates
         </dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">
           {{ record.printNumber }} 
         </dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <a class="govuk-button" href="#">Open PDF to print<span class="govuk-visually-hidden">certificates</span></a>
         </dd>
       </div>
