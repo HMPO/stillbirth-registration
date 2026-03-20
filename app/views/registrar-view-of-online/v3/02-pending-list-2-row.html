@@ -295,9 +295,9 @@ Select the certificates you have printed and posted to clear them from this list
                   {{ record.printNumber }} 
                 </td>
                 
-                <td class="govuk-table__cell" style="padding-top: 1px; border-color: #f3f3f3;">
+                <td class="govuk-table__cell govuk-!-margin-0 govuk-!-padding-0" style="padding-top: 1px; border-color: #f3f3f3;">
                   <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+                    <div class="govuk-checkboxes__item ">
 
  <input class="govuk-checkboxes__input govuk-!-margin-bottom-0"
                    id="record-{{ record.id }}"
@@ -319,8 +319,9 @@ Select the certificates you have printed and posted to clear them from this list
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" colspan="3" style="vertical-align: middle;"> {{ record.orMotherCurrentAddress }} </td>
-                <td class="govuk-table__cell" style="vertical-align: middle;">
+                <td class="govuk-table__cell" colspan="2" style="vertical-align: middle;"> {{ record.orMotherCurrentAddress }} </td>
+                <td class="govuk-table__cell" colspan="1"> </td>
+                <td class="govuk-table__cell govuk-!-padding-top-2" style="vertical-align: middle;">
                    <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Copy name and address</button>
    
                 </td>
