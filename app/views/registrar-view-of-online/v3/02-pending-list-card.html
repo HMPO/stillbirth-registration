@@ -360,7 +360,7 @@ Select the certificates you have printed and posted to clear them from this list
   </div>
 </div> -->
 
-<div class="govuk-summary-card">
+<!-- <div class="govuk-summary-card">
   <div class="govuk-summary-card__title-wrapper">
     <h2 class="govuk-summary-card__title govuk-!-width-one-quarter">
      <p class="govuk-!-margin-bottom-2"><strong>Child's name</strong></p>
@@ -373,7 +373,6 @@ Select the certificates you have printed and posted to clear them from this list
        <span class="govuk-body">Felicity THOMPSON</span>
     </h2>
     <h2 class="govuk-summary-card__title govuk-!-width-one-quarter" style="text-align: right;">
-      <!-- <a class="govuk-button govuk-button--warning govuk-!-margin-bottom-0" style="text-decoration: none;">Remove from list</a> -->
    <div class="govuk-grid-row">
       <div class="govuk-grid-column-three-quarters"> Days since <br>submitted</div>  <div class="govuk-grid-column-one-quarter govuk-body">4</div>
     </div>
@@ -414,21 +413,81 @@ Select the certificates you have printed and posted to clear them from this list
           <a class="govuk-button govuk-button--warning" href="#">Remove from list<span class="govuk-visually-hidden"> age (Person 2)</span></a>
         </dd>
       </div>
-      <!-- <div class="govuk-summary-list__row">
+    </dl>
+  </div>
+</div> -->
+
+
+ 
+ {% for record in data.records %}
+ {% if record.printNumber == "None" %}
+
+  {% elif record.recordStatus == "print" and record.printNumber != "None" %}
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title govuk-!-width-one-quarter">
+     <p class="govuk-!-margin-bottom-2"><strong>Child's name</strong></p>
+      
+     <span class="govuk-body"><strong>Mother's name</strong></span>
+    </h2>
+     <h2 class="govuk-summary-card__title govuk-!-width-one-half">
+       <p class="govuk-!-margin-bottom-2">  {{ record.childFirstName }}  {{ record.childLastName }}</p>
+      
+       <span class="govuk-body"> {{ record.orMotherFirstName }} {{ record.orMotherLastName }}</span>
+    </h2>
+    <h2 class="govuk-summary-card__title govuk-!-width-one-quarter" style="text-align: right;">
+     
+   <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters"> Days since <br>submitted</div>  <div class="govuk-grid-column-one-quarter govuk-body"> {{ record.daysSinceSubmission }} </div>
+    </div>
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-quarter">
+          Number of certificates
+        </dt>
+        <dd class="govuk-summary-list__value govuk-!-width-one-half">
+          {{ record.printNumber }} 
+        </dd>
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+          <a class="govuk-button" href="#">Open PDF to print<span class="govuk-visually-hidden">certificates</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Working situation
+          Postal address
         </dt>
         <dd class="govuk-summary-list__value">
-          Unable to work because of long-term sickness or disability
+          {{ record.orMotherCurrentAddress }} 
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 2)</span></a>
+          <a class="govuk-button govuk-button--secondary" href="#">Copy address<span class="govuk-visually-hidden"> relationship to lead tenant (Person 2)</span></a>
         </dd>
-      </div> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          System reference
+        </dt>
+        <dd class="govuk-summary-list__value">
+           {{ record.referenceNumber }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+           <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation">Select</label>
+          </div>
+        </div>
+          <a class="govuk-button govuk-button--warning" href="#">Remove from list<span class="govuk-visually-hidden"> age (Person 2)</span></a>
+        </dd>
+      </div>
     </dl>
   </div>
 </div>
-
+ {% endif %}
+            {% endfor %}
      
     </div>
 </div>
