@@ -230,12 +230,13 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 Select the certificates you have posted to clear them from this list.
 </p>
 {% from "govuk/components/button/macro.njk" import govukButton %}
-<form action="02-pending-list.html#print">
-{{ govukButton({
+ {{ govukButton({
   text: "Remove selected",
-  classes: "govuk-button--warning govuk-!-margin-bottom-0"
+  classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
+  attributes: {
+    id: "mark-posted-btn"
+  }
 }) }}
-</form>
       </div>
       </div>
     
@@ -265,19 +266,14 @@ Select the certificates you have posted to clear them from this list.
       <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Days since<br>submitted</th>
      <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Number of<br>certificates</th>
       <th scope="col" class="govuk-table__header" style="width: 200px; font-size: 0.9rem;">Actions</th>
-      
-     
     </tr>
   </thead>
   <tbody class="govuk-table__body">
 
-
- 
  {% for record in data.records %}
  {% if record.printNumber == "None" %}
 
-  {% elif record.recordStatus == "print" and record.printNumber != "None" %}
-    
+  {% elif record.recordStatus == "print" and record.printNumber != "None" %} 
               <tr class="govuk-table__row" data-record-id="{{ record.id }}">
                    <td class="govuk-table__cell govuk-!-margin-0 govuk-!-padding-0" style="padding-top: 1px; border-color: #f3f3f3;">
                   <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
@@ -314,7 +310,7 @@ Select the certificates you have posted to clear them from this list.
                 
              
               </tr>
-              <tr class="govuk-table__row">
+              <tr class="govuk-table__row" data-record-id="{{ record.id }}">
                  <td class="govuk-table__cell" colspan="1"> </td>
                 <td class="govuk-table__cell" colspan="4" style="vertical-align: middle;"> {{ record.orMotherCurrentAddress }} </td>
                 <!-- <td class="govuk-table__cell" colspan="1"> </td> -->
@@ -453,7 +449,7 @@ View these registrations to start an in-person registration. The registration is
 
       // Posted buttons
       var postedButtons = document.querySelectorAll('.moj-posted-button');
-      var postedOriginalText = 'Mark selected as posted';
+      var postedOriginalText = 'Remove selected';
       postedButtons.forEach(function (button) {
         button.addEventListener('click', function () {
           button.textContent = 'Registrations posted and removed';
@@ -466,39 +462,47 @@ View these registrations to start an in-person registration. The registration is
       });
 
 
-      // Find all checkboxes
-      var checkboxes = document.querySelectorAll('input[name="records"]');
-      // Find the button
-      var postBtn = document.getElementById('mark-posted-btn');
-      // On button click
-      postBtn.addEventListener('click', function () {
-        checkboxes.forEach(function (checkbox) {
-          if (checkbox.checked) {
-            // Update status shown in the table
-            var statusSpan = document.getElementById('status-' + checkbox.value);
-            if (statusSpan) {
-              statusSpan.textContent = 'posted';
-            }
-            // You could also add styling or feedback here if needed
+// Find all checkboxes
+    var checkboxes = document.querySelectorAll('input[name="records"]');
+    // Find the button
+    var postBtn = document.getElementById('mark-posted-btn');
+
+    // On button click
+    postBtn.addEventListener('click', function () {
+      // (Optional) still do your status update if you are using status spans
+      checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+          var statusSpan = document.getElementById('status-' + checkbox.value);
+          if (statusSpan) {
+            statusSpan.textContent = 'posted';
           }
-        });
-      
-        var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
-    checkedBoxes.forEach(function(checkbox) {
-      // Find the containing <tr>
-      var row = checkbox.closest('tr');
-      if (row) {
-        row.parentNode.removeChild(row); // Remove the row from the table
-      }
-      // Optionally: you could update a JS variable for recordStatus if you want to track state in your prototype
-    });
-      
+        }
       });
 
+      // Now remove rows for checked checkboxes
+      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
 
+      checkedBoxes.forEach(function (checkbox) {
+        // First row: the one containing the checkbox
+        var row = checkbox.closest('tr');
 
+        if (row) {
+          // Second row: the row immediately after (address + Copy button)
+          var nextRow = row.nextElementSibling;
 
+          // Remove second row first (so we don’t affect row’s parent while we still need nextElementSibling)
+          if (nextRow && nextRow.matches('.govuk-table__row')) {
+            nextRow.parentNode.removeChild(nextRow);
+          }
 
+          // Now remove the main row
+          row.parentNode.removeChild(row);
+        }
+      });
+    });
+
+     
+      
     });
   </script>
 

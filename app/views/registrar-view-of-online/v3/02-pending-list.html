@@ -230,12 +230,14 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
 Select the certificates you have printed and posted to clear them from this list.
 </p>
 {% from "govuk/components/button/macro.njk" import govukButton %}
-<form action="02-pending-list.html#print">
-{{ govukButton({
+
+ {{ govukButton({
   text: "Remove selected",
-  classes: "govuk-button--warning govuk-!-margin-bottom-0"
+  classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
+  attributes: {
+    id: "mark-posted-btn"
+  }
 }) }}
-</form>
       </div>
       </div>
     
