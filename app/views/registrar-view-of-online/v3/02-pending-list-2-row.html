@@ -1,0 +1,510 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- {% block beforeContent %}
+  {{ govukBackLink({
+    text: "Return to homepage",
+    href: "01-life-event-home"
+  }) }}
+{% endblock %} -->
+
+{% block content %}
+
+
+ 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters govuk-!-margin-bottom-3">
+
+        <h1 class="govuk-heading-l">
+          Process online birth registrations
+        </h1>
+       
+
+      </div>
+    </div>
+
+
+{# Start by setting counters to 0 #}
+{% set toProcessCount = 0 %}
+{% set printCount = 0 %}
+{% set inpersonCount = 0 %}
+
+{# Loop over all records and increment the right counters #}
+{% for record in data.records %}
+  {# To be processed: pending, onhold, inreview #}
+  {% if record.recordStatus == "pending"
+    or record.recordStatus == "onhold"
+    or record.recordStatus == "inreview"
+    or record.recordStatus == "district"
+  %}
+    {% set toProcessCount = toProcessCount + 1 %}
+  {% endif %}
+
+  {# Completed and ready to print #}
+  {% if record.recordStatus == "print" %}
+    {% set printCount = printCount + 1 %}
+  {% endif %}
+
+  {# Appointments required #}
+  {% if record.recordStatus == "inperson" %}
+    {% set inpersonCount = inpersonCount + 1 %}
+  {% endif %}
+{% endfor %}
+
+  
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% set pendingHtml %}
+<!-- <h2 class="govuk-heading-m">Pending registrations</h2> -->
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort",
+  name: "sort",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "submitted-sort-old",
+      text: "Date submitted (oldest to newest)",
+      selected: (data.sort == "submitted-sort-old")
+    },
+    {
+      value: "updated-sort",
+      text: "Days since birth (oldest to newest)",
+      selected: (data.sort == "updated-sort")
+    },
+    {
+      value: "recent-sort",
+      text: "Most recently viewed",
+      selected: (data.sort == "recent-sort")
+    },
+    {
+      value: "on-hold-sort",
+      text: "On hold first",
+      selected: (data.sort == "on-hold-sort")
+    },
+    {
+      value: "submitted-sort-new",
+      text: "Date submitted (newest to oldest)",
+      selected: (data.sort == "submitted-sort-new")
+    }
+  ]
+}) }}
+
+<p class="govuk-body">Showing 1 to {{ toProcessCount }} of {{ toProcessCount }} </p>
+<!-- this is a count of all records in the data set: {{ data.records | length }} of {{ data.records | length }} -->
+
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth registrations</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">System reference number</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
+      
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>birth</th>
+      
+      <th scope="col" class="govuk-table__header govuk-!-text-align-right" style="width: 180px;">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+
+ {% for record in data.records %}
+ {% if record.recordStatus == "inreview" 
+     or record.recordStatus == "onhold" 
+     or record.recordStatus == "pending"
+     or record.recordStatus == "district"
+ %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                 {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
+                 <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                    {{ record.referenceNumber }}
+                  </a>
+                  {% else %}
+
+                 <a href="/registrar-view-of-online/v3/03-register-page?id={{ record.id }}" class="govuk-link">
+                    {{ record.referenceNumber }}
+                  </a>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceBirth }} 
+                </td>
+                 <td class="govuk-table__cell govuk-!-text-align-right">
+                   {% if record.recordStatus == "onhold" %}
+                    
+        <strong class="govuk-tag govuk-tag--yellow">On hold</strong>
+         {% elif record.recordStatus == "inreview" %}
+         <strong class="govuk-tag govuk-tag--grey">Read-only</strong>
+
+          {% else %}
+       <strong class="govuk-tag govuk-tag--orange">Ready to process</strong>
+        {% endif %}
+                  
+                </td>
+              </tr>
+                {% endif %}
+            {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+      </div>
+      
+    </div>
+   
+
+{% endset -%}
+
+{% set printHtml %}
+
+
+<!-- <p class="govuk-body govuk-!-width-three-quarters
+">Open and print certificates for completed registrations with certificates ordered. Copy the postal address and only mark as posted once sent.</p> -->
+
+ <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+   {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{{ govukSelect({
+  id: "sort1",
+  name: "sort1",
+  label: {
+    text: "Sort by"
+  },
+  items: [
+   {
+      value: "updated",
+      text: "Date processed (oldest to newest)",
+      selected: true
+    },
+    {
+      value: "published",
+      text: "Date processed (newest to oldest)"
+    },
+    {
+      value: "comments",
+      text: "Date submitted (oldest to newest)"
+    }
+  ]
+}) }}
+
+<p class="govuk-body govuk-!-margin-bottom-4 govuk-!-margin-top-0">Showing 1 to {{ printCount }}  of {{ printCount }} </p>
+
+ </div>   
+</div>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-2">Completed certificates to print and post</h3>
+
+
+<div class="govuk-grid-row govuk-!-margin-0">
+<div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: #f3f2f1;">
+  
+  <h3 class="govuk-heading-s govuk-!-padding-bottom-0">
+   Manage print queue
+  </h3>
+  
+<p class="govuk-body">
+Select the certificates you have printed and posted to clear them from this list.
+</p>
+{% from "govuk/components/button/macro.njk" import govukButton %}
+<form action="02-pending-list.html#print">
+{{ govukButton({
+  text: "Remove selected",
+  classes: "govuk-button--warning govuk-!-margin-bottom-0"
+}) }}
+</form>
+      </div>
+      </div>
+    
+
+
+
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" style="font-size: 0.9rem;">Mother's name and<br>address<br></th>
+      <th scope="col" class="govuk-table__header" style="width: 250px; font-size: 0.9rem; padding-top: 10px;">Child's name<br><br></th>
+      <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Days since<br>submitted</th>
+     
+      <th scope="col" class="govuk-table__header" style="width: 200px; font-size: 0.9rem;">Actions</th>
+      <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Number of<br>certificates</th>
+      <th scope="col" class="govuk-table__header" style="width: 50px; vertical-align: bottom; font-size: 0.9rem;">Select
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"
+              style="font-size: 0.85rem;"></label>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+ 
+ {% for record in data.records %}
+ {% if record.printNumber == "None" %}
+
+  {% elif record.recordStatus == "print" and record.printNumber != "None" %}
+    
+              <tr class="govuk-table__row" data-record-id="{{ record.id }}">
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px; border-color: #f3f3f3;">
+                   {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+                <td class="govuk-table__cell" style="border-color: #f3f3f3;">
+                  {{ record.childFirstName }}  {{ record.childLastName }}
+                </td>
+                 <td class="govuk-table__cell" style="border-color: #f3f3f3;">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <!-- <td class="govuk-table__cell" > 
+    <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Get address</button>
+                </td> -->
+                <td class="govuk-table__cell" style="border-color: #f3f3f3;"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF to print</a></td>
+                 <td class="govuk-table__cell" style="border-color: #f3f3f3;">
+                  {{ record.printNumber }} 
+                </td>
+                
+                <td class="govuk-table__cell" style="padding-top: 1px; border-color: #f3f3f3;">
+                  <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
+
+ <input class="govuk-checkboxes__input govuk-!-margin-bottom-0"
+                   id="record-{{ record.id }}"
+                   name="records"
+                   type="checkbox"
+                   value="{{ record.id }}">
+            <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0"
+                   for="record-{{ record.id }}">
+              <!-- {{ record.id }} -->
+
+            </label>
+ <!-- <span id="status-{{ record.id }}">{{ record.recordStatus }}</span> -->
+                      <!-- <input class="govuk-checkboxes__input govuk-!-margin-bottom-0" id="organisation" name="organisation"
+                        type="checkbox" value="hmrc">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label> -->
+                    </div>
+                  </div>
+                
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" colspan="3" style="vertical-align: middle;"> {{ record.orMotherCurrentAddress }} </td>
+                <td class="govuk-table__cell" style="vertical-align: middle;">
+                   <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Copy name and address</button>
+   
+                </td>
+                <td class="govuk-table__cell" colspan="2"> </td>
+              </tr>
+            
+            {% endif %}
+            {% endfor %}
+
+  </tbody>
+</table>
+
+
+
+     
+    </div>
+</div>
+
+  <!-- <button type="button" class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite">Copy</button>
+  <button type="button" class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite">Copy</button>
+  <button type="button" class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite">Copy</button> -->
+
+
+{% endset -%}
+
+{% set inpersonHtml %}
+<h2 class="govuk-heading-m">Appointments required</h2>
+ <p class="govuk-body">
+View these registrations to start an in-person registration. The registration is removed from this list once the child’s NHS number has been registered.
+</p>
+
+<table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Online birth submissions</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      
+      <th scope="col" class="govuk-table__header" style="width: 400px;">System reference number</th>
+      <th scope="col" class="govuk-table__header" style="padding-top: 10px; width: 180px;">Child's name</th>
+      <th scope="col" class="govuk-table__header" style="width: 400px;">Mother's name</th>
+      
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 120px;">Days since<br>birth</th>
+      
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+ 
+
+ {% for record in data.records %}
+  {% if record.recordStatus == "inperson" %}
+    
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                  <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                    {{ record.referenceNumber }}
+                  </a>
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.childFirstName }}  {{ record.childLastName }}
+                </td>
+                 <td class="govuk-table__cell">
+                 {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+               
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceBirth }} 
+                </td>
+                
+               
+              </tr>
+            
+            {% endif %}
+            {% endfor %}
+
+
+
+    </tbody>
+    </table>
+
+{% endset -%}
+
+
+
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "To be processed (" ~ toProcessCount ~ ")",
+      id: "pending",
+      panel: {
+        html: pendingHtml
+      }
+    },
+    {
+      label: "Completed and ready to print (" ~ printCount ~ ")",
+      id: "print",
+      panel: {
+        html: printHtml
+      }
+    },
+    {
+      label: "Appointments required (" ~ inpersonCount ~ ")",
+      id: "inperson",
+      panel: {
+        html: inpersonHtml
+      }
+    }
+  ]
+}) }}
+
+    
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      //copy buttons
+      var copyButtons = document.querySelectorAll('.moj-copy-button');
+      var originalText = 'Copy name and address';
+      copyButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          button.textContent = 'Name and address copied';
+          button.classList.add('moj-copy-button--copied');
+          setTimeout(function () {
+            button.textContent = originalText;
+            button.classList.remove('moj-copy-button--copied');
+          }, 4000);
+        });
+      });
+
+      // Posted buttons
+      var postedButtons = document.querySelectorAll('.moj-posted-button');
+      var postedOriginalText = 'Mark selected as posted';
+      postedButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          button.textContent = 'Registrations posted and removed';
+          button.classList.add('moj-posted-button--copied');
+          setTimeout(function () {
+            button.textContent = postedOriginalText;
+            button.classList.remove('moj-posted-button--copied');
+          }, 4000);
+        });
+      });
+
+
+      // Find all checkboxes
+      var checkboxes = document.querySelectorAll('input[name="records"]');
+      // Find the button
+      var postBtn = document.getElementById('mark-posted-btn');
+      // On button click
+      postBtn.addEventListener('click', function () {
+        checkboxes.forEach(function (checkbox) {
+          if (checkbox.checked) {
+            // Update status shown in the table
+            var statusSpan = document.getElementById('status-' + checkbox.value);
+            if (statusSpan) {
+              statusSpan.textContent = 'posted';
+            }
+            // You could also add styling or feedback here if needed
+          }
+        });
+      
+        var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
+    checkedBoxes.forEach(function(checkbox) {
+      // Find the containing <tr>
+      var row = checkbox.closest('tr');
+      if (row) {
+        row.parentNode.removeChild(row); // Remove the row from the table
+      }
+      // Optionally: you could update a JS variable for recordStatus if you want to track state in your prototype
+    });
+      
+      });
+
+
+
+
+
+    });
+  </script>
+
+
+
+{% endblock %}
+
