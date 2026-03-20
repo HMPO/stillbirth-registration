@@ -252,7 +252,7 @@ Select the certificates you have posted to clear them from this list.
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-       <th scope="col" class="govuk-table__header" style="width: 50px; vertical-align: bottom; font-size: 0.9rem;">Select
+       <th scope="col" class="govuk-table__header govuk-!-padding-bottom-0" style="width: 50px; vertical-align: bottom; font-size: 0.9rem;">Select
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
             <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
@@ -275,7 +275,7 @@ Select the certificates you have posted to clear them from this list.
 
   {% elif record.recordStatus == "print" and record.printNumber != "None" %} 
               <tr class="govuk-table__row" data-record-id="{{ record.id }}">
-                   <td class="govuk-table__cell govuk-!-margin-0 govuk-!-padding-0" style="padding-top: 1px; border-color: #f3f3f3;">
+                   <td class="govuk-table__cell govuk-!-margin-0 govuk-!-padding-0" style="padding-top: 1px; border-color: #fff;">
                   <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item ">
 
@@ -304,7 +304,7 @@ Select the certificates you have posted to clear them from this list.
                   {{ record.printNumber }} 
                 </td>
 
-                <td class="govuk-table__cell" style="border-color: #f3f3f3;"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF to print</a>
+                <td class="govuk-table__cell" style="border-color: #fff;"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF to print</a>
                 </td>
                 
                 
