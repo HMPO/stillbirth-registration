@@ -227,9 +227,10 @@ Process online birth registrations – {{ serviceName }} – GOV.UK Prototype Ki
   </h3>
   
 <p class="govuk-body">
-Select the certificates you have posted to clear them from this list.
+Select the certificates you have printed and posted to clear them from this list.
 </p>
 {% from "govuk/components/button/macro.njk" import govukButton %}
+
  {{ govukButton({
   text: "Remove selected",
   classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
@@ -245,14 +246,36 @@ Select the certificates you have posted to clear them from this list.
 
 
 
+ <!-- <div class="govuk-grid-column-one-third govuk-!-padding-right-0 govuk-!-margin-bottom-0 govuk-!-margin-top-5" style="text-align: right;">
+        {{ govukButton({
+  text: "Mark selected as posted",
+  classes: "govuk-button--warning moj-posted-button govuk-!-margin-bottom-3",
+  attributes: {
+    id: "mark-posted-btn"
+  }
+}) }}
+</div> -->
+
+
+
+
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-
+<!-- <p class="govuk-body govuk-!-margin-top-4">Showing 1 to {{ printCount }}  of {{ printCount }} </p> -->
 
 <table class="govuk-table govuk-table--small-text-until-tablet pending-table">
+  <!-- <caption class="govuk-table__caption govuk-table__caption--m">Completed registrations</caption> -->
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-       <th scope="col" class="govuk-table__header" style="width: 50px; vertical-align: bottom; font-size: 0.9rem;">Select
+     
+      <th scope="col" class="govuk-table__header" style="width: 240px; font-size: 0.9rem; padding-top: 10px;">Child's name<br><br></th>
+      <th scope="col" class="govuk-table__header" style="width: 240px; font-size: 0.9rem;">Mother's name<br><br></th>
+      
+      <th scope="col" class="govuk-table__header" style=" font-size: 0.9rem;">Days since<br>submitted</th>
+      <th scope="col" class="govuk-table__header" style="width: 130px; font-size: 0.9rem;">Download postal address<br><br></th>
+      <th scope="col" class="govuk-table__header" style="width: 130px; font-size: 0.9rem;">Open PDF<br>to print</th>
+      <th scope="col" class="govuk-table__header" style=" font-size: 0.9rem;">Number of certificates</th>
+      <th scope="col" class="govuk-table__header" style="width: 50px; vertical-align: bottom; font-size: 0.9rem;">Select
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
             <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
@@ -261,23 +284,40 @@ Select the certificates you have posted to clear them from this list.
           </div>
         </div>
       </th>
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" style="font-size: 0.9rem;">Mother's name and<br>address<br></th>
-      <th scope="col" class="govuk-table__header" style="width: 250px; font-size: 0.9rem; padding-top: 10px;">Child's name<br><br></th>
-      <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Days since<br>submitted</th>
-     <th scope="col" class="govuk-table__header" style="width: 80px; font-size: 0.9rem;">Number of<br>certificates</th>
-      <th scope="col" class="govuk-table__header" style="width: 200px; font-size: 0.9rem;">Actions</th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
 
+
+ 
  {% for record in data.records %}
  {% if record.printNumber == "None" %}
 
-  {% elif record.recordStatus == "print" and record.printNumber != "None" %} 
+  {% elif record.recordStatus == "print" and record.printNumber != "None" %}
+    
               <tr class="govuk-table__row" data-record-id="{{ record.id }}">
-                   <td class="govuk-table__cell govuk-!-margin-0 govuk-!-padding-0" style="padding-top: 1px; border-color: #f3f3f3;">
+                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
+                  
+                    {{ record.childFirstName }}  {{ record.childLastName }}
+                  
+                </td>
+                <td class="govuk-table__cell">
+                  {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
+                </td>
+                 <td class="govuk-table__cell">
+                  {{ record.daysSinceSubmission }} 
+                </td>
+                 <td class="govuk-table__cell" > 
+    <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Get address</button>
+                </td>
+                <td class="govuk-table__cell"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button govuk-button--secondary" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF</a></td>
+                 <td class="govuk-table__cell" >
+                  {{ record.printNumber }} 
+                </td>
+                
+                <td class="govuk-table__cell" style="padding-top: 1px;">
                   <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-0" data-module="govuk-checkboxes">
-                    <div class="govuk-checkboxes__item ">
+                    <div class="govuk-checkboxes__item govuk-!-margin-bottom-0">
 
  <input class="govuk-checkboxes__input govuk-!-margin-bottom-0"
                    id="record-{{ record.id }}"
@@ -286,39 +326,17 @@ Select the certificates you have posted to clear them from this list.
                    value="{{ record.id }}">
             <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0"
                    for="record-{{ record.id }}">
+              <!-- {{ record.id }} -->
+
             </label>
+ <!-- <span id="status-{{ record.id }}">{{ record.recordStatus }}</span> -->
+                      <!-- <input class="govuk-checkboxes__input govuk-!-margin-bottom-0" id="organisation" name="organisation"
+                        type="checkbox" value="hmrc">
+                      <label class="govuk-label govuk-checkboxes__label govuk-!-margin-bottom-0" for="organisation"> </label> -->
                     </div>
                   </div>
                 
                 </td>
-                <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px; border-color: #f3f3f3;">
-                   {{ record.orMotherFirstName }} {{ record.orMotherLastName }}
-                </td>
-                <td class="govuk-table__cell" style="border-color: #f3f3f3;">
-                  {{ record.childFirstName }}  {{ record.childLastName }}
-                </td>
-                 <td class="govuk-table__cell" style="border-color: #f3f3f3;">
-                  {{ record.daysSinceSubmission }} 
-                </td>
-                <td class="govuk-table__cell" style="border-color: #f3f3f3;">
-                  {{ record.printNumber }} 
-                </td>
-
-                <td class="govuk-table__cell" style="border-color: #f3f3f3;"><a href="/public/images/birth-cert.png" target="_blank" class="govuk-button" style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Open PDF to print</a>
-                </td>
-                
-                
-             
-              </tr>
-              <tr class="govuk-table__row" data-record-id="{{ record.id }}">
-                 <td class="govuk-table__cell" colspan="1"> </td>
-                <td class="govuk-table__cell" colspan="4" style="vertical-align: middle;"> {{ record.orMotherCurrentAddress }} </td>
-                <!-- <td class="govuk-table__cell" colspan="1"> </td> -->
-                <td class="govuk-table__cell govuk-!-padding-top-2" style="vertical-align: middle;">
-                   <button class="govuk-button govuk-button--secondary moj-copy-button" aria-live="polite"  style="padding: 2px 4px !important; font-size: 0.9rem; margin:2px !important;">Copy name and address</button>
-   
-                </td>
-               
               </tr>
             
             {% endif %}
@@ -435,10 +453,10 @@ View these registrations to start an in-person registration. The registration is
     document.addEventListener('DOMContentLoaded', function () {
       //copy buttons
       var copyButtons = document.querySelectorAll('.moj-copy-button');
-      var originalText = 'Copy name and address';
+      var originalText = 'Get address';
       copyButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-          button.textContent = 'Name and address copied';
+          button.textContent = 'Downloaded';
           button.classList.add('moj-copy-button--copied');
           setTimeout(function () {
             button.textContent = originalText;
@@ -449,7 +467,7 @@ View these registrations to start an in-person registration. The registration is
 
       // Posted buttons
       var postedButtons = document.querySelectorAll('.moj-posted-button');
-      var postedOriginalText = 'Remove selected';
+      var postedOriginalText = 'Mark selected as posted';
       postedButtons.forEach(function (button) {
         button.addEventListener('click', function () {
           button.textContent = 'Registrations posted and removed';
@@ -462,47 +480,39 @@ View these registrations to start an in-person registration. The registration is
       });
 
 
-// Find all checkboxes
-    var checkboxes = document.querySelectorAll('input[name="records"]');
-    // Find the button
-    var postBtn = document.getElementById('mark-posted-btn');
-
-    // On button click
-    postBtn.addEventListener('click', function () {
-      // (Optional) still do your status update if you are using status spans
-      checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-          var statusSpan = document.getElementById('status-' + checkbox.value);
-          if (statusSpan) {
-            statusSpan.textContent = 'posted';
+      // Find all checkboxes
+      var checkboxes = document.querySelectorAll('input[name="records"]');
+      // Find the button
+      var postBtn = document.getElementById('mark-posted-btn');
+      // On button click
+      postBtn.addEventListener('click', function () {
+        checkboxes.forEach(function (checkbox) {
+          if (checkbox.checked) {
+            // Update status shown in the table
+            var statusSpan = document.getElementById('status-' + checkbox.value);
+            if (statusSpan) {
+              statusSpan.textContent = 'posted';
+            }
+            // You could also add styling or feedback here if needed
           }
-        }
-      });
-
-      // Now remove rows for checked checkboxes
-      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
-
-      checkedBoxes.forEach(function (checkbox) {
-        // First row: the one containing the checkbox
-        var row = checkbox.closest('tr');
-
-        if (row) {
-          // Second row: the row immediately after (address + Copy button)
-          var nextRow = row.nextElementSibling;
-
-          // Remove second row first (so we don’t affect row’s parent while we still need nextElementSibling)
-          if (nextRow && nextRow.matches('.govuk-table__row')) {
-            nextRow.parentNode.removeChild(nextRow);
-          }
-
-          // Now remove the main row
-          row.parentNode.removeChild(row);
-        }
-      });
-    });
-
-     
+        });
       
+        var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
+    checkedBoxes.forEach(function(checkbox) {
+      // Find the containing <tr>
+      var row = checkbox.closest('tr');
+      if (row) {
+        row.parentNode.removeChild(row); // Remove the row from the table
+      }
+      // Optionally: you could update a JS variable for recordStatus if you want to track state in your prototype
+    });
+      
+      });
+
+
+
+
+
     });
   </script>
 
