@@ -972,7 +972,7 @@ const records = [
 },
 {
   id: 11,
-  recordStatus: 'print',
+  recordStatus: 'post',
   qualification1: 'Mother',
   qualification2: 'Father',
   relationshipType: 'Yes',

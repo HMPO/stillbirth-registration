@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">
+
+       <div class="govuk-notification-banner " role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="text-align: center; border-color: #6f72af;">
+  <!-- <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div> -->
+  <div class="govuk-notification-banner__content">
+    <h2 class="govuk-panel__title govuk-heading-m" >
+      Appointment required
+    </h2>
+
+   <div class="govuk-panel__body govuk-body-l">
+            System reference number<br>
+           <strong>{{ record.referenceNumber }}</strong>
+    <!-- <br><br>
+  Child's NHS number<br><strong>{{ record.nhsNHS }}</strong> -->
+          </div>
+  </div>
+</div>
+
+      <br>
+
+      <!-- <h2 class="govuk-heading-m">
+        What to do next
+      </h2> 
+-->
+      <p class="govuk-body">
+        This registration requires an in-person appointment. </p>
+
+      
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "View added notes",
+  text: "Notes added previously go here."
+}) }}
+
+<p class="govuk-heading-s"><b>What happens next</b></p>
+
+<p class="govuk-body">You must contact the informant and ask them to book an in-person appointment.</p>
+
+<p class="govuk-body">You can find this registration again in:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>‘appointments required’ section of the online birth registrations</li>
+<li>unregistered births</li>
+</ul>
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-4 govuk-!-margin-top-6">
+        <div class="govuk-grid-column-full">
+           <input type="hidden" name="id" value="{{ record.id }}">
+
+       {% if nextId %}
+      <a href="/registrar-view-of-online/v4/04-check-answers-page?id={{ nextId }}"
+           class="govuk-button govuk-button--secondary"
+           data-module="govuk-button">
+          View next online registration
+        </a>
+      {% else %}
+        <p class="govuk-body">
+          There are no more online registrations to review.
+        </p>
+      {% endif %}    
+</div>
+</div>
+
+       <p  class="govuk-body govuk-!-margin-bottom-3">
+        <a href="02-pending-list.html#print">
+          View ready to print list
+        </a>
+      </p>
+
+      <p  class="govuk-body">
+        <a href="02-pending-list">
+          Return to online birth registration
+        </a>
+      </p>
+ <p class="govuk-body">
+        <a href="01-life-event-home">
+          Return to homepage
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

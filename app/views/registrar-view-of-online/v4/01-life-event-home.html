@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a prototype, not the real service.'
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Life event home
+      </h1>
+
+
+<div class="govuk-!-padding-bottom-6">
+<h2 class="govuk-heading-m">Births</h2>
+  {# Start by setting counters to 0 #}
+{% set toProcessCount = 0 %}
+{% set printCount = 0 %}
+{% set postCount = 0 %}
+{% set inpersonCount = 0 %}
+
+{# Loop over all records and increment the right counters #}
+{% for record in data.records %}
+  {# To be processed: pending, onhold, inreview #}
+  {% if record.recordStatus == "pending"
+    or record.recordStatus == "onhold"
+    or record.recordStatus == "inreview"
+    or record.recordStatus == "district"
+  %}
+    {% set toProcessCount = toProcessCount + 1 %}
+  {% endif %}
+
+  {# Ready to print #}
+  {% if record.recordStatus == "print" %}
+    {% set printCount = printCount + 1 %}
+  {% endif %}
+
+   {# Ready to post #}
+  {% if record.recordStatus == "post" %}
+    {% set postCount = postCount + 1 %}
+  {% endif %}
+
+  {# Appointments required #}
+  {% if record.recordStatus == "inperson" %}
+    {% set inpersonCount = inpersonCount + 1 %}
+  {% endif %}
+{% endfor %}    
+        <ul class="govuk-list">
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="02-pending-list.html">Process online birth registrations</a><br> 
+            
+            
+({{ toProcessCount }} to be processed, 
+   {{ printCount }} for printing, 
+   {{ postCount }} for posting, 
+   {{ inpersonCount }} appointment{% if inpersonCount != 1 %}s{% endif %} required)
+
+            <!-- (5 to be processed, 5 for printing, 1 appointment required) -->
+          </li>
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="20-unregistered-births.html">Unregistered births</a>
+          </li>
+           <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="10-search.html">Register a birth</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="../../births/v1/02-search">Register a multiple birth</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="../../stillbirths/v4/02b-notifications">Register a stillbirth</a>
+          </li>
+          <li class="govuk-!-margin-bottom-3"><a class="govuk-link" href="#">Re-register a birth</a>
+          </li>
+           
+        </ul>
+        
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">    
+</div>
+      
+<div class="govuk-!-padding-bottom-6">
+<h2 class="govuk-heading-m">Deaths</h2> 
+ <ul class="govuk-list">
+          <li><a class="govuk-link" href="#">Register a death or view pending</a>
+          </li>
+        </ul>   
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">  
+</div>
+    </div>
+  </div>
+
+{% endblock %}

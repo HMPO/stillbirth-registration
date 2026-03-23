@@ -304,3 +304,19 @@ $govuk-button-text-colour: govuk-colour("black");
   //border-color: #fff !important;
   //box-shadow: 0 0 0 4px #000; /* GOV.UK focus ring */
 }
+
+/* 'Printed' state for the button */
+.moj-printed-button--copied {
+  background-color: #fd0 !important;     /* White background */
+  color: #0b0c0c !important;             /* GOV.UK black text */
+  //border-color: #fff !important;      /* Standard border */
+  //border-color: #b1b4b6 !important;      /* Standard border */
+}
+/* Ensure hover/focus on 'copied' state still looks correct */
+.moj-printed-button--copied:hover,
+.moj-printed-button--copied:focus {
+  background-color: #fd0 !important;
+  color: #0b0c0c !important;
+  //border-color: #fff !important;
+  //box-shadow: 0 0 0 4px #000; /* GOV.UK focus ring */
+}
