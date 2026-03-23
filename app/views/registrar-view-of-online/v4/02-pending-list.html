@@ -355,21 +355,21 @@ Select certificates you have successfully printed. Use ‘Confirm as printed’ 
 
  </div>   
 </div>
-<h3 class="govuk-heading-m govuk-!-margin-bottom-2">Manage posted certificates</h3>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-2">Certificates ready to post</h3>
 
 
 <div class="govuk-grid-row govuk-!-margin-0">
 <div class="govuk-grid-column-full govuk-!-padding-3" style="background-color: #f3f2f1;">
   
   <h3 class="govuk-heading-s govuk-!-padding-bottom-0">
-   Manage print queue
+   Manage posted certificates
   </h3>
   
 <p class="govuk-body">
 Select the certificates you have posted. Use ‘Confirm as posted’ to clear them from this list and receive payment.
-<br><br>
-<strong> This action cannot be undone</strong>
 </p>
+<p class="govuk-body-s"><strong> This action cannot be undone</strong></p>
+
 {% from "govuk/components/button/macro.njk" import govukButton %}
  {{ govukButton({
   text: "Confirm as posted",
@@ -604,8 +604,9 @@ View these registrations to start an in-person registration. The registration is
     var checkboxes = document.querySelectorAll('input[name="records"]');
     // Find the button
     var postBtn = document.getElementById('mark-posted-btn');
+    var printBtn = document.getElementById('mark-printed-btn');
 
-    // On button click
+    // On POST button click
     postBtn.addEventListener('click', function () {
       // (Optional) still do your status update if you are using status spans
       checkboxes.forEach(function (checkbox) {
@@ -633,6 +634,33 @@ View these registrations to start an in-person registration. The registration is
             nextRow.parentNode.removeChild(nextRow);
           }
 
+          // Now remove the main row
+          row.parentNode.removeChild(row);
+        }
+      });
+    });
+
+
+     // On PRINT button click
+    printBtn.addEventListener('click', function () {
+      // (Optional) still do your status update if you are using status spans
+      checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+          var statusSpan = document.getElementById('status-' + checkbox.value);
+          if (statusSpan) {
+            statusSpan.textContent = 'post';
+          }
+        }
+      });
+
+      // Now remove rows for checked checkboxes
+      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
+
+      checkedBoxes.forEach(function (checkbox) {
+        // First row: the one containing the checkbox
+        var row = checkbox.closest('tr');
+
+        if (row) {
           // Now remove the main row
           row.parentNode.removeChild(row);
         }
