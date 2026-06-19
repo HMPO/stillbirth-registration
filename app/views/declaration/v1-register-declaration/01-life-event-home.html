@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a prototype, not the real service.'
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Births
+      </h1>
+
+
+<div class="govuk-!-padding-bottom-6">
+<!-- <h2 class="govuk-heading-m">Births</h2> -->
+    
+        <ul class="govuk-list">
+
+            <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="10-search.html">Register a birth &#8250;</a>
+          </li>
+
+           <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="02-pending-list.html">Process online birth registrations &#8250;</a><br> 
+          </li>
+
+   <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="02-attest-home.html">Attest or register a birth from declaration &#8250;</a>
+          </li>
+
+            <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="#">Re-register a birth &#8250;</a>
+          </li>
+
+            <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="#">Correct a birth registration &#8250;</a>
+          </li>
+
+             <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="#">Print a birth certificate &#8250;</a>
+          </li>
+        </ul>
+<h2 class="govuk-heading-m">
+        Multiple births and late registrations
+      </h2>
+        <ul class="govuk-list">
+            <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="#">Register multiple births &#8250;</a>
+          </li>
+
+           <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="../../requisitions/req-mvp-plus-minus/02-notifications-home.html">Follow up on unregistered births &#8250;</a>
+          </li>
+         
+           <li class="govuk-!-margin-bottom-2 govuk-!-padding-2" style="background-color: 	#f3f3f3;"><a class="govuk-link govuk-link--no-underline" href="#">Register a birth or multiple birth over 12 months &#8250;</a>
+          </li>
+        </ul>
+ <h2 class="govuk-heading-m">
+        View a birth record</h2>       
+
+        
+
+        <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label" for="account-number">
+      Entry or system number
+    </label>
+  </h1>
+  <div id="account-number-hint" class="govuk-hint">
+    It’s a 9-digit number, for example 987 654 321
+  </div>
+  <input class="govuk-input govuk-input--width-10" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+</div>
+<p class="govuk-body">
+<a href="#" class="govuk-link">I do not have the entry or system number</a>
+</p>
+</div>
+      
+
+
+{% endblock %}

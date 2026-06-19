@@ -555,59 +555,89 @@ View these registrations to start an in-person registration. The registration is
 
     
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      //copy buttons
-      var copyButtons = document.querySelectorAll('.moj-copy-button');
-      var originalText = 'Copy address';
-      copyButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          button.textContent = 'Address copied';
-          button.classList.add('moj-copy-button--copied');
-          setTimeout(function () {
-            button.textContent = originalText;
-            button.classList.remove('moj-copy-button--copied');
-          }, 4000);
-        });
+ 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ===========================
+    // 1. Copy buttons
+    // ===========================
+    var copyButtons = document.querySelectorAll('.moj-copy-button');
+    var originalText = 'Copy address';
+    copyButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        button.textContent = 'Address copied';
+        button.classList.add('moj-copy-button--copied');
+        setTimeout(function () {
+          button.textContent = originalText;
+          button.classList.remove('moj-copy-button--copied');
+        }, 4000);
       });
+    });
 
-      // Posted buttons
-      var postedButtons = document.querySelectorAll('.moj-posted-button');
-      var postedOriginalText = 'Confirm as posted';
-      postedButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          button.textContent = 'Certificates posted';
-          button.classList.add('moj-posted-button--copied');
-          setTimeout(function () {
-            button.textContent = postedOriginalText;
-            button.classList.remove('moj-posted-button--copied');
-          }, 4000);
-        });
+    // ===========================
+    // 2. Posted buttons (per-row)
+    // ===========================
+    var postedButtons = document.querySelectorAll('.moj-posted-button');
+    var postedOriginalText = 'Confirm as posted';
+    postedButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        button.textContent = 'Certificates posted';
+        button.classList.add('moj-posted-button--copied');
+        setTimeout(function () {
+          button.textContent = postedOriginalText;
+          button.classList.remove('moj-posted-button--copied');
+        }, 4000);
       });
+    });
 
-       // Printed buttons
-      var printedButtons = document.querySelectorAll('.moj-printed-button');
-      var printedOriginalText = 'Confirm as printed';
-      printedButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          button.textContent = 'Certificates printed';
-          button.classList.add('moj-printed-button--copied');
-          setTimeout(function () {
-            button.textContent = printedOriginalText;
-            button.classList.remove('moj-printed-button--copied');
-          }, 4000);
-        });
+    // ===========================
+    // 3. Printed buttons (per-row)
+    // ===========================
+    var printedButtons = document.querySelectorAll('.moj-printed-button');
+    var printedOriginalText = 'Confirm as printed';
+    printedButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        button.textContent = 'Certificates printed';
+        button.classList.add('moj-printed-button--copied');
+        setTimeout(function () {
+          button.textContent = printedOriginalText;
+          button.classList.remove('moj-printed-button--copied');
+        }, 4000);
       });
+    });
 
+    // ===========================
+    // 4. Variables you asked for
+    // ===========================
+    // These are page-level variables – they reset when the page reloads
+   // var recordStatus = null;
+   // var printCount = 0;  // You can set an initial value here
+   // var postCount = 0;   // You can set an initial value here
 
-// Find all checkboxes
+    // If you already know how many items are in each list,
+    // you can initialise based on DOM here, for example:
+    // printCount = document.querySelectorAll('.print-row-selector').length;
+    // postCount  = document.querySelectorAll('.post-row-selector').length;
+
+    // ===========================
+    // 5. Checkbox + buttons logic
+    // ===========================
+    // Find all checkboxes
     var checkboxes = document.querySelectorAll('input[name="records"]');
-    // Find the button
+    // Find the buttons
     var postBtn = document.getElementById('mark-posted-btn');
     var printBtn = document.getElementById('mark-printed-btn');
 
+    // ===========================
     // On POST button click
+    // ===========================
     postBtn.addEventListener('click', function () {
+      // Set variables for this action
+      recordStatus = 'done';
+      // Decrease postCount by number of checked items
+      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
+      postCount = postCount - checkedBoxes.length;
+
       // (Optional) still do your status update if you are using status spans
       checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
@@ -619,8 +649,6 @@ View these registrations to start an in-person registration. The registration is
       });
 
       // Now remove rows for checked checkboxes
-      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
-
       checkedBoxes.forEach(function (checkbox) {
         // First row: the one containing the checkbox
         var row = checkbox.closest('tr');
@@ -629,7 +657,7 @@ View these registrations to start an in-person registration. The registration is
           // Second row: the row immediately after (address + Copy button)
           var nextRow = row.nextElementSibling;
 
-          // Remove second row first (so we don’t affect row’s parent while we still need nextElementSibling)
+          // Remove second row first
           if (nextRow && nextRow.matches('.govuk-table__row')) {
             nextRow.parentNode.removeChild(nextRow);
           }
@@ -638,11 +666,22 @@ View these registrations to start an in-person registration. The registration is
           row.parentNode.removeChild(row);
         }
       });
+
+      // (Optional) log to console so you can see it working in DevTools
+      console.log('recordStatus:', recordStatus);
+      console.log('postCount:', postCount);
     });
 
-
-     // On PRINT button click
+    // ===========================
+    // On PRINT button click
+    // ===========================
     printBtn.addEventListener('click', function () {
+      // Set variables for this action
+      recordStatus = 'post';
+      // Decrease printCount by number of checked items
+      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
+      printCount = printCount - checkedBoxes.length;
+
       // (Optional) still do your status update if you are using status spans
       checkboxes.forEach(function (checkbox) {
         if (checkbox.checked) {
@@ -654,23 +693,23 @@ View these registrations to start an in-person registration. The registration is
       });
 
       // Now remove rows for checked checkboxes
-      var checkedBoxes = document.querySelectorAll('input[name="records"]:checked');
-
       checkedBoxes.forEach(function (checkbox) {
         // First row: the one containing the checkbox
         var row = checkbox.closest('tr');
 
         if (row) {
-          // Now remove the main row
+          // For print you only remove this row (as per your existing code)
           row.parentNode.removeChild(row);
         }
       });
-    });
 
-     
-      
+      // (Optional) log to console so you can see it working in DevTools
+      console.log('recordStatus:', recordStatus);
+      console.log('printCount:', printCount);
     });
-  </script>
+  });
+</script>
+
 
 
 

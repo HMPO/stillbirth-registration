@@ -22,6 +22,8 @@ require('./views/requisitions/req-ur-r3/_routes')(router);
 
 require('./views/requisitions/req-mvp-plus-minus/_routes')(router);
 
+require('./views/births/v1/_routes')(router);
+
 require('./views/stillbirths/latest/_routes')(router);
 require('./views/stillbirths/latest/informant/_routes')(router);
 require('./views/stillbirths/latest/no-informant/_routes')(router);
@@ -29,8 +31,6 @@ require('./views/stillbirths/latest/no-informant/_routes')(router);
 require('./views/stillbirths/v1/_routes')(router);
 require('./views/stillbirths/v1/informant/_routes')(router);
 require('./views/stillbirths/v1/no-informant/_routes')(router);
-
-require('./views/births/v1/_routes')(router);
 
 require('./views/stillbirths/v2/_routes')(router);
 require('./views/stillbirths/v2/informant/_routes')(router);
@@ -48,6 +48,8 @@ require('./views/registrar-view-of-online/v1/_routes')(router);
 require('./views/registrar-view-of-online/v2/_routes')(router);
 require('./views/registrar-view-of-online/v3/_routes')(router);
 require('./views/registrar-view-of-online/v4/_routes')(router);
+
+require('./views/declaration/v1-register-declaration/_routes')(router);
 
 module.exports = router;
 
