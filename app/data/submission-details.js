@@ -394,7 +394,7 @@ const records2 = [
   recordStatus: 'pending',
   qualification1: 'Mother',
   qualification2: 'Father',
-  relationshipType: 'No',
+  relationshipType: 'Yes',
   printNumber: '1',
   submissionDate: '18 March 2026',
   daysSinceSubmission: '0',
