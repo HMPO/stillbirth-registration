@@ -83,12 +83,12 @@ Attest or register a birth – {{ serviceName }} – GOV.UK Prototype Kit
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
-                 <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/declaration/v1-register-declaration/04-check-answers-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% else %}
 
-                 <a href="/registrar-view-of-online/v3/03-register-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/declaration/v1-register-declaration/03-register-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% endif %}
@@ -165,12 +165,12 @@ Attest or register a birth – {{ serviceName }} – GOV.UK Prototype Kit
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" style="white-space: nowrap; padding-top: 15px;">
                  {% if record.recordStatus == "inreview" or record.recordStatus == "onhold" %}
-                 <a href="/registrar-view-of-online/v3/04-check-answers-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/declaration/v1-register-declaration/04-check-answers-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% else %}
 
-                 <a href="/registrar-view-of-online/v3/03-register-page?id={{ record.id }}" class="govuk-link">
+                 <a href="/declaration/v1-register-declaration/03-register-page?id={{ record.id }}" class="govuk-link">
                     {{ record.referenceNumber }}
                   </a>
                   {% endif %}
