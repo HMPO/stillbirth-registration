@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Registration complete",
+        html: "System reference number<br><strong>2851234333</strong>"
+      }) }}
+
+      <br>
+
+      <!-- <h2 class="govuk-heading-m">
+        What to do next
+      </h2> 
+-->
+      <p class="govuk-body">
+        You can now print the death certificate and the disposal document.
+      </p>
+      <h3 class="govuk-heading-s">
+        Alan DAVIES
+      </h3>
+
+       <p  class="govuk-body govuk-!-margin-bottom-4">
+        <a href="#">
+          Death certificate (opens in new tab)
+        </a>
+      </p>
+        <p  class="govuk-body govuk-!-margin-bottom-9">
+        <a href="#">
+        
+         Disposal document (opens in new tab)
+        </a>
+      </p>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full govuk-!-margin-bottom-9">
+          
+         
+      <h3 class="govuk-heading-m">What to do next</h3>
+      <p class="govuk-body">
+        You can continue to <a href="disposal-page.html">add information about the disposal</a>. For example, add comments or the date Part B was issued.
+      </p>
+ </div>
+      </div>
+
+        <p  class="govuk-body">
+        <a href="00-service-selector.html">
+          Return to homepage
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
