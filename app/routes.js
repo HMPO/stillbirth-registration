@@ -51,6 +51,8 @@ require('./views/registrar-view-of-online/v4/_routes')(router);
 
 require('./views/declaration/v1-register-declaration/_routes')(router);
 
+require('./views/disposal-details/_routes')(router);
+
 module.exports = router;
 
 // 

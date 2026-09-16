@@ -94,4 +94,22 @@ window.GOVUKPrototypeKit.documentReady(() => {
     })
     })
 
+    //
+// For guidance on how to add JavaScript see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+//
+
+window.GOVUKPrototypeKit.documentReady(() => {
+  const saveCommentsButton = document.getElementById('add-note-btn')
+  const commentsInput = document.getElementById('more-detail')
+  const commentsText = document.getElementById('comments-text')
+
+  if (!saveCommentsButton || !commentsInput || !commentsText) return
+
+  saveCommentsButton.addEventListener('click', () => {
+    commentsText.textContent = commentsInput.value
+    commentsText.hidden = commentsInput.value.trim() === ''
+  })
+})
+
 // copied button

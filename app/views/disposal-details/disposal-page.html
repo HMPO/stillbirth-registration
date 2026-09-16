@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Search for a death record" %}
+
+{% block pageTitle %}
+ Search for a death record - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+ 
+    <div class="govuk-form-group">
+       
+        <h1 class="govuk-heading-l">
+            <!-- <span class="govuk-caption-l">Record search</span> -->
+             Disposal information for Jan Doyle 
+        </h1>
+</div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">       
+<div class="govuk-notification-banner govuk-!-margin-top-0" style="border-color: 	#f3f3f3;" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__content">        
+        <h3 class="govuk-heading-m">Registrar's comments (optional)</h3>
+        <p class="govuk-hint">Add any comments about this disposal. For example, the proposed funeral director, DIS number, who the form was given to, and if the body will be buried or cremated outside England and Wales.</p>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Add comments
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div>
+
+<div class="govuk-button-group">
+      <button type="button" id="add-note-btn" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-govuk-button-init="">
+        Save comments
+      </button>
+      <a href="#" class="govuk-link" id="cancel-link">Cancel</a>
+    </div>
+  </div>
+</details>
+<p class="govuk-body" id="comments-text"{% if not comments %} hidden{% endif %}>{{ comments }}</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+<h2 class="govuk-heading-m">Disposal document</h2>
+
+
+
+      <p class="govuk-body">
+  <a href=".pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">
+    View or print disposal document (opens in new tab)
+  </a>
+</p><br>
+
+
+<h3 class="govuk-body govuk-!-margin-bottom-1">
+  <strong>Part B</strong> 
+</h3>
+       <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date Part B was issued 
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Not entered
+    </dd>
+    <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="disposal-information.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+  </div>
+</dl>
+  <h3 class="govuk-body govuk-!-margin-bottom-1">
+  <strong>Part C (notification of burial or cremation) </strong> 
+</h3>
+<!-- <p class="govuk-body">
+ Notification of burial or cremation</p> -->
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Burial or cremation
+    </dt>
+    <dd class="govuk-summary-list__value">
+     Not entered
+    </dd>
+    <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="disposal-information.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+  </div>
+   <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of cremation or burial 
+    </dt>
+    <dd class="govuk-summary-list__value">
+     Not entered
+    </dd>
+    <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="disposal-information.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Place of burial or cremation
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Not entered
+    </dd>
+    <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="disposal-information.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+  </div>
+  
+</dl>
+
+
+
+
+
+
+
+
+    
+
+        <p class="govuk-body govuk-!-margin-top-9">
+  <a href="correct-record.html" class="govuk-link">View record</a>
+</p>
+
+       
+        
+
+        
+
+           
+  
+
+       
+    
+
+
+    </div>
+    
+
+
+    </div>
+  </div>
+
+{% endblock %}
