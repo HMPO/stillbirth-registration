@@ -30,7 +30,109 @@ href: "javascript:window.history.back()"
 <h2 class="govuk-heading-m">Part B details</h2>
 
  <form action="/disposal-details/task1/disposal-form" method="post">
+
 <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <p class="govuk-heading-s">
+        Date Part B was issued by registrar or coroner
+      </p>
+    </legend>
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+      <!-- Today's date radio -->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="part-b-date-today"
+               name="part-b-date"
+               type="radio"
+               value="today"
+               {% if data['part-b-date'] == 'today' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="part-b-date-today">
+          Today's date
+        </label>
+      </div>
+
+      <!-- On another date radio with conditional date input -->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="part-b-date-other"
+               name="part-b-date"
+               type="radio"
+               value="other"
+               data-aria-controls="conditional-part-b-date-other"
+               {% if data['part-b-date'] == 'other' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="part-b-date-other">
+          On another date
+        </label>
+      </div>
+
+      <div class="govuk-radios__conditional {% if data['part-b-date'] != 'other' %}govuk-radios__conditional--hidden{% endif %}" id="conditional-part-b-date-other">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="part-b-date-hint">
+            <div class="govuk-date-input" id="part-b-date-input">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-day">Day</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                         id="part-b-date-day"
+                         name="part-b-date-day"
+                         type="text"
+                         inputmode="numeric"
+                         maxlength="2"
+                         aria-describedby="part-b-date-hint"
+                         value="{{ data['part-b-date-day'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-month">Month</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                         id="part-b-date-month"
+                         name="part-b-date-month"
+                         type="text"
+                         inputmode="numeric"
+                         maxlength="2"
+                         aria-describedby="part-b-date-hint"
+                         value="{{ data['part-b-date-month'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-year">Year</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                         id="part-b-date-year"
+                         name="part-b-date-year"
+                         type="text"
+                         inputmode="numeric"
+                         maxlength="4"
+                         aria-describedby="part-b-date-hint"
+                         value="{{ data['part-b-date-year'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- Unknown radio -->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="part-b-date-unknown"
+               name="part-b-date"
+               type="radio"
+               value="unknown"
+               {% if data['part-b-date'] == 'unknown' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="part-b-date-unknown">
+          Currently unknown or not issued yet
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+<!-- <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <p class="govuk-heading-s">
@@ -81,17 +183,17 @@ href: "javascript:window.history.back()"
       </div>
 
        <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="part-b-date-unknown" name="part-b-date" type="radio" value="today">
+        <input class="govuk-radios__input" id="part-b-date-unknown" name="part-b-date" type="radio" value="unknown">
         <label class="govuk-label govuk-radios__label" for="part-b-date-unknown">
-          Not yet known
+          Currently unknown or not issued yet
         </label>
       </div>
     </div>
   </fieldset>
-</div>
+</div> -->
 <br>
 <h2 class="govuk-heading-m">Part C (notification of burial or cremation)</h2>
-<div class="govuk-form-group">
+<!-- <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <p class="govuk-heading-s">
@@ -119,6 +221,50 @@ href: "javascript:window.history.back()"
       </div>
     </div>
   </fieldset>
+</div> -->
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <p class="govuk-heading-s">
+        Select type of disposal
+      </p>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="disposal-type-cremation"
+               name="disposalType"
+               type="radio"
+               value="cremation"
+               {% if data['disposalType'] == 'cremation' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="disposal-type-cremation">
+          Cremation
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="disposal-type-burial"
+               name="disposalType"
+               type="radio"
+               value="burial"
+               {% if data['disposalType'] == 'burial' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="disposal-type-burial">
+          Burial
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input"
+               id="disposal-type-unknown"
+               name="disposalType"
+               type="radio"
+               value="unknown"
+               {% if data['disposalType'] == 'unknown' %}checked{% endif %}>
+        <label class="govuk-label govuk-radios__label" for="disposal-type-unknown">
+          Currently unknown
+        </label>
+      </div>
+    </div>
+  </fieldset>
 </div>
 
 
@@ -126,10 +272,71 @@ href: "javascript:window.history.back()"
   <label class="govuk-heading-s" for="event-name">
     Place of burial or cremation
   </label>
-  <input class="govuk-input" id="event-name" name="disposalPlace" type="text">
+  <input class="govuk-input"
+         id="event-name"
+         name="disposalPlace"
+         type="text"
+         value="{{ data['disposalPlace'] }}">
 </div>
 
+<!-- <div class="govuk-form-group">
+  <label class="govuk-heading-s" for="event-name">
+    Place of burial or cremation
+  </label>
+  <input class="govuk-input" id="event-name" name="disposalPlace" type="text">
+</div> -->
+
 <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="disposal-date-hint">
+    <legend class="govuk-heading-s">
+      Date the burial or cremation took place
+    </legend>
+    <div class="govuk-date-input" id="disposal-date">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                 id="disposal-date-day"
+                 name="disposalDateDay"
+                 type="text"
+                 inputmode="numeric"
+                 value="{{ data['disposalDateDay'] }}">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                 id="disposal-date-month"
+                 name="disposalDateMonth"
+                 type="text"
+                 inputmode="numeric"
+                 value="{{ data['disposalDateMonth'] }}">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                 id="disposal-date-year"
+                 name="disposalDateYear"
+                 type="text"
+                 inputmode="numeric"
+                 value="{{ data['disposalDateYear'] }}">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<!-- <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" role="group" aria-describedby="disposal-date-hint">
     <legend class="govuk-heading-s">
       Date the burial or cremation took place
@@ -161,7 +368,7 @@ href: "javascript:window.history.back()"
       </div>
     </div>
   </fieldset>
-</div>
+</div> -->
         
 
 <!-- {{ govukButton({

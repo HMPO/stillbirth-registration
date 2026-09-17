@@ -85,13 +85,34 @@ href: "javascript:window.history.back()"
       Date Part B was issued 
     </dt>
     <dd class="govuk-summary-list__value">
-{% if data['part-b-date'] == 'today' %}
+
+<!-- {% if data['part-b-date-unknown'] == 'unknown' %}
+    Not entered
+{% elif data['part-b-date'] == 'today' %}
   21 September 2026
 {% elif data['part-b-date'] == 'other' %}
   {{ data['part-b-date-day'] }} {{ data['part-b-date-month'] }} {{ data['part-b-date-year'] }}
 {% else %}
   Not entered
-{% endif %} 
+{% endif %}  -->
+
+{% set monthNames = [
+  '', 'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+] %}
+
+{% if data['part-b-date'] == 'unknown' %}
+  Not entered
+{% elif data['part-b-date'] == 'today' %}
+  21 September 2026
+{% elif data['part-b-date'] == 'other' %}
+  {{ data['part-b-date-day'] }}
+  {{ monthNames[data['part-b-date-month'] | int] }}
+  {{ data['part-b-date-year'] }}
+{% else %}
+  Not entered
+{% endif %}
+
     </dd>
     <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -109,7 +130,10 @@ href: "javascript:window.history.back()"
       Burial or cremation
     </dt>
     <dd class="govuk-summary-list__value">
-      {% if data['disposalType'] %}
+
+       {% if data['disposalType'] == 'unknown' %}
+    Not entered
+      {% elif data['disposalType'] %}
     {{ data['disposalType'] | capitalize }}
   {% else %}
     Not entered
@@ -128,7 +152,7 @@ href: "javascript:window.history.back()"
       {% if data['disposalPlace'] %}
     {{ data['disposalPlace'] }}
   {% else %}
-    Not entered
+   Not entered
   {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions">
@@ -142,7 +166,10 @@ href: "javascript:window.history.back()"
     </dt>
     <dd class="govuk-summary-list__value">
      {% if data['disposalDateDay'] and data['disposalDateMonth'] and data['disposalDateYear'] %}
-    {{ data['disposalDateDay'] }} {{ data['disposalDateMonth'] }} {{ data['disposalDateYear'] }}
+    {{ data['disposalDateDay'] }} 
+    <!-- {{ data['disposalDateMonth'] }}  -->
+      {{ monthNames[data['disposalDateMonth'] | int] }}
+    {{ data['disposalDateYear'] }}
   {% else %}
     Not entered
   {% endif %}
