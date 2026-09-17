@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Search for a death record" %}
+
+{% block pageTitle %}
+  Search for a death record - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+   
+       
+        <h1 class="govuk-heading-l">
+            <!-- <span class="govuk-caption-l">Record search</span> -->
+            Disposal information
+        </h1>
+
+<p class="govuk-body">Complete any details you have available. You can save and return to submit remaining information later</p>
+
+<h2 class="govuk-heading-m">Part B details</h2>
+
+ <form action="/disposal-details/task1/disposal-form" method="post">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <p class="govuk-heading-s">
+        Date Part B was issued by registrar or coroner
+      </p>
+    </legend>
+ <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="part-b-date-today" name="part-b-date" type="radio" value="today">
+        <label class="govuk-label govuk-radios__label" for="part-b-date-today">
+          Today's date
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="part-b-date-other" name="part-b-date" type="radio" value="other" data-aria-controls="conditional-part-b-date-other">
+        <label class="govuk-label govuk-radios__label" for="part-b-date-other">
+          On another date
+        </label>
+      </div>
+
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-part-b-date-other">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="part-b-date-hint">
+           
+            <div class="govuk-date-input" id="part-b-date-input">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-day">Day</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="part-b-date-day" name="part-b-date-day" type="text" inputmode="numeric" maxlength="2" aria-describedby="part-b-date-hint">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-month">Month</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="part-b-date-month" name="part-b-date-month" type="text" inputmode="numeric" maxlength="2" aria-describedby="part-b-date-hint">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="part-b-date-year">Year</label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="part-b-date-year" name="part-b-date-year" type="text" inputmode="numeric" maxlength="4" aria-describedby="part-b-date-hint">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+       <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="part-b-date-unknown" name="part-b-date" type="radio" value="today">
+        <label class="govuk-label govuk-radios__label" for="part-b-date-unknown">
+          Not yet known
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<br>
+<h2 class="govuk-heading-m">Part C (notification of burial or cremation)</h2>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <p class="govuk-heading-s">
+        Select type of disposal
+      </p>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="disposal-type-cremation" name="disposalType" type="radio" value="cremation">
+        <label class="govuk-label govuk-radios__label" for="disposal-type-cremation">
+          Cremation
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="disposal-type-burial" name="disposalType" type="radio" value="burial">
+        <label class="govuk-label govuk-radios__label" for="disposal-type-burial">
+          Burial
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="disposal-type-unknown" name="disposalType" type="radio" value="burial">
+        <label class="govuk-label govuk-radios__label" for="disposal-type-unknown">
+          Not yet known
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="govuk-form-group">
+  <label class="govuk-heading-s" for="event-name">
+    Place of burial or cremation
+  </label>
+  <input class="govuk-input" id="event-name" name="disposalPlace" type="text">
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="disposal-date-hint">
+    <legend class="govuk-heading-s">
+      Date the burial or cremation took place
+    </legend>
+    <div class="govuk-date-input" id="disposal-date">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="disposal-date-day" name="disposalDateDay" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="disposal-date-month" name="disposalDateMonth" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="disposal-date-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="disposal-date-year" name="disposalDateYear" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+        
+
+<!-- {{ govukButton({
+        text: "Save",
+        href: "disposal-page.html"
+      }) }} -->
+
+
+     
+  <!-- Your radios and date input code here -->
+  <button type="submit" class="govuk-button">Save</button>
+</form>
+    </div>
+  
+
+
+    </div>
+  </div>
+
+{% endblock %}

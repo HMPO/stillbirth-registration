@@ -35,14 +35,13 @@ href: "javascript:window.history.back()"
         Date Part B was issued by registrar or coroner
       </p>
     </legend>
- <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+ <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="part-b-date-today" name="part-b-date" type="radio" value="today">
-        <label class="govuk-label govuk-radios__label" for="part-b-date-today">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
           Today's date
         </label>
       </div>
-
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="part-b-date-other" name="part-b-date" type="radio" value="other" data-aria-controls="conditional-part-b-date-other">
         <label class="govuk-label govuk-radios__label" for="part-b-date-other">
@@ -53,12 +52,7 @@ href: "javascript:window.history.back()"
       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-part-b-date-other">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="part-b-date-hint">
-            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              Date Part B was issued
-            </legend> -->
-            <!-- <div id="part-b-date-hint" class="govuk-hint">
-              For example, 27 3 2007
-            </div> -->
+           
             <div class="govuk-date-input" id="part-b-date-input">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
@@ -82,7 +76,6 @@ href: "javascript:window.history.back()"
           </fieldset>
         </div>
       </div>
-    </div>
   </fieldset>
 </div>
 <br>
