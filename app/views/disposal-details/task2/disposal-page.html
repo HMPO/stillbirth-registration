@@ -99,6 +99,7 @@ href: "javascript:window.history.back()"
 </p><br>
 
 
+
 <h3 class="govuk-body govuk-!-margin-bottom-1">
   <strong>Part B</strong> 
 </h3>
@@ -108,7 +109,34 @@ href: "javascript:window.history.back()"
       Date Part B was issued 
     </dt>
     <dd class="govuk-summary-list__value">
-  12 August 2016
+
+<!-- {% if data['part-b-date-unknown'] == 'unknown' %}
+    Not entered
+{% elif data['part-b-date'] == 'today' %}
+  21 September 2026
+{% elif data['part-b-date'] == 'other' %}
+  {{ data['part-b-date-day'] }} {{ data['part-b-date-month'] }} {{ data['part-b-date-year'] }}
+{% else %}
+  Not entered
+{% endif %}  -->
+
+{% set monthNames = [
+  '', 'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+] %}
+
+{% if data['part-b-date2'] == 'unknown' %}
+  Not entered
+{% elif data['part-b-date2'] == 'today' %}
+  21 September 2026
+{% elif data['part-b-date2'] == 'other' %}
+  {{ data['part-b-date-day2'] }}
+  {{ monthNames[data['part-b-date-month2'] | int] }}
+  {{ data['part-b-date-year2'] }}
+{% else %}
+  Not entered
+{% endif %}
+
     </dd>
     <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -126,29 +154,49 @@ href: "javascript:window.history.back()"
       Burial or cremation
     </dt>
     <dd class="govuk-summary-list__value">
-     Not entered
+
+       {% if data['disposalType2'] == 'unknown' %}
+    Not entered
+      {% elif data['disposalType2'] %}
+    {{ data['disposalType2'] | capitalize }}
+  {% else %}
+    Not entered
+  {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
   </div>
-   <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Date of cremation or burial 
-    </dt>
-    <dd class="govuk-summary-list__value">
-     Not entered
-    </dd>
-    <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
-            </dd>
-  </div>
+
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
       Place of burial or cremation
     </dt>
     <dd class="govuk-summary-list__value">
-      Not entered
+      {% if data['disposalPlace2'] %}
+    {{ data['disposalPlace2'] }}
+  {% else %}
+   Not entered
+  {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of cremation or burial 
+    </dt>
+    <dd class="govuk-summary-list__value">
+     {% if data['disposalDateDay2'] and data['disposalDateMonth2'] and data['disposalDateYear2'] %}
+    {{ data['disposalDateDay2'] }} 
+    <!-- {{ data['disposalDateMonth2'] }}  -->
+      {{ monthNames[data['disposalDateMonth2'] | int] }}
+    {{ data['disposalDateYear2'] }}
+  {% else %}
+    Not entered
+  {% endif %}
     </dd>
     <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="disposal-form.html">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -156,7 +204,6 @@ href: "javascript:window.history.back()"
   </div>
   
 </dl>
-
 
 
 
