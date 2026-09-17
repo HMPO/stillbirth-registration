@@ -23,7 +23,7 @@ href: "javascript:window.history.back()"
        
         <h1 class="govuk-heading-l">
             <!-- <span class="govuk-caption-l">Record search</span> -->
-             Disposal information for Jan DOYLE
+             Disposal information for Alan DAVIES
         </h1>
 </div>
 </div>
@@ -33,7 +33,7 @@ href: "javascript:window.history.back()"
   <div class="govuk-notification-banner__content">        
         <h3 class="govuk-heading-m">Registrar's comments (optional)</h3>
         <p class="govuk-hint">Add any comments about this disposal. For example, the proposed funeral director, DIS number, who the form was given to, and if the body will be buried or cremated outside England and Wales.</p>
-<details class="govuk-details">
+<!-- <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
       Add comments
@@ -55,7 +55,30 @@ href: "javascript:window.history.back()"
     </div>
   </div>
 </details>
-<p class="govuk-body" id="comments-text"{% if not comments %} hidden{% endif %}>{{ comments }}</p>
+<p class="govuk-body" id="comments-text"{% if not comments %} hidden{% endif %}>{{ comments }}</p> -->
+<details class="govuk-details" id="comments-details-2">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Add comments 
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <div class="govuk-form-group">
+      <!-- <label class="govuk-label" for="more-detail-2">
+        Add your comments for section 2
+      </label> -->
+      <textarea class="govuk-textarea" id="more-detail-2" name="moreDetail2" rows="5"></textarea>
+    </div>
+    <div class="govuk-button-group">
+      <button type="button" id="add-note-btn-2" class="govuk-button govuk-button--secondary">
+        Save comments
+      </button>
+      <a href="#" class="govuk-link" id="cancel-link-2">Cancel</a>
+    </div>
+  </div>
+</details>
+<p class="govuk-body" id="comments-text-2" hidden></p>
+
 
 </div>
 </div>
@@ -70,7 +93,7 @@ href: "javascript:window.history.back()"
 
 
       <p class="govuk-body">
-  <a href=".pdf" class="govuk-link" rel="noreferrer noopener" target="_blank">
+  <a href="/public/images/part-b-ad.png" class="govuk-link" rel="noreferrer noopener" target="_blank">
     View or print disposal document (opens in new tab)
   </a>
 </p><br>
@@ -85,7 +108,7 @@ href: "javascript:window.history.back()"
       Date Part B was issued 
     </dt>
     <dd class="govuk-summary-list__value">
-      Not entered
+  12 August 2016
     </dd>
     <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="disposal-information.html">Change<span class="govuk-visually-hidden"> name</span></a>
