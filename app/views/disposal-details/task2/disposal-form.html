@@ -60,7 +60,8 @@ href: "javascript:window.history.back()"
                type="radio"
                value="other"
                data-aria-controls="conditional-part-b-date-other2"
-               {% if data['part-b-date2'] == 'other' %}checked{% endif %}>
+              
+               {% if (data['part-b-date2'] == 'other') or (not data['part-b-date2']) %}checked{% endif %}>
         <label class="govuk-label govuk-radios__label" for="part-b-date-other2">
           On another date
         </label>
@@ -80,7 +81,7 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="2"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-day2'] }}">
+                         value="{{ data['part-b-date-day2'] or '12' }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -93,7 +94,7 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="2"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-month2'] }}">
+                         value="{{ data['part-b-date-month2'] or '08' }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -106,7 +107,7 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="4"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-year2'] }}">
+                         value="{{ data['part-b-date-year2'] or '2026' }}">
                 </div>
               </div>
             </div>
