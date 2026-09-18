@@ -125,17 +125,14 @@ href: "javascript:window.history.back()"
   'July', 'August', 'September', 'October', 'November', 'December'
 ] %}
 
-{% if data['part-b-date2'] == 'unknown' %}
-  Not entered
-{% elif data['part-b-date2'] == 'today' %}
-  21 September 2026
-{% elif data['part-b-date2'] == 'other' %}
-  {{ data['part-b-date-day2'] }}
-  {{ monthNames[data['part-b-date-month2'] | int] }}
-  {{ data['part-b-date-year2'] }}
-{% else %}
-  12 August 2026
-{% endif %}
+ {% if data['part-b-date-day2'] and data['part-b-date-month2'] and data['part-b-date-year2'] %}
+ {{ data['part-b-date-day2'] }} 
+    <!-- {{ data['disposalDateMonth2'] }}  -->
+      {{ monthNames[data['part-b-date-month2'] | int] }}
+    {{ data['part-b-date-year2'] }}
+  {% else %}
+    Not entered
+  {% endif %}
 
     </dd>
     <dd class="govuk-summary-list__actions">
@@ -155,9 +152,8 @@ href: "javascript:window.history.back()"
     </dt>
     <dd class="govuk-summary-list__value">
 
-       {% if data['disposalType2'] == 'unknown' %}
-    Not entered
-      {% elif data['disposalType2'] %}
+     
+      {% if data['disposalType2'] %}
     {{ data['disposalType2'] | capitalize }}
   {% else %}
     Not entered

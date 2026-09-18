@@ -33,44 +33,14 @@ href: "javascript:window.history.back()"
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <p class="govuk-heading-s">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+     
         Date Part B was issued by registrar or coroner
-      </p>
+      
     </legend>
-    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-      <!-- Today's date radio -->
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input"
-               id="part-b-date-today2"
-               name="part-b-date2"
-               type="radio"
-               value="today"
-               {% if data['part-b-date2'] == 'today' %}checked{% endif %}>
-        <label class="govuk-label govuk-radios__label" for="part-b-date-today2">
-          Today's date
-        </label>
-      </div>
-
-      <!-- On another date radio with conditional date input -->
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input"
-               id="part-b-date-other"
-               name="part-b-date2"
-               type="radio"
-               value="other"
-               data-aria-controls="conditional-part-b-date-other2"
-              
-               {% if (data['part-b-date2'] == 'other') or (not data['part-b-date2']) %}checked{% endif %}>
-        <label class="govuk-label govuk-radios__label" for="part-b-date-other2">
-          On another date
-        </label>
-      </div>
-
-      <div class="govuk-radios__conditional {% if data['part-b-date2'] != 'other' %}govuk-radios__conditional--hidden{% endif %}" id="conditional-part-b-date-other2">
-        <div class="govuk-form-group">
+    <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="part-b-date-hint">
-            <div class="govuk-date-input" id="part-b-date-input2">
+            <div class="govuk-date-input" id="part-b-date-input">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-date-input__label" for="part-b-date-day2">Day</label>
@@ -81,7 +51,7 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="2"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-day2'] or '12' }}">
+                         value="{{ data['part-b-date-day2'] }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -94,7 +64,7 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="2"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-month2'] or '08' }}">
+                         value="{{ data['part-b-date-month2'] }}">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -107,27 +77,12 @@ href: "javascript:window.history.back()"
                          inputmode="numeric"
                          maxlength="4"
                          aria-describedby="part-b-date-hint"
-                         value="{{ data['part-b-date-year2'] or '2026' }}">
+                         value="{{ data['part-b-date-year2'] }}">
                 </div>
               </div>
             </div>
           </fieldset>
         </div>
-      </div>
-
-      <!-- Unknown radio -->
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input"
-               id="part-b-date-unknown2"
-               name="part-b-date2"
-               type="radio"
-               value="unknown"
-               {% if data['part-b-date2'] == 'unknown' %}checked{% endif %}>
-        <label class="govuk-label govuk-radios__label" for="part-b-date-unknown2">
-          Currently unknown or not issued yet
-        </label>
-      </div>
-    </div>
   </fieldset>
 </div>
 
@@ -253,18 +208,7 @@ href: "javascript:window.history.back()"
           Burial
         </label>
       </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input"
-               id="disposal-type-unknown2"
-               name="disposalType2"
-               type="radio"
-               value="unknown"
-               {% if data['disposalType2'] == 'unknown' %}checked{% endif %}>
-        <label class="govuk-label govuk-radios__label" for="disposal-type-unknown2">
-          Currently unknown
-        </label>
-      </div>
-    </div>
+  
   </fieldset>
 </div>
 
