@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blank GOV.UK Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- GOV.UK CSS -->
+  <link rel="stylesheet" href="/public/stylesheets/application.css">
+</head>
+
+
+<body class="govuk-template__body" style="background-color: #353535; padding-top: 40px;">
+
+  <!-- Your content goes here -->
+<div class="center-container" >
+  <div class="govuk-width-container" style="display: flex; justify-content: center;">
+    <main class="govuk-main-wrapper" id="main-content" role="main" style="background-color: #ffffff; padding: 20px; max-width: 970px; width: 100%; margin-bottom: 80px;">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full" style="text-align: center;">
+          <p class="govuk-hint">Part B</p>  
+        </div>
+      </div>
+       <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+         <p class="govuk-body" style="font-family: serif; font-size: 30px;">Alan DAVIES</p>
+       
+           <p class="govuk-body" style="font-family: serif; font-size: 30px;">83 Years</p>
+
+           <p class="govuk-body" style="font-family: serif; font-size: 30px;">Leicester Royal Infirmary (LRI)</p>
+
+         
+        </div>
+        <div class="govuk-grid-column-one-third">
+         <p class="govuk-body" style="font-family: serif; font-size: 30px;">&nbsp;</p>
+       
+           <p class="govuk-body" style="font-family: serif; font-size: 30px;">6th August 2026</p>
+
+           <p class="govuk-body" style="font-family: serif; font-size: 30px;">&nbsp;</p>
+
+        </div>
+      </div>
+
+       <div class="govuk-grid-row">
+         <div class="govuk-grid-column-one-third">
+          <p>&nbsp;</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+           <p class="govuk-body" style="font-family: serif; font-size: 30px;">771 234 9108</p>
+        </div>
+
+         <div class="govuk-grid-column-one-third" style="text-align: center;">
+          <p class="govuk-body" style="font-family: serif; font-size: 30px;">12th August 2026</p>
+        </div>
+
+         <div class="govuk-grid-column-one-quarter">
+<p>&nbsp;</p>
+        </div>
+      </div>
+
+        <div class="govuk-grid-row">
+         <div class="govuk-grid-column-one-quarter">
+          <p>&nbsp;</p>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <p class="govuk-body" style="font-family: serif; font-size: 30px;">Leicestershire</p>
+        </div>
+        <div class="govuk-grid-column-one-third" style="text-align: center;">
+          <p class="govuk-body" style="font-family: serif; font-size: 30px;">Leicestershire</p>
+        </div>
+       
+        </div>
+
+
+    </main>
+    </div>
+
+     <div class="govuk-width-container" style="display: flex; justify-content: center;">
+    <main class="govuk-main-wrapper" id="main-content" role="main" style="background-color: #ffffff; padding: 20px; max-width: 970px; width: 100%; margin-bottom: 80px;">
+    
+       <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+        <img src="/public/images/part-d-ad.png" alt="Part D" style="width: 100%; height: auto;">
+         
+        </div>
+      </div>
+
+
+    </main>
+    </div>
+</div>
+
+<script>
+  // Get today's date in DD MMMM YYYY format (e.g., 12 June 2024)
+  function formatDate(date) {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-GB', options);
+  }
+  document.getElementById('today-date').textContent =  formatDate(new Date());
+</script>
+</body>
+</html>
