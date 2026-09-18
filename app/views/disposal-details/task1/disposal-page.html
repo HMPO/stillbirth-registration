@@ -101,7 +101,16 @@ href: "javascript:window.history.back()"
   'July', 'August', 'September', 'October', 'November', 'December'
 ] %}
 
-{% if data['part-b-date'] == 'unknown' %}
+ {% if data['part-b-date-day'] and data['part-b-date-month'] and data['part-b-date-year'] %}
+ {{ data['part-b-date-day'] }} 
+    <!-- {{ data['disposalDateMonth'] }}  -->
+      {{ monthNames[data['part-b-date-month'] | int] }}
+    {{ data['part-b-date-year'] }}
+  {% else %}
+    Not entered
+  {% endif %}
+
+<!-- {% if data['part-b-date'] == 'unknown' %}
   Not entered
 {% elif data['part-b-date'] == 'today' %}
   21 September 2026
@@ -111,7 +120,7 @@ href: "javascript:window.history.back()"
   {{ data['part-b-date-year'] }}
 {% else %}
   Not entered
-{% endif %}
+{% endif %} -->
 
     </dd>
     <dd class="govuk-summary-list__actions">
